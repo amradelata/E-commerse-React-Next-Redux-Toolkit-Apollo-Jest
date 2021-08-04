@@ -1,0 +1,17 @@
+.UL {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.UL > li {
+  list-style: none;
+}
+.UL > li a {
+  margin-right: 35px;
+  color: #000;
+}
+.UL > li > p {
+  margin-left: 25px;
+  display: inline-block;
+}
