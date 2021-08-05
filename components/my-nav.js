@@ -1,8 +1,10 @@
 import { Fragment } from "react";
 import styles from "./myNavBar.module.css";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const Nav = () => {
+  const CartSlice = useSelector((state) => state.CartSlice);
   return (
     <Fragment>
       <div className="container navbar">
@@ -10,7 +12,7 @@ const Nav = () => {
           <li>
             <Link href="/">
               {/* <img src="https://i.pinimg.com/originals/d0/24/db/d024db91d8ed2df5341914d5279b303d.png" /> */}
-              logo
+              <a>logo</a>
             </Link>
           </li>
           <a
@@ -24,7 +26,9 @@ const Nav = () => {
             <span aria-hidden="true"></span>
           </a>
           <li>
-            <Link href="/about">ABOUT</Link>
+            <Link href="/about">
+              <a>ABOUT</a>
+            </Link>
           </li>
           {/* <li>
             <Link href="/shop">SHOP</Link>
@@ -36,7 +40,9 @@ const Nav = () => {
               <p>login</p>
             </li>
             <li>
-              <p>cart</p>
+              <Link href="/cart">
+                <p>cart{" " + CartSlice.cart_products.length}</p>
+              </Link>
             </li>
           </ul>
         </div>
