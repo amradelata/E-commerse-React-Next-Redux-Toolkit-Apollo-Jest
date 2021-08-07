@@ -1,14 +1,15 @@
 import { Provider } from "react-redux";
-import store from "../store";
+import { store, persistor } from "../store";
 import Nav from "../components/my-nav";
-
+import { PersistGate } from "redux-persist/integration/react";
 import "../styles/globals.css";
-
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
-      <Nav />
-      <Component {...pageProps} />
+      <PersistGate loading={null} persistor={persistor}>
+        <Nav />
+        <Component {...pageProps} />
+      </PersistGate>
     </Provider>
   );
 }

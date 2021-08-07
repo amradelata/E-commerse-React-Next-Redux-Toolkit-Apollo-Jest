@@ -10,13 +10,8 @@ export const CartSlice = createSlice({
     set_cart_array_value(state, { payload }) {
       if (!state.cart_products.find((item) => item.id === payload.id)) {
         state.cart_products.push(payload);
-        const localStorageTotalPrice = +state.totalPrice + +payload.price;
-        state.totalPrice = localStorageTotalPrice;
-
-        localStorage.setItem("totalPrice", localStorageTotalPrice);
-        //save my change to local localStorage
-        const myStringCart = JSON.stringify(state.cart_products);
-        localStorage.setItem("cart", myStringCart);
+        const StorMyTotalPrice = +state.totalPrice + +payload.price;
+        state.totalPrice = StorMyTotalPrice;
       }
     },
     remove_item_from_cart(state, { payload }) {
@@ -24,28 +19,14 @@ export const CartSlice = createSlice({
         (item) => item.id !== payload.item.id
       );
       state.totalPrice = state.totalPrice - payload.item.price;
-      localStorage.setItem("totalPrice", state.totalPrice);
-      //save my change to local localStorage
-      const myStringCart = JSON.stringify(state.cart_products);
-      localStorage.setItem("cart", myStringCart);
-      // console.log(payload.item, payload.index);
     },
     addOne(state, { payload }) {
-      const localStorageTotalPrice = +state.totalPrice + +payload.item.price;
-      state.totalPrice = localStorageTotalPrice;
-
-      localStorage.setItem("totalPrice", localStorageTotalPrice);
+      const StorMyTotalPrice = +state.totalPrice + +payload.item.price;
+      state.totalPrice = StorMyTotalPrice;
     },
     removeOne(state, { payload }) {
       state.totalPrice = state.totalPrice - payload.item.price;
-      localStorage.setItem("totalPrice", state.totalPrice);
       console.log(payload.item, payload.index);
-    },
-    Get_cart_array_localStorage(state) {
-      const myCartdata = JSON.parse(localStorage.getItem("cart"));
-      const myLocaltotalPrice = localStorage.getItem("totalPrice");
-      state.totalPrice = myLocaltotalPrice;
-      state.cart_products = myCartdata;
     },
   },
 });
@@ -54,7 +35,7 @@ export const CartSlice = createSlice({
 export const {
   set_cart_array_value,
   remove_item_from_cart,
-  Get_cart_array_localStorage,
+
   addOne,
   removeOne,
 } = CartSlice.actions;

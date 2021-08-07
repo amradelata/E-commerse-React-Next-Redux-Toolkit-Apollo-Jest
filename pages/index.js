@@ -44,7 +44,7 @@ export default function Home() {
             </div>
             <footer className="card-footer">
               <button
-                className="card-footer-item"
+                className="card-footer-item button is-success"
                 onClick={() => addToCart(item)}
               >
                 add me to cart
