@@ -3,6 +3,7 @@ import { getProdcutsData } from "../store/slices/products.slice";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./home.module.css";
 import { set_cart_array_value } from "../store/slices/cart.slice";
+import Link from "next/link";
 // import Header from "../components/Header";
 
 export default function Home() {
@@ -29,19 +30,23 @@ export default function Home() {
       <div className={`container  ${styles.myCards}`}>
         {ProdcutsSlice.productsArr.map((item) => (
           <div key={item.id} className={`card ${styles.myCard}`}>
-            <header className="card-header">
-              <p className="card-header-title">Shop item</p>
-            </header>
-            <div className="card-content">
-              <div className="card-image">
-                {/* <img style={{ backgroundImage: "url(item.img_url)" }}></img> */}
-                <img src={item.img_url}></img>
-              </div>
-              <p className="card-header-title">
-                {item.name + " "}
-                {"  /  " + item.price + "$"}
-              </p>
-            </div>
+            <Link href={`/${item.id}`} passHref>
+              <a>
+                <header className="card-header">
+                  <p className="card-header-title">Shop item</p>
+                </header>
+                <div className="card-content">
+                  <div className="card-image">
+                    {/* <img style={{ backgroundImage: "url(item.img_url)" }}></img> */}
+                    <img src={item.img_url}></img>
+                  </div>
+                  <p className="card-header-title">
+                    {item.name + " "}
+                    {"  /  " + item.price + "$"}
+                  </p>
+                </div>
+              </a>
+            </Link>
             <footer className="card-footer">
               <button
                 className="card-footer-item button is-success"
