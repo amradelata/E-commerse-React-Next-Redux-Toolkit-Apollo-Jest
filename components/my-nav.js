@@ -1,10 +1,18 @@
 import { Fragment } from "react";
 import styles from "./myNavBar.module.css";
 import Link from "next/link";
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
+import { logOut } from "../store/slices/auth";
+import { useRouter } from "next/router";
 const Nav = () => {
+  const router = useRouter();
+  const authSlice = useSelector((state) => state.authSlice);
   const CartSlice = useSelector((state) => state.CartSlice);
+  const dispatch = useDispatch();
+  const logOutFunction = () => {
+    dispatch(logOut());
+    router.push("/");
+  };
   return (
     <Fragment>
       <div className="container navbar">
@@ -30,6 +38,11 @@ const Nav = () => {
               <a>ABOUT</a>
             </Link>
           </li>
+          <li>
+            <Link href="/profile">
+              <a>profile</a>
+            </Link>
+          </li>
           {/* <li>
             <Link href="/shop">SHOP</Link>
           </li> */}
@@ -37,9 +50,13 @@ const Nav = () => {
         <div className="navbar-end">
           <ul className={styles.UL}>
             <li>
-              <Link href="/signin">
-                <p>signIn</p>
-              </Link>
+              <h1>
+                {authSlice.isLoding ? (
+                  <button onClick={() => logOutFunction()}>Log Out</button>
+                ) : (
+                  <Link href="/signin">Sign Up</Link>
+                )}
+              </h1>
             </li>
             <li>
               <Link href="/cart">

@@ -14,6 +14,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+//import all slices
 import CartSlice from "./slices/cart.slice";
 import ProdcutsSlice from "./slices/products.slice";
 import authSlice from "./slices/auth";
@@ -25,6 +26,7 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(
   persistConfig,
+  // inject all slices
   combineReducers({
     CartSlice,
     ProdcutsSlice,
@@ -42,4 +44,5 @@ export const store = configureStore({
       },
     }),
 });
+// export my store
 export const persistor = persistStore(store);

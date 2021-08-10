@@ -6,14 +6,17 @@ export const authSlice = createSlice({
     isLoding: false,
   },
   reducers: {
-    setUserOpject(state, { payload }) {
+    setUserOpject(state) {
       state.isLoding = true;
       console.log(state.isLoding);
+    },
+    logOut(state) {
+      state.isLoding = false;
     },
   },
 });
 //action
-export const { setUserOpject } = authSlice.actions;
+export const { setUserOpject, logOut } = authSlice.actions;
 // thunk
 export const adduser = (body) => async (dispatch) => {
   const data = await fetch(
