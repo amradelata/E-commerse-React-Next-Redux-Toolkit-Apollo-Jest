@@ -1,16 +1,12 @@
-.myCards {
+.dad {
   display: flex;
-  flex-flow: row wrap;
-  /* margin: auto; */
-}
-
-.myCard {
-  width: calc(33.333% - 20px);
-  margin: 10px;
+  justify-content: space-between;
+  align-items: center;
+  height: 80vh;
 }
 
 .Image {
-  width: 100%;
+  width: 350px;
   height: 350px;
   background-position: center center;
   background-size: contain;

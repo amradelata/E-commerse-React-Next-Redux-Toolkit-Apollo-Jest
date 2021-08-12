@@ -18,7 +18,13 @@ const Profile = () => {
       }
     }
   }, []);
-  return <>{!authSlice.isLoding ? <p>Profile</p> : <p>Sign Up</p>}</>;
+  return (
+    <>
+      <div className="container">
+        {authSlice.isLoding ? <p>Profile</p> : <p>Sign Up</p>}
+      </div>
+    </>
+  );
 };
 
 export default Profile;

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUserOpject } from "../store/slices/auth";
 import { adduser } from "../store/slices/auth";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import styles from "./signin.module.css";
 
 const signin = () => {
   const router = useRouter();
@@ -37,54 +39,79 @@ const signin = () => {
   // const addUser = () => {};
   return (
     <section className="container">
-      <h1>{authSlice.isLoding ? " Login" : "Sign Up"}</h1>
-      <form onSubmit={submitHandler}>
+      <div className={styles.dad}>
         <div>
-          <label>First Name</label>
-          <input
-            required
-            type="text"
-            id="name"
-            onChange={(e) => setFirstname(e.target.value)}
-            value={Firstname}
-          />
+          <p className="is-size-5">Sign Up</p>
         </div>
+        <div>
+          <Link href="/login">
+            <a className={`${styles.myLink} is-size-5`}>login</a>
+          </Link>
+          <Link href="/signin">
+            <a className={`${styles.myLink} is-size-5`}>signin</a>
+          </Link>
+        </div>
+      </div>
 
-        <div>
-          <label htmlFor="lastName">lastName</label>
-          <input
-            required
-            type="text"
-            id="lastName"
-            onChange={(e) => setLastname(e.target.value)}
-            value={Lastname}
-          />
+      <form onSubmit={submitHandler}>
+        <div className={styles.formInputs}>
+          <div>
+            <input
+              className="input is-primary"
+              placeholder="Firstname"
+              input
+              is-primary
+              required
+              type="text"
+              id="name"
+              onChange={(e) => setFirstname(e.target.value)}
+              value={Firstname}
+            />
+          </div>
+
+          <div>
+            <input
+              className="input is-primary"
+              placeholder="Lastname"
+              input
+              is-primary
+              required
+              type="text"
+              id="lastName"
+              onChange={(e) => setLastname(e.target.value)}
+              value={Lastname}
+            />
+          </div>
+          <div>
+            <input
+              className="input is-primary"
+              placeholder="email"
+              input
+              is-primary
+              required
+              type="email"
+              id="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
+          </div>
+          <div>
+            <input
+              className="input is-primary"
+              placeholder="password"
+              input
+              is-primary
+              required
+              type="password"
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+            />
+          </div>
         </div>
         <div>
-          <label htmlFor="email">Your Email</label>
-          <input
-            required
-            type="email"
-            id="email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Your Password</label>
-          <input
-            required
-            type="password"
-            id="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-          />
-        </div>
-        <div>
-          <button type="submit">
-            {authSlice.isLoding
-              ? "Login with existing account"
-              : "Create new account"}
+          <button className="button " type="submit">
+            Create new account
           </button>
         </div>
       </form>

@@ -19,8 +19,7 @@ const Nav = () => {
         <ul className={styles.UL}>
           <li>
             <Link href="/">
-              {/* <img src="https://i.pinimg.com/originals/d0/24/db/d024db91d8ed2df5341914d5279b303d.png" /> */}
-              <a>logo</a>
+              <a>Logo</a>
             </Link>
           </li>
           <a
@@ -38,29 +37,39 @@ const Nav = () => {
               <a>ABOUT</a>
             </Link>
           </li>
-          <li>
-            <Link href="/profile">
-              <a>profile</a>
-            </Link>
-          </li>
-          {/* <li>
-            <Link href="/shop">SHOP</Link>
-          </li> */}
+          {authSlice.isLoding ? (
+            <li>
+              <Link href="/profile">
+                <a>profile</a>
+              </Link>
+            </li>
+          ) : (
+            ""
+          )}
         </ul>
         <div className="navbar-end">
           <ul className={styles.UL}>
             <li>
-              <h1>
-                {authSlice.isLoding ? (
-                  <button onClick={() => logOutFunction()}>Log Out</button>
-                ) : (
-                  <Link href="/signin">Sign Up</Link>
-                )}
-              </h1>
+              {authSlice.isLoding ? (
+                <button className="button" onClick={() => logOutFunction()}>
+                  Log Out
+                </button>
+              ) : (
+                <Link href="/signin">Sign Up</Link>
+              )}
             </li>
             <li>
               <Link href="/cart">
-                <p>cart{" " + CartSlice.cart_products.length}</p>
+                <p>
+                  cart{" "}
+                  {CartSlice.totalPrice ? (
+                    <span className={styles.cartNum}>
+                      {" " + CartSlice.cart_products.length}
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                </p>
               </Link>
             </li>
           </ul>

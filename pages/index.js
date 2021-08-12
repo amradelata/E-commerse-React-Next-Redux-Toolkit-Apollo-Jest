@@ -36,9 +36,13 @@ export default function Home() {
                   <p className="card-header-title">Shop item</p>
                 </header>
                 <div className="card-content">
-                  <div className="card-image">
-                    {/* <img style={{ backgroundImage: "url(item.img_url)" }}></img> */}
-                    <img src={item.img_url}></img>
+                  <div>
+                    <div
+                      className={styles.Image}
+                      style={{
+                        backgroundImage: `url(${item.img_url})`,
+                      }}
+                    ></div>
                   </div>
                   <p className="card-header-title">
                     {item.name + " "}
