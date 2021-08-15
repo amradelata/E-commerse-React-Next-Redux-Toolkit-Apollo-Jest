@@ -16,9 +16,9 @@ export const ProdcutsSlice = createSlice({
 export const { setProductsValue } = ProdcutsSlice.actions;
 
 export const getProdcutsData = () => async (dispatch) => {
-  const data = await fetch(
-    "https://vue-e-commerce-databse.herokuapp.com/products"
-  ).then((res) => res.json());
+  const data = await fetch("http://localhost:3001/products").then((res) =>
+    res.json()
+  );
 
   dispatch(setProductsValue(data));
 };

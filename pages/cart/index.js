@@ -4,13 +4,13 @@ import { remove_item_from_cart } from "../../store/slices/cart.slice";
 // import { removeOne } from "../../store/slices/cart.slice";
 import styles from "./cart.module.css";
 
-const cart = () => {
-  const dispatch = useDispatch();
+const Cart = () => {
+  const Dispatch = useDispatch();
   const CartSlice = useSelector((state) => state.CartSlice);
 
   const remove = (item, index) => {
     // console.log(item, index);
-    dispatch(remove_item_from_cart({ item, index }));
+    Dispatch(remove_item_from_cart({ item, index }));
   };
   // const addOnefunction = (item, index) => {
   //   dispatch(addOne({ item, index }));
@@ -49,4 +49,4 @@ const cart = () => {
   );
 };
 
-export default cart;
+export default Cart;

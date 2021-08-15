@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import styles from "./myNavBar.module.css";
 import Link from "next/link";
+
 import { useSelector, useDispatch } from "react-redux";
 import { logOut } from "../store/slices/auth";
 import { useRouter } from "next/router";
@@ -55,11 +56,11 @@ const Nav = () => {
                   Log Out
                 </button>
               ) : (
-                <Link href="/signin">Sign Up</Link>
+                <Link href="/Signin">Sign Up</Link>
               )}
             </li>
             <li>
-              <Link href="/cart">
+              <Link href="/Cart">
                 <p>
                   cart{" "}
                   {CartSlice.totalPrice ? (

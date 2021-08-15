@@ -6,7 +6,7 @@ import styles from "./login.module.css";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-const login = (props) => {
+const Login = (props) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -130,4 +130,4 @@ const login = (props) => {
 //   };
 // }
 
-export default login;
+export default Login;

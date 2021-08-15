@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import styles from "./signin.module.css";
 
-const signin = () => {
+const Signin = () => {
   const router = useRouter();
   const [Firstname, setFirstname] = useState("");
   const [Lastname, setLastname] = useState("");
@@ -20,15 +20,16 @@ const signin = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     const body = {
-      firstName: Firstname,
-      lastName: Lastname,
+      // firstName: Firstname,
+      // lastName: Lastname,
       email: email,
       password: password,
-      id: Math.random(),
+      // id: Math.random(),
     };
+    console.log(body);
     dispatch(adduser(body));
     dispatch(setUserOpject());
-    router.push("/");
+    // router.push("/");
   };
 
   // useEffect(() => {
@@ -55,7 +56,7 @@ const signin = () => {
 
       <form onSubmit={submitHandler}>
         <div className={styles.formInputs}>
-          <div>
+          {/* <div>
             <input
               className="input is-primary"
               placeholder="Firstname"
@@ -81,13 +82,11 @@ const signin = () => {
               onChange={(e) => setLastname(e.target.value)}
               value={Lastname}
             />
-          </div>
+          </div> */}
           <div>
             <input
               className="input is-primary"
               placeholder="email"
-              input
-              is-primary
               required
               type="email"
               id="email"
@@ -99,8 +98,6 @@ const signin = () => {
             <input
               className="input is-primary"
               placeholder="password"
-              input
-              is-primary
               required
               type="password"
               id="password"
@@ -115,8 +112,24 @@ const signin = () => {
           </button>
         </div>
       </form>
+
+      {/* <form onSubmit={submitHandler}>
+        <input
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          type="email"
+        />
+        <input
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+          type="password"
+        />
+        <button className="button " type="submit">
+          Create new account
+        </button>
+      </form> */}
     </section>
   );
 };
 
-export default signin;
+export default Signin;

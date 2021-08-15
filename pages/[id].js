@@ -1,18 +1,19 @@
 import styles from "./singlePage.module.css";
 
 const singlePage = (props) => {
+  if (!props.product) return "no data";
   return (
     <>
       <div className={`${styles.dad} container`}>
         <div className={styles.start}>
-          <p className="is-size-3">{props.broduct_data.name}</p>
-          <p className="is-size-4">{props.broduct_data.price + " $"}</p>
+          <p className="is-size-3">{props.product.name}</p>
+          <p className="is-size-4">{props.product.price + " $"}</p>
         </div>
         <div className={styles.end}>
           <div
             className={styles.Image}
             style={{
-              backgroundImage: `url(${props.broduct_data.img_url})`,
+              backgroundImage: `url(${props.product.img_url})`,
             }}
           ></div>
         </div>
@@ -20,27 +21,20 @@ const singlePage = (props) => {
     </>
   );
 };
-//ssr function
-export async function getServerSideProps(context) {
-  const res = await fetch(
-    `https://vue-e-commerce-databse.herokuapp.com/products/${context.query.id}`
-  );
-  const broduct_data = await res.json();
-  console.log(context.query);
-  // // route guard useing dynamic routing data
-  // if (broduct_data) {
-  //   return {
-  //     redirect: {
-  //       destination: "/signin",
-  //       permanent: false,
-  //     },
-  //   };
-  // }
 
+export async function getStaticPaths() {
+  return { paths: [], fallback: true }; // paths: []  = get all items id and stor them in opject
+}
+
+export async function getStaticProps(context) {
+  const res = await fetch(
+    `http://localhost:3001/products/${context.params.id}`
+  );
+  const product = await res.json();
+  // Pass product data to the page via props
   return {
-    props: {
-      broduct_data: broduct_data,
-    }, // will be passed to the page component as props
+    props: { product },
+    revalidate: 5, // build the page each 5 seconds, IF NEEDED (ISG)
   };
 }
 
