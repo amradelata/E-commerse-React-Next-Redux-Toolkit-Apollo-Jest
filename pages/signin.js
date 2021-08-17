@@ -8,36 +8,29 @@ import styles from "./signin.module.css";
 
 const Signin = () => {
   const router = useRouter();
-  const [Firstname, setFirstname] = useState("");
-  const [Lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [isLoding, setisLoding] = useState("");
-  // const [isLoding, setisLoding] = useState(false);
   const dispatch = useDispatch();
   const authSlice = useSelector((state) => state.authSlice);
-
+  //if user loged in dont show this page
+  useEffect(() => {
+    if (authSlice.isLogIn) {
+      router.push("/profile");
+    }
+    if (!authSlice.isLogIn) {
+      router.push("/signin");
+    }
+  }, [authSlice.isLogIn]);
   const submitHandler = (e) => {
     e.preventDefault();
     const body = {
-      // firstName: Firstname,
-      // lastName: Lastname,
       email: email,
       password: password,
-      // id: Math.random(),
     };
-    console.log(body);
+
     dispatch(adduser(body));
-    dispatch(setUserOpject());
-    // router.push("/");
   };
 
-  // useEffect(() => {
-  //   // ANY reducer or thunk function MUST be called inside a dispatch()
-
-  // }, []);
-
-  // const addUser = () => {};
   return (
     <section className="container">
       <div className={styles.dad}>
@@ -56,33 +49,6 @@ const Signin = () => {
 
       <form onSubmit={submitHandler}>
         <div className={styles.formInputs}>
-          {/* <div>
-            <input
-              className="input is-primary"
-              placeholder="Firstname"
-              input
-              is-primary
-              required
-              type="text"
-              id="name"
-              onChange={(e) => setFirstname(e.target.value)}
-              value={Firstname}
-            />
-          </div>
-
-          <div>
-            <input
-              className="input is-primary"
-              placeholder="Lastname"
-              input
-              is-primary
-              required
-              type="text"
-              id="lastName"
-              onChange={(e) => setLastname(e.target.value)}
-              value={Lastname}
-            />
-          </div> */}
           <div>
             <input
               className="input is-primary"
@@ -112,22 +78,6 @@ const Signin = () => {
           </button>
         </div>
       </form>
-
-      {/* <form onSubmit={submitHandler}>
-        <input
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-          type="email"
-        />
-        <input
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-          type="password"
-        />
-        <button className="button " type="submit">
-          Create new account
-        </button>
-      </form> */}
     </section>
   );
 };

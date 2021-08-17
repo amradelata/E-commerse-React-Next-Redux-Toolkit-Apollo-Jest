@@ -10,18 +10,17 @@ const Profile = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (!authSlice.isLoding) {
+    if (!authSlice.isLogIn) {
       {
         // redirectTo: "/signin";
         router.push("/signin");
-        console.log("dsfasdfsdfa");
       }
     }
   }, []);
   return (
     <>
       <div className="container">
-        {authSlice.isLoding ? <p>Profile</p> : <p>Sign Up</p>}
+        {authSlice.isLogIn ? <p>Profile</p> : <p>Sign Up</p>}
       </div>
     </>
   );

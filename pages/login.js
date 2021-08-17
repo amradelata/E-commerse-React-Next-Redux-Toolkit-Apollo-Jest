@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { UserLogIn } from "../store/slices/auth";
+import { logindata } from "../store/slices/auth";
+import { Profile } from "../pages/profile";
 import styles from "./login.module.css";
 
 import { useRouter } from "next/router";
@@ -11,6 +14,18 @@ const Login = (props) => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const authSlice = useSelector((state) => state.authSlice);
+
+  //if user loged in dont show this page
+  useEffect(() => {
+    if (authSlice.isLogIn) {
+      router.push("/profile");
+    }
+    if (!authSlice.isLogIn) {
+      router.push("/login");
+      // alert("something went wrong");
+    }
+  }, [authSlice.isLogIn]);
   const submitHandler = (e) => {
     e.preventDefault();
 
@@ -18,39 +33,11 @@ const Login = (props) => {
       email: email,
       password: password,
     };
-    dispatch(UserLogIn(loginbody));
-    router.push("/");
+
+    dispatch(logindata(loginbody));
   };
 
   return (
-    // <section className="container">
-    //   <Link href="/login">login</Link>
-    //   <Link href="/signin">signin</Link>
-    //   <h1>Login</h1>
-    //   <form onSubmit={submitHandler}>
-    //     <div>
-    //       <label htmlFor="email">Your Email</label>
-    //       <input
-    //         type="email"
-    //         id="email"
-    //         onChange={(e) => setEmail(e.target.value)}
-    //         value={email}
-    //       />
-    //     </div>
-    //     <div>
-    //       <label htmlFor="password">Your Password</label>
-    //       <input
-    //         type="password"
-    //         id="password"
-    //         onChange={(e) => setPassword(e.target.value)}
-    //         value={password}
-    //       />
-    //     </div>
-    //     <div>
-    //       <button type="submit">Login with existing account</button>
-    //     </div>
-    //   </form>
-    // </section>
     <section className="container">
       <div className={styles.dad}>
         <div>
@@ -72,8 +59,6 @@ const Login = (props) => {
             <input
               className="input is-primary"
               placeholder="email"
-              input
-              is-primary
               required
               type="email"
               id="email"
@@ -85,8 +70,6 @@ const Login = (props) => {
             <input
               className="input is-primary"
               placeholder="password"
-              input
-              is-primary
               required
               type="password"
               id="password"

@@ -38,7 +38,7 @@ const Nav = () => {
               <a>ABOUT</a>
             </Link>
           </li>
-          {authSlice.isLoding ? (
+          {authSlice.isLogIn ? (
             <li>
               <Link href="/profile">
                 <a>profile</a>
@@ -51,12 +51,12 @@ const Nav = () => {
         <div className="navbar-end">
           <ul className={styles.UL}>
             <li>
-              {authSlice.isLoding ? (
+              {authSlice.isLogIn ? (
                 <button className="button" onClick={() => logOutFunction()}>
                   Log Out
                 </button>
               ) : (
-                <Link href="/Signin">Sign Up</Link>
+                <Link href="/signin">Sign Up</Link>
               )}
             </li>
             <li>
