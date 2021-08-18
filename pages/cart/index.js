@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { remove_item_from_cart } from "../../store/slices/cart.slice";
-// import { addOne } from "../../store/slices/cart.slice";
-// import { removeOne } from "../../store/slices/cart.slice";
+import { addOne } from "../../store/slices/cart.slice";
+import { removeOne } from "../../store/slices/cart.slice";
 import styles from "./cart.module.css";
 
 const Cart = () => {
@@ -12,12 +12,12 @@ const Cart = () => {
     // console.log(item, index);
     Dispatch(remove_item_from_cart({ item, index }));
   };
-  // const addOnefunction = (item, index) => {
-  //   dispatch(addOne({ item, index }));
-  // };
-  // const removeOnefunction = (item, index) => {
-  //   dispatch(removeOne({ item, index }));
-  // };
+  const addOnefunction = (item, index) => {
+    Dispatch(addOne({ item, index }));
+  };
+  const removeOnefunction = (item, index) => {
+    Dispatch(removeOne({ item, index }));
+  };
   return (
     <div className="container is-fluid">
       <p className="is-size-2">cart</p>
@@ -27,6 +27,8 @@ const Cart = () => {
           <div>
             <p className="is-size-4">{item.name + " "}</p>
             <p className="is-size-6"> {item.price + "$"}</p>
+            <p className="is-size-6"> {"quantity : " + item.quantity}</p>
+            <hr />
           </div>
           <div>
             <button
@@ -34,6 +36,18 @@ const Cart = () => {
               onClick={() => remove(item, index)}
             >
               delete
+            </button>
+            <button
+              className="button is-danger"
+              onClick={() => addOnefunction(item, index)}
+            >
+              +1
+            </button>
+            <button
+              className="button is-danger"
+              onClick={() => removeOnefunction(item, index)}
+            >
+              -1
             </button>
           </div>
         </div>

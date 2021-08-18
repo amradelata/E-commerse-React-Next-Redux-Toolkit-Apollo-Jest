@@ -1,7 +1,7 @@
 import styles from "./singlePage.module.css";
 
 const singlePage = (props) => {
-  if (!props.product) return "no data";
+  if (!props.product) return "Loding";
   return (
     <>
       <div className={`${styles.dad} container`}>

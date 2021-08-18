@@ -64,7 +64,7 @@ const Nav = () => {
                   placeholder="Search Anything"
                 />
                 <button className={styles.searchBtn}>
-                  <img src="./icons/search.svg" />
+                  <img src="/./icons/search.svg" />
                 </button>
               </div>
             </li>
@@ -72,7 +72,7 @@ const Nav = () => {
               <div id="dropdown-menu" className="dropdown ">
                 <div className="dropdown-trigger">
                   <button className={styles.searchBtn} onClick={toggleDropdown}>
-                    <img src="./icons/avatar.svg" className={styles.avatar} />
+                    <img src="/./icons/avatar.svg" className={styles.avatar} />
                   </button>
                 </div>
                 <div className="dropdown-menu" role="menu">
@@ -118,7 +118,7 @@ const Nav = () => {
                 <Link href="/Cart">
                   <a>
                     <button className={styles.searchBtn}>
-                      <img src="./icons/cart.svg" className={styles.avatar} />
+                      <img src="/./icons/cart.svg" className={styles.avatar} />
                       <span className={styles.cartNum}>
                         {" " + CartSlice.cart_products.length}
                       </span>

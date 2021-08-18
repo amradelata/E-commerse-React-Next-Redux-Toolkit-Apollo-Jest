@@ -1,0 +1,28 @@
+.myCategoriesDad {
+  border: 1px solid #ddd;
+}
+.myCategoriesDad > p {
+  padding: 14px 16px;
+  margin: 0;
+  border-bottom: 1px solid #ddd;
+  text-transform: capitalize;
+  font-weight: bold;
+  color: #2d2d2d;
+}
+.myCategories {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d2d2d;
+  padding: 14px 16px;
+  margin: 0;
+  border-bottom: 1px solid #ddd;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.myCategories > div > .Img {
+  width: 25px;
+  height: 30px;
+}

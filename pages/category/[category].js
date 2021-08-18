@@ -1,27 +1,23 @@
-import { useEffect, useRef } from "react";
-import { getProdcutsData } from "../store/slices/products.slice";
+// import { useEffect } from "react";
+// import { getProdcutsData } from "../../store/slices/products.slice";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./home.module.css";
-import { set_cart_array_value } from "../store/slices/cart.slice";
+import styles from "./category.module.css";
+import { set_cart_array_value } from "../../store/slices/cart.slice";
 import Link from "next/link";
-import ProductNave from "../components/ProductNave";
-// import Header from "../components/Header";
-
-export default function Home() {
-  const addToCartBtn = useRef();
+import ProductNave from "../../components/ProductNave";
+const singlecategory = (props) => {
+  if (!props.category) return "Loding";
   const dispatch = useDispatch();
-  const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
+  // const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
   const authSlice = useSelector((state) => state.authSlice);
 
-  useEffect(() => {
-    // ANY reducer or thunk function MUST be called inside a dispatch()
-    dispatch(getProdcutsData());
-  }, []);
+  // useEffect(() => {
+  //   // ANY reducer or thunk function MUST be called inside a dispatch()
+  //   dispatch(getProdcutsData());
+  // }, []);
 
   const addToCart = (product_obj) => {
     dispatch(set_cart_array_value(product_obj));
-    // addToCartBtn.current.style.display = "none";
-    // console.log(addToCartBtn.current);
   };
 
   return (
@@ -31,7 +27,7 @@ export default function Home() {
       </div>
 
       <div className={styles.myCards}>
-        {ProdcutsSlice.productsArr.map((item) => (
+        {props.category.map((item) => (
           <div key={item.id} className={`card ${styles.myCard}`}>
             <Link href={`/${item.id}`} passHref>
               <a>
@@ -57,7 +53,6 @@ export default function Home() {
             <footer className="card-footer">
               {authSlice.isLogIn ? (
                 <button
-                  ref={addToCartBtn}
                   className="card-footer-item button is-success"
                   onClick={() => addToCart(item)}
                 >
@@ -72,4 +67,22 @@ export default function Home() {
       </div>
     </div>
   );
+};
+
+export async function getStaticPaths() {
+  return { paths: [], fallback: true }; // paths: []  = get all items id and stor them in opject
 }
+
+export async function getStaticProps(context) {
+  const res = await fetch(
+    `http://localhost:3001/products?category=${context.params.category}`
+  );
+  const category = await res.json();
+  console.log(category);
+  // Pass category data to the page via props
+  return {
+    props: { category },
+    revalidate: 5, // build the page each 5 seconds, IF NEEDED (ISG)
+  };
+}
+export default singlecategory;
