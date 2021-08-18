@@ -1,6 +1,7 @@
 .myNav {
   margin-left: 35px;
 }
+
 .UL {
   display: flex;
   justify-content: space-between;
@@ -10,21 +11,86 @@
 .UL > li {
   list-style: none;
 }
-.UL > li a {
-  margin-right: 35px;
-  color: #000;
-}
+
 .UL > li > p {
   margin-left: 25px;
   display: inline-block;
 }
-
+.cartPtn {
+  position: relative;
+}
 .cartNum {
-  /* background-color: crimson;
-  color: aliceblue; */
+  background-color: crimson;
+  color: aliceblue;
   border-radius: 50%;
-  /* padding: 5px; */
   position: absolute;
+  width: 15px;
+  height: 15px;
   top: 0;
-  margin-right: 100px;
+  right: 0;
+  line-height: 15px;
+}
+
+.searchBox {
+  /* position: absolute;
+  top: 51%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  background: #2f3640;
+
+  /* border-radius: 40px; */
+
+  /* padding: 0 5px; */
+}
+
+.searchBox:hover > .searchText {
+  width: 240px;
+  padding: 0 6px;
+}
+
+.UL > li .myLink {
+  margin-right: 50px;
+  color: #000;
+}
+.iconMargenLeft {
+  margin: 5px 0 5px 50px;
+}
+.searchBtn {
+  /* color: #e84118; */
+  /* margin: 0 20px; */
+  /* background-color: #2f3640; */
+  border: none;
+  margin: 5px 0 5px 50px;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* background: #ccc; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.searchText {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: #000;
+  font-size: 16px;
+  font-weight: normal;
+  transition: 0.4s;
+  line-height: 50px;
+  width: 0px;
+  margin-right: -50px;
+
+  /*   width: 250px; */
+}
+
+.avatar {
+  /* width: 35px; */
 }

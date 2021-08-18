@@ -1,6 +1,6 @@
 const about = () => {
   return (
-    <div className="container">
+    <div className="container is-fluid">
       <p className="is-size-2">About</p>
       <p className="is-size-5">
         It is a long established fact that a reader will be distracted by the

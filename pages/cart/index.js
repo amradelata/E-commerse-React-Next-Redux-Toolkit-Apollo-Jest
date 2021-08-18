@@ -19,7 +19,7 @@ const Cart = () => {
   //   dispatch(removeOne({ item, index }));
   // };
   return (
-    <div className="container">
+    <div className="container is-fluid">
       <p className="is-size-2">cart</p>
 
       {CartSlice.cart_products.map((item, index) => (

@@ -19,7 +19,7 @@ const Profile = () => {
   }, []);
   return (
     <>
-      <div className="container">
+      <div className="container is-fluid">
         {authSlice.isLogIn ? <p>Profile</p> : <p>Sign Up</p>}
       </div>
     </>

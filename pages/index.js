@@ -9,6 +9,7 @@ import Link from "next/link";
 export default function Home() {
   const dispatch = useDispatch();
   const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
+  const authSlice = useSelector((state) => state.authSlice);
 
   useEffect(() => {
     // ANY reducer or thunk function MUST be called inside a dispatch()
@@ -21,13 +22,13 @@ export default function Home() {
 
   return (
     <div>
-      <div className="container">
+      <div className="container is-fluid">
         <div className="notification">
           We have <strong>good offers</strong> for you.
         </div>
       </div>
 
-      <div className={`container  ${styles.myCards}`}>
+      <div className={`container is-fluid ${styles.myCards}`}>
         {ProdcutsSlice.productsArr.map((item) => (
           <div key={item.id} className={`card ${styles.myCard}`}>
             <Link href={`/${item.id}`} passHref>
@@ -52,12 +53,16 @@ export default function Home() {
               </a>
             </Link>
             <footer className="card-footer">
-              <button
-                className="card-footer-item button is-success"
-                onClick={() => addToCart(item)}
-              >
-                add me to cart
-              </button>
+              {authSlice.isLogIn ? (
+                <button
+                  className="card-footer-item button is-success"
+                  onClick={() => addToCart(item)}
+                >
+                  add me to cart
+                </button>
+              ) : (
+                ""
+              )}
             </footer>
           </div>
         ))}
