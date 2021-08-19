@@ -8,12 +8,23 @@ export const ProdcutsSlice = createSlice({
   reducers: {
     setProductsValue(state, { payload }) {
       state.productsArr = payload;
-      console.log(state.productsArr);
+      // console.log(state.productsArr);
+    },
+    set_in_my_cart(state, { payload }) {
+      const newArray = state.productsArr.map((obj) => {
+        if (obj.id === payload.item.id) {
+          return { ...obj, in_my_cart: true };
+        } else {
+          return obj;
+        }
+      });
+      state.productsArr = newArray;
+      // console.log(state.productsArr);
     },
   },
 });
 
-export const { setProductsValue } = ProdcutsSlice.actions;
+export const { setProductsValue, set_in_my_cart } = ProdcutsSlice.actions;
 
 export const getProdcutsData = () => async (dispatch) => {
   const data = await fetch("http://localhost:3001/products").then((res) =>

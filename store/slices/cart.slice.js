@@ -46,7 +46,6 @@ export const CartSlice = createSlice({
 export const {
   set_cart_array_value,
   remove_item_from_cart,
-
   addOne,
   removeOne,
 } = CartSlice.actions;
