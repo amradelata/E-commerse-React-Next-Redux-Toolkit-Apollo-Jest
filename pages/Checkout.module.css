@@ -1,0 +1,65 @@
+.stepsBar {
+  width: 500px;
+  margin: 50px auto 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.step {
+  display: flex;
+  align-items: center;
+}
+.step.active .circle {
+  border: 2px solid #ef5013;
+  color: #ef5013;
+  font-weight: bold;
+}
+.step.done .circle {
+  border: 2px solid #ef5013;
+  background-color: #ef5013;
+  color: #fff;
+  font-weight: bold;
+}
+.step.done .circle .stepName {
+  color: #ef5013;
+}
+.step.done .line {
+  background-color: #ef5013;
+}
+.step .circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: #444;
+  position: relative;
+}
+.circle img {
+  width: 17px;
+}
+.step .line {
+  width: 200px;
+  height: 2px;
+  background-color: #ddd;
+}
+.step:last-of-type .line {
+  display: none;
+}
+.step .stepName {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+
+  transform: translateX(-50%);
+  font-size: 17px;
+}
+
+@media all and (max-width: 650px) {
+  .steps_bar {
+    display: none;
+  }
+}

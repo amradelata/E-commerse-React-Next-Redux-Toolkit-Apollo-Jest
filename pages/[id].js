@@ -1,15 +1,20 @@
 import styles from "./singlePage.module.css";
+import { useDispatch } from "react-redux";
+import { set_cart_array_value } from "../store/slices/cart.slice";
+import { set_in_my_cart } from "../store/slices/products.slice";
 
 const singlePage = (props) => {
   if (!props.product) return "Loding";
+  const dispatch = useDispatch();
+  const addToCart = (item, index) => {
+    dispatch(set_cart_array_value(item, index));
+    dispatch(set_in_my_cart({ item, index }));
+  };
   return (
-    <>
+    <div className={styles.realatev}>
+      <div className={styles.ovarlay}></div>
       <div className={`${styles.dad} container`}>
         <div className={styles.start}>
-          <p className="is-size-3">{props.product.name}</p>
-          <p className="is-size-4">{props.product.price + " $"}</p>
-        </div>
-        <div className={styles.end}>
           <div
             className={styles.Image}
             style={{
@@ -17,8 +22,23 @@ const singlePage = (props) => {
             }}
           ></div>
         </div>
+        <div className={styles.end}>
+          <p className="is-size-6">{props.product.category}</p>
+          <p className="is-size-3">{props.product.name}</p>
+          <p className="is-size-5">{props.product.price + " $"}</p>
+          <p className="is-size-6">
+            Lorem Ipsum is simply dummied text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy.
+          </p>
+          <button
+            className={styles.itemButton}
+            // onClick={() => addToCart(item, index)}
+          >
+            add to cart
+          </button>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

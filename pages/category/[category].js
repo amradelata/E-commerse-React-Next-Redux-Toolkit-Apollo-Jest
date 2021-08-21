@@ -21,19 +21,62 @@ const singlecategory = (props) => {
   };
 
   return (
+    // <div className={`container is-fluid ${styles.dad}`}>
+    //   <div className={styles.ProductNave}>
+    //     <ProductNave />
+    //   </div>
+
+    //   <div className={styles.myCards}>
+    //     {props.category.map((item) => (
+    //       <div key={item.id} className={`card ${styles.myCard}`}>
+    //         <Link href={`/${item.id}`} passHref>
+    //           <a>
+    //             <header className="card-header">
+    //               <p className="card-header-title">Shop item</p>
+    //             </header>
+    //             <div className="card-content">
+    //               <div>
+    //                 <div
+    //                   className={styles.Image}
+    //                   style={{
+    //                     backgroundImage: `url(${item.img_url})`,
+    //                   }}
+    //                 ></div>
+    //               </div>
+    //               <p className="card-header-title">
+    //                 {item.name + " "}
+    //                 {"  /  " + item.price + "$"}
+    //               </p>
+    //             </div>
+    //           </a>
+    //         </Link>
+    //         <footer className="card-footer">
+    //           {authSlice.isLogIn ? (
+    //             <button
+    //               className="card-footer-item button is-success"
+    //               onClick={() => addToCart(item)}
+    //             >
+    //               add me to cart
+    //             </button>
+    //           ) : (
+    //             ""
+    //           )}
+    //         </footer>
+    //       </div>
+    //     ))}
+    //   </div>
+    // </div>
+
     <div className={`container is-fluid ${styles.dad}`}>
       <div className={styles.ProductNave}>
         <ProductNave />
       </div>
 
       <div className={styles.myCards}>
-        {props.category.map((item) => (
+        {props.category.map((item, index) => (
           <div key={item.id} className={`card ${styles.myCard}`}>
             <Link href={`/${item.id}`} passHref>
               <a>
-                <header className="card-header">
-                  <p className="card-header-title">Shop item</p>
-                </header>
                 <div className="card-content">
                   <div>
                     <div
@@ -43,20 +86,19 @@ const singlecategory = (props) => {
                       }}
                     ></div>
                   </div>
-                  <p className="card-header-title">
-                    {item.name + " "}
-                    {"  /  " + item.price + "$"}
-                  </p>
+                  <p className={styles.category}>{item.category}</p>
+                  <p className={styles.itemName}>{item.name}</p>
+                  <p className={styles.itemPrice}>{item.price + " $"}</p>
                 </div>
               </a>
             </Link>
-            <footer className="card-footer">
-              {authSlice.isLogIn ? (
+            <footer className="card-content">
+              {authSlice.isLogIn && !item.in_my_cart ? (
                 <button
-                  className="card-footer-item button is-success"
-                  onClick={() => addToCart(item)}
+                  className={styles.itemButton}
+                  onClick={() => addToCart(item, index)}
                 >
-                  add me to cart
+                  add to cart
                 </button>
               ) : (
                 ""

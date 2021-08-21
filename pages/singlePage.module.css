@@ -2,7 +2,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80vh;
+  /* height: 80vh; */
+  padding: 50px;
+  background-color: honeydew;
+  box-shadow: 0 5px 30px rgb(0 0 0 / 16%);
+  border-radius: 6px;
 }
 
 .Image {
@@ -11,4 +15,36 @@
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
+}
+.realatev {
+  position: relative;
+}
+.ovarlay {
+  position: absolute;
+  background-color: #371f72;
+  top: -35px;
+  left: 0;
+  right: 0;
+  height: 40vh;
+}
+
+.end {
+  text-align: left;
+  flex-basis: 50%;
+}
+
+.start {
+  flex-basis: 50%;
+}
+
+.itemButton {
+  padding: 11px 20px;
+  background-color: #371f72;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 50%;
+  border: none;
+  margin-top: 20px;
 }
