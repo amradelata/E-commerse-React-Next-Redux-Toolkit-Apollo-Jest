@@ -4,10 +4,11 @@ export const authSlice = createSlice({
   name: "auth",
   initialState: {
     isLogIn: false,
-    user: {},
+    user: "",
   },
   reducers: {
     setUserOpject(state, { payload }) {
+      console.log(payload);
       if (payload.accessToken) {
         state.isLogIn = true;
         console.log("add new user");
@@ -15,11 +16,14 @@ export const authSlice = createSlice({
         state.isLogIn = false;
         console.log("cant add new user");
       }
+      state.user = payload.user.email;
+      console.log(state.user);
     },
     logOut(state) {
       state.isLogIn = false;
     },
     UserLogIn(state, { payload }) {
+      console.log(payload);
       if (payload.accessToken) {
         state.isLogIn = true;
         console.log("user here");
@@ -27,6 +31,8 @@ export const authSlice = createSlice({
         state.isLogIn = false;
         console.log("user not here");
       }
+      state.user = payload.user.email;
+      console.log(state.user);
     },
   },
 });

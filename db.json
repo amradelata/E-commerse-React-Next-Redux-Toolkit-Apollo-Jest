@@ -786,6 +786,11 @@
       "email": "am4444r@me.com",
       "password": "$2a$10$y6wAqexHP9Yu2LdctmI9yOd5aPXF6JRYKYcqON6Z8bfcLTIKCz8oO",
       "id": 33
+    },
+    {
+      "email": "rmr@me.com",
+      "password": "$2a$10$0oXGPgtSD89Opseze5SdL.7vh/qt1r3EQQ1crKi41lQXNBmLKJ5.C",
+      "id": 34
     }
   ]
 }

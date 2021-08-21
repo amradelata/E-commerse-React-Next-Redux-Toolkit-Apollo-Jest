@@ -21,10 +21,12 @@ export const ProdcutsSlice = createSlice({
       state.productsArr = newArray;
       // console.log(state.productsArr);
     },
+    setSearchProdcutsData(state, { payload }) {},
   },
 });
 
-export const { setProductsValue, set_in_my_cart } = ProdcutsSlice.actions;
+export const { setProductsValue, set_in_my_cart, setSearchProdcutsData } =
+  ProdcutsSlice.actions;
 
 export const getProdcutsData = () => async (dispatch) => {
   const data = await fetch("http://localhost:3001/products").then((res) =>
@@ -32,6 +34,14 @@ export const getProdcutsData = () => async (dispatch) => {
   );
 
   dispatch(setProductsValue(data));
+};
+
+export const getSearchProdcutsData = (myValue) => async (dispatch) => {
+  const data = await fetch(
+    `http://localhost:3001/products?name=${myValue}`
+  ).then((res) => res.json());
+
+  dispatch(setSearchProdcutsData(data));
 };
 
 export default ProdcutsSlice.reducer;

@@ -1,7 +1,16 @@
 .myNav {
-  margin-left: 35px;
+  padding: 15px 0;
 }
-
+.myHr {
+  margin: 0;
+  margin-bottom: 35px;
+}
+.userNmae {
+  color: #2d2d2d;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
 .UL {
   display: flex;
   justify-content: space-between;
@@ -50,7 +59,10 @@
 
 .UL > li .myLink {
   margin-right: 50px;
-  color: #000;
+  color: #2d2d2d;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 .iconMargenLeft {
   margin: 5px 0 5px 50px;

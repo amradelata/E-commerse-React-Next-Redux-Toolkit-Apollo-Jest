@@ -34,9 +34,6 @@ export default function Home() {
           <div key={item.id} className={`card ${styles.myCard}`}>
             <Link href={`/${item.id}`} passHref>
               <a>
-                <header className="card-header">
-                  <p className="card-header-title">Shop item {index}</p>
-                </header>
                 <div className="card-content">
                   <div>
                     <div
@@ -46,21 +43,20 @@ export default function Home() {
                       }}
                     ></div>
                   </div>
-                  <p className="card-header-title">
-                    {item.name + " "}
-                    {"  /  " + item.price + "$"}
-                  </p>
+                  <p className={styles.category}>{item.category}</p>
+                  <p className={styles.itemName}>{item.name}</p>
+                  <p className={styles.itemPrice}>{item.price + " $"}</p>
                 </div>
               </a>
             </Link>
-            <footer className="card-footer">
+            <footer className="card-content">
               {authSlice.isLogIn && !item.in_my_cart ? (
                 <button
                   ref={addToCartBtn}
-                  className="card-footer-item button is-success"
+                  className={styles.itemButton}
                   onClick={() => addToCart(item, index)}
                 >
-                  add me to cart
+                  add to cart
                 </button>
               ) : (
                 ""

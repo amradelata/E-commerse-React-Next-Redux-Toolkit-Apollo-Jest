@@ -1,6 +1,81 @@
+.cartPage {
+  position: relative;
+}
+.cart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
 .cartItems {
+  border: 1px solid #ccc;
+  width: 700px;
+  margin-right: 20px;
+  padding: 0 20px;
+}
+
+.cartItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
+  border-bottom: 2px dashed #ccc;
+  padding: 32px 0 40px 0;
+}
+.summary {
+  width: 300px;
+  padding: 0 20px;
+  border: 1px solid #ccc;
+  height: 300px;
+}
+
+.cartImg {
+  width: 90px;
+  height: 90px;
+  background-position: center;
+  background-size: cover;
+}
+
+.atyBut {
+  display: inline-block;
+}
+.cartBtn {
+  border: none;
+  /* background-color: none; */
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 50%;
+  /* padding: 10px; */
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  /* background-color: red; */
+}
+.cartBtn > img,
+.cartBtn > a > img {
+  height: 20px;
+  width: 20px;
+}
+
+.lapul {
+  font-weight: 500;
+  font-size: 17px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.value {
+  /* color: #ccc; */
+  float: right;
+}
+
+.CheckoutBtn {
+  background-color: #23d160;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  color: aliceblue;
 }
