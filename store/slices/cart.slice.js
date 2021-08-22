@@ -39,6 +39,10 @@ export const CartSlice = createSlice({
         state.cart_products.splice(payload.index, 1);
       }
     },
+    restMyCart(state) {
+      state.cart_products = [];
+      state.totalPrice = 0;
+    },
   },
 });
 
@@ -48,6 +52,7 @@ export const {
   remove_item_from_cart,
   addOne,
   removeOne,
+  restMyCart,
 } = CartSlice.actions;
 
 export default CartSlice.reducer;

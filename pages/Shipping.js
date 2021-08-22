@@ -17,6 +17,7 @@ const Shipping = () => {
   const [myDisabled, setmyDisabled] = useState(true);
   const nextStep = (e) => {
     e.preventDefault();
+
     router.push("/Payment");
   };
 

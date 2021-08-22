@@ -71,3 +71,43 @@
   border: none;
   /* float: right; */
 }
+/* //pament */
+.pamentMethod {
+  border: 1px solid #ccc;
+  width: 1000px;
+  margin: auto;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+.pamentMethod > div > div {
+  margin: 10px 0;
+}
+.pamentbtn {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pamentMethod > div > div > label > img {
+  width: 34px;
+  margin-left: 8px;
+}
+/* Done */
+.Done {
+  text-align: center;
+}
+.Done > img {
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+  border-radius: 50%;
+}
+.Done > p {
+  margin: 0;
+  margin: 50px 0;
+}
+.Done > button {
+  margin-top: 50px;
+}

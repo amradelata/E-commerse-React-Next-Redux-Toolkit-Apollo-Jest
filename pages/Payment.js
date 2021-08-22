@@ -1,128 +1,113 @@
+import { useSelector, useDispatch } from "react-redux";
 import styles from "./Shipping.module.css";
 import Checkout from "./Checkout";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
 const Payment = () => {
+  const CartSlice = useSelector((state) => state.CartSlice);
   const router = useRouter();
-  const [FirstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setemail] = useState("");
-  const [Countrys, setCountrys] = useState("");
-  const [Phone, setPhone] = useState("");
-  const [Postcode, setPostcode] = useState("");
-  const [City, setCity] = useState("");
-  const [Address, setAddress] = useState("");
-  const [Nearest, setNearest] = useState("");
+  const [CardNumber, setCardNumber] = useState("");
+  const [Owner, setOwner] = useState("");
+  const [Expiration, setExpiration] = useState("");
+  const [CVV, setCVV] = useState("");
+
   const [myDisabled, setmyDisabled] = useState(true);
+  const [showForm, setshowForm] = useState(true);
   const nextStep = (e) => {
     e.preventDefault();
+
     router.push("/Done");
   };
 
   const desapuld = () => {
     if (
-      FirstName.length >= 1 &&
-      lastName.length >= 1 &&
-      email.length >= 1 &&
-      Countrys.length >= 1 &&
-      Phone.length >= 1 &&
-      Postcode.length >= 1 &&
-      City.length >= 1 &&
-      Address.length >= 1 &&
-      Nearest.length >= 1
+      CardNumber.length >= 1 &&
+      Owner.length >= 1 &&
+      Expiration.length >= 1 &&
+      CVV.length >= 1
     ) {
       setmyDisabled(false);
     } else {
       setmyDisabled(true);
     }
   };
+  const showFormfunction = () => {
+    setmyDisabled(true);
+    setshowForm(true);
+  };
+  const hiedFormFunction = () => {
+    setshowForm(false);
+    setmyDisabled(false);
+  };
   return (
     <>
-      <Checkout Payment={myDisabled} />;
+      <Checkout Payment={myDisabled} />
       <div className={styles.Checkout}>
-        <form className={styles.MyForm} onSubmit={nextStep} onChange={desapuld}>
-          <div className={styles.Personal}>
-            <p>Personal information</p>
-
-            <div className={styles.haveWidth}>
-              <div>
-                <label>First name</label>
-                <input
-                  onChange={(e) => setFirstName(e.target.value)}
-                  value={FirstName}
-                />
-              </div>
-              <div>
-                <label>Last name</label>
-                <input
-                  onChange={(e) => setLastName(e.target.value)}
-                  value={lastName}
-                />
-              </div>
+        <div className={styles.pamentMethod}>
+          <div class="control">
+            <div>
+              <label class="radio">
+                <input type="radio" name="foobar" onClick={showFormfunction} />
+                How would you like to pay{CartSlice.totalPrice + "$"}
+                <img src="/./icons/visa.svg" />
+                <img src="/./icons/mastercard.svg" />
+              </label>
             </div>
-
-            <div className={styles.fullWidth}>
-              <label>Email</label>
-              <input onChange={(e) => setemail(e.target.value)} value={email} />
+            <div>
+              <label class="radio">
+                <input type="radio" name="foobar" onClick={hiedFormFunction} />
+                Cash on delivery
+              </label>
             </div>
           </div>
-          <div className={styles.Contact}>
-            <p>Contact information</p>
-            <div className={styles.haveWidth}>
-              <div>
-                <label>Countrys</label>
-                <input
-                  onChange={(e) => setCountrys(e.target.value)}
-                  value={Countrys}
-                />
-              </div>
-              <div>
-                <label>Phone</label>
-                <input
-                  onChange={(e) => setPhone(e.target.value)}
-                  value={Phone}
-                />
-              </div>
-            </div>
-            <div className={styles.haveWidth}>
-              <div>
-                <label>Postcode</label>
-                <input
-                  onChange={(e) => setPostcode(e.target.value)}
-                  value={Postcode}
-                />
-              </div>
-              <div>
-                <label>town/City</label>
-                <input onChange={(e) => setCity(e.target.value)} value={City} />
-              </div>
-            </div>
+        </div>
+        {showForm ? (
+          <form
+            className={styles.MyForm}
+            // onSubmit={nextStep}
+            onChange={desapuld}
+          >
             <div className={styles.fullWidth}>
-              <label>Address</label>
+              <label>Card Number</label>
               <input
-                onChange={(e) => setAddress(e.target.value)}
-                value={Address}
+                onChange={(e) => setCardNumber(e.target.value)}
+                value={CardNumber}
               />
             </div>
+
             <div className={styles.fullWidth}>
-              <label>Nearest Landmark</label>
-              <input
-                onChange={(e) => setNearest(e.target.value)}
-                value={Nearest}
-              />
+              <label>Owner</label>
+              <input onChange={(e) => setOwner(e.target.value)} value={Owner} />
             </div>
+            <div className={styles.haveWidth}>
+              <div>
+                <label>Expiration</label>
+                <input
+                  onChange={(e) => setExpiration(e.target.value)}
+                  value={Expiration}
+                />
+              </div>
+              <div>
+                <label>CVV</label>
+                <input onChange={(e) => setCVV(e.target.value)} value={CVV} />
+              </div>
+            </div>
+
             {/*  */}
-            <button
-              disabled={myDisabled}
-              className="button is-info"
-              type="submit"
-            >
-              Next
-            </button>
-          </div>
-        </form>
+          </form>
+        ) : (
+          ""
+        )}
       </div>
+      <button
+        disabled={myDisabled}
+        className={`button is-info ${styles.pamentbtn}`}
+        // type="submit"
+        onClick={nextStep}
+      >
+        Next
+      </button>
     </>
   );
 };

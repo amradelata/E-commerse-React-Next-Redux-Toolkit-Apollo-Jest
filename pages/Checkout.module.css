@@ -9,36 +9,25 @@
   display: flex;
   align-items: center;
 }
-.step.active .circle {
-  border: 2px solid #ef5013;
-  color: #ef5013;
-  font-weight: bold;
-}
-.step.done .circle {
-  border: 2px solid #ef5013;
-  background-color: #ef5013;
-  color: #fff;
-  font-weight: bold;
-}
-.step.done .circle .stepName {
-  color: #ef5013;
-}
-.step.done .line {
-  background-color: #ef5013;
-}
+
 .step .circle {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  border: 2px solid #ddd;
-  background-color: aqua;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 18px;
-  color: #444;
   position: relative;
-  /* margin-right: 50px; */
+
+  color: #fff;
+  border: 2px solid #ddd;
+  background-color: aqua;
+
+  /* done */
+  /* border: 2px solid #ef5013;
+  background-color: #ef5013;
+   */
 }
 .circle img {
   width: 17px;
@@ -47,6 +36,9 @@
   width: 200px;
   height: 2px;
   background-color: #ddd;
+
+  /* done */
+  /* background-color: #ef5013; */
 }
 .step:last-of-type .line {
   display: none;
@@ -55,13 +47,8 @@
   position: absolute;
   bottom: calc(100% + 8px);
   left: 50%;
+  color: black;
 
   transform: translateX(-50%);
   font-size: 17px;
-}
-
-@media all and (max-width: 650px) {
-  .steps_bar {
-    display: none;
-  }
 }
