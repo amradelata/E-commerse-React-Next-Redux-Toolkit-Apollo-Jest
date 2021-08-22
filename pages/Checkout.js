@@ -1,31 +1,51 @@
 import styles from "./Checkout.module.css";
-
-const Checkout = () => {
-  const steps = ["shipping", "payment", "done"];
+import Link from "next/link";
+const Checkout = (props) => {
   return (
     <>
       <div className={styles.stepsBar}>
         <div className={styles.step}>
-          {steps.map((item, index) => (
+          <Link href="/Shipping">
             <div className={styles.circle}>
-              <div className={styles.stepName}>{item}</div>
-              <div className={styles.number}>{index + 1}</div>
-              <img src="/./icons/checked.svg" />
+              <div className={styles.stepName}>shipping</div>
+              {!props.Shipping ? (
+                <img src="/./icons/checked.svg" />
+              ) : (
+                <div className={styles.number}>1</div>
+              )}
             </div>
-          ))}
+          </Link>
           <div className={styles.line}></div>
         </div>
+        {/*  */}
+        <Link href="/Payment">
+          <div className={styles.step}>
+            <div className={styles.circle}>
+              <div className={styles.stepName}>payment</div>
+              {!props.Payment ? (
+                <img src="/./icons/checked.svg" />
+              ) : (
+                <div className={styles.number}>2</div>
+              )}
+            </div>
+            <div className={styles.line}></div>
+          </div>
+        </Link>
+        {/*  */}
+        <Link href="/Done">
+          <div className={styles.step}>
+            <div className={styles.circle}>
+              <div className={styles.stepName}>Done</div>
+              {!props.Done ? (
+                <img src="/./icons/checked.svg" />
+              ) : (
+                <div className={styles.number}>3</div>
+              )}
+            </div>
+            <div className={styles.line}></div>
+          </div>
+        </Link>
       </div>
-      {/* <div class="steps_bar">
-  <div class="step" *ngFor="let step of steps; index as i" [class.active]="stepNumber == i + 1" [class.done]="stepNumber > i + 1">
-    <div class="circle">
-      <div class="step_name">{{step}}</div>
-      <div class="number" *ngIf="stepNumber == i + 1 || stepNumber < i + 1">{{i + 1}}</div>
-      <img src="assets/svg/checked.svg" alt="This step is done" *ngIf="stepNumber > i + 1">
-    </div>
-    <div class="line"></div>
-  </div>
-</div> */}
     </>
   );
 };

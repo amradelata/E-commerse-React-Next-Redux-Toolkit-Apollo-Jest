@@ -1,0 +1,73 @@
+.Checkout {
+  position: relative;
+}
+.MyForm {
+  position: absolute;
+  /* top: 50%; */
+  left: 50%;
+  transform: translate(-50%);
+  border: 1px solid #ccc;
+  /* text-align: center; */
+}
+
+.haveWidth > div > label,
+.fullWidth > label {
+  /* float: left; */
+  /* text-align: left; */
+  display: block;
+}
+.Personal {
+  border-bottom: 2px dashed #ccc;
+  /* padding-bottom: 20px; */
+}
+
+.MyForm {
+  width: 1000px;
+  text-align: center;
+  /* margin: 35px 0; */
+}
+.haveWidth > div {
+  display: inline-block;
+}
+.haveWidth > div > input {
+  margin: 20px 0;
+  padding: 10px;
+  width: 450px;
+  /* margin-right: 10px; */
+}
+
+.fullWidth > input {
+  /* padding: 0 20px; */
+  padding: 10px;
+  margin: 20px 0;
+  width: 900px;
+}
+.Contact > p,
+.Personal > p {
+  font-weight: bold;
+  font-size: larger;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.Contact > p::after,
+.Contact > p::before {
+  content: " ----- ";
+  color: #ccc;
+}
+
+.Personal > p::after,
+.Personal > p::before {
+  content: " ----- ";
+  color: #ccc;
+}
+
+.nextBtn {
+  padding: 11px 20px;
+  background-color: #371f72;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  /* float: right; */
+}

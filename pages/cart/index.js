@@ -102,7 +102,7 @@ const Cart = () => {
                   {CartSlice.totalPrice + "$"}
                 </span>
               </div>
-              <Link href="/Checkout" passHref>
+              <Link href="/Shipping" passHref>
                 <a>
                   <button className={styles.CheckoutBtn}>Checkout</button>
                 </a>
