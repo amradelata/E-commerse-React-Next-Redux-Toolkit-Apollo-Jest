@@ -21,52 +21,6 @@ const singlecategory = (props) => {
   };
 
   return (
-    // <div className={`container is-fluid ${styles.dad}`}>
-    //   <div className={styles.ProductNave}>
-    //     <ProductNave />
-    //   </div>
-
-    //   <div className={styles.myCards}>
-    //     {props.category.map((item) => (
-    //       <div key={item.id} className={`card ${styles.myCard}`}>
-    //         <Link href={`/${item.id}`} passHref>
-    //           <a>
-    //             <header className="card-header">
-    //               <p className="card-header-title">Shop item</p>
-    //             </header>
-    //             <div className="card-content">
-    //               <div>
-    //                 <div
-    //                   className={styles.Image}
-    //                   style={{
-    //                     backgroundImage: `url(${item.img_url})`,
-    //                   }}
-    //                 ></div>
-    //               </div>
-    //               <p className="card-header-title">
-    //                 {item.name + " "}
-    //                 {"  /  " + item.price + "$"}
-    //               </p>
-    //             </div>
-    //           </a>
-    //         </Link>
-    //         <footer className="card-footer">
-    //           {authSlice.isLogIn ? (
-    //             <button
-    //               className="card-footer-item button is-success"
-    //               onClick={() => addToCart(item)}
-    //             >
-    //               add me to cart
-    //             </button>
-    //           ) : (
-    //             ""
-    //           )}
-    //         </footer>
-    //       </div>
-    //     ))}
-    //   </div>
-    // </div>
-
     <div className={`container is-fluid ${styles.dad}`}>
       <div className={styles.ProductNave}>
         <ProductNave />
@@ -116,15 +70,26 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const res = await fetch(
-    `http://localhost:3001/products?category=${context.params.category}`
-  );
-  const category = await res.json();
-  console.log(category);
-  // Pass category data to the page via props
-  return {
-    props: { category },
-    revalidate: 5, // build the page each 5 seconds, IF NEEDED (ISG)
-  };
+  if (context.params.category === "all") {
+    const res = await fetch(`http://localhost:3001/products`);
+    const category = await res.json();
+    console.log(category);
+    // Pass category data to the page via props
+    return {
+      props: { category },
+      revalidate: 5, // build the page each 5 seconds, IF NEEDED (ISG)
+    };
+  } else {
+    const res = await fetch(
+      `http://localhost:3001/products?category=${context.params.category}`
+    );
+    const category = await res.json();
+    console.log(category);
+    // Pass category data to the page via props
+    return {
+      props: { category },
+      revalidate: 5, // build the page each 5 seconds, IF NEEDED (ISG)
+    };
+  }
 }
 export default singlecategory;

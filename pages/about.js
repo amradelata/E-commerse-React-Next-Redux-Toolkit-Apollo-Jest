@@ -1,18 +1,24 @@
+import styles from "./about.module.css";
 const about = () => {
   return (
     <div className="container is-fluid">
-      <p className="is-size-2">About</p>
-      <p className="is-size-5">
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
-        using Lorem Ipsum is that it has a more-or-less normal distribution of
-        letters, as opposed to using Content here, content here, making it look
-        like readable English. Many desktop publishing packages and web page
-        editors now use Lorem Ipsum as their default model text, and a search
-        for lorem ipsum will uncover many web sites still in their infancy.
-        Various versions have evolved over the years, sometimes by accident,
-        sometimes on purpose (injected humour and the like).
-      </p>
+      <div className={styles.dad}>
+        <div className={styles.aboutLogo}>
+          <img src="/./icons/1.png" />
+        </div>
+
+        <div className={styles.aboutCart}>
+          <p className="is-size-5">
+            I believe that anyone can create stunning things so I invested in
+            myself physically by improving my lifestyle into a healthy lifestyle
+            and mentally by reading as much as possible and commitment to Web
+            Development because it combines creativity and logical thinking
+            <br />
+            here you can find my website :{" "}
+            <a href="https://amradelata.com/">amradelata.com</a>
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

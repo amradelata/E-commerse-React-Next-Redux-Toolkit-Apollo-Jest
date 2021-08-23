@@ -1,0 +1,31 @@
+.dad {
+  position: relative;
+}
+.aboutCart {
+  background-color: #31475e;
+  color: azure;
+  padding: 35px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 200%);
+  border-radius: 6px;
+}
+.aboutLogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+.aboutLogo > img {
+  width: 200px;
+  height: 200px;
+}
+
+.aboutCart p {
+  text-align: center;
+}
+
+.aboutCart a {
+  text-decoration: underline;
+}

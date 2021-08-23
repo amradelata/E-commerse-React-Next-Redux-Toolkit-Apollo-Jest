@@ -47,16 +47,26 @@ const Payment = () => {
         <div className={styles.pamentMethod}>
           <div class="control">
             <div>
-              <label class="radio">
-                <input type="radio" name="foobar" onClick={showFormfunction} />
-                How would you like to pay{CartSlice.totalPrice + "$"}
+              <label className={styles.myLabelRadio}>
+                <input
+                  type="radio"
+                  className={styles.myRadioInput}
+                  name="foobar"
+                  onClick={showFormfunction}
+                />
+                How would you like to pay{" " + CartSlice.totalPrice + "$"}
                 <img src="/./icons/visa.svg" />
                 <img src="/./icons/mastercard.svg" />
               </label>
             </div>
             <div>
-              <label class="radio">
-                <input type="radio" name="foobar" onClick={hiedFormFunction} />
+              <label className={styles.myLabelRadio}>
+                <input
+                  type="radio"
+                  className={styles.myRadioInput}
+                  name="foobar"
+                  onClick={hiedFormFunction}
+                />
                 Cash on delivery
               </label>
             </div>
@@ -93,8 +103,6 @@ const Payment = () => {
                 <input onChange={(e) => setCVV(e.target.value)} value={CVV} />
               </div>
             </div>
-
-            {/*  */}
           </form>
         ) : (
           ""

@@ -3,50 +3,58 @@
 }
 .MyForm {
   position: absolute;
-  /* top: 50%; */
   left: 50%;
   transform: translate(-50%);
   border: 1px solid #ccc;
-  /* text-align: center; */
 }
 
 .haveWidth > div > label,
 .fullWidth > label {
-  /* float: left; */
-  /* text-align: left; */
+  font-size: 15px;
+  font-weight: bold;
+  width: 130px;
   display: block;
 }
 .Personal {
   border-bottom: 2px dashed #ccc;
-  /* padding-bottom: 20px; */
+  margin-bottom: 25px;
+  padding-bottom: 20px;
 }
 
 .MyForm {
   width: 1000px;
-  text-align: center;
-  /* margin: 35px 0; */
+  /* text-align: center; */
+  padding: 35px;
+  /* margin: auto;
+  display: block; */
 }
-.haveWidth > div {
-  display: inline-block;
+.haveWidth {
+  display: flex;
+  justify-content: space-between;
 }
 .haveWidth > div > input {
   margin: 20px 0;
   padding: 10px;
-  width: 450px;
+  /* width: 450px; */
+  border: 1px solid rgb(189 189 189);
   /* margin-right: 10px; */
+  width: 450px;
+  /* display: inline-block; */
 }
 
 .fullWidth > input {
   /* padding: 0 20px; */
+  border: 1px solid rgb(189 189 189);
   padding: 10px;
   margin: 20px 0;
-  width: 900px;
+  /* width: 900px; */
+  width: 100%;
 }
 .Contact > p,
 .Personal > p {
   font-weight: bold;
   font-size: larger;
-  margin: 20px 0;
+  margin-bottom: 25px;
   text-align: center;
 }
 
@@ -76,7 +84,7 @@
   border: 1px solid #ccc;
   width: 1000px;
   margin: auto;
-  padding: 10px;
+  padding: 10px 35px;
   margin-bottom: 30px;
 }
 
@@ -89,11 +97,20 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.myLabelRadio {
+  font-size: 15px;
+  font-weight: bold;
+}
+.myRadioInput {
+  margin-right: 10px;
+}
 
-.pamentMethod > div > div > label > img {
+.myLabelRadio > img {
   width: 34px;
   margin-left: 8px;
+  float: right;
 }
+
 /* Done */
 .Done {
   text-align: center;
