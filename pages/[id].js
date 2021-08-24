@@ -1,14 +1,16 @@
 import styles from "./singlePage.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { set_cart_array_value } from "../store/slices/cart.slice";
 import { set_in_my_cart } from "../store/slices/products.slice";
+import authSlice from "../store/slices/auth";
 
 const singlePage = (props) => {
+  const authSlice = useSelector((state) => state.authSlice);
   if (!props.product) return "Loding";
   const dispatch = useDispatch();
-  const addToCart = (item, index) => {
-    dispatch(set_cart_array_value(item, index));
-    dispatch(set_in_my_cart({ item, index }));
+  const addToCart = (item) => {
+    dispatch(set_cart_array_value(item));
+    // dispatch(set_in_my_cart({ item, index }));
   };
   return (
     <div className={styles.realatev}>
@@ -30,12 +32,16 @@ const singlePage = (props) => {
             Lorem Ipsum is simply dummied text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy.
           </p>
-          <button
-            className={styles.itemButton}
-            // onClick={() => addToCart(item, index)}
-          >
-            add to cart
-          </button>
+          {authSlice.isLogIn ? (
+            <button
+              onClick={() => addToCart(props.product)}
+              className={styles.itemButton}
+            >
+              add to cart
+            </button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>

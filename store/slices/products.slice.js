@@ -19,7 +19,7 @@ export const ProdcutsSlice = createSlice({
         }
       });
       state.productsArr = newArray;
-      // console.log(state.productsArr);
+      console.log(payload.item);
     },
     setSearchProdcutsData(state, { payload }) {},
   },

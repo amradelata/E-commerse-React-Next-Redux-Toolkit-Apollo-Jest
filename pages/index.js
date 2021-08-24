@@ -14,14 +14,18 @@ export default function Home() {
   const dispatch = useDispatch();
   const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
   const authSlice = useSelector((state) => state.authSlice);
+  const CartSlice = useSelector((state) => state.CartSlice);
 
   useEffect(() => {
     // ANY reducer or thunk function MUST be called inside a dispatch()
     dispatch(getProdcutsData());
   }, []);
   const addToCart = (item, index) => {
-    dispatch(set_cart_array_value(item, index));
-    dispatch(set_in_my_cart({ item, index }));
+    // // dispatch(set_cart_array_value(item, index));
+    // // dispatch(set_in_my_cart({ item, index }));
+    // CartSlice.cart_products.forEach((element) => {
+    //   console.log(element.id === item.id);
+    // });
   };
 
   return (

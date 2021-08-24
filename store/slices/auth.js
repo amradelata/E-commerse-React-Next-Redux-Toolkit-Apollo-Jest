@@ -14,7 +14,7 @@ export const authSlice = createSlice({
         console.log("add new user");
       } else {
         state.isLogIn = false;
-        console.log("cant add new user");
+        alert("something went wrong");
       }
       state.user = payload.user.email;
       console.log(state.user);
@@ -27,12 +27,11 @@ export const authSlice = createSlice({
       if (payload.accessToken) {
         state.isLogIn = true;
         console.log("user here");
+        state.user = payload.user.email;
       } else {
         state.isLogIn = false;
-        console.log("user not here");
+        alert("user not here");
       }
-      state.user = payload.user.email;
-      console.log(state.user);
     },
   },
 });

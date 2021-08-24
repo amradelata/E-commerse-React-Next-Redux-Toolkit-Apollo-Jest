@@ -102,13 +102,28 @@
 
   /*   width: 250px; */
 }
-.dropdownContent {
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.popupContent {
   position: absolute;
-  top: -388px;
-  right: -628px;
+  background-color: #fff;
+  top: -41vh;
+
+  right: -47vw;
+  width: 200px;
   border: 1px solid #ccc;
   padding: 10px;
 }
+/* .dropdownContent {
+  position: absolute !important;
+  background-color: #fff;
+  top: 50%;
+  right: -628px;
+  border: 1px solid #ccc;
+  padding: 10px;
+} */
 .avatar {
   /* width: 35px; */
 }
@@ -117,5 +132,29 @@
 .SigninForm {
   color: aliceblue;
   background-color: #2f3640;
+  border-radius: 6px;
+  text-align: center;
   padding: 50px;
+}
+
+.LoginForm p,
+.SigninForm p {
+  margin-bottom: 20px;
+}
+
+.LoginForm input,
+.SigninForm input {
+  margin-bottom: 20px;
+  width: 500px;
+}
+
+.LoginForm button,
+.SigninForm button {
+  margin-bottom: 20px;
+  display: block;
+  width: 100%;
+}
+.LoginForm a:hover,
+.SigninForm a:hover {
+  color: #3273dc;
 }
