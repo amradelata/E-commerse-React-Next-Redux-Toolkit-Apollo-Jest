@@ -23,9 +23,11 @@ export default function Home() {
   const addToCart = (item, index) => {
     // // dispatch(set_cart_array_value(item, index));
     // // dispatch(set_in_my_cart({ item, index }));
-    // CartSlice.cart_products.forEach((element) => {
-    //   console.log(element.id === item.id);
-    // });
+    CartSlice.cart_products.forEach((element) => {
+      if (element.id === item.id) {
+        item.style.color = "red";
+      }
+    });
   };
 
   return (

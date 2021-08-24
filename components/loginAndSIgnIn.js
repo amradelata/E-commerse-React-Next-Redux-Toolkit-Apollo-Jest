@@ -31,6 +31,7 @@ const LoginAndSIgnIn = () => {
     };
 
     dispatch(logindata(loginbody));
+    document.getElementById("login").style.display = "none";
   };
   const submitSignInHandler = (e) => {
     e.preventDefault();
@@ -40,6 +41,7 @@ const LoginAndSIgnIn = () => {
     };
 
     dispatch(adduser(body));
+    document.getElementById("signIn").style.display = "none";
   };
 
   const openLoginFunction = (e) => {
@@ -55,76 +57,78 @@ const LoginAndSIgnIn = () => {
   };
   return (
     <>
-      {openLogin ? (
-        <div className={styles.LoginForm}>
-          <form onSubmit={submitLoinHandler}>
-            <p className="is-size-5">login</p>
-            <div>
-              <input
-                className="input is-primary"
-                placeholder="email"
-                required
-                type="email"
-                id="email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-              />
-            </div>
-            <div>
-              <input
-                className="input is-primary"
-                placeholder="password"
-                required
-                type="password"
-                id="password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-              />
-            </div>
-            <button type="submit" className="button is-primary">
-              Log In
-            </button>
-            <a onClick={openSignInFunction}>Create new account</a>
-          </form>
-        </div>
-      ) : (
-        ""
-      )}
-      {openSignIn ? (
-        <div className={styles.SigninForm}>
-          <form onSubmit={submitSignInHandler}>
-            <p className="is-size-5">Signin</p>
-            <div>
-              <input
-                className="input is-primary"
-                placeholder="email"
-                required
-                type="email"
-                id="email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-              />
-            </div>
-            <div>
-              <input
-                className="input is-primary"
-                placeholder="password"
-                required
-                type="password"
-                id="password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-              />
-            </div>
-            <button type="submit" className="button is-primary">
-              Sign In
-            </button>
-            <a onClick={openLoginFunction}>Log in with an existing email</a>
-          </form>
-        </div>
-      ) : (
-        ""
-      )}
+      <div>
+        {openLogin ? (
+          <div className={styles.LoginForm} id="login">
+            <form onSubmit={submitLoinHandler}>
+              <p className="is-size-5">login</p>
+              <div>
+                <input
+                  className="input is-primary"
+                  placeholder="email"
+                  required
+                  type="email"
+                  id="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                />
+              </div>
+              <div>
+                <input
+                  className="input is-primary"
+                  placeholder="password"
+                  required
+                  type="password"
+                  id="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                />
+              </div>
+              <button type="submit" className="button is-primary">
+                Log In
+              </button>
+              <a onClick={openSignInFunction}>Create new account</a>
+            </form>
+          </div>
+        ) : (
+          ""
+        )}
+        {openSignIn ? (
+          <div className={styles.SigninForm} id="signIn">
+            <form onSubmit={submitSignInHandler}>
+              <p className="is-size-5">Signin</p>
+              <div>
+                <input
+                  className="input is-primary"
+                  placeholder="email"
+                  required
+                  type="email"
+                  id="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                />
+              </div>
+              <div>
+                <input
+                  className="input is-primary"
+                  placeholder="password"
+                  required
+                  type="password"
+                  id="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                />
+              </div>
+              <button type="submit" className="button is-primary">
+                Sign In
+              </button>
+              <a onClick={openLoginFunction}>Log in with an existing email</a>
+            </form>
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
     </>
   );
 };

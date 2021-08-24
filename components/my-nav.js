@@ -5,8 +5,19 @@ import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { logOut } from "../store/slices/auth";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const Nav = () => {
+  const [togellDropdown, settogellDropdown] = useState(false);
+  // useEffect(() => {
+  //   window.addEventListener("click", function (e) {
+  //     if (e.target.className != "myNavBar_avatar__3FbMC") {
+  //       settogellDropdown(false);
+  //       // console.log("e.target.className");
+  //     }
+  //     // console.log(e.target.className);
+  //   });
+  // }, []);
+
   const [searchInput, setsearchInput] = useState("");
   const router = useRouter();
   const authSlice = useSelector((state) => state.authSlice);
@@ -22,14 +33,15 @@ const Nav = () => {
   };
   const logOutFunction = () => {
     dispatch(logOut());
-    let element = document.getElementById("dropdown-menu");
-    element.classList.toggle("is-active");
+    settogellDropdown(!togellDropdown);
+    // let element = document.getElementById("dropdown-menu");
+    // element.classList.toggle("is-active");
     router.push("/");
   };
   const toggleDropdown = () => {
-    let element = document.getElementById("dropdown-menu");
-    element.classList.toggle("is-active");
+    settogellDropdown(!togellDropdown);
   };
+
   return (
     <>
       <div className={`container is-fluid navbar ${styles.myNav}`}>
@@ -82,7 +94,7 @@ const Nav = () => {
               </div>
             </li>
             <li>
-              <div id="dropdown-menu" className="dropdown ">
+              <div id="dropdown-menu" className="dropdown is-active">
                 <div className="dropdown-trigger">
                   <button className={styles.searchBtn} onClick={toggleDropdown}>
                     {authSlice.isLogIn ? (
@@ -97,48 +109,52 @@ const Nav = () => {
                     )}
                   </button>
                 </div>
-                <div className="dropdown-menu" role="menu">
-                  <div className="dropdown-content">
-                    {authSlice.isLogIn ? (
-                      <li>
-                        <Link href="/profile">
-                          <a className="dropdown-item">profile</a>
-                        </Link>
-                      </li>
-                    ) : (
-                      ""
-                    )}
+                {togellDropdown ? (
+                  <div className="dropdown-menu" role="menu">
+                    <div className="dropdown-content">
+                      {authSlice.isLogIn ? (
+                        <li>
+                          <Link href="/profile">
+                            <a className="dropdown-item">profile</a>
+                          </Link>
+                        </li>
+                      ) : (
+                        ""
+                      )}
 
-                    {/* --------------------------- */}
-                    <Link href="/about">
-                      <a className="dropdown-item">ABOUT</a>
-                    </Link>
-                    {/* --------------------------- */}
+                      {/* --------------------------- */}
+                      <Link href="/about">
+                        <a className="dropdown-item">ABOUT</a>
+                      </Link>
+                      {/* --------------------------- */}
 
-                    <Popup
-                      trigger={
-                        <a className="dropdown-item">
-                          {!authSlice.isLogIn ? "Log In" : ""}
-                        </a>
-                      }
-                      modal
-                      nested
-                      position="top left"
-                    >
-                      <LoginAndSIgnIn />
-                    </Popup>
-                    {authSlice.isLogIn ? (
-                      <a
-                        className="dropdown-item"
-                        onClick={() => logOutFunction()}
+                      <Popup
+                        trigger={
+                          <a className="dropdown-item">
+                            {!authSlice.isLogIn ? "Log In" : ""}
+                          </a>
+                        }
+                        modal
+                        nested
+                        position="top left"
                       >
-                        Log Out
-                      </a>
-                    ) : (
-                      ""
-                    )}
+                        <LoginAndSIgnIn />
+                      </Popup>
+                      {authSlice.isLogIn ? (
+                        <a
+                          className="dropdown-item"
+                          onClick={() => logOutFunction()}
+                        >
+                          Log Out
+                        </a>
+                      ) : (
+                        ""
+                      )}
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  ""
+                )}
               </div>
             </li>
             {authSlice.isLogIn ? (
