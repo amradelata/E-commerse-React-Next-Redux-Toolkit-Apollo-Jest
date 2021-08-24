@@ -1,11 +1,15 @@
 import styles from "./myNavBar.module.css";
+import Popup from "reactjs-popup";
+
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { logOut } from "../store/slices/auth";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { adduser } from "../store/slices/auth";
 const Nav = () => {
   const [searchInput, setsearchInput] = useState("");
+
   const router = useRouter();
   const authSlice = useSelector((state) => state.authSlice);
   const CartSlice = useSelector((state) => state.CartSlice);
@@ -24,9 +28,22 @@ const Nav = () => {
     element.classList.toggle("is-active");
     router.push("/");
   };
-  const toggleDropdown = () => {
-    let element = document.getElementById("dropdown-menu");
-    element.classList.toggle("is-active");
+  // const toggleDropdown = () => {
+  //   let element = document.getElementById("dropdown-menu");
+  //   element.classList.toggle("is-active");
+  // };
+  const [openLogin, setopenLogin] = useState(true);
+  const [openSignIn, setopenSignIn] = useState(false);
+  const openLoginFunction = (e) => {
+    e.preventDefault();
+    setopenSignIn(!openSignIn);
+    setopenLogin(!openLogin);
+  };
+
+  const openSignInFunction = (e) => {
+    e.preventDefault();
+    setopenSignIn(!openSignIn);
+    setopenLogin(!openLogin);
   };
   return (
     <>
@@ -80,9 +97,9 @@ const Nav = () => {
               </div>
             </li>
             <li>
-              <div id="dropdown-menu" className="dropdown ">
-                <div className="dropdown-trigger">
-                  <button className={styles.searchBtn} onClick={toggleDropdown}>
+              <Popup
+                trigger={
+                  <button className={styles.searchBtn}>
                     {authSlice.isLogIn ? (
                       <p className={styles.userNmae}>
                         {authSlice.user.charAt(0)}
@@ -94,44 +111,83 @@ const Nav = () => {
                       />
                     )}
                   </button>
-                </div>
-                <div className="dropdown-menu" role="menu">
-                  <div className="dropdown-content">
-                    {authSlice.isLogIn ? (
-                      <li>
-                        <Link href="/profile">
-                          <a className="dropdown-item">profile</a>
-                        </Link>
-                      </li>
-                    ) : (
-                      ""
-                    )}
-                    <Link href="/about">
-                      <a className="dropdown-item">ABOUT</a>
-                    </Link>
+                }
+                nested
+                modal
+              >
+                <div className={styles.dropdownContent}>
+                  {authSlice.isLogIn ? (
+                    <li>
+                      <Link href="/profile">
+                        <a className="dropdown-item">profile</a>
+                      </Link>
+                    </li>
+                  ) : (
+                    ""
+                  )}
+                  <Link href="/about">
+                    <a className="dropdown-item">ABOUT</a>
+                  </Link>
 
-                    {!authSlice.isLogIn ? (
-                      <a href="#" className="dropdown-item">
-                        <Link href="/login">Log In</Link>
-                      </a>
-                    ) : (
-                      ""
-                    )}
+                  {!authSlice.isLogIn ? (
+                    <Popup
+                      trigger={
+                        <a href="#" className="dropdown-item">
+                          Log In
+                          {/* <Link href="/login">Log In</Link> */}
+                        </a>
+                      }
+                      modal
+                      nested
+                    >
+                      {openLogin ? (
+                        <div className={styles.LoginForm}>
+                          <form>
+                            <p>login</p>
+                            <input />
+                            <input />
+                            <button>supmit</button>
+                            <button onClick={openSignInFunction}>
+                              careat new account
+                            </button>
+                          </form>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                      {openSignIn ? (
+                        <div className={styles.SigninForm}>
+                          <form>
+                            <p>Signin</p>
+                            <input />
+                            <input />
+                            <button>supmit</button>
+                            <button onClick={openLoginFunction}>
+                              login with exest account
+                            </button>
+                          </form>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </Popup>
+                  ) : (
+                    ""
+                  )}
 
-                    {authSlice.isLogIn ? (
-                      <a
-                        href="#"
-                        className="dropdown-item"
-                        onClick={() => logOutFunction()}
-                      >
-                        Log Out
-                      </a>
-                    ) : (
-                      ""
-                    )}
-                  </div>
+                  {authSlice.isLogIn ? (
+                    <a
+                      href="#"
+                      className="dropdown-item"
+                      onClick={() => logOutFunction()}
+                    >
+                      Log Out
+                    </a>
+                  ) : (
+                    ""
+                  )}
                 </div>
-              </div>
+              </Popup>
             </li>
             {authSlice.isLogIn ? (
               <li className={styles.cartPtn}>
