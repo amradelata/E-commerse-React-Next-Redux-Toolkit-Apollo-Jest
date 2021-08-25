@@ -1,9 +1,12 @@
 import styles from "./Shipping.module.css";
 import Checkout from "./Checkout";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 const Shipping = () => {
+  // useEffect(() => {
+  //   setmyDisabled(false);
+  // }, []);
   const router = useRouter();
   const [FirstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -14,7 +17,8 @@ const Shipping = () => {
   const [City, setCity] = useState("");
   const [Address, setAddress] = useState("");
   const [Nearest, setNearest] = useState("");
-  const [myDisabled, setmyDisabled] = useState(true);
+  const [myDisabled, setmyDisabled] = useState(false);
+
   const nextStep = (e) => {
     e.preventDefault();
 
@@ -33,9 +37,9 @@ const Shipping = () => {
       Address.length >= 1 &&
       Nearest.length >= 1
     ) {
-      setmyDisabled(false);
-    } else {
       setmyDisabled(true);
+    } else {
+      setmyDisabled(false);
     }
   };
   return (
@@ -115,7 +119,7 @@ const Shipping = () => {
             </div>
             {/*  */}
             <button
-              disabled={myDisabled}
+              disabled={!myDisabled}
               className="button is-info"
               type="submit"
             >

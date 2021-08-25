@@ -3,20 +3,21 @@ import LoginAndSIgnIn from "./loginAndSIgnIn";
 import Popup from "reactjs-popup";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
+import { getSearchProdcutsData } from "../store/slices/products.slice";
 import { logOut } from "../store/slices/auth";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 const Nav = () => {
   const [togellDropdown, settogellDropdown] = useState(false);
-  // useEffect(() => {
-  //   window.addEventListener("click", function (e) {
-  //     if (e.target.className != "myNavBar_avatar__3FbMC") {
-  //       settogellDropdown(false);
-  //       // console.log("e.target.className");
-  //     }
-  //     // console.log(e.target.className);
-  //   });
-  // }, []);
+  useEffect(() => {
+    window.addEventListener("click", function (e) {
+      if (e.target.className != "myNavBar_userNmae__3NHK8") {
+        settogellDropdown(false);
+      } else {
+        settogellDropdown(true);
+      }
+    });
+  }, []);
 
   const [searchInput, setsearchInput] = useState("");
   const router = useRouter();
@@ -25,22 +26,17 @@ const Nav = () => {
   const dispatch = useDispatch();
   const searchFunction = (e) => {
     const myValue = e.target.value.toLowerCase();
-    console.log(myValue);
-    // async () => {
-    //   const data = await fetch(`http://localhost:3001/products?name=${myValue}`).then((res) => res.json())
-    //   console.log(data)
-    //   )
+    // console.log(myValue);
+    dispatch(getSearchProdcutsData(myValue));
   };
   const logOutFunction = () => {
     dispatch(logOut());
-    settogellDropdown(!togellDropdown);
-    // let element = document.getElementById("dropdown-menu");
-    // element.classList.toggle("is-active");
+
     router.push("/");
   };
-  const toggleDropdown = () => {
-    settogellDropdown(!togellDropdown);
-  };
+  // const search = () => {
+
+  // };
 
   return (
     <>
@@ -88,6 +84,7 @@ const Nav = () => {
                   type="text"
                   placeholder="Search Anything"
                 />
+                {/* onClick={() => search()} */}
                 <button className={styles.searchBtn}>
                   <img src="/./icons/search.svg" />
                 </button>
@@ -96,7 +93,7 @@ const Nav = () => {
             <li>
               <div id="dropdown-menu" className="dropdown is-active">
                 <div className="dropdown-trigger">
-                  <button className={styles.searchBtn} onClick={toggleDropdown}>
+                  <button className={styles.searchBtn}>
                     {authSlice.isLogIn ? (
                       <p className={styles.userNmae}>
                         {authSlice.user.charAt(0)}
@@ -104,7 +101,7 @@ const Nav = () => {
                     ) : (
                       <img
                         src="/./icons/avatar.svg"
-                        className={styles.avatar}
+                        className={styles.userNmae}
                       />
                     )}
                   </button>

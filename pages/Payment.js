@@ -1,10 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./Shipping.module.css";
 import Checkout from "./Checkout";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 const Payment = () => {
+  // useEffect(() => {
+  //   setmyDisabled(false);
+  // }, []);
   const CartSlice = useSelector((state) => state.CartSlice);
   const router = useRouter();
   const [CardNumber, setCardNumber] = useState("");
@@ -12,7 +15,7 @@ const Payment = () => {
   const [Expiration, setExpiration] = useState("");
   const [CVV, setCVV] = useState("");
 
-  const [myDisabled, setmyDisabled] = useState(true);
+  const [myDisabled, setmyDisabled] = useState(false);
   const [showForm, setshowForm] = useState(true);
   const nextStep = (e) => {
     e.preventDefault();
@@ -27,18 +30,18 @@ const Payment = () => {
       Expiration.length >= 1 &&
       CVV.length >= 1
     ) {
-      setmyDisabled(false);
-    } else {
       setmyDisabled(true);
+    } else {
+      setmyDisabled(false);
     }
   };
   const showFormfunction = () => {
-    setmyDisabled(true);
+    setmyDisabled(false);
     setshowForm(true);
   };
   const hiedFormFunction = () => {
     setshowForm(false);
-    setmyDisabled(false);
+    setmyDisabled(true);
   };
   return (
     <>
@@ -109,7 +112,7 @@ const Payment = () => {
         )}
       </div>
       <button
-        disabled={myDisabled}
+        disabled={!myDisabled}
         className={`button is-info ${styles.pamentbtn}`}
         // type="submit"
         onClick={nextStep}

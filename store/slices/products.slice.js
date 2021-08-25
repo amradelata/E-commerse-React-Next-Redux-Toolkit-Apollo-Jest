@@ -21,7 +21,9 @@ export const ProdcutsSlice = createSlice({
       state.productsArr = newArray;
       console.log(payload.item);
     },
-    setSearchProdcutsData(state, { payload }) {},
+    setSearchProdcutsData(state, { payload }) {
+      state.productsArr = payload;
+    },
   },
 });
 
@@ -38,7 +40,8 @@ export const getProdcutsData = () => async (dispatch) => {
 
 export const getSearchProdcutsData = (myValue) => async (dispatch) => {
   const data = await fetch(
-    `http://localhost:3001/products?name=${myValue}`
+    // http://localhost:3001/products?q=shoe
+    `http://localhost:3001/products?q=${myValue}`
   ).then((res) => res.json());
 
   dispatch(setSearchProdcutsData(data));

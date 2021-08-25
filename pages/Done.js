@@ -7,7 +7,7 @@ import { restMyCart } from "../store/slices/cart.slice";
 
 const Done = () => {
   const dispatch = useDispatch();
-  const [myDisabled, setmyDisabled] = useState(false);
+  const [myDisabled, setmyDisabled] = useState(true);
   useEffect(() => {
     dispatch(restMyCart());
   }, []);

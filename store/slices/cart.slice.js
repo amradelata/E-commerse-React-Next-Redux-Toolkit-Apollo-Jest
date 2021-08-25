@@ -8,6 +8,10 @@ export const CartSlice = createSlice({
   },
   reducers: {
     set_cart_array_value(state, { payload }) {
+      let theElementInCart = state.cart_products.find(
+        (element) => element.id === payload.id
+      );
+      console.log(theElementInCart);
       // state.totalPrice = 0;
       // state.cart_products = [];
       if (!state.cart_products.find((item) => item.id === payload.id)) {
