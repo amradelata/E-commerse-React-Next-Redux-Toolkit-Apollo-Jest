@@ -26,17 +26,14 @@ const Nav = () => {
   const dispatch = useDispatch();
   const searchFunction = (e) => {
     const myValue = e.target.value.toLowerCase();
-    // console.log(myValue);
     dispatch(getSearchProdcutsData(myValue));
+    router.push("/");
   };
   const logOutFunction = () => {
     dispatch(logOut());
 
     router.push("/");
   };
-  // const search = () => {
-
-  // };
 
   return (
     <>
@@ -84,14 +81,14 @@ const Nav = () => {
                   type="text"
                   placeholder="Search Anything"
                 />
-                {/* onClick={() => search()} */}
+
                 <button className={styles.searchBtn}>
                   <img src="/./icons/search.svg" />
                 </button>
               </div>
             </li>
             <li>
-              <div id="dropdown-menu" className="dropdown is-active">
+              <div className="dropdown is-active">
                 <div className="dropdown-trigger">
                   <button className={styles.searchBtn}>
                     {authSlice.isLogIn ? (
@@ -108,7 +105,7 @@ const Nav = () => {
                 </div>
                 {togellDropdown ? (
                   <div className="dropdown-menu" role="menu">
-                    <div className="dropdown-content">
+                    <div className="dropdown-content" id="dropdown-content">
                       {authSlice.isLogIn ? (
                         <li>
                           <Link href="/profile">

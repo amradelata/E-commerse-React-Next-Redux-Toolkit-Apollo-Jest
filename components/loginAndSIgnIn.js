@@ -32,6 +32,7 @@ const LoginAndSIgnIn = () => {
 
     dispatch(logindata(loginbody));
     document.getElementById("login").style.display = "none";
+    document.getElementById("dropdown-content").style.display = "none";
   };
   const submitSignInHandler = (e) => {
     e.preventDefault();
@@ -42,6 +43,7 @@ const LoginAndSIgnIn = () => {
 
     dispatch(adduser(body));
     document.getElementById("signIn").style.display = "none";
+    document.getElementById("dropdown-content").style.display = "none";
   };
 
   const openLoginFunction = (e) => {

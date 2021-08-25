@@ -821,6 +821,11 @@
       "email": "erty@me.com",
       "password": "$2a$10$3XX.wx8qrptQupBqocmu7elH/mxWzDfjYNa/XKTcUBsb68VOyybnm",
       "id": 40
+    },
+    {
+      "email": "weeee@me.com",
+      "password": "$2a$10$ECob4oCtYc/R9Lu6.S37c.ARyaPekJwhf/2be4gDHCVwdIHn1ou.6",
+      "id": 41
     }
   ]
 }
