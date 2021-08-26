@@ -34,6 +34,10 @@ const Nav = () => {
 
     router.push("/");
   };
+  const foucsSearchInput = () => {
+    document.getElementById("searchInput").focus();
+    // console.log(document.getElementById("searchInput"));
+  };
 
   return (
     <>
@@ -76,13 +80,14 @@ const Nav = () => {
 
               <div className={styles.searchBox}>
                 <input
+                  id="searchInput"
                   onChange={searchFunction}
                   className={styles.searchText}
                   type="text"
                   placeholder="Search Anything"
                 />
 
-                <button className={styles.searchBtn}>
+                <button className={styles.searchBtn} onClick={foucsSearchInput}>
                   <img src="/./icons/search.svg" />
                 </button>
               </div>
