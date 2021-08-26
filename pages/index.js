@@ -21,8 +21,8 @@ export default function Home() {
     dispatch(getProdcutsData());
   }, []);
   const addToCart = (item, index) => {
-    dispatch(set_cart_array_value(item, index));
-    dispatch(set_in_my_cart({ item, index }));
+    dispatch(set_cart_array_value({ item, index }));
+    // dispatch(set_in_my_cart({ item, index }));
   };
 
   return (

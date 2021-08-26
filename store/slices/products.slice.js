@@ -11,15 +11,15 @@ export const ProdcutsSlice = createSlice({
       // console.log(state.productsArr);
     },
     set_in_my_cart(state, { payload }) {
-      const newArray = state.productsArr.map((obj) => {
-        if (obj.id === payload.item.id) {
-          return { ...obj, in_my_cart: true };
-        } else {
-          return obj;
-        }
-      });
-      state.productsArr = newArray;
-      console.log(payload.item);
+      // const newArray = state.productsArr.map((obj) => {
+      //   if (obj.id === payload.item.id) {
+      //     return { ...obj, in_my_cart: true };
+      //   } else {
+      //     return obj;
+      //   }
+      // });
+      // state.productsArr = newArray;
+      console.log(state.productsArr);
     },
     setSearchProdcutsData(state, { payload }) {
       state.productsArr = payload;
