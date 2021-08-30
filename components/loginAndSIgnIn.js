@@ -12,6 +12,7 @@ const LoginAndSIgnIn = () => {
   const authSlice = useSelector((state) => state.authSlice);
   const [openLogin, setopenLogin] = useState(true);
   const [openSignIn, setopenSignIn] = useState(false);
+  const [showErorr, setshowErorr] = useState(false);
 
   useEffect(() => {
     if (authSlice.isLogIn) {
@@ -31,8 +32,17 @@ const LoginAndSIgnIn = () => {
     };
 
     dispatch(logindata(loginbody));
-    document.getElementById("login").style.display = "none";
-    document.getElementById("dropdown-content").style.display = "none";
+    console.log(authSlice.isLogIn);
+    if (authSlice.user) {
+      console.log(1);
+      // setshowErorr(false);
+    }
+    if (!authSlice.user) {
+      console.log(0);
+      // setshowErorr(true);
+    } else {
+      console.log(11);
+    }
   };
   const submitSignInHandler = (e) => {
     e.preventDefault();
@@ -63,6 +73,16 @@ const LoginAndSIgnIn = () => {
         {openLogin ? (
           <div className={styles.LoginForm} id="login">
             <form onSubmit={submitLoinHandler}>
+              {showErorr ? (
+                <div
+                  id="errorNotefecation"
+                  className={`notification is-danger ${styles.showNotification}`}
+                >
+                  something went wrong
+                </div>
+              ) : (
+                ""
+              )}
               <p className="is-size-5">login</p>
               <div>
                 <input

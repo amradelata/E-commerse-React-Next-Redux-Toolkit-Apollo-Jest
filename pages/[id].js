@@ -9,7 +9,7 @@ const singlePage = (props) => {
   if (!props.product) return "Loding";
   const dispatch = useDispatch();
   const addToCart = (item) => {
-    dispatch(set_cart_array_value(item));
+    dispatch(set_cart_array_value({ item }));
     // dispatch(set_in_my_cart({ item, index }));
   };
   return (

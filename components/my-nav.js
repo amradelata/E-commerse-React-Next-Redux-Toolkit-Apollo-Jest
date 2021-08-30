@@ -11,6 +11,7 @@ const Nav = () => {
   const [togellDropdown, settogellDropdown] = useState(false);
   useEffect(() => {
     window.addEventListener("click", function (e) {
+      // console.log(e.target.className);
       if (e.target.className != "myNavBar_userNmae__3NHK8") {
         settogellDropdown(false);
       } else {

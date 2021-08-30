@@ -4,15 +4,17 @@ export const CartSlice = createSlice({
   name: "cart",
   initialState: {
     cart_products: [],
-    totalPrice: "0",
+    totalPrice: 0,
   },
   reducers: {
     set_cart_array_value(state, { payload }) {
       // state.totalPrice = 0;
       // state.cart_products = [];
+      console.log(payload);
       if (!state.cart_products.find((item) => item.id === payload.item.id)) {
         let myCart = JSON.parse(JSON.stringify(payload.item));
         myCart.quantity = +1;
+
         Object.preventExtensions(myCart);
         state.cart_products.push(myCart);
         const StorMyTotalPrice = +state.totalPrice + +payload.item.price;
@@ -20,6 +22,7 @@ export const CartSlice = createSlice({
       } else {
         const StorMyTotalPrice = +state.totalPrice + +payload.item.price;
         state.totalPrice = StorMyTotalPrice;
+
         state.cart_products.forEach((element, index) => {
           if (element.id === payload.item.id) {
             console.log(element.id, index);
@@ -44,6 +47,7 @@ export const CartSlice = createSlice({
       const StorMyTotalPrice = +state.totalPrice + -payload.item.price;
       state.totalPrice = StorMyTotalPrice;
       state.cart_products[payload.index].quantity--;
+
       if (state.cart_products[payload.index].quantity === 0) {
         state.cart_products.splice(payload.index, 1);
       }

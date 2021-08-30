@@ -46,18 +46,18 @@ const singlecategory = (props) => {
                 </div>
               </a>
             </Link>
-            <footer className="card-content">
-              {authSlice.isLogIn && !item.in_my_cart ? (
+            {authSlice.isLogIn && !item.in_my_cart ? (
+              <footer className="card-content">
                 <button
                   className={styles.itemButton}
                   onClick={() => addToCart(item, index)}
                 >
                   add to cart
                 </button>
-              ) : (
-                ""
-              )}
-            </footer>
+              </footer>
+            ) : (
+              ""
+            )}
           </div>
         ))}
       </div>

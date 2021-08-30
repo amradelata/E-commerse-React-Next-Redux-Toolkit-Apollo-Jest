@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getProdcutsData } from "../store/slices/products.slice";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./home.module.css";
@@ -15,6 +15,7 @@ export default function Home() {
   const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
   const authSlice = useSelector((state) => state.authSlice);
   const CartSlice = useSelector((state) => state.CartSlice);
+  const [showNotification, setshowNotification] = useState(false);
 
   useEffect(() => {
     // ANY reducer or thunk function MUST be called inside a dispatch()
@@ -22,11 +23,20 @@ export default function Home() {
   }, []);
   const addToCart = (item, index) => {
     dispatch(set_cart_array_value({ item, index }));
-    // dispatch(set_in_my_cart({ item, index }));
+    setshowNotification(true);
+    setTimeout(() => setshowNotification(false), 2000);
   };
 
   return (
     <div className={`container is-fluid ${styles.dad}`}>
+      {showNotification ? (
+        <div className={`notification is-success ${styles.showNotification}`}>
+          product added to cart
+        </div>
+      ) : (
+        ""
+      )}
+
       <div className={styles.ProductNave}>
         <ProductNave />
       </div>
@@ -51,18 +61,18 @@ export default function Home() {
                 </div>
               </a>
             </Link>
-            <footer className="card-content">
-              {authSlice.isLogIn && !item.in_my_cart ? (
+            {authSlice.isLogIn && !item.in_my_cart ? (
+              <footer className="card-content">
                 <button
                   className={styles.itemButton}
                   onClick={() => addToCart(item, index)}
                 >
                   add to cart
                 </button>
-              ) : (
-                ""
-              )}
-            </footer>
+              </footer>
+            ) : (
+              ""
+            )}
           </div>
         ))}
       </div>

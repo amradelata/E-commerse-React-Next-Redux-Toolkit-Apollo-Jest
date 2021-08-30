@@ -4,7 +4,8 @@ export const authSlice = createSlice({
   name: "auth",
   initialState: {
     isLogIn: false,
-    user: "",
+    user: null,
+    showErorr: null,
   },
   reducers: {
     setUserOpject(state, { payload }) {
@@ -26,13 +27,19 @@ export const authSlice = createSlice({
       console.log(payload);
       if (payload.accessToken) {
         state.isLogIn = true;
+
         console.log("user here");
         state.user = payload.user.email;
-      } else {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("dropdown-content").style.display = "none";
+      }
+      if (payload === "Cannot find user") {
         state.isLogIn = false;
-        alert("user not here");
       }
     },
+    // showNotefecation(state){
+    //   state.showErorr = false;
+    // }
   },
 });
 
