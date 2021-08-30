@@ -26,3 +26,10 @@
   width: 25px;
   height: 30px;
 }
+
+@media only screen and (max-width: 700px) {
+  /* For mobile phones: */
+  .navTag {
+    display: none;
+  }
+}

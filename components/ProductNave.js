@@ -59,7 +59,7 @@ const ProductNave = () => {
   ];
   return (
     <div className={styles.myCategoriesDad}>
-      <p className="is-size-4">Categories</p>
+      <p className={`is-size-4 ${styles.navTag}`}>Categories</p>
       {listOfCategories.map((item) => (
         <Link href={`/category/${item.tag}`} key={item.id}>
           <a>
@@ -67,7 +67,7 @@ const ProductNave = () => {
               <div>
                 <img className={styles.Img} src={item.img_url} />
               </div>
-              <div>
+              <div className={styles.navTag}>
                 <p>{item.tag}</p>
               </div>
             </div>

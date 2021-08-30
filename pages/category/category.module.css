@@ -59,3 +59,14 @@
   width: 100%;
   border: none;
 }
+
+@media only screen and (max-width: 700px) {
+  /* For mobile phones: */
+  .myCards {
+    flex-direction: column;
+  }
+  .myCard {
+    width: calc(100% - 20px);
+    margin: 10px;
+  }
+}
