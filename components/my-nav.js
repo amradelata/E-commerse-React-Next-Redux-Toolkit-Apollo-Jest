@@ -39,26 +39,31 @@ const Nav = () => {
     document.getElementById("searchInput").focus();
     // console.log(document.getElementById("searchInput"));
   };
-
+  const openPhoneNave = () => {
+    document.getElementById("myNav").classList.toggle("toggleNav");
+  };
   return (
     <>
       <div className={`container is-fluid navbar ${styles.myNav}`}>
-        <ul className={styles.UL}>
+        <a
+          role="button"
+          className="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          onClick={() => openPhoneNave()}
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+
+        <ul className={styles.UL} id="myNav">
           <li>
             <Link href="/">
               <a className={styles.myLink}>SHOP</a>
             </Link>
           </li>
-          <a
-            role="button"
-            className="navbar-burger"
-            aria-label="menu"
-            aria-expanded="false"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
+
           <li>
             <Link href="/about">
               <a className={styles.myLink}>ABOUT</a>

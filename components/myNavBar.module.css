@@ -286,3 +286,15 @@
   transform: translateX(110%);
   transition: all var(--speed) ease;
 }
+@media only screen and (max-width: 600px) {
+  /* For mobile phones: */
+  .UL {
+    flex-direction: column;
+    position: absolute;
+    right: -99999px;
+  }
+  .UL > li .myLink {
+    margin-right: 0;
+    padding-bottom: 50px;
+  }
+}

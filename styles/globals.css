@@ -1,3 +1,15 @@
+.toggleNav {
+  width: 100%;
+  padding: 25px;
+  background-color: #cacaca;
+  color: white;
+  font-size: 25px;
+  box-sizing: border-box;
+  z-index: 999999999999;
+  right: 0;
+  
+}
+
 /*! bulma.io v0.6.2 | MIT License | github.com/jgthms/bulma */
 @-webkit-keyframes spinAround {
   from {
