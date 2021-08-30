@@ -41,3 +41,18 @@
 
   /* display: none; */
 }
+
+@media only screen and (max-width: 700px) {
+  /* For mobile phones: */
+  .userProfileImg,
+  .icons {
+    display: none;
+  }
+
+  .userProfileInfo {
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
