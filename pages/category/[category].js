@@ -16,8 +16,8 @@ const singlecategory = (props) => {
   //   dispatch(getProdcutsData());
   // }, []);
 
-  const addToCart = (product_obj) => {
-    dispatch(set_cart_array_value(product_obj));
+  const addToCart = (item, index) => {
+    dispatch(set_cart_array_value({ item, index }));
   };
 
   return (

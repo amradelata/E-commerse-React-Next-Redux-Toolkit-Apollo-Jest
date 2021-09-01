@@ -44,7 +44,7 @@ const Shipping = () => {
   };
   return (
     <>
-      <Checkout Shipping={myDisabled} />;
+      <Checkout Shipping={myDisabled} />
       <div className={styles.Checkout}>
         <form className={styles.MyForm} onSubmit={nextStep} onChange={desapuld}>
           <div className={styles.Personal}>
@@ -120,7 +120,7 @@ const Shipping = () => {
             {/*  */}
             <button
               disabled={!myDisabled}
-              className="button is-info"
+              className={`button is-info ${styles.Formbutton}`}
               type="submit"
             >
               Next

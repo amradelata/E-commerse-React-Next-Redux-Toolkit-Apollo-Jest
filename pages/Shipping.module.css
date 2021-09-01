@@ -128,3 +128,19 @@
 .Done > button {
   margin-top: 50px;
 }
+
+@media only screen and (max-width: 700px) {
+  /* For mobile phones: */
+  .haveWidth {
+    align-items: center;
+    align-content: stretch;
+    flex-direction: column;
+  }
+  .fullWidth {
+    /* display: none; */
+  }
+  .MyForm {
+    padding-bottom: 100px;
+    margin-bottom: 100px;
+  }
+}
