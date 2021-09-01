@@ -35,6 +35,22 @@
   margin-left: 25px;
   display: inline-block;
 }
+
+.EndUL {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.EndUL > li {
+  list-style: none;
+}
+
+.EndUL > li > p {
+  margin-left: 25px;
+  display: inline-block;
+}
+
 .cartPtn {
   position: relative;
 }
@@ -74,6 +90,13 @@
   font-weight: 700;
   text-transform: uppercase;
 }
+/* .EndUL > li .myLink {
+  margin-right: 50px;
+  color: #2d2d2d;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+} */
 .iconMargenLeft {
   margin: 5px 0 5px 50px;
 }
@@ -286,15 +309,55 @@
   transform: translateX(110%);
   transition: all var(--speed) ease;
 }
+.showInPhone {
+  display: none;
+}
 @media only screen and (max-width: 700px) {
   /* For mobile phones: */
   .UL {
+    width: 100%;
+    padding: 25px;
+    background-color: #eeeeee;
+    color: white;
+    font-size: 25px;
+    box-sizing: border-box;
     flex-direction: column;
     position: absolute;
+    z-index: 999999999999;
     right: -99999px;
+    transition: 2s ease-in-out;
   }
+
   .UL > li .myLink {
     margin-right: 0;
     padding-bottom: 50px;
+  }
+  .EndUL {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  .showInPhone {
+    display: inline-block;
+  }
+  .EndUL > li {
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .EndUL > li > a {
+    color: #2d2d2d;
+  }
+  .searchBox:hover > .searchText {
+    width: 150px;
+    padding: 0 6px;
+    margin-left: 20px;
+  }
+  .dropdownContent {
+    margin-left: 90px;
+  }
+  .LoginForm,
+  .SigninForm {
+    width: 90vw;
   }
 }

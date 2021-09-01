@@ -79,8 +79,13 @@ const Nav = () => {
             ""
           )}
         </ul>
-        <div className="navbar-end">
-          <ul className={styles.UL}>
+        <div className={`navbar-end ${styles.navbarEnd}`} id="myNavEnd">
+          <ul className={styles.EndUL}>
+            <li className={styles.showInPhone}>
+              <Link href="/">
+                <a className={styles.myLink}>SHOP</a>
+              </Link>
+            </li>
             <li>
               {/* //search */}
 
@@ -116,7 +121,10 @@ const Nav = () => {
                 </div>
                 {togellDropdown ? (
                   <div className="dropdown-menu" role="menu">
-                    <div className="dropdown-content" id="dropdown-content">
+                    <div
+                      className={`dropdown-content ${styles.dropdownContent}`}
+                      id="dropdown-content"
+                    >
                       {authSlice.isLogIn ? (
                         <li>
                           <Link href="/profile">

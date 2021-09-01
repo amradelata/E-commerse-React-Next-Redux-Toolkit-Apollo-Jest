@@ -1,11 +1,13 @@
 // import { useEffect } from "react";
 // import { getProdcutsData } from "../../store/slices/products.slice";
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import styles from "./category.module.css";
 import { set_cart_array_value } from "../../store/slices/cart.slice";
 import Link from "next/link";
 import ProductNave from "../../components/ProductNave";
 const singlecategory = (props) => {
+  const [showNotification, setshowNotification] = useState(false);
   if (!props.category) return "Loding";
   const dispatch = useDispatch();
   // const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
@@ -18,10 +20,17 @@ const singlecategory = (props) => {
 
   const addToCart = (item, index) => {
     dispatch(set_cart_array_value({ item, index }));
+    setshowNotification(true);
+    setTimeout(() => setshowNotification(false), 2000);
   };
 
   return (
     <div className={`container is-fluid ${styles.dad}`}>
+      {showNotification && (
+        <div className={`notification is-success ${styles.showNotification}`}>
+          product added to cart
+        </div>
+      )}
       <div className={styles.ProductNave}>
         <ProductNave />
       </div>
