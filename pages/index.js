@@ -29,13 +29,6 @@ export default function Home() {
 
   return (
     <div className={`container is-fluid ${styles.dad}`}>
-      {/* {showNotification ? (
-        <div className={`notification is-success ${styles.showNotification}`}>
-          product added to cart
-        </div>
-      ) : (
-        ""
-      )} */}
       {showNotification && (
         <div className={`notification is-success ${styles.showNotification}`}>
           product added to cart

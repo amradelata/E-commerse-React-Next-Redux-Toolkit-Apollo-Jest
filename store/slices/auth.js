@@ -6,19 +6,19 @@ export const authSlice = createSlice({
     isLogIn: false,
     user: null,
     showErorr: null,
+    ErorrMass: "",
   },
   reducers: {
     setUserOpject(state, { payload }) {
-      console.log(payload);
+      // console.log(payload);
       if (payload.accessToken) {
         state.isLogIn = true;
-        console.log("add new user");
-      } else {
-        state.isLogIn = false;
-        alert("something went wrong");
+        state.user = payload.user.email;
       }
-      state.user = payload.user.email;
-      console.log(state.user);
+      if (!payload.accessToken) {
+        state.isLogIn = false;
+        state.ErorrMass = payload;
+      }
     },
     logOut(state) {
       state.isLogIn = false;
@@ -35,11 +35,10 @@ export const authSlice = createSlice({
       }
       if (payload === "Cannot find user") {
         state.isLogIn = false;
+
+        state.ErorrMass = payload;
       }
     },
-    // showNotefecation(state){
-    //   state.showErorr = false;
-    // }
   },
 });
 

@@ -33,15 +33,12 @@ const LoginAndSIgnIn = () => {
 
     dispatch(logindata(loginbody));
     console.log(authSlice.isLogIn);
-    if (authSlice.user) {
-      console.log(1);
-      // setshowErorr(false);
+    if (authSlice.isLogIn) {
+      setshowErorr(false);
     }
-    if (!authSlice.user) {
-      console.log(0);
-      // setshowErorr(true);
-    } else {
-      console.log(11);
+    if (!authSlice.isLogIn) {
+      setTimeout(() => setshowErorr(true), 100);
+      setTimeout(() => setshowErorr(false), 2000);
     }
   };
   const submitSignInHandler = (e) => {
@@ -52,8 +49,16 @@ const LoginAndSIgnIn = () => {
     };
 
     dispatch(adduser(body));
-    document.getElementById("signIn").style.display = "none";
-    document.getElementById("dropdown-content").style.display = "none";
+
+    // if (authSlice.isLogIn) {
+    //   document.getElementById("signIn").style.display = "none";
+    //   document.getElementById("dropdown-content").style.display = "none";
+    //   setshowErorr(false);
+    // }
+    if (!authSlice.isLogIn) {
+      setTimeout(() => setshowErorr(true), 100);
+      setTimeout(() => setshowErorr(false), 2000);
+    }
   };
 
   const openLoginFunction = (e) => {
@@ -70,18 +75,16 @@ const LoginAndSIgnIn = () => {
   return (
     <>
       <div>
-        {openLogin ? (
+        {openLogin && (
           <div className={styles.LoginForm} id="login">
             <form onSubmit={submitLoinHandler}>
-              {showErorr ? (
+              {showErorr && (
                 <div
                   id="errorNotefecation"
                   className={`notification is-danger ${styles.showNotification}`}
                 >
-                  something went wrong
+                  {authSlice.ErorrMass}
                 </div>
-              ) : (
-                ""
               )}
               <p className="is-size-5">login</p>
               <div>
@@ -112,12 +115,19 @@ const LoginAndSIgnIn = () => {
               <a onClick={openSignInFunction}>Create new account</a>
             </form>
           </div>
-        ) : (
-          ""
         )}
-        {openSignIn ? (
+
+        {openSignIn && (
           <div className={styles.SigninForm} id="signIn">
             <form onSubmit={submitSignInHandler}>
+              {showErorr && (
+                <div
+                  id="errorNotefecation"
+                  className={`notification is-danger ${styles.showNotification}`}
+                >
+                  {authSlice.ErorrMass}
+                </div>
+              )}
               <p className="is-size-5">Signin</p>
               <div>
                 <input
@@ -147,8 +157,6 @@ const LoginAndSIgnIn = () => {
               <a onClick={openLoginFunction}>Log in with an existing email</a>
             </form>
           </div>
-        ) : (
-          ""
         )}
       </div>
     </>
