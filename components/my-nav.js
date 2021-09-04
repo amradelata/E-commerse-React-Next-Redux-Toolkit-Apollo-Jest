@@ -69,14 +69,12 @@ const Nav = () => {
               <a className={styles.myLink}>ABOUT</a>
             </Link>
           </li>
-          {authSlice.isLogIn ? (
+          {authSlice.isLogIn && (
             <li>
               <Link href="/profile">
                 <a className={styles.myLink}>profile</a>
               </Link>
             </li>
-          ) : (
-            ""
           )}
         </ul>
         <div className={`navbar-end ${styles.navbarEnd}`} id="myNavEnd">
@@ -119,27 +117,24 @@ const Nav = () => {
                     )}
                   </button>
                 </div>
-                {togellDropdown ? (
+
+                {togellDropdown && (
                   <div className="dropdown-menu" role="menu">
                     <div
                       className={`dropdown-content ${styles.dropdownContent}`}
                       id="dropdown-content"
                     >
-                      {authSlice.isLogIn ? (
+                      {authSlice.isLogIn && (
                         <li>
                           <Link href="/profile">
                             <a className="dropdown-item">profile</a>
                           </Link>
                         </li>
-                      ) : (
-                        ""
                       )}
 
-                      {/* --------------------------- */}
                       <Link href="/about">
                         <a className="dropdown-item">ABOUT</a>
                       </Link>
-                      {/* --------------------------- */}
 
                       <Popup
                         trigger={
@@ -153,24 +148,20 @@ const Nav = () => {
                       >
                         <LoginAndSIgnIn />
                       </Popup>
-                      {authSlice.isLogIn ? (
+                      {authSlice.isLogIn && (
                         <a
                           className="dropdown-item"
                           onClick={() => logOutFunction()}
                         >
                           Log Out
                         </a>
-                      ) : (
-                        ""
                       )}
                     </div>
                   </div>
-                ) : (
-                  ""
                 )}
               </div>
             </li>
-            {authSlice.isLogIn ? (
+            {authSlice.isLogIn && (
               <li className={styles.cartPtn}>
                 <Link href="/Cart">
                   <a>
@@ -187,8 +178,6 @@ const Nav = () => {
                   </a>
                 </Link>
               </li>
-            ) : (
-              ""
             )}
           </ul>
         </div>

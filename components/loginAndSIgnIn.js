@@ -33,11 +33,9 @@ const LoginAndSIgnIn = () => {
 
     dispatch(logindata(loginbody));
     console.log(authSlice.isLogIn);
-    if (authSlice.isLogIn) {
-      setshowErorr(false);
-    }
+    setshowErorr(false);
     if (!authSlice.isLogIn) {
-      setTimeout(() => setshowErorr(true), 100);
+      setTimeout(() => setshowErorr(true), 500);
       setTimeout(() => setshowErorr(false), 2000);
     }
   };
@@ -49,14 +47,9 @@ const LoginAndSIgnIn = () => {
     };
 
     dispatch(adduser(body));
-
-    // if (authSlice.isLogIn) {
-    //   document.getElementById("signIn").style.display = "none";
-    //   document.getElementById("dropdown-content").style.display = "none";
-    //   setshowErorr(false);
-    // }
+    setshowErorr(false);
     if (!authSlice.isLogIn) {
-      setTimeout(() => setshowErorr(true), 100);
+      setTimeout(() => setshowErorr(true), 500);
       setTimeout(() => setshowErorr(false), 2000);
     }
   };

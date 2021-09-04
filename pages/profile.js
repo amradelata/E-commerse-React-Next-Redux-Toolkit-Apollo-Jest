@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 import styles from "./profile.module.css";
 // import useUser from '../lib/useUser' ???????????????????????
@@ -8,12 +9,14 @@ const Profile = () => {
   // const { user } = useUser({ redirectTo: '/login' }) ????????????????????
 
   const authSlice = useSelector((state) => state.authSlice);
-
-  const [openSignIn, setopenSignIn] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
-    // document.getElementById("signIn").style.display = "none";
-    // document.getElementById("dropdown-content").style.display = "none";
+    if (!authSlice.isLogIn) {
+      {
+        router.push("/");
+      }
+    }
   }, [authSlice.isLogIn]);
   return (
     <>
