@@ -1016,6 +1016,16 @@
       "email": "adfsdfsdfmr@me.com",
       "password": "$2a$10$sX3jvkrSH1nOYlOyv0ASieYbZx51rN2pgSoQhuzQTjJzvP9q6mCvu",
       "id": 79
+    },
+    {
+      "email": "kmd@me.comsadsadasd",
+      "password": "$2a$10$rXoQRy99Yi0NqWcCrtO1FeT5M4x2mp8gk32KUY71FNwZlbneU6iYK",
+      "id": 80
+    },
+    {
+      "email": "ynm@me.com",
+      "password": "$2a$10$W7/AwNVRTMeWmBPnjHQiEeuq/U2hqUuJlsKI9bp7FQVOROFLPW.VW",
+      "id": 81
     }
   ]
 }

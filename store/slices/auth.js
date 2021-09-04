@@ -14,15 +14,16 @@ export const authSlice = createSlice({
       if (payload.accessToken) {
         state.isLogIn = true;
         state.user = payload.user.email;
+        document.getElementById("signIn").style.display = "none";
+        document.getElementById("dropdown-content").style.display = "none";
+        // document.getElementById("errorNotefecation").style.display = "none";
       }
       if (!payload.accessToken) {
         state.isLogIn = false;
         state.ErorrMass = payload;
       }
     },
-    logOut(state) {
-      state.isLogIn = false;
-    },
+
     UserLogIn(state, { payload }) {
       console.log(payload);
       if (payload.accessToken) {
@@ -32,12 +33,16 @@ export const authSlice = createSlice({
         state.user = payload.user.email;
         document.getElementById("login").style.display = "none";
         document.getElementById("dropdown-content").style.display = "none";
+        // document.getElementById("errorNotefecation").style.display = "none";
       }
       if (payload === "Cannot find user") {
         state.isLogIn = false;
 
         state.ErorrMass = payload;
       }
+    },
+    logOut(state) {
+      state.isLogIn = false;
     },
   },
 });
