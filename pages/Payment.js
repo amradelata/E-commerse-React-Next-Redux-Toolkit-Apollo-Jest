@@ -3,12 +3,15 @@ import styles from "./Shipping.module.css";
 import Checkout from "./Checkout";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { chickOutPayment } from "../store/slices/auth";
 
 const Payment = () => {
   // useEffect(() => {
   //   setmyDisabled(false);
   // }, []);
   const CartSlice = useSelector((state) => state.CartSlice);
+  const authSlice = useSelector((state) => state.authSlice);
+  const dispatch = useDispatch();
   const router = useRouter();
   const [CardNumber, setCardNumber] = useState("");
   const [Owner, setOwner] = useState("");
@@ -16,6 +19,7 @@ const Payment = () => {
   const [CVV, setCVV] = useState("");
 
   const [myDisabled, setmyDisabled] = useState(false);
+
   const [showForm, setshowForm] = useState(true);
   const nextStep = (e) => {
     e.preventDefault();
@@ -30,25 +34,27 @@ const Payment = () => {
       Expiration.length >= 1 &&
       CVV.length >= 1
     ) {
-      setmyDisabled(true);
+      // setmyDisabled(true);
+      dispatch(chickOutPayment(true));
     } else {
-      setmyDisabled(false);
+      dispatch(chickOutPayment(false));
     }
   };
   const showFormfunction = () => {
-    setmyDisabled(false);
+    dispatch(chickOutPayment(false));
     setshowForm(true);
   };
   const hiedFormFunction = () => {
     setshowForm(false);
-    setmyDisabled(true);
+    // setmyDisabled(true);
+    dispatch(chickOutPayment(true));
   };
   return (
     <>
-      <Checkout Payment={myDisabled} />
+      <Checkout />
       <div className={styles.Checkout}>
         <div className={styles.pamentMethod}>
-          <div class="control">
+          <div className="control">
             <div>
               <label className={styles.myLabelRadio}>
                 <input
@@ -112,7 +118,7 @@ const Payment = () => {
         )}
       </div>
       <button
-        disabled={!myDisabled}
+        disabled={!authSlice.Payment}
         className={`button is-info ${styles.pamentbtn}`}
         // type="submit"
         onClick={nextStep}

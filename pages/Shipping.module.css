@@ -115,6 +115,14 @@
 .Done {
   text-align: center;
 }
+.myDone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+}
 .Done > img {
   width: 100px;
   height: 100px;
@@ -126,7 +134,16 @@
   margin: 50px 0;
 }
 .Done > button {
-  margin-top: 50px;
+  cursor: pointer;
+  width: 400px;
+  color: #ccc;
+
+  display: block;
+  margin: auto;
+  margin-top: 35px;
+  border: none;
+  padding: 10px 0;
+  font-size: large;
 }
 
 @media only screen and (max-width: 700px) {

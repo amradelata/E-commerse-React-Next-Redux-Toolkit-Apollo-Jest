@@ -7,8 +7,21 @@ export const authSlice = createSlice({
     user: null,
     showErorr: null,
     ErorrMass: "",
+    Shipping: false,
+    Payment: false,
   },
   reducers: {
+    chickOutShipping(state, { payload }) {
+      state.Shipping = payload;
+    },
+    chickOutPayment(state, { payload }) {
+      state.Payment = payload;
+      // console.log(payload);
+    },
+    chickOutDone(state) {
+      state.Payment = false;
+      state.Shipping = false;
+    },
     setUserOpject(state, { payload }) {
       // console.log(payload);
       if (payload.accessToken) {
@@ -48,7 +61,14 @@ export const authSlice = createSlice({
 });
 
 //action
-export const { setUserOpject, logOut, UserLogIn } = authSlice.actions;
+export const {
+  setUserOpject,
+  logOut,
+  UserLogIn,
+  chickOutShipping,
+  chickOutPayment,
+  chickOutDone,
+} = authSlice.actions;
 // thunk
 export const adduser = (body) => async (dispatch) => {
   const data = await fetch("http://localhost:3001/register", {

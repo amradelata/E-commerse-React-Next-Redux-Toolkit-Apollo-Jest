@@ -1,50 +1,66 @@
 import styles from "./singlePage.module.css";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { set_cart_array_value } from "../store/slices/cart.slice";
 import { set_in_my_cart } from "../store/slices/products.slice";
 import authSlice from "../store/slices/auth";
 
 const singlePage = (props) => {
+  const [showNotification, setshowNotification] = useState(false);
   const authSlice = useSelector((state) => state.authSlice);
-  if (!props.product) return "Loding";
+  if (!props.product)
+    return (
+      <div className="container">
+        <p className="is-size-3">loading </p>
+      </div>
+    );
   const dispatch = useDispatch();
   const addToCart = (item) => {
+    setshowNotification(true);
+    setTimeout(() => setshowNotification(false), 2000);
     dispatch(set_cart_array_value({ item }));
     // dispatch(set_in_my_cart({ item, index }));
   };
   return (
-    <div className={styles.realatev}>
-      <div className={styles.ovarlay}></div>
-      <div className={`${styles.dad} container`}>
-        <div className={styles.start}>
-          <div
-            className={styles.Image}
-            style={{
-              backgroundImage: `url(${props.product.img_url})`,
-            }}
-          ></div>
+    <>
+      {showNotification && (
+        <div className={`notification is-success ${styles.showNotification}`}>
+          product added to cart
         </div>
-        <div className={styles.end}>
-          <p className="is-size-6">{props.product.category}</p>
-          <p className="is-size-3">{props.product.name}</p>
-          <p className="is-size-5">{props.product.price + " $"}</p>
-          <p className="is-size-6">
-            Lorem Ipsum is simply dummied text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy.
-          </p>
-          {authSlice.isLogIn ? (
-            <button
-              onClick={() => addToCart(props.product)}
-              className={styles.itemButton}
-            >
-              add to cart
-            </button>
-          ) : (
-            ""
-          )}
+      )}
+      <div className={styles.realatev}>
+        <div className={styles.ovarlay}></div>
+        <div className={`${styles.dad} container`}>
+          <div className={styles.start}>
+            <div
+              className={styles.Image}
+              style={{
+                backgroundImage: `url(${props.product.img_url})`,
+              }}
+            ></div>
+          </div>
+          <div className={styles.end}>
+            <p className="is-size-6">{props.product.category}</p>
+            <p className="is-size-3">{props.product.name}</p>
+            <p className="is-size-5">{props.product.price + " $"}</p>
+            <p className="is-size-6">
+              Lorem Ipsum is simply dummied text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy.
+            </p>
+            {authSlice.isLogIn ? (
+              <button
+                onClick={() => addToCart(props.product)}
+                className={styles.itemButton}
+              >
+                add to cart
+              </button>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

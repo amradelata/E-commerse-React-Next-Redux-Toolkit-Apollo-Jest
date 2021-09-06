@@ -1,12 +1,12 @@
 .showNotification {
   transition: visibility 0s, opacity 0.5s linear;
-  position: fixed;
-  bottom: 0;
-  right: 0%;
   z-index: 999999999;
   opacity: 1;
-  font-weight: bolder;
+  font-weight: bold;
   text-transform: uppercase;
+  text-align: center;
+  margin: 0 !important;
+  margin-bottom: 10px !important;
 }
 .myNav {
   padding: 15px 0;
@@ -58,12 +58,14 @@
   background-color: crimson;
   color: aliceblue;
   border-radius: 50%;
+  padding: auto;
   position: absolute;
-  width: 15px;
-  height: 15px;
-  top: 0;
-  right: 0;
-  line-height: 15px;
+  font-size: 15px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  top: -10px;
+  right: -10px;
 }
 
 .searchBox {
@@ -90,13 +92,21 @@
   font-weight: 700;
   text-transform: uppercase;
 }
-/* .EndUL > li .myLink {
-  margin-right: 50px;
-  color: #2d2d2d;
-  font-size: 15px;
-  font-weight: 700;
-  text-transform: uppercase;
+/* .UL > li .myLink::before {
+  content: "";
+  position: absolute;
+  transition: transform 0.5s ease;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background: #492059;
+  transform: translateX(-100%);
+}
+.UL > li .myLink:hover::before {
+  transform: translateX(0);
 } */
+
 .iconMargenLeft {
   margin: 5px 0 5px 50px;
 }
@@ -161,153 +171,65 @@
 .avatar {
   /* width: 35px; */
 }
-
+/* .mypopupDad {
+  position: fixed;
+  display: -moz-box;
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00000069;
+  align-items: center;
+  justify-content: space-around;
+  z-index: -9999;
+} */
 .LoginForm,
 .SigninForm {
   color: aliceblue;
   background-color: #2f3640;
-  border-radius: 6px;
-  text-align: center;
-  padding: 50px;
+  padding: 20px;
 }
-
-.LoginForm p,
-.SigninForm p {
-  margin-bottom: 20px;
+.LoginForm label,
+.SigninForm label {
+  display: block;
+  font-weight: bold;
 }
 
 .LoginForm input,
 .SigninForm input {
-  margin-bottom: 20px;
-  width: 500px;
+  margin: 10px 0;
+  width: 350px;
+  border: 1px solid #ddd;
+  background-color: #d7e6ff;
+  outline: none;
 }
 
 .LoginForm button,
 .SigninForm button {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display: block;
   width: 100%;
+  background-color: #371f72;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px;
+  border-radius: 0;
+  outline: none;
+}
+.LoginForm button:hover,
+.SigninForm button:hover {
+  color: #fff;
 }
 .LoginForm a:hover,
 .SigninForm a:hover {
   color: #3273dc;
 }
-
-/* ssssssssssssssssssssssssssssssssssssss */
-
-.navBar {
-  height: var(--nav-size);
-  background-color: var(--bg);
-  padding: 0 1rem;
-  border-bottom: var(--border);
-}
-
-.navBar > a {
-  color: var(--text-color);
-  text-decoration: none;
-}
-.navBar > ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navBarNav {
-  max-width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-.navItem {
-  width: calc(var(--nav-size) * 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.iconButton {
-  --button-size: calc(var(--nav-size) * 0.5);
-  width: var(--button-size);
-  height: var(--button-size);
-  background-color: var(--bg-accent);
-  border-radius: 50%;
-  padding: 5px;
-  margin: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: filter 300ms;
-}
-.iconButton:hover {
-  filter: brightness(1.2);
-}
-
-.iconButton > img {
-  fill: var(--text-color);
-  width: 20px;
-  height: 20px;
-}
-.DropDown {
-  position: absolute;
-  top: 58px;
-  width: 300px;
-  transform: translateX(-45%);
-  background-color: var(--bg);
-  border: var(--border);
-  border-radius: var(--border-radius);
-  padding: 1rem;
-  overflow: hidden;
-  z-index: 9999999;
-}
-
-.menuItem {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  border-radius: var(--border-radius);
-  transition: background var(--speed);
-  padding: 0.5rem;
-  color: var(--text-color);
-}
-
-.menuItem:hover {
-  background-color: #525357;
-}
-.icon-right {
-  margin-left: auto;
-}
-.menu {
-  width: 100%;
-}
-
-/* CSSTransition classes  */
-.menuprimaryenter {
-  position: absolute;
-  transform: translateX(-110%);
-}
-.menuprimaryenteractive {
-  transform: translateX(0%);
-  transition: all var(--speed) ease;
-}
-.menuprimaryexit {
-  position: absolute;
-}
-.menuprimaryexitactive {
-  transform: translateX(-110%);
-  transition: all var(--speed) ease;
-}
-
-.menusecondaryenter {
-  transform: translateX(110%);
-}
-.menusecondaryenteractive {
-  transform: translateX(0%);
-  transition: all var(--speed) ease;
-}
-.menusecondaryexit {
-}
-.menusecondaryexitactive {
-  transform: translateX(110%);
-  transition: all var(--speed) ease;
+.LoginForm span,
+.SigninForm span {
+  margin-right: 7px;
 }
 .showInPhone {
   display: none;
@@ -325,7 +247,7 @@
     position: absolute;
     z-index: 999999999999;
     right: -99999px;
-    transition: 2s ease-in-out;
+    transition: 1s ease;
   }
 
   .UL > li .myLink {
@@ -359,5 +281,9 @@
   .LoginForm,
   .SigninForm {
     width: 90vw;
+  }
+  .LoginForm input,
+  .SigninForm input {
+    width: 100%;
   }
 }

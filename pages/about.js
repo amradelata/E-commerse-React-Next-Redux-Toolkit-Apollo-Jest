@@ -9,13 +9,13 @@ const about = () => {
 
         <div className={styles.aboutCart}>
           <p className="is-size-5">
-            I believe that anyone can create stunning things so I invested in
-            myself physically by improving my lifestyle into a healthy lifestyle
-            and mentally by reading as much as possible and commitment to Web
-            Development because it combines creativity and logical thinking
+            Amr Adel Ata frontend developer with a focus in react and looking
+            for a job
             <br />
-            here you can find my website :{" "}
+            Here you can find more
             <a href="https://amradelata.com/">amradelata.com</a>
+            <a href="https://github.com/amradelata">github.com</a>
+            <a href="https://www.linkedin.com/in/amr-adel-ata/">linkedin.com</a>
           </p>
         </div>
       </div>

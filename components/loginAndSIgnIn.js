@@ -16,7 +16,7 @@ const LoginAndSIgnIn = () => {
 
   useEffect(() => {
     if (authSlice.isLogIn) {
-      router.push("/profile");
+      router.push("/");
     }
     if (!authSlice.isLogIn) {
       return;
@@ -36,7 +36,7 @@ const LoginAndSIgnIn = () => {
     setshowErorr(false);
     if (!authSlice.isLogIn) {
       setTimeout(() => setshowErorr(true), 500);
-      setTimeout(() => setshowErorr(false), 2000);
+      setTimeout(() => setshowErorr(false), 3000);
     }
   };
   const submitSignInHandler = (e) => {
@@ -49,8 +49,8 @@ const LoginAndSIgnIn = () => {
     dispatch(adduser(body));
     setshowErorr(false);
     if (!authSlice.isLogIn) {
-      setTimeout(() => setshowErorr(true), 500);
-      setTimeout(() => setshowErorr(false), 2000);
+      setTimeout(() => setshowErorr(true), 600);
+      setTimeout(() => setshowErorr(false), 3000);
     }
   };
 
@@ -79,10 +79,11 @@ const LoginAndSIgnIn = () => {
                   {authSlice.ErorrMass}
                 </div>
               )}
-              <p className="is-size-5">login</p>
+
               <div>
+                <label>Email</label>
                 <input
-                  className="input is-primary"
+                  className="input "
                   placeholder="email"
                   required
                   type="email"
@@ -92,8 +93,9 @@ const LoginAndSIgnIn = () => {
                 />
               </div>
               <div>
+                <label>Password</label>
                 <input
-                  className="input is-primary"
+                  className="input "
                   placeholder="password"
                   required
                   type="password"
@@ -102,9 +104,8 @@ const LoginAndSIgnIn = () => {
                   value={password}
                 />
               </div>
-              <button type="submit" className="button is-primary">
-                Log In
-              </button>
+              <button type="submit">Log In</button>
+              <span>New in shop?</span>
               <a onClick={openSignInFunction}>Create new account</a>
             </form>
           </div>
@@ -121,10 +122,11 @@ const LoginAndSIgnIn = () => {
                   {authSlice.ErorrMass}
                 </div>
               )}
-              <p className="is-size-5">Signin</p>
+
               <div>
+                <label>Email</label>
                 <input
-                  className="input is-primary"
+                  className="input "
                   placeholder="email"
                   required
                   type="email"
@@ -134,8 +136,9 @@ const LoginAndSIgnIn = () => {
                 />
               </div>
               <div>
+                <label>Password</label>
                 <input
-                  className="input is-primary"
+                  className="input "
                   placeholder="password"
                   required
                   type="password"
@@ -144,10 +147,9 @@ const LoginAndSIgnIn = () => {
                   value={password}
                 />
               </div>
-              <button type="submit" className="button is-primary">
-                Sign In
-              </button>
-              <a onClick={openLoginFunction}>Log in with an existing email</a>
+              <button type="submit">Sign In</button>
+              <span>Already have an account?</span>
+              <a onClick={openLoginFunction}>Log in</a>
             </form>
           </div>
         )}

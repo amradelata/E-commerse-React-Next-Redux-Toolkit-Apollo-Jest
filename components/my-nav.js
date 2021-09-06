@@ -20,7 +20,7 @@ const Nav = () => {
     });
   }, []);
 
-  const [searchInput, setsearchInput] = useState("");
+  // const [searchInput, setsearchInput] = useState("");
   const router = useRouter();
   const authSlice = useSelector((state) => state.authSlice);
   const CartSlice = useSelector((state) => state.CartSlice);
@@ -127,7 +127,7 @@ const Nav = () => {
                       {authSlice.isLogIn && (
                         <li>
                           <Link href="/profile">
-                            <a className="dropdown-item">profile</a>
+                            <a className="dropdown-item">Profile</a>
                           </Link>
                         </li>
                       )}
@@ -139,12 +139,11 @@ const Nav = () => {
                       <Popup
                         trigger={
                           <a className="dropdown-item">
-                            {!authSlice.isLogIn ? "Log In" : ""}
+                            {!authSlice.isLogIn && "Log In"}
                           </a>
                         }
                         modal
                         nested
-                        position="top left"
                       >
                         <LoginAndSIgnIn />
                       </Popup>

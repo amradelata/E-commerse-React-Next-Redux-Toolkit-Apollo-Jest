@@ -1,16 +1,18 @@
 import styles from "./Checkout.module.css";
+import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 const Checkout = (props) => {
+  const authSlice = useSelector((state) => state.authSlice);
   return (
     <>
       <div className={styles.stepsBar}>
         <div className={styles.step}>
           <div
             className={styles.circle}
-            // style={{ backgroundColor: !props.Shipping && "#ef5013" }}
+            style={{ backgroundColor: !authSlice.Shipping && "#ef5013" }}
           >
             <div className={styles.stepName}>shipping</div>
-            {props.Shipping ? (
+            {authSlice.Shipping ? (
               <img src="/./icons/checked.svg" />
             ) : (
               <div className={styles.number}>1</div>
@@ -22,9 +24,12 @@ const Checkout = (props) => {
         {/*  */}
 
         <div className={styles.step}>
-          <div className={styles.circle}>
+          <div
+            className={styles.circle}
+            style={{ backgroundColor: !authSlice.Payment && "#ef5013" }}
+          >
             <div className={styles.stepName}>payment</div>
-            {props.Payment ? (
+            {authSlice.Payment ? (
               <img src="/./icons/checked.svg" />
             ) : (
               <div className={styles.number}>2</div>
@@ -36,7 +41,10 @@ const Checkout = (props) => {
         {/*  */}
 
         <div className={styles.step}>
-          <div className={styles.circle}>
+          <div
+            className={styles.circle}
+            style={{ backgroundColor: !props.Done && "#ef5013" }}
+          >
             <div className={styles.stepName}>Done</div>
             {props.Done ? (
               <img src="/./icons/checked.svg" />

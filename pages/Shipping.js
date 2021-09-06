@@ -2,8 +2,12 @@ import styles from "./Shipping.module.css";
 import Checkout from "./Checkout";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import { chickOutShipping } from "../store/slices/auth";
 
 const Shipping = () => {
+  const authSlice = useSelector((state) => state.authSlice);
+
   // useEffect(() => {
   //   setmyDisabled(false);
   // }, []);
@@ -17,8 +21,8 @@ const Shipping = () => {
   const [City, setCity] = useState("");
   const [Address, setAddress] = useState("");
   const [Nearest, setNearest] = useState("");
-  const [myDisabled, setmyDisabled] = useState(false);
-
+  // const [myDisabled, setmyDisabled] = useState(false);
+  const dispatch = useDispatch();
   const nextStep = (e) => {
     e.preventDefault();
 
@@ -37,14 +41,15 @@ const Shipping = () => {
       Address.length >= 1 &&
       Nearest.length >= 1
     ) {
-      setmyDisabled(true);
+      // setmyDisabled(true);
+      dispatch(chickOutShipping(true));
     } else {
-      setmyDisabled(false);
+      dispatch(chickOutShipping(false));
     }
   };
   return (
     <>
-      <Checkout Shipping={myDisabled} />
+      <Checkout />
       <div className={styles.Checkout}>
         <form className={styles.MyForm} onSubmit={nextStep} onChange={desapuld}>
           <div className={styles.Personal}>
@@ -119,7 +124,7 @@ const Shipping = () => {
             </div>
             {/*  */}
             <button
-              disabled={!myDisabled}
+              disabled={!authSlice.Shipping}
               className={`button is-info ${styles.Formbutton}`}
               type="submit"
             >

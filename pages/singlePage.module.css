@@ -48,6 +48,16 @@
   border: none;
   margin-top: 20px;
 }
+.showNotification {
+  transition: visibility 0s, opacity 0.5s linear;
+  position: fixed;
+  bottom: 0;
+  right: 0%;
+  z-index: 999999999;
+  opacity: 1;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
 
 @media only screen and (max-width: 700px) {
   /* For mobile phones: */
