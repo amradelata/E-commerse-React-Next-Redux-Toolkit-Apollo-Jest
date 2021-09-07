@@ -28,13 +28,13 @@ To watch the project live check this video on youtube
 
 <!-- ![Alt text](/path/to/img.jpg "Optional title") -->
 
-![phone](/./icons/phone-1.PNG "phone")
-![phone](/./icons/phone-2.PNG "phone")
-![phone](/./icons/phone-3.PNG "phone")
-![phone](/./icons/phone-4.PNG "phone")
+![phone](/./public/icons/phone-1.PNG "phone")
+![phone](/./public/icons/phone-2.PNG "phone")
+![phone](/./public/icons/phone-3.PNG "phone")
+![phone](/./public/icons/phone-4.PNG "phone")
 
-![desktop](/./icons/full-1.PNG "desktop")
-![desktop](/./icons/full-2.PNG "desktop")
-![desktop](/./icons/full-3.PNG "desktop")
-![desktop](/./icons/full-4.PNG "desktop")
-![desktop](/./icons/full-5.PNG "desktop")
+![desktop](/./public/icons/full-1.PNG "desktop")
+![desktop](/./public/icons/full-2.PNG "desktop")
+![desktop](/./public/icons/full-3.PNG "desktop")
+![desktop](/./public/icons/full-4.PNG "desktop")
+![desktop](/./public/icons/full-5.PNG "desktop")
