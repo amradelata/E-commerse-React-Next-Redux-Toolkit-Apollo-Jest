@@ -65,4 +65,10 @@
     flex-direction: column;
     margin: 15px;
   }
+  .end {
+    text-align: center;
+  }
+  .end p {
+    margin: 20px 0;
+  }
 }

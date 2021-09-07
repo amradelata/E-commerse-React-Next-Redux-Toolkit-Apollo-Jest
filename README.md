@@ -25,3 +25,16 @@ To watch the project live check this video on youtube
 
 - [Desktop version](https://youtu.be/8H7ELDTqoFE) - Video explaining the steps (Desktop version).
 - [Phone version](https://youtu.be/gq_bVMvan-0) - Video explaining the steps (Phone version).
+
+<!-- ![Alt text](/path/to/img.jpg "Optional title") -->
+
+![phone](/./icons/phone-1.PNG "phone")
+![phone](/./icons/phone-2.PNG "phone")
+![phone](/./icons/phone-3.PNG "phone")
+![phone](/./icons/phone-4.PNG "phone")
+
+![desktop](/./icons/full-1.PNG "desktop")
+![desktop](/./icons/full-2.PNG "desktop")
+![desktop](/./icons/full-3.PNG "desktop")
+![desktop](/./icons/full-4.PNG "desktop")
+![desktop](/./icons/full-5.PNG "desktop")

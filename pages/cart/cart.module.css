@@ -113,12 +113,27 @@
 @media only screen and (max-width: 700px) {
   /* For mobile phones: */
   .cart {
-    align-items: center;
-    flex-direction: column;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0);
+
+    display: block;
   }
   .cartItems {
-    width: 100%;
-    margin-right: 0;
+    width: 95%;
+    margin: auto;
+    margin-bottom: 35px;
+  }
+  .cartItems > p {
+    padding: 20px 0;
+  }
+  .summary > p {
+    padding: 20px 0;
+  }
+  .summary {
+    width: 95%;
+    margin: auto;
     margin-bottom: 35px;
   }
 }
