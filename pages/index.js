@@ -27,6 +27,21 @@ export default function Home() {
     setTimeout(() => setshowNotification(false), 2000);
   };
 
+  if (!ProdcutsSlice.productsArr)
+    return (
+      <div className={styles.loding}>
+        <img src="/./icons/loding.gif" />
+      </div>
+    );
+  if (ProdcutsSlice.productsArr.length === 0) {
+    return (
+      <div className={styles.emptySearch}>
+        <p>No products match your search</p>
+        <p>search: shoes,coat or suit</p>
+        <img src="/./icons/illustrations/no-data.svg" />
+      </div>
+    );
+  }
   return (
     <div className={`container is-fluid ${styles.dad}`}>
       {showNotification && (

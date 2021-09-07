@@ -18,9 +18,8 @@ const Nav = () => {
         settogellDropdown(true);
       }
     });
-  }, []);
+  }, [togellDropdown]);
 
-  // const [searchInput, setsearchInput] = useState("");
   const router = useRouter();
   const authSlice = useSelector((state) => state.authSlice);
   const CartSlice = useSelector((state) => state.CartSlice);
@@ -37,7 +36,6 @@ const Nav = () => {
   };
   const foucsSearchInput = () => {
     document.getElementById("searchInput").focus();
-    // console.log(document.getElementById("searchInput"));
   };
   const openPhoneNave = () => {
     document.getElementById("myNav").classList.toggle("toggleNav");

@@ -70,7 +70,27 @@
   font-weight: bolder;
   text-transform: uppercase;
 }
-
+.emptySearch {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.emptySearch p {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+.loding {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loding img {
+  width: 250px;
+}
 @media only screen and (max-width: 700px) {
   /* For mobile phones: */
   .myCards {
