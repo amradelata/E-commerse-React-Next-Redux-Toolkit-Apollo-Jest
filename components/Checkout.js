@@ -1,7 +1,7 @@
-import styles from "./Checkout.module.css";
+import styles from "./CheckOut.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import Link from "next/link";
-const Checkout = (props) => {
+
+const CheckOut = (props) => {
   const authSlice = useSelector((state) => state.authSlice);
   return (
     <>
@@ -59,4 +59,4 @@ const Checkout = (props) => {
   );
 };
 
-export default Checkout;
+export default CheckOut;

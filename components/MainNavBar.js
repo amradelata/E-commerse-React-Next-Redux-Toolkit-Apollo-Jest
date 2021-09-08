@@ -1,5 +1,5 @@
 import styles from "./myNavBar.module.css";
-import LoginAndSIgnIn from "./loginAndSIgnIn";
+import LoginAndSignPopup from "./LoginAndSignPopup";
 import Popup from "reactjs-popup";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
@@ -7,7 +7,7 @@ import { getSearchProdcutsData } from "../store/slices/products.slice";
 import { logOut } from "../store/slices/auth";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-const Nav = () => {
+const MainNavBar = () => {
   const [togellDropdown, settogellDropdown] = useState(false);
   useEffect(() => {
     window.addEventListener("click", function (e) {
@@ -143,7 +143,7 @@ const Nav = () => {
                         modal
                         nested
                       >
-                        <LoginAndSIgnIn />
+                        <LoginAndSignPopup />
                       </Popup>
                       {authSlice.isLogIn && (
                         <a
@@ -160,7 +160,7 @@ const Nav = () => {
             </li>
             {authSlice.isLogIn && (
               <li className={styles.cartPtn}>
-                <Link href="/Cart">
+                <Link href="/cart">
                   <a>
                     <button className={styles.searchBtn}>
                       <img src="/./icons/cart.svg" className={styles.avatar} />
@@ -183,4 +183,4 @@ const Nav = () => {
     </>
   );
 };
-export default Nav;
+export default MainNavBar;

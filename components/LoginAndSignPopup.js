@@ -4,7 +4,7 @@ import { logindata } from "../store/slices/auth";
 import { adduser } from "../store/slices/auth";
 import { useRouter } from "next/router";
 import styles from "./myNavBar.module.css";
-const LoginAndSIgnIn = () => {
+const LoginAndSignPopup = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -157,4 +157,4 @@ const LoginAndSIgnIn = () => {
     </>
   );
 };
-export default LoginAndSIgnIn;
+export default LoginAndSignPopup;

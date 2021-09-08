@@ -5,7 +5,7 @@ import { addOne } from "../../store/slices/cart.slice";
 import { removeOne } from "../../store/slices/cart.slice";
 import styles from "./cart.module.css";
 
-const Cart = () => {
+const cart = () => {
   const Dispatch = useDispatch();
   const CartSlice = useSelector((state) => state.CartSlice);
 
@@ -102,7 +102,7 @@ const Cart = () => {
                   {CartSlice.totalPrice + "$"}
                 </span>
               </div>
-              <Link href="/Shipping" passHref>
+              <Link href="/shipping" passHref>
                 <a>
                   <button className={styles.CheckoutBtn}>Checkout</button>
                 </a>
@@ -125,4 +125,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default cart;

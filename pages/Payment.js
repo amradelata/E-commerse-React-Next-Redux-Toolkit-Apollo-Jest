@@ -1,11 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./Shipping.module.css";
-import Checkout from "../components/Checkout";
+import CheckOut from "../components/CheckOut";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { chickOutPayment } from "../store/slices/auth";
 
-const Payment = () => {
+const payment = () => {
   // useEffect(() => {
   //   setmyDisabled(false);
   // }, []);
@@ -24,7 +24,7 @@ const Payment = () => {
   const nextStep = (e) => {
     e.preventDefault();
 
-    router.push("/Done");
+    router.push("/done");
   };
 
   const desapuld = () => {
@@ -51,7 +51,7 @@ const Payment = () => {
   };
   return (
     <>
-      <Checkout />
+      <CheckOut />
       <div className={styles.Checkout}>
         <div className={styles.pamentMethod}>
           <div className="control">
@@ -129,4 +129,4 @@ const Payment = () => {
   );
 };
 
-export default Payment;
+export default payment;

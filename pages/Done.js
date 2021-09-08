@@ -1,5 +1,5 @@
 import styles from "./Shipping.module.css";
-import Checkout from "../components/Checkout";
+import CheckOut from "../components/CheckOut";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { chickOutDone } from "../store/slices/auth";
@@ -7,7 +7,7 @@ import Link from "next/link";
 
 import { restMyCart } from "../store/slices/cart.slice";
 
-const Done = () => {
+const done = () => {
   const authSlice = useSelector((state) => state.authSlice);
   const dispatch = useDispatch();
   const [myDisabled, setmyDisabled] = useState(true);
@@ -20,7 +20,7 @@ const Done = () => {
   };
   return (
     <div className={styles.myDone}>
-      <Checkout Done={myDisabled} />
+      <CheckOut Done={myDisabled} />
       <div className={styles.Done}>
         <img src="/./icons/checked.svg" />
         <p className="is-size-2">Congratulations!</p>
@@ -35,4 +35,4 @@ const Done = () => {
   );
 };
 
-export default Done;
+export default done;

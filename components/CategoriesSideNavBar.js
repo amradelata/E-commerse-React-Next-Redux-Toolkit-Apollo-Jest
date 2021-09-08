@@ -1,6 +1,6 @@
-import styles from "./ProductNave.module.css";
+import styles from "./CategoriesSideNavBar.module.css";
 import Link from "next/link";
-const ProductNave = () => {
+const CategoriesSideNavBar = () => {
   const listOfCategories = [
     {
       img_url: "/./icons/categories/select-all.svg",
@@ -78,4 +78,4 @@ const ProductNave = () => {
   );
 };
 
-export default ProductNave;
+export default CategoriesSideNavBar;

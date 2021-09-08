@@ -5,7 +5,7 @@ import { useState } from "react";
 import styles from "./category.module.css";
 import { set_cart_array_value } from "../../store/slices/cart.slice";
 import Link from "next/link";
-import ProductNave from "../../components/ProductNave";
+import CategoriesSideNavBar from "../../components/CategoriesSideNavBar";
 const singlecategory = (props) => {
   const [showNotification, setshowNotification] = useState(false);
   if (!props.category) return "Loding";
@@ -32,7 +32,7 @@ const singlecategory = (props) => {
         </div>
       )}
       <div className={styles.ProductNave}>
-        <ProductNave />
+        <CategoriesSideNavBar />
       </div>
 
       <div className={styles.myCards}>

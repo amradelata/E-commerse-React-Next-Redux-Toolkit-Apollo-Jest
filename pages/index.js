@@ -5,7 +5,7 @@ import styles from "./index.module.css";
 import { set_cart_array_value } from "../store/slices/cart.slice";
 import { set_in_my_cart } from "../store/slices/products.slice";
 import Link from "next/link";
-import ProductNave from "../components/ProductNave";
+import CategoriesSideNavBar from "../components/CategoriesSideNavBar";
 
 // import Header from "../components/Header";
 
@@ -50,7 +50,7 @@ export default function Home() {
         </div>
       )}
       <div className={styles.ProductNave}>
-        <ProductNave />
+        <CategoriesSideNavBar />
       </div>
 
       <div className={styles.myCards}>

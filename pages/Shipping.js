@@ -1,11 +1,11 @@
 import styles from "./Shipping.module.css";
-import Checkout from "../components/Checkout";
+import CheckOut from "../components/CheckOut";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { chickOutShipping } from "../store/slices/auth";
 
-const Shipping = () => {
+const shipping = () => {
   const authSlice = useSelector((state) => state.authSlice);
 
   // useEffect(() => {
@@ -26,7 +26,7 @@ const Shipping = () => {
   const nextStep = (e) => {
     e.preventDefault();
 
-    router.push("/Payment");
+    router.push("/payment");
   };
 
   const desapuld = () => {
@@ -49,7 +49,7 @@ const Shipping = () => {
   };
   return (
     <>
-      <Checkout />
+      <CheckOut />
       <div className={styles.Checkout}>
         <form className={styles.MyForm} onSubmit={nextStep} onChange={desapuld}>
           <div className={styles.Personal}>
@@ -137,4 +137,4 @@ const Shipping = () => {
   );
 };
 
-export default Shipping;
+export default shipping;
