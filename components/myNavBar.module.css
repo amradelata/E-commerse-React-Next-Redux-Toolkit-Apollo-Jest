@@ -69,51 +69,69 @@
 }
 
 .searchBox {
-  /* position: absolute;
-  top: 51%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
   background: #2f3640;
-
-  /* border-radius: 40px; */
-
-  /* padding: 0 5px; */
 }
 
-.searchBox:hover > .searchText {
+/* .searchBox:hover > .searchText {
   width: 240px;
   padding: 0 6px;
+} */
+.searchText {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: #000;
+  font-size: 16px;
+  font-weight: normal;
+  transition: 0.4s;
+  line-height: 50px;
+  width: 250px;
+  margin-right: -50px;
 }
+/* .showSearchInput {
+  
+} */
 
 .UL > li .myLink {
-  margin-right: 50px;
+  padding: 0;
+  outline: 0;
+  margin-right: 30px;
   color: #2d2d2d;
   font-size: 15px;
   font-weight: 700;
   text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
 }
-/* .UL > li .myLink::before {
+
+.UL > li .myLink::after {
   content: "";
   position: absolute;
-  transition: transform 0.5s ease;
+  bottom: -5px;
   left: 0;
-  bottom: 0;
   width: 100%;
-  height: 5px;
-  background: #492059;
-  transform: translateX(-100%);
-}
-.UL > li .myLink:hover::before {
-  transform: translateX(0);
-} */
+  height: 0.2em;
+  background-color: #ef5013;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
 
+  transform: scale(0);
+  transform-origin: center;
+}
+.UL > li .myLink:hover::after,
+.UL > li .myLink:focus::after {
+  opacity: 1;
+  transform: scale(1);
+}
+.UL > li .myLink:focus {
+  color: #ef5013;
+}
 .iconMargenLeft {
   margin: 5px 0 5px 50px;
 }
 .searchBtn {
-  /* color: #e84118; */
-  /* margin: 0 20px; */
-  /* background-color: #2f3640; */
   border: none;
   margin: 5px 0 5px 50px;
   float: right;
@@ -129,26 +147,6 @@
   text-decoration: none;
 }
 
-.searchText {
-  border: none;
-  background: none;
-  outline: none;
-  float: left;
-  padding: 0;
-  color: #000;
-  font-size: 16px;
-  font-weight: normal;
-  transition: 0.4s;
-  line-height: 50px;
-  width: 0px;
-  margin-right: -50px;
-
-  /*   width: 250px; */
-}
-.popup-overlay {
-  background: rgba(0, 0, 0, 0.5);
-}
-
 .popupContent {
   position: absolute;
   background-color: #fff;
@@ -159,97 +157,98 @@
   border: 1px solid #ccc;
   padding: 10px;
 }
-/* .dropdownContent {
-  position: absolute !important;
-  background-color: #fff;
-  top: 50%;
-  right: -628px;
-  border: 1px solid #ccc;
-  padding: 10px;
 
-} */
-.avatar {
-  /* width: 35px; */
-}
-/* .mypopupDad {
-  position: fixed;
-  display: -moz-box;
-  display: flex;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #00000069;
-  align-items: center;
-  justify-content: space-around;
-  z-index: -9999;
-} */
 .LoginForm,
 .SigninForm {
-  color: aliceblue;
-  background-color: #2f3640;
-  padding: 20px;
+  width: 400px;
+  background-color: #fff;
+  padding-bottom: 30px;
+  margin: 30px auto;
+  padding: 30px;
+  color: #000;
 }
 .LoginForm label,
 .SigninForm label {
-  display: block;
-  font-weight: bold;
+  font-weight: 500;
+  margin-bottom: 4px;
+  font-size: 14px;
 }
 
 .LoginForm input,
 .SigninForm input {
-  margin: 10px 0;
-  width: 350px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 42px;
+  line-height: 42px;
+  width: 100%;
+  padding: 0 12px;
   border: 1px solid #ddd;
-  background-color: #d7e6ff;
+  border-radius: 1px;
+  font-family: Montserrat, arial;
+  font-weight: 500;
+  background-color: #e8f0fe;
   outline: none;
 }
 
 .LoginForm button,
 .SigninForm button {
-  margin-bottom: 10px;
-  display: block;
   width: 100%;
+  padding: 12px;
   background-color: #371f72;
   color: #fff;
-  border: none;
+  border: 0;
+  outline: 0;
   font-size: 16px;
   font-weight: 500;
-  padding: 12px;
-  border-radius: 0;
-  outline: none;
+  margin: 10px 0 15px;
+  cursor: pointer;
 }
-.LoginForm button:hover,
-.SigninForm button:hover {
-  color: #fff;
+
+.LoginForm p,
+.SigninForm p {
+  color: #371f72;
+  padding: 0;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 8px;
+  display: inline-block;
+  cursor: pointer;
+  /* padding-bottom: 12px; */
 }
-.LoginForm a:hover,
-.SigninForm a:hover {
-  color: #3273dc;
-}
-.LoginForm span,
-.SigninForm span {
-  margin-right: 7px;
-}
+
 .showInPhone {
+  display: none;
+}
+.PhoneNav {
   display: none;
 }
 @media only screen and (max-width: 700px) {
   /* For mobile phones: */
   .UL {
+    display: none;
+  }
+  .PhoneNav {
+    display: block;
     width: 100%;
     padding: 25px;
     background-color: #eeeeee;
-    color: white;
-    font-size: 25px;
-    box-sizing: border-box;
-    flex-direction: column;
     position: absolute;
     z-index: 999999999999;
-    right: -99999px;
-    transition: 1s ease;
+    text-align: center;
   }
-
+  .PhoneNav li {
+    padding: 25px 0;
+  }
+  .PhoneNav li:hover {
+    background-color: #fff;
+    cursor: pointer;
+  }
+  .PhoneNav li a {
+    color: #000;
+    /* margin: 25px 0; */
+  }
   .UL > li .myLink {
     margin-right: 0;
     padding-bottom: 50px;
@@ -270,7 +269,7 @@
   .EndUL > li > a {
     color: #2d2d2d;
   }
-  .searchBox:hover > .searchText {
+  .searchText {
     width: 150px;
     padding: 0 6px;
     margin-left: 20px;

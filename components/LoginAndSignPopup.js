@@ -83,7 +83,7 @@ const LoginAndSignPopup = () => {
               <div>
                 <label>Email</label>
                 <input
-                  className="input "
+                  // className="input "
                   placeholder="email"
                   required
                   type="email"
@@ -95,7 +95,7 @@ const LoginAndSignPopup = () => {
               <div>
                 <label>Password</label>
                 <input
-                  className="input "
+                  // className="input "
                   placeholder="password"
                   required
                   type="password"
@@ -106,7 +106,7 @@ const LoginAndSignPopup = () => {
               </div>
               <button type="submit">Log In</button>
               <span>New in shop?</span>
-              <a onClick={openSignInFunction}>Create new account</a>
+              <p onClick={openSignInFunction}>Create new account</p>
             </form>
           </div>
         )}
@@ -126,7 +126,7 @@ const LoginAndSignPopup = () => {
               <div>
                 <label>Email</label>
                 <input
-                  className="input "
+                  // className="input "
                   placeholder="email"
                   required
                   type="email"
@@ -138,7 +138,7 @@ const LoginAndSignPopup = () => {
               <div>
                 <label>Password</label>
                 <input
-                  className="input "
+                  // className="input "
                   placeholder="password"
                   required
                   type="password"
@@ -149,7 +149,7 @@ const LoginAndSignPopup = () => {
               </div>
               <button type="submit">Sign In</button>
               <span>Already have an account?</span>
-              <a onClick={openLoginFunction}>Log in</a>
+              <p onClick={openLoginFunction}>Log in</p>
             </form>
           </div>
         )}

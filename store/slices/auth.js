@@ -27,9 +27,8 @@ export const authSlice = createSlice({
       if (payload.accessToken) {
         state.isLogIn = true;
         state.user = payload.user.email;
-        document.getElementById("signIn").style.display = "none";
-        document.getElementById("dropdown-content").style.display = "none";
-        // document.getElementById("errorNotefecation").style.display = "none";
+        // document.getElementById("signIn").style.display = "none";
+        // document.getElementById("dropdown-content").style.display = "none";
       }
       if (!payload.accessToken) {
         state.isLogIn = false;
@@ -44,9 +43,8 @@ export const authSlice = createSlice({
 
         console.log("user here");
         state.user = payload.user.email;
-        document.getElementById("login").style.display = "none";
-        document.getElementById("dropdown-content").style.display = "none";
-        // document.getElementById("errorNotefecation").style.display = "none";
+        // document.getElementById("login").style.display = "none";
+        // document.getElementById("dropdown-content").style.display = "none";
       }
       if (payload === "Cannot find user") {
         state.isLogIn = false;

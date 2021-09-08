@@ -6,6 +6,7 @@ import { set_cart_array_value } from "../store/slices/cart.slice";
 import { set_in_my_cart } from "../store/slices/products.slice";
 import Link from "next/link";
 import CategoriesSideNavBar from "../components/CategoriesSideNavBar";
+import ProductCard from "../components/ProductCard";
 
 // import Header from "../components/Header";
 
@@ -21,11 +22,6 @@ export default function Home() {
     // ANY reducer or thunk function MUST be called inside a dispatch()
     dispatch(getProdcutsData());
   }, []);
-  const addToCart = (item, index) => {
-    dispatch(set_cart_array_value({ item, index }));
-    setshowNotification(true);
-    setTimeout(() => setshowNotification(false), 2000);
-  };
 
   if (!ProdcutsSlice.productsArr)
     return (
@@ -44,48 +40,19 @@ export default function Home() {
   }
   return (
     <div className={`container is-fluid ${styles.dad}`}>
-      {showNotification && (
-        <div className={`notification is-success ${styles.showNotification}`}>
-          product added to cart
-        </div>
-      )}
       <div className={styles.ProductNave}>
         <CategoriesSideNavBar />
       </div>
 
       <div className={styles.myCards}>
         {ProdcutsSlice.productsArr.map((item, index) => (
-          <div key={item.id} className={`card ${styles.myCard}`}>
-            <Link href={`/${item.id}`} passHref>
-              <a>
-                <div className="card-content">
-                  <div>
-                    <div
-                      className={styles.Image}
-                      style={{
-                        backgroundImage: `url(${item.img_url})`,
-                      }}
-                    ></div>
-                  </div>
-                  <p className={styles.category}>{item.category}</p>
-                  <p className={styles.itemName}>{item.name}</p>
-                  <p className={styles.itemPrice}>{item.price + " $"}</p>
-                </div>
-              </a>
-            </Link>
-            {authSlice.isLogIn && !item.in_my_cart ? (
-              <footer className="card-content">
-                <button
-                  className={styles.itemButton}
-                  onClick={() => addToCart(item, index)}
-                >
-                  add to cart
-                </button>
-              </footer>
-            ) : (
-              ""
-            )}
-          </div>
+          <ProductCard
+            id={item.id}
+            img_url={item.img_url}
+            name={item.name}
+            category={item.category}
+            price={item.price}
+          />
         ))}
       </div>
     </div>

@@ -4,6 +4,7 @@ export const ProdcutsSlice = createSlice({
   name: "products",
   initialState: {
     productsArr: null,
+    searchArr: [],
   },
   reducers: {
     setProductsValue(state, { payload }) {
@@ -22,6 +23,7 @@ export const ProdcutsSlice = createSlice({
       console.log(state.productsArr);
     },
     setSearchProdcutsData(state, { payload }) {
+      // state.productsArr = payload;
       state.productsArr = payload;
     },
   },
@@ -43,6 +45,7 @@ export const getSearchProdcutsData = (myValue) => async (dispatch) => {
     // http://localhost:3001/products?q=shoe
     `http://localhost:3001/products?q=${myValue}`
   ).then((res) => res.json());
+  console.log(data);
 
   dispatch(setSearchProdcutsData(data));
 };
