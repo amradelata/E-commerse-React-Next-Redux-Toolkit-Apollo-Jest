@@ -13,10 +13,10 @@ const search = () => {
     );
   if (ProdcutsSlice.productsArr.length === 0) {
     return (
-      <div>
+      <div className={styles.emptySearch}>
         <p>No products match your search</p>
         <p>search: shoes,coat or suit</p>
-        <img src="/./icons/illustrations/no-data.svg" />/{" "}
+        <img src="/./icons/illustrations/no-data.svg" />
       </div>
     );
   }

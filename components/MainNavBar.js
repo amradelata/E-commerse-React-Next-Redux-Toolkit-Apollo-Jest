@@ -6,12 +6,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { getSearchProdcutsData } from "../store/slices/products.slice";
 import { logOut } from "../store/slices/auth";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 const MainNavBar = () => {
   const [togellDropdown, settogellDropdown] = useState(false);
   const [showPopUp, setshowPopUp] = useState(false);
   const [togglePhoneNav, settogglePhoneNav] = useState(false);
   const [showSearch, setshowSearch] = useState(false);
+  const searchInputRef = useRef();
   // useEffect(() => {
   //   window.addEventListener("click", function (e) {
   //     if (e.target.className != "myNavBar_userNmae__3NHK8") {
@@ -33,7 +34,7 @@ const MainNavBar = () => {
     if (e.keyCode === 13) {
       const myValue = e.target.value.toLowerCase();
       dispatch(getSearchProdcutsData(myValue));
-      router.push("/search");
+      router.push(`/search?name=${myValue}`);
     }
   };
   const logOutFunction = () => {
@@ -44,6 +45,7 @@ const MainNavBar = () => {
   const foucsSearchInput = () => {
     // document.getElementById("searchInput").focus();
     setshowSearch(!showSearch);
+    searchInputRef.current.focus();
   };
   const openPhoneNave = () => {
     settogglePhoneNav(!togglePhoneNav);
@@ -60,7 +62,7 @@ const MainNavBar = () => {
   };
   return (
     <>
-      <div className={`container is-fluid navbar ${styles.myNav}`}>
+      <nav className={`container is-fluid navbar ${styles.myNav}`}>
         <ul className={styles.UL}>
           <li>
             <Link href="/">
@@ -134,6 +136,7 @@ const MainNavBar = () => {
                   <input
                     onKeyDown={searchFunction}
                     className={styles.searchText}
+                    ref={searchInputRef}
                     type="text"
                     placeholder="Search Anything"
                   />
@@ -222,7 +225,7 @@ const MainNavBar = () => {
             )}
           </ul>
         </div>
-      </div>
+      </nav>
       <hr className={styles.myHr} />
 
       <div className={`modal ${showPopUp ? "is-active" : ""}`}>

@@ -82,6 +82,21 @@
   font-weight: bold;
   margin: 20px 0;
 }
+.fourOhFour {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgb(230, 230, 230);
+}
+.fourOhFour .emptySearch {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 .loding {
   position: absolute;
   top: 50%;
@@ -90,14 +105,4 @@
 }
 .loding img {
   width: 250px;
-}
-@media only screen and (max-width: 700px) {
-  /* For mobile phones: */
-  .myCards {
-    flex-direction: column;
-  }
-  .myCard {
-    width: calc(100% - 20px);
-    margin: 10px;
-  }
 }

@@ -106,7 +106,7 @@ const LoginAndSignPopup = () => {
               </div>
               <button type="submit">Log In</button>
               <span>New in shop?</span>
-              <p onClick={openSignInFunction}>Create new account</p>
+              <a onClick={openSignInFunction}>Create new account</a>
             </form>
           </div>
         )}
@@ -149,7 +149,7 @@ const LoginAndSignPopup = () => {
               </div>
               <button type="submit">Sign In</button>
               <span>Already have an account?</span>
-              <p onClick={openLoginFunction}>Log in</p>
+              <a onClick={openLoginFunction}>Log in</a>
             </form>
           </div>
         )}
