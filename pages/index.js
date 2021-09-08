@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { getProdcutsData } from "../store/slices/products.slice";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./home.module.css";
+import styles from "./index.module.css";
 import { set_cart_array_value } from "../store/slices/cart.slice";
 import { set_in_my_cart } from "../store/slices/products.slice";
 import Link from "next/link";

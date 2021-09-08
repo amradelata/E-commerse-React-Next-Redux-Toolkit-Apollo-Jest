@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./Shipping.module.css";
-import Checkout from "./Checkout";
+import Checkout from "../components/Checkout";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { chickOutPayment } from "../store/slices/auth";
