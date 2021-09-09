@@ -1,9 +1,9 @@
 import styles from "./singlePage.module.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { set_cart_array_value } from "../store/slices/cart.slice";
+import { set_cart_array_value } from "../../store/slices/cart.slice";
 
-import authSlice from "../store/slices/auth";
+import authSlice from "../../store/slices/auth";
 
 const singlePage = (props) => {
   const [showNotification, setshowNotification] = useState(false);

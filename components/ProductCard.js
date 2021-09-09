@@ -22,7 +22,7 @@ const ProductCard = (props) => {
         </div>
       )}
       <div key={props.id} className={`card ${styles.myCard}`}>
-        <Link href={`/${props.id}`} passHref>
+        <Link href={`/single-page/${props.id}`} passHref>
           <a>
             <div className="card-content">
               <div>
