@@ -13,23 +13,27 @@ const MainNavBar = () => {
   const [togglePhoneNav, settogglePhoneNav] = useState(false);
   const [showSearch, setshowSearch] = useState(false);
   const searchInputRef = useRef();
-  // useEffect(() => {
-  //   window.addEventListener("click", function (e) {
-  //     if (e.target.className != "myNavBar_userNmae__3NHK8") {
-  //       settogellDropdown(false);
-  //     } else {
-  //       settogellDropdown(true);
-  //     }
-  //     if (e.target.className === "modal-background") {
-  //       setshowPopUp(false);
-  //     }
-  //   });
-  // }, [togellDropdown]);
-
   const router = useRouter();
   const authSlice = useSelector((state) => state.authSlice);
   const CartSlice = useSelector((state) => state.CartSlice);
   const dispatch = useDispatch();
+  useEffect(() => {
+    // window.addEventListener("click", function (e) {
+    //   if (e.target.className != "myNavBar_userNmae__3NHK8") {
+    //     settogellDropdown(false);
+    //   } else {
+    //     settogellDropdown(true);
+    //   }
+    //   if (e.target.className === "modal-background") {
+    //     setshowPopUp(false);
+    //   }
+    // });
+    if (authSlice.isLogIn) {
+      setshowPopUp(false);
+      settogellDropdown(false);
+    }
+  }, [authSlice.isLogIn]);
+
   const searchFunction = (e) => {
     if (e.keyCode === 13) {
       const myValue = e.target.value.toLowerCase();
@@ -39,13 +43,13 @@ const MainNavBar = () => {
   };
   const logOutFunction = () => {
     dispatch(logOut());
-
+    settogellDropdown(false);
     router.push("/");
   };
   const foucsSearchInput = () => {
     // document.getElementById("searchInput").focus();
     setshowSearch(!showSearch);
-    searchInputRef.current.focus();
+    // searchInputRef.current.focus();
   };
   const openPhoneNave = () => {
     settogglePhoneNav(!togglePhoneNav);

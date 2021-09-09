@@ -5,7 +5,6 @@ export const authSlice = createSlice({
   initialState: {
     isLogIn: false,
     user: null,
-    showErorr: null,
     ErorrMass: "",
     Shipping: false,
     Payment: false,
@@ -16,19 +15,15 @@ export const authSlice = createSlice({
     },
     chickOutPayment(state, { payload }) {
       state.Payment = payload;
-      // console.log(payload);
     },
     chickOutDone(state) {
       state.Payment = false;
       state.Shipping = false;
     },
-    setUserOpject(state, { payload }) {
-      // console.log(payload);
+    setSignIn(state, { payload }) {
       if (payload.accessToken) {
         state.isLogIn = true;
         state.user = payload.user.email;
-        // document.getElementById("signIn").style.display = "none";
-        // document.getElementById("dropdown-content").style.display = "none";
       }
       if (!payload.accessToken) {
         state.isLogIn = false;
@@ -36,15 +31,13 @@ export const authSlice = createSlice({
       }
     },
 
-    UserLogIn(state, { payload }) {
+    setLogIn(state, { payload }) {
       console.log(payload);
       if (payload.accessToken) {
         state.isLogIn = true;
 
         console.log("user here");
         state.user = payload.user.email;
-        // document.getElementById("login").style.display = "none";
-        // document.getElementById("dropdown-content").style.display = "none";
       }
       if (payload === "Cannot find user") {
         state.isLogIn = false;
@@ -60,9 +53,9 @@ export const authSlice = createSlice({
 
 //action
 export const {
-  setUserOpject,
+  setSignIn,
   logOut,
-  UserLogIn,
+  setLogIn,
   chickOutShipping,
   chickOutPayment,
   chickOutDone,
@@ -77,7 +70,7 @@ export const adduser = (body) => async (dispatch) => {
     body: JSON.stringify(body),
   }).then((res) => res.json());
 
-  dispatch(setUserOpject(data));
+  dispatch(setSignIn(data));
 };
 
 export const logindata = (body) => async (dispatch) => {
@@ -89,7 +82,7 @@ export const logindata = (body) => async (dispatch) => {
     body: JSON.stringify(body),
   }).then((res) => res.json());
 
-  dispatch(UserLogIn(UserLogIndata));
+  dispatch(setLogIn(UserLogIndata));
 };
 
 export default authSlice.reducer;
