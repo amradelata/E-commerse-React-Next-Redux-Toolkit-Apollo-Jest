@@ -6,10 +6,10 @@ export const ProdcutsSlice = createSlice({
   initialState: {
     productsArr: [],
     // pagenation: [],
-    CurrentPage: 5, //pagenation
+    CurrentPage: 0, //pagenation
     nextPageNumber: 0,
     previousPageNumber: 0,
-    pagesCount: 0,
+    pagesCount: 10,
     firstPage: 0,
     lastPage: 0,
   },
@@ -21,12 +21,9 @@ export const ProdcutsSlice = createSlice({
       const convertToArray = payload.split("_page=", 5);
       state.nextPageNumber = convertToArray[3][0];
       state.previousPageNumber = convertToArray[2][0];
-      console.log(
-        convertToArray[1][0],
-        convertToArray[2][0],
-        convertToArray[3][0],
-        convertToArray[4][0]
-      );
+      state.pagesCount = convertToArray[4][0];
+
+      console.log(state.pagesCount + "000000000000000");
     },
   },
 });
@@ -42,10 +39,9 @@ export const getProdcutsData = (pagenumper) => async (dispatch) => {
 
     dispatch(setProductsValue(response.data));
     dispatch(setPagenation(response.headers.link));
-    console.log(response);
   } catch (error) {
     // handle error
-    // alert(error);
+    // console.warn(error);
   }
 };
 
