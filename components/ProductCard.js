@@ -3,6 +3,7 @@ import styles from "./ProductCard.module.css";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { set_cart_array_value } from "../store/slices/cart.slice";
+
 const ProductCard = (props) => {
   const authSlice = useSelector((state) => state.authSlice);
   const [showNotification, setshowNotification] = useState(false);
@@ -40,14 +41,14 @@ const ProductCard = (props) => {
           </a>
         </Link>
         {authSlice.isLogIn && (
-          <footer className="card-content">
+          <div className="card-content">
             <button
               className={styles.itemButton}
               onClick={() => addToCart(props)}
             >
               add to cart
             </button>
-          </footer>
+          </div>
         )}
       </div>
     </>

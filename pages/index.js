@@ -3,7 +3,7 @@ import { getProdcutsData } from "../store/slices/products.slice";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./index.module.css";
 import { set_cart_array_value } from "../store/slices/cart.slice";
-
+import MyPagenation from "../components/MyPagenation";
 import Link from "next/link";
 import CategoriesSideNavBar from "../components/CategoriesSideNavBar";
 import ProductCard from "../components/ProductCard";
@@ -54,6 +54,7 @@ export default function Home() {
             price={item.price}
           />
         ))}
+        <MyPagenation />
       </div>
     </div>
   );
