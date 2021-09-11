@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logindata } from "../store/slices/auth";
 import { adduser } from "../store/slices/auth";
@@ -13,15 +13,6 @@ const LoginAndSignPopup = () => {
   const [openLogin, setopenLogin] = useState(true);
   const [openSignIn, setopenSignIn] = useState(false);
   const [showErorr, setshowErorr] = useState(false);
-
-  useEffect(() => {
-    if (authSlice.isLogIn) {
-      router.push("/");
-    }
-    if (!authSlice.isLogIn) {
-      return;
-    }
-  }, [authSlice.isLogIn]);
 
   const submitLoinHandler = (e) => {
     e.preventDefault();

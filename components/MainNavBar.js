@@ -18,16 +18,6 @@ const MainNavBar = () => {
   const CartSlice = useSelector((state) => state.CartSlice);
   const dispatch = useDispatch();
   useEffect(() => {
-    // window.addEventListener("click", function (e) {
-    //   if (e.target.className != "myNavBar_userNmae__3NHK8") {
-    //     settogellDropdown(false);
-    //   } else {
-    //     settogellDropdown(true);
-    //   }
-    //   if (e.target.className === "modal-background") {
-    //     setshowPopUp(false);
-    //   }
-    // });
     if (authSlice.isLogIn) {
       setshowPopUp(false);
       settogellDropdown(false);

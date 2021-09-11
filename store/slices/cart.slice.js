@@ -12,11 +12,11 @@ export const CartSlice = createSlice({
       // state.cart_products = [];
       console.log(payload);
       if (!state.cart_products.find((item) => item.id === payload.item.id)) {
-        let myCart = JSON.parse(JSON.stringify(payload.item));
-        myCart.quantity = +1;
+        // let myCart = JSON.parse(JSON.stringify(payload.item));
+        payload.item.quantity = +1;
 
-        Object.preventExtensions(myCart);
-        state.cart_products.push(myCart);
+        // Object.preventExtensions(myCart);
+        state.cart_products.push(payload.item);
         const StorMyTotalPrice = +state.totalPrice + +payload.item.price;
         state.totalPrice = StorMyTotalPrice;
       } else {
