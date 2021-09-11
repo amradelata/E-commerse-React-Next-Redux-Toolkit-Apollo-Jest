@@ -28,8 +28,11 @@ const search = () => {
         </div>
 
         <div className={styles.myCards}>
-          {ProdcutsSlice.productsArr.map((item, index) => (
+          {ProdcutsSlice.productsArr.map((item) => (
             <ProductCard
+              key={item.id}
+              in_my_cart={item.in_my_cart}
+              discount={item.discount}
               id={item.id}
               img_url={item.img_url}
               name={item.name}

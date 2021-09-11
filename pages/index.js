@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { getProdcutsData } from "../store/slices/products.slice";
+import {
+  getProdcutsData,
+  if_item_in_cart,
+} from "../store/slices/products.slice";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./index.module.css";
-import { set_cart_array_value } from "../store/slices/cart.slice";
+// import { set_cart_array_value } from "../store/slices/cart.slice";
 import MyPagenation from "../components/MyPagenation";
 import Link from "next/link";
 import CategoriesSideNavBar from "../components/CategoriesSideNavBar";
@@ -18,10 +21,11 @@ export default function Home() {
   const CartSlice = useSelector((state) => state.CartSlice);
   const [showNotification, setshowNotification] = useState(false);
 
-  useEffect(() => {
-    // ANY reducer or thunk function MUST be called inside a dispatch()
-    dispatch(getProdcutsData());
-  }, []);
+  // useEffect(() => {
+  //   // ANY reducer or thunk function MUST be called inside a dispatch()
+  //   // dispatch(if_item_in_cart());
+  //   dispatch(getProdcutsData());
+  // }, [ProdcutsSlice.productsArr]);
 
   if (!ProdcutsSlice.productsArr)
     return (
@@ -45,8 +49,11 @@ export default function Home() {
       </div>
 
       <div className={styles.myCards}>
-        {ProdcutsSlice.productsArr.map((item, index) => (
+        {ProdcutsSlice.productsArr.map((item) => (
           <ProductCard
+            key={item.id}
+            in_my_cart={item.in_my_cart}
+            discount={item.discount}
             id={item.id}
             img_url={item.img_url}
             name={item.name}

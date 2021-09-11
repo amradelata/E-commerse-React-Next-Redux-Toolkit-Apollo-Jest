@@ -1,18 +1,34 @@
 import Link from "next/link";
 import styles from "./ProductCard.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { set_cart_array_value } from "../store/slices/cart.slice";
+import {
+  set_first_item_in_cart,
+  set_add_to_total_price,
+  set_second_item_in_cart,
+} from "../store/slices/cart.slice";
+import { set_in_my_cart } from "../store/slices/products.slice";
 
 const ProductCard = (props) => {
   const authSlice = useSelector((state) => state.authSlice);
+  const CartSlice = useSelector((state) => state.CartSlice);
+  // useEffect(() => {
+  //   // ANY reducer or thunk function MUST be called inside a dispatch()
+  //   dispatch(set_in_my_cart(props));
+  // }, [CartSlice.cart_products]);
+
   const [showNotification, setshowNotification] = useState(false);
   const dispatch = useDispatch();
   const addToCart = (item) => {
-    console.log(item);
-    dispatch(set_cart_array_value({ item }));
+    // if (CartSlice.cart_products.length > 1) {
+    //   dispatch(set_second_item_in_cart(item));
+    // }
+    // dispatch(set_first_item_in_cart(item));
+
+    // dispatch(set_add_to_total_price(item));
     setshowNotification(true);
     setTimeout(() => setshowNotification(false), 2000);
+    dispatch(set_in_my_cart(item));
   };
 
   return (
@@ -22,7 +38,8 @@ const ProductCard = (props) => {
           product added to cart
         </div>
       )}
-      <div key={props.id} className={`card ${styles.myCard}`}>
+
+      <div className={`card ${styles.myCard}`}>
         <Link href={`/single-page/${props.id}`} passHref>
           <a>
             <div className="card-content">
@@ -37,10 +54,14 @@ const ProductCard = (props) => {
               <p className={styles.category}>{props.category}</p>
               <p className={styles.itemName}>{props.name}</p>
               <p className={styles.itemPrice}>{props.price + " $"}</p>
+
+              <p className={styles.itemPrice}>{CartSlice.itemPrice + " $"}</p>
+
+              <p className={styles.category}>{props.discounts}</p>
             </div>
           </a>
         </Link>
-        {authSlice.isLogIn && (
+        {authSlice.isLogIn && !props.in_my_cart ? (
           <div className="card-content">
             <button
               className={styles.itemButton}
@@ -49,6 +70,8 @@ const ProductCard = (props) => {
               add to cart
             </button>
           </div>
+        ) : (
+          ""
         )}
       </div>
     </>

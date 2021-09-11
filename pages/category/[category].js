@@ -16,8 +16,11 @@ const singlecategory = (props) => {
       </div>
 
       <div className={styles.myCards}>
-        {props.category.map((item, index) => (
+        {props.category.map((item) => (
           <ProductCard
+            key={item.id}
+            in_my_cart={item.in_my_cart}
+            discount={item.discount}
             id={item.id}
             img_url={item.img_url}
             name={item.name}

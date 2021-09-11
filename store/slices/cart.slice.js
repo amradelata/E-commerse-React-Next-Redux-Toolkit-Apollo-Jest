@@ -5,31 +5,35 @@ export const CartSlice = createSlice({
   initialState: {
     cart_products: [],
     totalPrice: 0,
+    itemPrice: 0,
   },
   reducers: {
-    set_cart_array_value(state, { payload }) {
-      // state.totalPrice = 0;
+    set_first_item_in_cart(state, { payload }) {
       // state.cart_products = [];
-      console.log(payload);
-      if (!state.cart_products.find((item) => item.id === payload.item.id)) {
-        // let myCart = JSON.parse(JSON.stringify(payload.item));
-        payload.item.quantity = +1;
+      console.log(payload.price);
 
-        // Object.preventExtensions(myCart);
-        state.cart_products.push(payload.item);
-        const StorMyTotalPrice = +state.totalPrice + +payload.item.price;
-        state.totalPrice = StorMyTotalPrice;
-      } else {
-        const StorMyTotalPrice = +state.totalPrice + +payload.item.price;
-        state.totalPrice = StorMyTotalPrice;
+      if (!state.cart_products.find((item) => item.id === payload.id)) {
+        let myCart = JSON.parse(JSON.stringify(payload));
+        myCart.quantity = +1;
+        Object.preventExtensions(myCart);
 
-        state.cart_products.forEach((element, index) => {
-          if (element.id === payload.item.id) {
-            console.log(element.id, index);
-            state.cart_products[index].quantity++;
-          }
-        });
+        state.cart_products.push(myCart);
       }
+    },
+    set_second_item_in_cart(state, { payload }) {
+      // state.cart_products = [];
+
+      state.cart_products.forEach((element, index) => {
+        if (element.id === payload.id) {
+          console.log(element.id, index);
+          state.cart_products[index].quantity++;
+        }
+      });
+    },
+    set_add_to_total_price(state, { payload }) {
+      // state.totalPrice = 0;
+      const StorMyTotalPrice = +state.totalPrice + +payload.price;
+      state.totalPrice = StorMyTotalPrice;
     },
     remove_item_from_cart(state, { payload }) {
       state.cart_products = state.cart_products.filter(
@@ -61,8 +65,10 @@ export const CartSlice = createSlice({
 
 // export actions
 export const {
-  set_cart_array_value,
+  set_first_item_in_cart,
+  set_second_item_in_cart,
   remove_item_from_cart,
+  set_add_to_total_price,
   addOne,
   removeOne,
   restMyCart,
