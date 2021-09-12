@@ -1,4 +1,3 @@
-import { style } from "dom-helpers";
 import { useDispatch, useSelector } from "react-redux";
 import { getProdcutsData } from "../store/slices/products.slice";
 import { useEffect } from "react";
@@ -13,7 +12,6 @@ const MyPagenation = () => {
     const arraypagesCount = Array(num)
       .fill("-")
       .map((x, i) => i + 1);
-    console.log(arraypagesCount);
   }, []);
 
   const next = () => {
@@ -29,45 +27,13 @@ const MyPagenation = () => {
       <div className={styles.agenation}>
         <div className={styles.agenationContent}>
           <li onClick={() => previous()}>&#8249;</li>
-          <ul>
+          {/* <ul>
             <li>
               <Link href={`${ProdcutsSlice.previousPageNumber - 1}`}>
                 <a>1</a>
               </Link>
             </li>
-            <li>
-              <Link href={`${ProdcutsSlice.previousPageNumber - 1}`}>
-                <a>2</a>
-              </Link>
-            </li>
-            <li>
-              <Link href={`${ProdcutsSlice.previousPageNumber - 1}`}>
-                <a>3</a>
-              </Link>
-            </li>
-            <li>
-              <Link href={`${ProdcutsSlice.previousPageNumber - 1}`}>
-                <a>4</a>
-              </Link>
-            </li>
-            <li>
-              <Link href={`${ProdcutsSlice.previousPageNumber - 1}`}>
-                <a>5</a>
-              </Link>
-            </li>
-            <li>
-              <Link href={`${ProdcutsSlice.previousPageNumber - 1}`}>
-                <a>6</a>
-              </Link>
-            </li>
-          </ul>
-          {/* <ul>
-            {arraypagesCount.map((index) => (
-              <li>{index}</li>
-            ))}
-          </ul> 
-          {ProdcutsSlice.pagesCount}
-          {arraypagesCount}*/}
+          </ul> */}
 
           <li onClick={() => next()}>&#8250;</li>
         </div>
