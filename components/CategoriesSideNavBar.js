@@ -59,7 +59,7 @@ const CategoriesSideNavBar = () => {
   ];
   return (
     <div className={styles.myCategoriesDad}>
-      <p className={`is-size-4 ${styles.navTag}`}>Categories</p>
+      <p className={styles.navTag}>Categories</p>
       {listOfCategories.map((item) => (
         <Link href={`/category/${item.tag}`} key={item.id}>
           <a>
@@ -67,7 +67,7 @@ const CategoriesSideNavBar = () => {
               <div>
                 <img className={styles.Img} src={item.img_url} />
               </div>
-              <div className={styles.navTag}>
+              <div>
                 <p>{item.tag}</p>
               </div>
             </div>

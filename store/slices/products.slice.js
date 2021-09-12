@@ -12,22 +12,21 @@ export const ProdcutsSlice = createSlice({
     pagesCount: 10,
     firstPage: 0,
     lastPage: 0,
-    a7a: true,
   },
   reducers: {
     setProductsValue(state, { payload }) {
       state.productsArr = payload;
     },
     set_in_my_cart(state, { payload }) {
-      const newArray = state.productsArr.map((obj) => {
-        if (obj.id === payload.id) {
-          return { ...obj, in_my_cart: true };
-        } else {
-          return obj;
-        }
-      });
-      state.productsArr = newArray;
-      console.log(state.productsArr);
+      // const newArray = state.productsArr.map((obj) => {
+      //   if (obj.id === payload.id) {
+      //     return { ...obj, in_my_cart: true };
+      //   } else {
+      //     return obj;
+      //   }
+      // });
+      // state.productsArr = newArray;
+      console.log(payload);
     },
     setPagenation(state, { payload }) {
       const convertToArray = payload.split("_page=", 5);
@@ -35,7 +34,7 @@ export const ProdcutsSlice = createSlice({
       state.previousPageNumber = convertToArray[2][0];
       state.pagesCount = convertToArray[4][0];
 
-      console.log(state.pagesCount + "000000000000000");
+      console.log(state.pagesCount);
     },
   },
 });
@@ -71,20 +70,14 @@ export const getSearchProdcutsData = (myValue) => async (dispatch) => {
   }
 };
 
-// export const if_item_in_cart = () => async (dispatch) => {
-//   const newArray = state.productsArr.map((obj) => {
-//     if (obj.id === payload.id) {
-//       return { ...obj, in_my_cart: true };
-//     } else {
-//       return obj;
-//     }
-//   });
-//   try {
-//     const res = await axios.post("http://localhost:3001/products", {
-//       newArray,
-//     });
-//     console.log(res.data);
-//   } catch (error) {}
-// };
+export const if_item_in_cart = (newArray) => async (dispatch) => {
+  try {
+    const res = await axios.post("http://localhost:3001/products", {
+      newArray,
+    });
+    dispatch(set_in_my_cart(res.data));
+    // console.log(res.data);
+  } catch (error) {}
+};
 
 export default ProdcutsSlice.reducer;

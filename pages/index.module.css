@@ -2,17 +2,25 @@
   display: flex;
   justify-content: space-between;
 }
-
+.productsandProductsNav {
+  width: calc(100% - 245px);
+}
 .myCards {
   display: flex;
   flex-flow: row wrap;
   /* margin: auto; */
   width: 85% !important;
   /* display: none; */
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0 -8px;
 }
 .ProductNave {
-  width: 15%;
-  margin-top: 10px;
+  /* width: 15%;
+  margin-top: 10px; */
+  width: 220px;
+  margin-right: 25px;
 }
 .myCard {
   width: calc(25% - 20px);

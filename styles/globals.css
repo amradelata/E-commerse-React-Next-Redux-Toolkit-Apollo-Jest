@@ -4,7 +4,8 @@
   right: 0;
 }
 body {
-  background-color: #f1f2f6;
+  font-family: Montserrat, arial !important;
+  background-color: #f8f8f8;
 }
 
 /*! bulma.io v0.6.2 | MIT License | github.com/jgthms/bulma */

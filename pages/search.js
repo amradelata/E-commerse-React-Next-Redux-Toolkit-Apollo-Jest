@@ -26,20 +26,22 @@ const search = () => {
         <div className={styles.ProductNave}>
           <CategoriesSideNavBar />
         </div>
-
-        <div className={styles.myCards}>
-          {ProdcutsSlice.productsArr.map((item) => (
-            <ProductCard
-              key={item.id}
-              in_my_cart={item.in_my_cart}
-              discount={item.discount}
-              id={item.id}
-              img_url={item.img_url}
-              name={item.name}
-              category={item.category}
-              price={item.price}
-            />
-          ))}
+        <div className={styles.productsandProductsNav}>
+          <div className={styles.myCards}>
+            {ProdcutsSlice.productsArr.map((item) => (
+              <ProductCard
+                key={item.id}
+                in_my_cart={item.in_my_cart}
+                discount={item.discount}
+                id={item.id}
+                img_url={item.img_url}
+                name={item.name}
+                category={item.category}
+                price={item.price}
+                discount={item.discount}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </>

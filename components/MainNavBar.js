@@ -126,15 +126,15 @@ const MainNavBar = () => {
               {/* //search */}
 
               <div className={styles.searchBox}>
-                {showSearch && (
-                  <input
-                    onKeyDown={searchFunction}
-                    className={styles.searchText}
-                    ref={searchInputRef}
-                    type="text"
-                    placeholder="Search Anything"
-                  />
-                )}
+                <input
+                  onKeyDown={searchFunction}
+                  className={` ${
+                    showSearch ? styles.searchTextActiv : styles.searchText
+                  }`}
+                  type="text"
+                  placeholder="Search Anything"
+                  onClick={foucsSearchInput}
+                />
 
                 <button className={styles.searchBtn} onClick={foucsSearchInput}>
                   <img src="/./icons/search.svg" />
@@ -168,35 +168,43 @@ const MainNavBar = () => {
 
                 {/* {togellDropdown && ( */}
                 <div className="dropdown-menu" role="menu">
-                  <div
-                    className={`dropdown-content ${styles.dropdownContent}`}
-                    id="dropdown-content"
-                  >
+                  <div className="dropdown-content" id="dropdown-content">
                     {authSlice.isLogIn && (
-                      <li>
+                      <div>
                         <Link href="/profile">
-                          <a className="dropdown-item">Profile</a>
+                          <div className={`dropdown-item ${styles.navItem}`}>
+                            <a>
+                              <p>Signed in as</p>
+                              {authSlice.user.slice(0, 3)}
+                            </a>
+                          </div>
                         </Link>
-                      </li>
+                      </div>
                     )}
 
                     <Link href="/about">
-                      <a className="dropdown-item">ABOUT</a>
+                      <div className={`dropdown-item ${styles.navItem}`}>
+                        <a>ABOUT</a>
+                      </div>
                     </Link>
-                    <a className="dropdown-item" onClick={() => OpnPopUp()}>
-                      {!authSlice.isLogIn && "Log In"}
+
+                    <a onClick={() => OpnPopUp()}>
+                      {!authSlice.isLogIn && (
+                        <div className={`dropdown-item ${styles.navItem}`}>
+                          <a>Log In</a>
+                        </div>
+                      )}
                     </a>
                     {authSlice.isLogIn && (
-                      <a
-                        className="dropdown-item"
+                      <div
                         onClick={() => logOutFunction()}
+                        className={`dropdown-item ${styles.navItem}`}
                       >
-                        Log Out
-                      </a>
+                        <a>Log Out</a>
+                      </div>
                     )}
                   </div>
                 </div>
-                {/* // )} */}
               </div>
             </li>
             {authSlice.isLogIn && (
@@ -204,7 +212,10 @@ const MainNavBar = () => {
                 <Link href="/cart">
                   <a>
                     <button className={styles.searchBtn}>
-                      <img src="/./icons/cart.svg" className={styles.avatar} />
+                      <img
+                        src="/./icons/cart.svg"
+                        className={styles.cartIcon}
+                      />
                       {CartSlice.cart_products.length < 1 ? (
                         ""
                       ) : (

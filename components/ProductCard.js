@@ -7,11 +7,15 @@ import {
   set_add_to_total_price,
   set_second_item_in_cart,
 } from "../store/slices/cart.slice";
-import { set_in_my_cart } from "../store/slices/products.slice";
+import {
+  set_in_my_cart,
+  if_item_in_cart,
+} from "../store/slices/products.slice";
 
 const ProductCard = (props) => {
   const authSlice = useSelector((state) => state.authSlice);
   const CartSlice = useSelector((state) => state.CartSlice);
+  const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
   // useEffect(() => {
   //   // ANY reducer or thunk function MUST be called inside a dispatch()
   //   dispatch(set_in_my_cart(props));
@@ -20,15 +24,25 @@ const ProductCard = (props) => {
   const [showNotification, setshowNotification] = useState(false);
   const dispatch = useDispatch();
   const addToCart = (item) => {
-    // if (CartSlice.cart_products.length > 1) {
-    //   dispatch(set_second_item_in_cart(item));
-    // }
-    // dispatch(set_first_item_in_cart(item));
+    if (CartSlice.cart_products.length > 1) {
+      dispatch(set_second_item_in_cart(item));
+    }
+    dispatch(set_first_item_in_cart(item));
 
-    // dispatch(set_add_to_total_price(item));
+    dispatch(set_add_to_total_price(item));
     setshowNotification(true);
     setTimeout(() => setshowNotification(false), 2000);
-    dispatch(set_in_my_cart(item));
+
+    // dispatch(set_in_my_cart(item));
+    const newArray = ProdcutsSlice.productsArr.map((obj) => {
+      if (obj.id === item.id) {
+        return { ...obj, in_my_cart: true };
+      } else {
+        return obj;
+      }
+    });
+
+    dispatch(if_item_in_cart(newArray));
   };
 
   return (
@@ -42,7 +56,7 @@ const ProductCard = (props) => {
       <div className={`card ${styles.myCard}`}>
         <Link href={`/single-page/${props.id}`} passHref>
           <a>
-            <div className="card-content">
+            <div className={styles.content}>
               <div>
                 <div
                   className={styles.Image}
@@ -53,25 +67,28 @@ const ProductCard = (props) => {
               </div>
               <p className={styles.category}>{props.category}</p>
               <p className={styles.itemName}>{props.name}</p>
-              <p className={styles.itemPrice}>{props.price + " $"}</p>
-
-              <p className={styles.itemPrice}>{CartSlice.itemPrice + " $"}</p>
-
-              <p className={styles.category}>{props.discounts}</p>
+              {props.discount > 1 && (
+                <p className={styles.discount}>
+                  {props.price + props.discount + "$"}
+                </p>
+              )}
+              <p className={styles.itemPrice}>{props.price + "$"}</p>
             </div>
           </a>
         </Link>
-        {authSlice.isLogIn && !props.in_my_cart ? (
-          <div className="card-content">
+        {authSlice.isLogIn && (
+          <div className={styles.content}>
             <button
               className={styles.itemButton}
               onClick={() => addToCart(props)}
             >
-              add to cart
+              {props.in_my_cart ? (
+                <span> In my cart</span>
+              ) : (
+                <span> Add to cart</span>
+              )}
             </button>
           </div>
-        ) : (
-          ""
         )}
       </div>
     </>

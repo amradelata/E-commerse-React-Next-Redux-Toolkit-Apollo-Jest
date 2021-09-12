@@ -9,20 +9,23 @@
   margin-bottom: 10px !important;
 }
 .myNav {
-  padding: 15px 0;
+  padding: 5px 0;
   margin: 0 !important;
   padding-left: 32px;
 
   padding-right: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .myHr {
   margin: 0;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
 .userNmae {
   color: #2d2d2d;
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: bolder;
   text-transform: uppercase;
 }
 .UL {
@@ -59,17 +62,19 @@
   position: relative;
 }
 .cartNum {
-  background-color: crimson;
-  color: aliceblue;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  padding: auto;
+  border: 2px solid #fff;
+  background-color: #ef5013;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
   position: absolute;
-  font-size: 15px;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  top: -10px;
-  right: -10px;
+  top: 3px;
+  right: -5px;
 }
 
 .searchBox {
@@ -91,7 +96,22 @@
   font-weight: normal;
   transition: 0.4s;
   line-height: 50px;
+  width: 70px;
+  margin-right: -50px;
+}
+.searchTextActiv {
   width: 250px;
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: #000;
+  font-size: 16px;
+  font-weight: normal;
+  transition: 0.4s;
+  line-height: 50px;
+
   margin-right: -50px;
 }
 /* .showSearchInput {
@@ -137,10 +157,10 @@
 }
 .searchBtn {
   border: none;
-  margin: 5px 0 5px 50px;
+  margin: 5px 0 5px 30px;
   float: right;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   /* background: #ccc; */
   display: flex;
@@ -149,6 +169,7 @@
   transition: 0.4s;
   cursor: pointer;
   text-decoration: none;
+  background-color: #fff;
 }
 
 .popupContent {
@@ -228,6 +249,25 @@
 .PhoneNav {
   display: none;
 }
+.navItem {
+  margin: 2px 0;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.navItem:hover {
+  background-color: #371f72;
+  color: #fff;
+}
+.navItem:hover a {
+  color: #fff;
+}
+.navItem a {
+  color: #000;
+
+  /* padding: 10px;
+  width: 100%; */
+  /* background-color: bisque; */
+}
 @media only screen and (max-width: 700px) {
   /* For mobile phones: */
   .UL {
@@ -278,9 +318,7 @@
     padding: 0 6px;
     margin-left: 20px;
   }
-  .dropdownContent {
-    margin-left: 90px;
-  }
+
   .LoginForm,
   .SigninForm {
     width: 90vw;

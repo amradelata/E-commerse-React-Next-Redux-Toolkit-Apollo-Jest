@@ -1,17 +1,18 @@
-.myCards {
-  display: flex;
-  flex-flow: row wrap;
-  /* margin: auto; */
-  width: 85% !important;
-  /* display: none; */
-}
-.ProductNave {
-  width: 15%;
-  margin-top: 10px;
-}
 .myCard {
-  width: calc(25% - 20px);
+  width: calc(100% / 4 - 16px);
   margin: 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  padding: 8px 0;
+  margin: 0 8px 20px;
+}
+.myCard .content {
+  padding: 0 16px;
+}
+.myCard p {
+  margin: 0;
+  padding: 0;
+  font-weight: bolder;
 }
 
 .Image {
@@ -27,24 +28,35 @@
 .category {
   color: #787878;
   font-size: 14px;
-  margin: 12px 0 0;
+  margin: 12px 0 0 !important;
 }
 
 .itemName {
   font-size: 18px;
   font-weight: 600;
-  margin: 4px 0 8px;
   cursor: pointer;
   outline: 0;
   color: black;
+  margin: 4px 0 8px !important;
 }
 .itemPrice {
   font-size: 15px;
   font-weight: bold;
   color: #ef5013;
+  display: inline-block;
+  margin-left: 20px;
+}
+.discount {
+  color: #787878;
+  font-size: 14px;
+  margin: 12px 0 0;
+  text-decoration: line-through;
+  display: inline-block;
+  margin-right: 8px !important;
 }
 
 .itemButton {
+  margin-top: 12px 0;
   padding: 11px 20px;
   background-color: #371f72;
   color: #fff;

@@ -2,73 +2,25 @@
   display: flex;
   justify-content: space-between;
 }
-
+.productsandProductsNav {
+  width: calc(100% - 245px);
+}
 .myCards {
   display: flex;
   flex-flow: row wrap;
   /* margin: auto; */
   width: 85% !important;
   /* display: none; */
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0 -8px;
 }
 .ProductNave {
-  width: 15%;
-  margin-top: 10px;
-}
-.myCard {
-  width: calc(25% - 20px);
-  margin: 10px;
+  width: 220px;
+  margin-right: 25px;
 }
 
-.Image {
-  /* max-width: 92%;
-  max-height: 92%; */
-  width: 100%;
-  height: 200px;
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.category {
-  color: #787878;
-  font-size: 14px;
-  margin: 12px 0 0;
-}
-
-.itemName {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 4px 0 8px;
-  cursor: pointer;
-  outline: 0;
-  color: black;
-}
-.itemPrice {
-  font-size: 15px;
-  font-weight: bold;
-  color: #ef5013;
-}
-
-.itemButton {
-  padding: 11px 20px;
-  background-color: #371f72;
-  color: #fff;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  width: 100%;
-  border: none;
-}
-.showNotification {
-  transition: visibility 0s, opacity 0.5s linear;
-  position: fixed;
-  bottom: 0;
-  right: 0%;
-  z-index: 999999999;
-  opacity: 1;
-  font-weight: bolder;
-  text-transform: uppercase;
-}
 .loding {
   position: absolute;
   top: 50%;
