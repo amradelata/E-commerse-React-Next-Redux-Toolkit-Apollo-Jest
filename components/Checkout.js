@@ -1,5 +1,5 @@
 import styles from "./CheckOut.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const CheckOut = (props) => {
   const authSlice = useSelector((state) => state.authSlice);

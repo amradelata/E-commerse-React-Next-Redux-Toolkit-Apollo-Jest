@@ -1,31 +1,32 @@
-.dad {
+.bacground {
+  position: absolute;
+  background-color: #371f72;
+  top: -4vh;
+  left: 0;
+  right: 0;
+  height: 50vh;
+}
+.card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* height: 80vh; */
+  height: 50vh;
   padding: 50px;
+  top: 21vh;
   background-color: honeydew;
   box-shadow: 0 5px 30px rgb(0 0 0 / 16%);
   border-radius: 6px;
 }
 
 .Image {
-  width: 350px;
-  height: 350px;
+  width: 300px;
+  height: 300px;
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
 }
 .realatev {
   position: relative;
-}
-.ovarlay {
-  position: absolute;
-  background-color: #371f72;
-  top: -35px;
-  left: 0;
-  right: 0;
-  height: 40vh;
 }
 
 .end {
@@ -69,7 +70,7 @@
 }
 @media only screen and (max-width: 700px) {
   /* For mobile phones: */
-  .dad {
+  .card {
     flex-direction: column;
     margin: 15px;
   }

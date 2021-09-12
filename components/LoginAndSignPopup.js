@@ -23,7 +23,7 @@ const LoginAndSignPopup = () => {
     };
 
     dispatch(logindata(loginbody));
-    console.log(authSlice.isLogIn);
+
     setshowErorr(false);
     if (!authSlice.isLogIn) {
       setTimeout(() => setshowErorr(true), 500);

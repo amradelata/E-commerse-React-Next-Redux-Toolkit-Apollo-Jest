@@ -1,11 +1,10 @@
 import styles from "./singlePage.module.css";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { set_cart_array_value } from "../../store/slices/cart.slice";
 
-import authSlice from "../../store/slices/auth";
-
-const singlePage = (props) => {
+const SinglePage = (props) => {
+  const dispatch = useDispatch();
   const [showNotification, setshowNotification] = useState(false);
   const authSlice = useSelector((state) => state.authSlice);
   if (!props.product)
@@ -14,7 +13,7 @@ const singlePage = (props) => {
         <img src="/./icons/loding.gif" />
       </div>
     );
-  const dispatch = useDispatch();
+
   const addToCart = (item) => {
     setshowNotification(true);
     setTimeout(() => setshowNotification(false), 2000);
@@ -28,8 +27,8 @@ const singlePage = (props) => {
         </div>
       )}
       <div className={styles.realatev}>
-        <div className={styles.ovarlay}></div>
-        <div className={`${styles.dad} container`}>
+        <div className={styles.bacground}></div>
+        <div className={`${styles.card} container`}>
           <div className={styles.start}>
             <div
               className={styles.Image}
@@ -44,7 +43,7 @@ const singlePage = (props) => {
             <p className="is-size-5">{props.product.price + " $"}</p>
             <p className="is-size-6">
               Lorem Ipsum is simply dummied text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy.
+              industry. Lorem Ipsum has been the standard dummy.
             </p>
             {authSlice.isLogIn && (
               <button
@@ -77,4 +76,4 @@ export async function getStaticProps(context) {
   };
 }
 
-export default singlePage;
+export default SinglePage;

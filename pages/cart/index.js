@@ -68,7 +68,7 @@ const cart = () => {
                       <img src="/./icons/delete.svg" />
                     </button>
                     <button className={styles.cartBtn}>
-                      <Link href={`/${item.id}`} passHref>
+                      <Link href={`single-page/${item.id}`} passHref>
                         <a>
                           <img src="/./icons/about.svg" />
                         </a>

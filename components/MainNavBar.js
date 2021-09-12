@@ -6,13 +6,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { getSearchProdcutsData } from "../store/slices/products.slice";
 import { logOut } from "../store/slices/auth";
 import { useRouter } from "next/router";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 const MainNavBar = () => {
   const [togellDropdown, settogellDropdown] = useState(false);
   const [showPopUp, setshowPopUp] = useState(false);
   const [togglePhoneNav, settogglePhoneNav] = useState(false);
   const [showSearch, setshowSearch] = useState(false);
-  const searchInputRef = useRef();
+
   const router = useRouter();
   const authSlice = useSelector((state) => state.authSlice);
   const CartSlice = useSelector((state) => state.CartSlice);
@@ -37,13 +37,10 @@ const MainNavBar = () => {
     router.push("/");
   };
   const foucsSearchInput = () => {
-    // document.getElementById("searchInput").focus();
     setshowSearch(!showSearch);
-    // searchInputRef.current.focus();
   };
   const openPhoneNave = () => {
     settogglePhoneNav(!togglePhoneNav);
-    console.log(togglePhoneNav);
   };
   const OpnPopUp = () => {
     setshowPopUp(true);
@@ -166,7 +163,6 @@ const MainNavBar = () => {
                   )}
                 </div>
 
-                {/* {togellDropdown && ( */}
                 <div className="dropdown-menu" role="menu">
                   <div className="dropdown-content" id="dropdown-content">
                     {authSlice.isLogIn && (

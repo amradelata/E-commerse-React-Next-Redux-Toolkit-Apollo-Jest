@@ -1,25 +1,18 @@
 import Link from "next/link";
 import styles from "./ProductCard.module.css";
-import { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   set_first_item_in_cart,
   set_add_to_total_price,
   set_second_item_in_cart,
 } from "../store/slices/cart.slice";
-import {
-  set_in_my_cart,
-  if_item_in_cart,
-} from "../store/slices/products.slice";
+import { set_in_my_cart } from "../store/slices/products.slice";
 
 const ProductCard = (props) => {
   const authSlice = useSelector((state) => state.authSlice);
   const CartSlice = useSelector((state) => state.CartSlice);
-  const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
-  // useEffect(() => {
-  //   // ANY reducer or thunk function MUST be called inside a dispatch()
-  //   dispatch(set_in_my_cart(props));
-  // }, [CartSlice.cart_products]);
+  const [is_product_in_cart, set_is_product_in_cart] = useState(false);
 
   const [showNotification, setshowNotification] = useState(false);
   const dispatch = useDispatch();
@@ -33,17 +26,17 @@ const ProductCard = (props) => {
     setshowNotification(true);
     setTimeout(() => setshowNotification(false), 2000);
 
-    // dispatch(set_in_my_cart(item));
-    const newArray = ProdcutsSlice.productsArr.map((obj) => {
-      if (obj.id === item.id) {
-        return { ...obj, in_my_cart: true };
-      } else {
-        return obj;
-      }
-    });
-
-    dispatch(if_item_in_cart(newArray));
+    dispatch(set_in_my_cart(item));
   };
+
+  React.useEffect(() => {
+    const product = CartSlice.cart_products.find((p) => p.id === props.id);
+    if (product && product.id) {
+      set_is_product_in_cart(true);
+    } else {
+      set_is_product_in_cart(false);
+    }
+  }, [CartSlice.cart_products, props.id]);
 
   return (
     <>
@@ -78,16 +71,21 @@ const ProductCard = (props) => {
         </Link>
         {authSlice.isLogIn && (
           <div className={styles.content}>
-            <button
-              className={styles.itemButton}
-              onClick={() => addToCart(props)}
-            >
-              {props.in_my_cart ? (
-                <span> In my cart</span>
-              ) : (
+            {!is_product_in_cart ? (
+              <button
+                className={styles.itemButton}
+                onClick={() => addToCart(props)}
+              >
                 <span> Add to cart</span>
-              )}
-            </button>
+              </button>
+            ) : (
+              <button
+                className={styles.itemButton}
+                onClick={() => addToCart(props)}
+              >
+                <span> Product already in cart</span>
+              </button>
+            )}
           </div>
         )}
       </div>

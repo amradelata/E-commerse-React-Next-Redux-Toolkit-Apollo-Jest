@@ -5,16 +5,10 @@ export const CartSlice = createSlice({
   initialState: {
     cart_products: [],
     totalPrice: 0,
-    itemPrice: 0,
   },
   reducers: {
     set_first_item_in_cart(state, { payload }) {
-      console.log(payload.price);
-
       if (!state.cart_products.find((item) => item.id === payload.id)) {
-        // erorr here TypeError: can't define property "x": "obj" is not extensible
-        // let myCart = (payload.quantity = +1);
-
         let myCart = JSON.parse(JSON.stringify(payload));
         myCart.quantity = +1;
         Object.preventExtensions(myCart);
@@ -25,7 +19,6 @@ export const CartSlice = createSlice({
     set_second_item_in_cart(state, { payload }) {
       state.cart_products.forEach((element, index) => {
         if (element.id === payload.id) {
-          console.log(element.id, index);
           state.cart_products[index].quantity++;
         }
       });
