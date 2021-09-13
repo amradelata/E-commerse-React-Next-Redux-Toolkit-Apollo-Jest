@@ -90,29 +90,31 @@
   background: none;
   outline: none;
   float: left;
-  padding: 0;
   color: #000;
+  padding: 0 10px;
   font-size: 16px;
   font-weight: normal;
   transition: 0.4s;
   line-height: 50px;
-  width: 70px;
+  width: 78px;
   margin-right: -50px;
+  margin-top: 2px;
 }
 .searchTextActiv {
   width: 250px;
   border: none;
-  background: none;
+  background: #f2f2f2;
   outline: none;
   float: left;
-  padding: 0;
+  padding: 0 10px;
+  border-radius: 60px 0 0 60px;
   color: #000;
   font-size: 16px;
   font-weight: normal;
   transition: 0.4s;
   line-height: 50px;
-
   margin-right: -50px;
+  margin-top: 2px;
 }
 /* .showSearchInput {
   

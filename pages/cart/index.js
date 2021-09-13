@@ -5,7 +5,7 @@ import { addOne } from "../../store/slices/cart.slice";
 import { removeOne } from "../../store/slices/cart.slice";
 import styles from "./cart.module.css";
 
-const cart = () => {
+const Cart = () => {
   const Dispatch = useDispatch();
   const CartSlice = useSelector((state) => state.CartSlice);
 
@@ -20,13 +20,13 @@ const cart = () => {
     Dispatch(removeOne({ item, index }));
   };
   return (
-    <div className="container is-fluid">
+    <div className="container">
       {CartSlice.totalPrice ? (
         <div className={styles.cartPage}>
           <div className={styles.cart}>
             <div className={styles.cartItems}>
-              <p className="is-size-5 has-text-weight-bold">CART PRODUCTS</p>
-              <hr className={styles.myHr} />
+              <p className="has-text-weight-bold">CART PRODUCTS</p>
+
               {/* mayCartItem */}
               {CartSlice.cart_products.map((item, index) => (
                 <div className={styles.cartItem} key={item.id}>
@@ -36,32 +36,32 @@ const cart = () => {
                       backgroundImage: `url(${item.img_url})`,
                     }}
                   ></div>
-                  <div style={{ textAlign: "center" }}>
-                    <p className="is-size-4">{item.name + " "}</p>
-                    <p className="is-size-6 has-text-weight-bold">
-                      {" "}
+                  <div style={{ textAlign: "left" }}>
+                    <p className="is-size-4">{item.name}</p>
+                    <p className="is-size-6 has-text-weight-bold ">
                       {item.price + "$"}
                     </p>
-                    <div className={styles.atyBut}>
-                      <button
-                        disabled={item.quantity === 1}
-                        className={styles.cartBtn}
-                        onClick={() => removeOnefunction(item, index)}
-                      >
-                        -
-                      </button>
-
-                      <span className="is-size-6 has-text-weight-bold">
-                        {item.quantity}
-                      </span>
-                      <button
-                        className={styles.cartBtn}
-                        onClick={() => addOnefunction(item, index)}
-                      >
-                        +
-                      </button>
-                    </div>
                   </div>
+                  <div className={styles.atyBut}>
+                    <button
+                      disabled={item.quantity === 1}
+                      className={styles.cartBtn}
+                      onClick={() => removeOnefunction(item, index)}
+                    >
+                      -
+                    </button>
+
+                    <span className="is-size-6 has-text-weight-bold">
+                      {item.quantity}
+                    </span>
+                    <button
+                      className={styles.cartBtn}
+                      onClick={() => addOnefunction(item, index)}
+                    >
+                      +
+                    </button>
+                  </div>
+                  {/* </div> */}
                   <div>
                     <button
                       className={styles.cartBtn}
@@ -79,14 +79,11 @@ const cart = () => {
                   </div>
                 </div>
               ))}
-              <p className="is-size-4">
-                {"TotalPrice : " + CartSlice.totalPrice + "$"}
-              </p>
             </div>
             {/* mayCartItem */}
 
             <div className={styles.summary}>
-              <p className="is-size-5 has-text-weight-bold">CART SUMMARY</p>
+              <p className=" has-text-weight-bold">CART SUMMARY</p>
 
               <div className={styles.mySummary}>
                 <p className={styles.lapul}>Subtotal:</p>
@@ -127,4 +124,4 @@ const cart = () => {
   );
 };
 
-export default cart;
+export default Cart;

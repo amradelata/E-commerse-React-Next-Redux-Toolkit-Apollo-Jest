@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { chickOutShipping } from "../store/slices/auth";
 
-const shipping = () => {
+const Shipping = () => {
   const authSlice = useSelector((state) => state.authSlice);
 
   // useEffect(() => {
@@ -51,6 +51,7 @@ const shipping = () => {
     <>
       <CheckOut />
       <div className={styles.Checkout}>
+        {/* <div className="container"> */}
         <form className={styles.MyForm} onSubmit={nextStep} onChange={desapuld}>
           <div className={styles.Personal}>
             <p>Personal information</p>
@@ -133,8 +134,9 @@ const shipping = () => {
           </div>
         </form>
       </div>
+      {/* </div> */}
     </>
   );
 };
 
-export default shipping;
+export default Shipping;

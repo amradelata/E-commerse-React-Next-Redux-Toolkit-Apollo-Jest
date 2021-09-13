@@ -10,9 +10,11 @@
   font-size: 18px;
   font-weight: 500;
   color: #2d2d2d;
+  background-color: #fff;
 }
 
 .myCategories {
+  background-color: #fff;
   padding: 12px 16px;
   text-transform: capitalize;
   height: 46px;

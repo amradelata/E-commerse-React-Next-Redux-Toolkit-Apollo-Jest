@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getSearchProdcutsData } from "../store/slices/products.slice";
 import { logOut } from "../store/slices/auth";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 const MainNavBar = () => {
   const [togellDropdown, settogellDropdown] = useState(false);
   const [showPopUp, setshowPopUp] = useState(false);
@@ -16,6 +16,7 @@ const MainNavBar = () => {
   const router = useRouter();
   const authSlice = useSelector((state) => state.authSlice);
   const CartSlice = useSelector((state) => state.CartSlice);
+  const textInput = useRef(null);
   const dispatch = useDispatch();
   useEffect(() => {
     if (authSlice.isLogIn) {
@@ -37,7 +38,12 @@ const MainNavBar = () => {
     router.push("/");
   };
   const foucsSearchInput = () => {
-    setshowSearch(!showSearch);
+    setshowSearch(true);
+    textInput.current.focus();
+  };
+  const unfoucsSearchInput = (e) => {
+    setshowSearch(false);
+    textInput.current.value = "";
   };
   const openPhoneNave = () => {
     settogglePhoneNav(!togglePhoneNav);
@@ -125,17 +131,30 @@ const MainNavBar = () => {
               <div className={styles.searchBox}>
                 <input
                   onKeyDown={searchFunction}
+                  onClick={foucsSearchInput}
+                  ref={textInput}
                   className={` ${
                     showSearch ? styles.searchTextActiv : styles.searchText
                   }`}
                   type="text"
-                  placeholder="Search Anything"
-                  onClick={foucsSearchInput}
+                  placeholder="Search In Products"
                 />
 
-                <button className={styles.searchBtn} onClick={foucsSearchInput}>
-                  <img src="/./icons/search.svg" />
-                </button>
+                {showSearch ? (
+                  <button
+                    className={styles.searchBtn}
+                    onClick={unfoucsSearchInput}
+                  >
+                    <p className="is-size-4">X</p>
+                  </button>
+                ) : (
+                  <button
+                    className={styles.searchBtn}
+                    onClick={foucsSearchInput}
+                  >
+                    <img src="/./icons/search.svg" />
+                  </button>
+                )}
               </div>
             </li>
             <li>
