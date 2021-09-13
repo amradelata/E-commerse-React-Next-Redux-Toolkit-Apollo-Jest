@@ -1,18 +1,14 @@
 .myCategoriesDad {
   border: 1px solid #ddd;
 }
-/* .navTag {
-  font-size: 18px;
-  font-weight: 600;
-  color: #2d2d2d;
-} */
+
 .myCategoriesDad > p {
   padding: 14px 16px;
   margin: 0;
   border-bottom: 1px solid #ddd;
   text-transform: capitalize;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
   color: #2d2d2d;
 }
 

@@ -1,12 +1,10 @@
 .myCard {
   width: calc(25% - 20px);
-  margin: 10px;
+  margin: 0 10px 10px 10px;
   border: 1px solid #ddd;
   background-color: #fff;
-  padding: 8px 0;
-  margin: 0 8px 20px;
 }
-.myCard .content {
+.content {
   padding: 0 16px;
 }
 .myCard p {
@@ -16,28 +14,28 @@
 }
 
 .Image {
-  /* max-width: 92%;
-    max-height: 92%; */
-  width: 100%;
-  height: 200px;
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
+  height: 240px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
+.Image img {
+  max-width: 92%;
+  max-height: 92%;
+}
 .category {
   color: #787878;
   font-size: 14px;
-  margin: 12px 0 0 !important;
+  margin: 12px 0 0;
 }
 
 .itemName {
   font-size: 18px;
   font-weight: 600;
+  margin: 4px 0 8px;
   cursor: pointer;
   outline: 0;
-  color: black;
-  margin: 4px 0 8px !important;
 }
 .itemPrice {
   font-size: 15px;
@@ -56,14 +54,17 @@
 }
 
 .itemButton {
-  margin-top: 12px 0;
+  margin: 12px 0;
+  width: 100%;
+
+  margin: 12px 0;
   padding: 11px 20px;
   background-color: #371f72;
   color: #fff;
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
-  width: 100%;
+
   border: none;
 }
 
@@ -86,5 +87,11 @@
   .myCard {
     width: calc(100% - 20px);
     margin: 10px;
+  }
+}
+
+@media (max-width: 1500px) {
+  .myCard {
+    width: calc(25% - 20px);
   }
 }

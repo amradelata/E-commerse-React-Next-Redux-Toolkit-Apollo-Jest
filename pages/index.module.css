@@ -22,10 +22,6 @@
   width: 220px;
   margin-right: 25px;
 }
-.myCard {
-  width: calc(25% - 20px);
-  margin: 10px;
-}
 
 .Image {
   /* max-width: 92%;
@@ -113,4 +109,10 @@
 }
 .loding img {
   width: 250px;
+}
+
+@media (max-width: 1500px) {
+  .myCards {
+    width: 100% !important;
+  }
 }

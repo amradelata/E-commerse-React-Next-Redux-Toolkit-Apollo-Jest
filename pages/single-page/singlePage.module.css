@@ -4,18 +4,24 @@
   top: -4vh;
   left: 0;
   right: 0;
-  height: 50vh;
+  height: 36vh;
+}
+.mycontaner {
+  padding-top: 70px;
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
 }
 .card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 50vh;
+  margin: auto;
   padding: 50px;
-  top: 21vh;
-  background-color: honeydew;
-  box-shadow: 0 5px 30px rgb(0 0 0 / 16%);
   border-radius: 6px;
+  display: flex;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 5px 30px rgb(0 0 0 / 16%);
 }
 
 .Image {
@@ -47,7 +53,6 @@
   cursor: pointer;
   width: 50%;
   border: none;
-  margin-top: 20px;
 }
 .showNotification {
   transition: visibility 0s, opacity 0.5s linear;
@@ -68,6 +73,42 @@
 .loding img {
   width: 250px;
 }
+.category {
+  margin: 0;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #787878;
+  font-weight: 500;
+}
+.name {
+  margin: 0;
+
+  font-size: 30px;
+  font-weight: 500;
+  color: black;
+}
+.price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ef5013;
+  display: inline-block;
+}
+.discount {
+  font-weight: bold;
+  color: #787878;
+  font-size: 16px;
+  margin: 12px 0 0;
+  text-decoration: line-through;
+  display: inline-block;
+  margin-right: 8px !important;
+}
+.discrpshion {
+  line-height: 1.6;
+  color: #787878;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
 @media only screen and (max-width: 700px) {
   /* For mobile phones: */
   .card {

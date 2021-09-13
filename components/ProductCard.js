@@ -31,7 +31,7 @@ const ProductCard = (props) => {
 
   React.useEffect(() => {
     const product = CartSlice.cart_products.find((p) => p.id === props.id);
-    if (product && product.id) {
+    if (product) {
       set_is_product_in_cart(true);
     } else {
       set_is_product_in_cart(false);
@@ -46,48 +46,32 @@ const ProductCard = (props) => {
         </div>
       )}
 
-      <div className={`card ${styles.myCard}`}>
+      <div className={styles.myCard}>
         <Link href={`/single-page/${props.id}`} passHref>
           <a>
-            <div className={styles.content}>
-              <div>
-                <div
-                  className={styles.Image}
-                  style={{
-                    backgroundImage: `url(${props.img_url})`,
-                  }}
-                ></div>
-              </div>
-              <p className={styles.category}>{props.category}</p>
-              <p className={styles.itemName}>{props.name}</p>
-              {props.discount > 1 && (
-                <p className={styles.discount}>
-                  {props.price + props.discount + "$"}
-                </p>
-              )}
-              <p className={styles.itemPrice}>{props.price + "$"}</p>
+            <div className={styles.Image}>
+              <img src={props.img_url} />
             </div>
           </a>
         </Link>
-        {authSlice.isLogIn && (
-          <div className={styles.content}>
-            {!is_product_in_cart ? (
-              <button
-                className={styles.itemButton}
-                onClick={() => addToCart(props)}
-              >
-                <span> Add to cart</span>
-              </button>
-            ) : (
-              <button
-                className={styles.itemButton}
-                onClick={() => addToCart(props)}
-              >
-                <span> Product already in cart</span>
-              </button>
-            )}
-          </div>
-        )}
+        <div className={styles.content}>
+          <p className={styles.category}>{props.category}</p>
+          <p className={styles.itemName}>{props.name}</p>
+          {props.discount > 1 && (
+            <p className={styles.discount}>
+              {props.price + props.discount + "$"}
+            </p>
+          )}
+          <p className={styles.itemPrice}>{props.price + "$"}</p>
+          {authSlice.isLogIn && (
+            <button
+              className={styles.itemButton}
+              onClick={() => addToCart(props)}
+            >
+              {is_product_in_cart ? "Product already in cart" : "Add to cart"}
+            </button>
+          )}
+        </div>
       </div>
     </>
   );

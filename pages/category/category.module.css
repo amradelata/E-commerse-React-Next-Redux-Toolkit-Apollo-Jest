@@ -36,8 +36,9 @@
   .myCards {
     flex-direction: column;
   }
-  .myCard {
-    width: calc(100% - 20px);
-    margin: 10px;
+}
+@media (max-width: 1500px) {
+  .myCards {
+    width: 100% !important;
   }
 }

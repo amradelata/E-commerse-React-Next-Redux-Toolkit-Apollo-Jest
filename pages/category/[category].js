@@ -26,7 +26,6 @@ const singlecategory = (props) => {
               name={item.name}
               category={item.category}
               price={item.price}
-              discount={item.discount}
             />
           ))}
         </div>

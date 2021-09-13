@@ -44,11 +44,13 @@ const cart = () => {
                     </p>
                     <div className={styles.atyBut}>
                       <button
+                        disabled={item.quantity === 1}
                         className={styles.cartBtn}
                         onClick={() => removeOnefunction(item, index)}
                       >
                         -
                       </button>
+
                       <span className="is-size-6 has-text-weight-bold">
                         {item.quantity}
                       </span>
@@ -85,7 +87,7 @@ const cart = () => {
 
             <div className={styles.summary}>
               <p className="is-size-5 has-text-weight-bold">CART SUMMARY</p>
-              <hr className={styles.myHr} />
+
               <div className={styles.mySummary}>
                 <p className={styles.lapul}>Subtotal:</p>
                 <span className={styles.value}>

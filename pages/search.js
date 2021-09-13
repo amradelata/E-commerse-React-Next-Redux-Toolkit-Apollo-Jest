@@ -38,7 +38,6 @@ const search = () => {
                 name={item.name}
                 category={item.category}
                 price={item.price}
-                discount={item.discount}
               />
             ))}
           </div>
