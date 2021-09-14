@@ -1,5 +1,6 @@
 import styles from "./CategoriesSideNavBar.module.css";
 import Link from "next/link";
+import ActiveLink from "./ActiveLink";
 const CategoriesSideNavBar = () => {
   const listOfCategories = [
     {
@@ -58,23 +59,44 @@ const CategoriesSideNavBar = () => {
     },
   ];
   return (
-    <div className={styles.myCategoriesDad}>
-      <p className={styles.navTag}>Categories</p>
-      {listOfCategories.map((item) => (
-        <Link href={`/category/${item.tag}`} key={item.id}>
-          <a>
-            <div className={styles.myCategories}>
-              <div>
-                <img className={styles.Img} src={item.img_url} />
+    <>
+      <style jsx>{`
+        .active:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          width: 221px;
+          height: 45px;
+          background-color: #f0f0f096;
+          opacity: 1;
+          transition: opacity 300ms, transform 300ms;
+          transform: scale(1);
+          transform-origin: center;
+        }
+      `}</style>
+      <div className={styles.myCategoriesDad}>
+        <p className={styles.navTag}>Categories</p>
+
+        {listOfCategories.map((item) => (
+          <ActiveLink
+            activeClassName="active"
+            href={`/category/${item.tag}`}
+            key={item.id}
+          >
+            <a>
+              <div className={styles.myCategories}>
+                <div>
+                  <img className={styles.Img} src={item.img_url} />
+                </div>
+                <div>
+                  <p>{item.tag}</p>
+                </div>
               </div>
-              <div>
-                <p>{item.tag}</p>
-              </div>
-            </div>
-          </a>
-        </Link>
-      ))}
-    </div>
+            </a>
+          </ActiveLink>
+        ))}
+      </div>
+    </>
   );
 };
 

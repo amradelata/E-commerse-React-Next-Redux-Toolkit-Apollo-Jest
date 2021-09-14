@@ -7,6 +7,7 @@ import { getSearchProdcutsData } from "../store/slices/products.slice";
 import { logOut } from "../store/slices/auth";
 import { useRouter } from "next/router";
 import { useState, useEffect, useRef } from "react";
+import ActiveLink from "./ActiveLink";
 const MainNavBar = () => {
   const [togellDropdown, settogellDropdown] = useState(false);
   const [showPopUp, setshowPopUp] = useState(false);
@@ -60,23 +61,37 @@ const MainNavBar = () => {
   return (
     <>
       <nav className={`container is-fluid navbar ${styles.myNav}`}>
+        <style jsx>{`
+          .active:after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 0.2em;
+            background-color: #ef5013;
+            opacity: 1;
+            transition: opacity 300ms, transform 300ms;
+            transform: scale(1);
+            transform-origin: center;
+          }
+        `}</style>
         <ul className={styles.UL}>
           <li>
-            <Link href="/">
-              <a className={styles.myLink}>SHOP</a>
-            </Link>
+            <ActiveLink activeClassName="active" href="/">
+              <a className={styles.myLink}>Home</a>
+            </ActiveLink>
           </li>
-
           <li>
-            <Link href="/about">
-              <a className={styles.myLink}>ABOUT</a>
-            </Link>
+            <ActiveLink activeClassName="active" href="/about">
+              <a className={styles.myLink}>About</a>
+            </ActiveLink>
           </li>
           {authSlice.isLogIn && (
             <li>
-              <Link href="/profile">
-                <a className={styles.myLink}>profile</a>
-              </Link>
+              <ActiveLink activeClassName="active" href="/profile">
+                <a className={styles.myLink}>Profile</a>
+              </ActiveLink>
             </li>
           )}
         </ul>
@@ -246,6 +261,7 @@ const MainNavBar = () => {
           </ul>
         </div>
       </nav>
+
       <hr className={styles.myHr} />
 
       <div className={`modal ${showPopUp ? "is-active" : ""}`}>
