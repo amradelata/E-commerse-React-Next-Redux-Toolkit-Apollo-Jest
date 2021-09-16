@@ -68,36 +68,50 @@ const MainNavBar = () => {
           .active:after {
             content: "";
             position: absolute;
-            bottom: -5px;
+            top: calc(100% + 8px);
             left: 0;
-            width: 100%;
-            height: 0.2em;
+            width: 30px;
+            height: 4px;
             background-color: #ef5013;
             opacity: 1;
-            transition: opacity 300ms, transform 300ms;
-            transform: scale(1);
-            transform-origin: center;
+            color: #ef5013;
+          }
+          li.active {
+            position: relative;
+            color: #ef5013;
           }
         `}</style>
-        <ul className={styles.UL}>
-          <li>
-            <ActiveLink activeClassName="active" href="/">
-              <a className={styles.myLink}>Home</a>
-            </ActiveLink>
-          </li>
-          <li>
-            <ActiveLink activeClassName="active" href="/about">
-              <a className={styles.myLink}>About</a>
-            </ActiveLink>
-          </li>
-          {authSlice.isLogIn && (
+        <div>
+          <ul className={styles.UL}>
             <li>
-              <ActiveLink activeClassName="active" href="/profile">
-                <a className={styles.myLink}>Profile</a>
+              <ActiveLink activeClassName="active" href="/">
+                <a className={styles.myLink}>shopping</a>
               </ActiveLink>
             </li>
-          )}
-        </ul>
+            <li>
+              <ActiveLink activeClassName="active" href="/about">
+                <a className={styles.myLink}>About</a>
+              </ActiveLink>
+            </li>
+            {authSlice.isLogIn && (
+              <li>
+                <ActiveLink activeClassName="active" href="/profile">
+                  <a className={styles.myLink}>Profile</a>
+                </ActiveLink>
+              </li>
+            )}
+          </ul>
+        </div>
+        <div className={styles.logo}>
+          <Link href="/" passHref>
+            <Image
+              src="/./icons/logo.svg"
+              alt="search"
+              width="100"
+              height="33"
+            />
+          </Link>
+        </div>
         <a
           role="button"
           className="navbar-burger"
@@ -136,7 +150,7 @@ const MainNavBar = () => {
           ""
         )}
 
-        <div className={`navbar-end ${styles.navbarEnd}`} id="myNavEnd">
+        <div>
           <ul className={styles.EndUL}>
             <li className={styles.showInPhone}>
               <Link href="/">
@@ -155,7 +169,7 @@ const MainNavBar = () => {
                   }`}
                   ref={textInput}
                   type="text"
-                  placeholder="Search In Products"
+                  placeholder="Search"
                 />
 
                 {showSearch ? (
@@ -170,13 +184,12 @@ const MainNavBar = () => {
                     className={styles.searchBtn}
                     onClick={foucsSearchInput}
                   >
-                    <img src="/./icons/search.svg" />
-                    {/* <Image
+                    <Image
                       src="/./icons/search.svg"
-                      alt="Picture of something nice"
-                      layout="fill"
-                      objectFit="cover"
-                    /> */}
+                      alt="search"
+                      width="18"
+                      height="33"
+                    />
                   </button>
                 )}
               </div>
@@ -187,7 +200,7 @@ const MainNavBar = () => {
                   {authSlice.isLogIn ? (
                     <button
                       onClick={() => togellDropdownFunction()}
-                      className={styles.searchBtn}
+                      className={styles.avatarBtn}
                     >
                       <p className={styles.userNmae}>
                         {authSlice.user.charAt(0)}
@@ -196,18 +209,13 @@ const MainNavBar = () => {
                   ) : (
                     <button
                       onClick={() => togellDropdownFunction()}
-                      className={styles.searchBtn}
+                      className={styles.avatarBtn}
                     >
-                      {/* <Image
+                      <Image
                         src="/./icons/avatar.svg"
-                        alt="Picture of something nice"
-                        layout="fill"
-                        objectFit="cover"
-                        className={styles.userNmae}
-                      /> */}
-                      <img
-                        src="/./icons/avatar.svg"
-                        className={styles.userNmae}
+                        alt="avatar"
+                        width="33"
+                        height="33"
                       />
                     </button>
                   )}
@@ -258,17 +266,12 @@ const MainNavBar = () => {
                 <Link href="/cart">
                   <a>
                     <button className={styles.searchBtn}>
-                      <img
+                      <Image
                         src="/./icons/cart.svg"
-                        className={styles.cartIcon}
+                        alt="cart"
+                        width="33"
+                        height="33"
                       />
-                      {/* <Image
-                        src="/./icons/cart.svg"
-                        alt="Picture of something nice"
-                        layout="fill"
-                        objectFit="cover"
-                        className={styles.cartIcon}
-                      /> */}
                       {CartSlice.cart_products.length < 1 ? (
                         ""
                       ) : (

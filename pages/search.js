@@ -24,9 +24,9 @@ const Search = () => {
         <p>search: shoes,coat or suit</p>
         <Image
           src="/./icons/illustrations/no-data.svg"
-          alt="Picture of something nice"
-          layout="fill"
-          objectFit="cover"
+          alt="no-data"
+          width="300"
+          height="500"
         />
         {/* <img src="/./icons/illustrations/no-data.svg" /> */}
       </div>

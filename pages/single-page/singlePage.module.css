@@ -4,7 +4,7 @@
   top: -4vh;
   left: 0;
   right: 0;
-  height: 36vh;
+  height: 30vh;
 }
 .mycontaner {
   padding-top: 70px;
@@ -25,8 +25,9 @@
 }
 
 .Image {
-  width: 300px;
-  height: 300px;
+  max-width: 300px;
+  max-height: 300px;
+  min-height: 300px;
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -54,6 +55,12 @@
   width: 50%;
   border: none;
 }
+.itemButton:disabled,
+.itemButton[disabled] {
+  background-color: #ddd;
+  color: #333;
+  cursor: auto;
+}
 
 .loding {
   position: absolute;
@@ -73,7 +80,6 @@
 }
 .name {
   margin: 0;
-
   font-size: 30px;
   font-weight: 500;
   color: black;

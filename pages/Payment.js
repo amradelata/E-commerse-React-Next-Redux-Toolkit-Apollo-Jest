@@ -65,20 +65,28 @@ const Payment = () => {
                   onClick={showFormfunction}
                 />
                 How would you like to pay{" " + CartSlice.totalPrice + "$"}
-                {/* <img src="/./icons/visa.svg" />
-                <img src="/./icons/mastercard.svg" /> */}
-                <Image
+                <img src="/./icons/visa.svg" />
+                <img src="/./icons/mastercard.svg" />
+                {/* <Image
+                  className="pamentImg"
                   src="/./icons/visa.svg"
-                  alt="Picture of something nice"
-                  layout="fill"
-                  objectFit="cover"
+                  alt="visa"
+                  width="35"
+                  height="35"
+                  style={{
+                    backgroundImage: "red",
+                  }}
                 />
                 <Image
+                  style={{
+                    backgroundImage: "red",
+                  }}
+                  className="pamentImg"
                   src="/./icons/mastercard.svg"
-                  alt="Picture of something nice"
-                  layout="fill"
-                  objectFit="cover"
-                />
+                  alt="mastercard"
+                  width="35"
+                  height="35"
+                /> */}
               </label>
             </div>
             <div>

@@ -12,11 +12,17 @@
   padding: 5px 0;
   margin: 0 !important;
   padding-left: 32px;
-
+  height: 70px;
   padding-right: 32px;
+  display: flex;
+  align-items: center !important;
+  justify-content: space-between;
+}
+.logo {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
 }
 .myHr {
   margin: 0;
@@ -81,23 +87,21 @@
   background: #2f3640;
 }
 
-/* .searchBox:hover > .searchText {
-  width: 240px;
-  padding: 0 6px;
-} */
 .searchText {
   border: none;
-  background: none;
+  background: #f2f2f2;
   outline: none;
-  float: left;
+  float: right;
   color: #000;
+  border-radius: 50px;
   padding: 0 10px;
   font-size: 16px;
   font-weight: normal;
   transition: 0.4s;
   line-height: 50px;
-  width: 78px;
-  margin-right: -50px;
+  width: 115px;
+  margin-left: -50px;
+  padding-left: 55px;
   margin-top: 2px;
 }
 .searchTextActiv {
@@ -105,20 +109,19 @@
   border: none;
   background: #f2f2f2;
   outline: none;
-  float: left;
+  float: right;
   padding: 0 10px;
-  border-radius: 60px 0 0 60px;
+  border-radius: 50px;
   color: #000;
   font-size: 16px;
   font-weight: normal;
   transition: 0.4s;
   line-height: 50px;
-  margin-right: -50px;
+  margin-left: -50px;
   margin-top: 2px;
+
+  padding-left: 55px;
 }
-/* .showSearchInput {
-  
-} */
 
 .UL > li .myLink {
   padding: 0;
@@ -131,39 +134,45 @@
   cursor: pointer;
   position: relative;
 }
-.UL > li .myLink {
-  transition: transform 1s;
-}
 
-.UL > li .myLink:hover::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 0.2em;
-  background-color: #ef5013;
-}
 .iconMargenLeft {
   margin: 5px 0 5px 50px;
 }
-.searchBtn {
+.searchBtn,
+.avatarBtn {
   border: none;
   margin: 5px 0 5px 30px;
   float: right;
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  /* background: #ccc; */
+
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.4s;
   cursor: pointer;
   text-decoration: none;
+}
+.searchBtn::after,
+.avatarBtn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: calc(100% + -15px);
+
+  transform: translateY(-50%);
+  height: 23px;
+  width: 2px;
+  border-radius: 15px;
+  background-color: #f3f3f3;
+}
+.searchBtn {
   background-color: #fff;
 }
-
+.avatarBtn {
+  background-color: #f3f3f3;
+}
 .popupContent {
   position: absolute;
   background-color: #fff;

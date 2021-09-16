@@ -7,67 +7,61 @@ const CheckOut = (props) => {
     <>
       <div className={styles.stepsBar}>
         <div className={styles.step}>
-          <div
-            className={styles.circle}
-            style={{ backgroundColor: !authSlice.Shipping && "#ef5013" }}
-          >
+          <div className={!authSlice.Shipping ? styles.circle : styles.activ}>
             <div className={styles.stepName}>shipping</div>
             {authSlice.Shipping ? (
               <Image
                 src="/./icons/checked.svg"
                 alt="Picture of something nice"
-                layout="fill"
-                objectFit="cover"
+                width="16"
+                height="16"
               />
             ) : (
               <div className={styles.number}>1</div>
             )}
           </div>
 
-          <div className={styles.line}></div>
+          <div
+            className={!authSlice.Shipping ? styles.line : styles.lineActiv}
+          ></div>
         </div>
         {/*  */}
 
         <div className={styles.step}>
-          <div
-            className={styles.circle}
-            style={{ backgroundColor: !authSlice.Payment && "#ef5013" }}
-          >
+          <div className={!authSlice.Payment ? styles.circle : styles.activ}>
             <div className={styles.stepName}>payment</div>
             {authSlice.Payment ? (
               <Image
                 src="/./icons/checked.svg"
                 alt="Picture of something nice"
-                layout="fill"
-                objectFit="cover"
+                width="16"
+                height="16"
               />
             ) : (
               <div className={styles.number}>2</div>
             )}
           </div>
-          <div className={styles.line}></div>
+          <div
+            className={!authSlice.Payment ? styles.line : styles.lineActiv}
+          ></div>
         </div>
 
         {/*  */}
 
         <div className={styles.step}>
-          <div
-            className={styles.circle}
-            style={{ backgroundColor: !props.Done && "#ef5013" }}
-          >
+          <div className={!props.Done ? styles.circle : styles.activ}>
             <div className={styles.stepName}>Done</div>
             {props.Done ? (
               <Image
                 src="/./icons/checked.svg"
                 alt="Picture of something nice"
-                layout="fill"
-                objectFit="cover"
+                width="16"
+                height="16"
               />
             ) : (
               <div className={styles.number}>3</div>
             )}
           </div>
-          <div className={styles.line}></div>
         </div>
       </div>
     </>

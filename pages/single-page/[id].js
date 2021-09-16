@@ -7,7 +7,6 @@ import Image from "next/image";
 import {
   set_first_item_in_cart,
   set_add_to_total_price,
-  set_second_item_in_cart,
 } from "../../store/slices/cart.slice";
 
 const SinglePage = (props) => {
@@ -44,9 +43,9 @@ const SinglePage = (props) => {
   }
 
   const addToCart = (item) => {
-    if (CartSlice.cart_products.length > 1) {
-      dispatch(set_second_item_in_cart(item));
-    }
+    // if (CartSlice.cart_products.length > 1) {
+    //   dispatch(set_second_item_in_cart(item));
+    // }
     dispatch(set_first_item_in_cart(item));
 
     dispatch(set_add_to_total_price(item));
@@ -86,8 +85,9 @@ const SinglePage = (props) => {
                 <button
                   onClick={() => addToCart(props.product)}
                   className={styles.itemButton}
+                  disabled={is_product_in_cart}
                 >
-                  {is_product_in_cart ? "in my cart" : "add to cart"}
+                  {is_product_in_cart ? "Product in cart" : "Add to cart"}
                 </button>
               )}
             </div>

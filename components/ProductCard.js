@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   set_first_item_in_cart,
   set_add_to_total_price,
-  set_second_item_in_cart,
 } from "../store/slices/cart.slice";
 import Image from "next/image";
 import SuccessNotification from "../components/SuccessNotification";
@@ -18,9 +17,6 @@ const ProductCard = (props) => {
   const [showNotification, setshowNotification] = useState(false);
   const dispatch = useDispatch();
   const addToCart = (item) => {
-    if (CartSlice.cart_products.length > 1) {
-      dispatch(set_second_item_in_cart(item));
-    }
     dispatch(set_first_item_in_cart(item));
 
     dispatch(set_add_to_total_price(item));
@@ -48,10 +44,10 @@ const ProductCard = (props) => {
               {/* Add the hostname of your URL to the images.domains config in next.config.js: */}
 
               {/* <Image
-                src={[props.img_url]}
+                src={props.img_url}
                 alt="Picture of something nice"
-                layout="fill"
-                objectFit="cover"
+                width="300"
+                height="300"
               /> */}
 
               <img src={props.img_url} />
@@ -71,8 +67,9 @@ const ProductCard = (props) => {
             <button
               className={styles.itemButton}
               onClick={() => addToCart(props)}
+              disabled={is_product_in_cart}
             >
-              {is_product_in_cart ? "Product already in cart" : "Add to cart"}
+              {is_product_in_cart ? "Product in cart" : "Add to cart"}
             </button>
           )}
         </div>

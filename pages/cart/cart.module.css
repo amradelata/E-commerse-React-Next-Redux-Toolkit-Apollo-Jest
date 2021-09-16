@@ -141,8 +141,8 @@
 .empty > a > button {
   cursor: pointer;
   width: 400px;
-  color: #ccc;
-  background-color: #23d160;
+  color: #fff;
+  background-color: #371f72;
   display: block;
   margin: auto;
   margin-top: 35px;

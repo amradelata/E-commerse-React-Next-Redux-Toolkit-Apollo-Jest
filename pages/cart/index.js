@@ -71,9 +71,9 @@ const Cart = () => {
                       {/* <img src="/./icons/delete.svg" /> */}
                       <Image
                         src="/./icons/delete.svg"
-                        alt="Picture of something nice"
-                        layout="fill"
-                        objectFit="cover"
+                        alt="delete"
+                        width="23"
+                        height="23"
                       />
                     </button>
                     <button className={styles.cartBtn}>
@@ -81,9 +81,9 @@ const Cart = () => {
                         <a>
                           <Image
                             src="/./icons/about.svg"
-                            alt="Picture of something nice"
-                            layout="fill"
-                            objectFit="cover"
+                            alt="about"
+                            width="23"
+                            height="23"
                           />
                           {/* <img src="/./icons/about.svg" /> */}
                         </a>
@@ -128,9 +128,9 @@ const Cart = () => {
           {/* <img src="/./icons/illustrations/empty.svg" /> */}
           <Image
             src="/./icons/illustrations/empty.svg"
-            alt="Picture of something nice"
-            layout="fill"
-            objectFit="cover"
+            alt="empty"
+            width="400"
+            height="400"
           />
           <Link href="/" passHref>
             <a>

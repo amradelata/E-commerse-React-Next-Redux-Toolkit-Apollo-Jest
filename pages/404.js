@@ -9,9 +9,9 @@ export default function Custom404() {
       {/* <img src="/./icons/illustrations/no-data.svg" /> */}
       <Image
         src="/./icons/illustrations/no-data.svg"
-        alt="Picture of something nice"
-        layout="fill"
-        objectFit="cover"
+        alt="no-data"
+        width="300"
+        height="500"
       />
     </div>
   );

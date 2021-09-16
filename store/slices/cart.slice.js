@@ -16,13 +16,6 @@ export const CartSlice = createSlice({
         state.cart_products.push(myCart);
       }
     },
-    set_second_item_in_cart(state, { payload }) {
-      state.cart_products.forEach((element, index) => {
-        if (element.id === payload.id) {
-          state.cart_products[index].quantity++;
-        }
-      });
-    },
     set_add_to_total_price(state, { payload }) {
       const StorMyTotalPrice = +state.totalPrice + +payload.price;
       state.totalPrice = StorMyTotalPrice;
@@ -58,7 +51,7 @@ export const CartSlice = createSlice({
 // export actions
 export const {
   set_first_item_in_cart,
-  set_second_item_in_cart,
+
   remove_item_from_cart,
   set_add_to_total_price,
   addOne,
