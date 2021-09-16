@@ -68,10 +68,6 @@ const CategoriesSideNavBar = () => {
           width: 221px;
           height: 45px;
           background-color: #f0f0f096;
-          opacity: 1;
-          transition: opacity 300ms, transform 300ms;
-          transform: scale(1);
-          transform-origin: center;
         }
       `}</style>
       <div className={styles.myCategoriesDad}>

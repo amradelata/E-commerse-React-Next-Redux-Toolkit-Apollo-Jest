@@ -7,7 +7,7 @@ import {
   set_add_to_total_price,
   set_second_item_in_cart,
 } from "../store/slices/cart.slice";
-import { set_in_my_cart } from "../store/slices/products.slice";
+import Image from "next/image";
 
 const ProductCard = (props) => {
   const authSlice = useSelector((state) => state.authSlice);
@@ -25,8 +25,6 @@ const ProductCard = (props) => {
     dispatch(set_add_to_total_price(item));
     setshowNotification(true);
     setTimeout(() => setshowNotification(false), 2000);
-
-    dispatch(set_in_my_cart(item));
   };
 
   React.useEffect(() => {
@@ -50,6 +48,15 @@ const ProductCard = (props) => {
         <Link href={`/single-page/${props.id}`} passHref>
           <a>
             <div className={styles.Image}>
+              {/* Add the hostname of your URL to the images.domains config in next.config.js: */}
+
+              {/* <Image
+                src={[props.img_url]}
+                alt="Picture of something nice"
+                layout="fill"
+                objectFit="cover"
+              /> */}
+
               <img src={props.img_url} />
             </div>
           </a>

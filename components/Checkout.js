@@ -1,6 +1,6 @@
 import styles from "./CheckOut.module.css";
 import { useSelector } from "react-redux";
-
+import Image from "next/image";
 const CheckOut = (props) => {
   const authSlice = useSelector((state) => state.authSlice);
   return (
@@ -13,7 +13,12 @@ const CheckOut = (props) => {
           >
             <div className={styles.stepName}>shipping</div>
             {authSlice.Shipping ? (
-              <img src="/./icons/checked.svg" />
+              <Image
+                src="/./icons/checked.svg"
+                alt="Picture of something nice"
+                layout="fill"
+                objectFit="cover"
+              />
             ) : (
               <div className={styles.number}>1</div>
             )}
@@ -30,7 +35,12 @@ const CheckOut = (props) => {
           >
             <div className={styles.stepName}>payment</div>
             {authSlice.Payment ? (
-              <img src="/./icons/checked.svg" />
+              <Image
+                src="/./icons/checked.svg"
+                alt="Picture of something nice"
+                layout="fill"
+                objectFit="cover"
+              />
             ) : (
               <div className={styles.number}>2</div>
             )}
@@ -47,7 +57,12 @@ const CheckOut = (props) => {
           >
             <div className={styles.stepName}>Done</div>
             {props.Done ? (
-              <img src="/./icons/checked.svg" />
+              <Image
+                src="/./icons/checked.svg"
+                alt="Picture of something nice"
+                layout="fill"
+                objectFit="cover"
+              />
             ) : (
               <div className={styles.number}>3</div>
             )}

@@ -131,8 +131,11 @@
   cursor: pointer;
   position: relative;
 }
+.UL > li .myLink {
+  transition: transform 1s;
+}
 
-/* .UL > li .myLink::after {
+.UL > li .myLink:hover::after {
   content: "";
   position: absolute;
   bottom: -5px;
@@ -140,20 +143,7 @@
   width: 100%;
   height: 0.2em;
   background-color: #ef5013;
-  opacity: 0;
-  transition: opacity 300ms, transform 300ms;
-
-  transform: scale(0);
-  transform-origin: center;
 }
-.UL > li .myLink:hover::after,
-.UL > li .myLink:focus::after {
-  opacity: 1;
-  transform: scale(1);
-}
-.UL > li .myLink:focus {
-  color: #ef5013;
-} */
 .iconMargenLeft {
   margin: 5px 0 5px 50px;
 }

@@ -17,7 +17,7 @@ const Profile = () => {
         router.push("/");
       }
     }
-  }, [authSlice.isLogIn]);
+  }, [authSlice.isLogIn, router]);
   return (
     <>
       {/* className="container is-fluid" */}
@@ -28,14 +28,14 @@ const Profile = () => {
           <div className={styles.userProfileInfo}>
             <p className="is-size-1 has-text-weight-bold">{authSlice.user}</p>
             <p className="is-size-4 ">Front End Developer</p>
-            <div className={styles.icons}>
+            {/* <div className={styles.icons}>
               <img src="/./icons/avatar.svg" className={styles.Myimg} />
               <span className={styles.span}>Lorem Text</span>
               <img src="/./icons/cart.svg" className={styles.Myimg} />
               <span className={styles.span}>Lorem Text</span>
               <img src="/./icons/delete.svg" className={styles.Myimg} />
               <span className={styles.span}>Lorem Text</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

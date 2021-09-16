@@ -1,36 +1,57 @@
 import styles from "./singlePage.module.css";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { set_cart_array_value } from "../../store/slices/cart.slice";
+import { useRouter } from "next/router";
+
+import Image from "next/image";
+import {
+  set_first_item_in_cart,
+  set_add_to_total_price,
+  set_second_item_in_cart,
+} from "../../store/slices/cart.slice";
 
 const SinglePage = (props) => {
+  const router = useRouter();
   const dispatch = useDispatch();
   const [showNotification, setshowNotification] = useState(false);
   const [is_product_in_cart, set_is_product_in_cart] = useState(false);
   const authSlice = useSelector((state) => state.authSlice);
   const CartSlice = useSelector((state) => state.CartSlice);
-  // useEffect(() => {
-  //   const product = CartSlice.cart_products.find(
-  //     (p) => p.id === props.product.id
-  //   );
-  //   if (product) {
-  //     set_is_product_in_cart(true);
-  //   } else {
-  //     set_is_product_in_cart(false);
-  //   }
-  // }, [CartSlice.cart_products, props.product.id]);
-  if (!props.product) {
+  useEffect(() => {
+    if (props?.product?.id) {
+      const product = CartSlice.cart_products.find(
+        (p) => p.id === props.product.id
+      );
+      if (product) {
+        set_is_product_in_cart(true);
+      } else {
+        set_is_product_in_cart(false);
+      }
+    }
+  }, [CartSlice.cart_products, props]);
+
+  if (router.isFallback) {
     return (
       <div className={styles.loding}>
-        <img src="/./icons/loding.gif" />
+        <Image
+          src="/./icons/loding.gif"
+          alt="Picture of something nice"
+          layout="fill"
+          objectFit="cover"
+        />
       </div>
     );
   }
 
   const addToCart = (item) => {
+    if (CartSlice.cart_products.length > 1) {
+      dispatch(set_second_item_in_cart(item));
+    }
+    dispatch(set_first_item_in_cart(item));
+
+    dispatch(set_add_to_total_price(item));
     setshowNotification(true);
     setTimeout(() => setshowNotification(false), 2000);
-    dispatch(set_cart_array_value({ item }));
   };
   return (
     <>
@@ -82,7 +103,10 @@ const SinglePage = (props) => {
 };
 
 export async function getStaticPaths() {
-  return { paths: [], fallback: true }; // paths: []  = get all items id and stor them in opject
+  return {
+    paths: [],
+    fallback: true,
+  }; // paths: []  = get all items id and stor them in opject
 }
 
 export async function getStaticProps(context) {

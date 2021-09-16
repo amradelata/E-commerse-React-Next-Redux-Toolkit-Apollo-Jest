@@ -4,8 +4,9 @@ import CheckOut from "../components/CheckOut";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { chickOutPayment } from "../store/slices/auth";
+import Image from "next/image";
 
-const payment = () => {
+const Payment = () => {
   // useEffect(() => {
   //   setmyDisabled(false);
   // }, []);
@@ -64,8 +65,20 @@ const payment = () => {
                   onClick={showFormfunction}
                 />
                 How would you like to pay{" " + CartSlice.totalPrice + "$"}
-                <img src="/./icons/visa.svg" />
-                <img src="/./icons/mastercard.svg" />
+                {/* <img src="/./icons/visa.svg" />
+                <img src="/./icons/mastercard.svg" /> */}
+                <Image
+                  src="/./icons/visa.svg"
+                  alt="Picture of something nice"
+                  layout="fill"
+                  objectFit="cover"
+                />
+                <Image
+                  src="/./icons/mastercard.svg"
+                  alt="Picture of something nice"
+                  layout="fill"
+                  objectFit="cover"
+                />
               </label>
             </div>
             <div>
@@ -129,4 +142,4 @@ const payment = () => {
   );
 };
 
-export default payment;
+export default Payment;

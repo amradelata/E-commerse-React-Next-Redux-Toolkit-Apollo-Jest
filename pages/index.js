@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./index.module.css";
 import CategoriesSideNavBar from "../components/CategoriesSideNavBar";
 import ProductCard from "../components/ProductCard";
+import Image from "next/image";
+import MyPagenation from "../components/MyPagenation";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -12,12 +14,19 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getProdcutsData());
-  }, [ProdcutsSlice.productsArr]);
+  }, []);
+  // ProdcutsSlice.productsArr
 
   if (!ProdcutsSlice.productsArr)
     return (
       <div className={styles.loding}>
-        <img src="/./icons/loding.gif" />
+        {/* <img src="/./icons/loding.gif" /> */}
+        <Image
+          src="/./icons/loding.gif"
+          alt="Picture of something nice"
+          layout="fill"
+          objectFit="cover"
+        />
       </div>
     );
   if (ProdcutsSlice.productsArr.length === 0) {
@@ -25,7 +34,15 @@ export default function Home() {
       <div className={styles.emptySearch}>
         <p>No products match your search</p>
         <p>search: shoes,coat or suit</p>
-        <img src="/./icons/illustrations/no-data.svg" />
+
+        {/* <img src="/./icons/illustrations/no-data.svg" /> */}
+
+        <Image
+          src="/./icons/illustrations/no-data.svg"
+          alt="Picture of something nice"
+          layout="fill"
+          objectFit="cover"
+        />
       </div>
     );
   }
@@ -49,6 +66,7 @@ export default function Home() {
             />
           ))}
         </div>
+        <MyPagenation />
       </div>
     </div>
   );

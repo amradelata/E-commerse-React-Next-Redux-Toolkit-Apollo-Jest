@@ -2,13 +2,19 @@ import { useSelector } from "react-redux";
 import ProductCard from "../components/ProductCard";
 import CategoriesSideNavBar from "../components/CategoriesSideNavBar";
 import styles from "./index.module.css";
-
-const search = () => {
+import Image from "next/image";
+const Search = () => {
   const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
   if (!ProdcutsSlice.productsArr)
     return (
       // <div className={styles.loding}>
-      <img src="/./icons/loding.gif" />
+
+      <Image
+        src="/./icons/loding.gif"
+        alt="Picture of something nice"
+        layout="fill"
+        objectFit="cover"
+      />
       // </div>
     );
   if (ProdcutsSlice.productsArr.length === 0) {
@@ -16,7 +22,13 @@ const search = () => {
       <div className={styles.emptySearch}>
         <p>No products match your search</p>
         <p>search: shoes,coat or suit</p>
-        <img src="/./icons/illustrations/no-data.svg" />
+        <Image
+          src="/./icons/illustrations/no-data.svg"
+          alt="Picture of something nice"
+          layout="fill"
+          objectFit="cover"
+        />
+        {/* <img src="/./icons/illustrations/no-data.svg" /> */}
       </div>
     );
   }
@@ -46,4 +58,4 @@ const search = () => {
     </>
   );
 };
-export default search;
+export default Search;

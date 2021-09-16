@@ -1,10 +1,17 @@
 import styles from "./about.module.css";
+import Image from "next/image";
 const about = () => {
   return (
     <div className="container is-fluid">
       <div className={styles.dad}>
         <div className={styles.aboutLogo}>
-          <img src="/./icons/1.png" />
+          {/* <img src="/./icons/1.png" /> */}
+          <Image
+            src="/./icons/1.png"
+            alt="Picture of something nice"
+            layout="fill"
+            objectFit="cover"
+          />
         </div>
 
         <div className={styles.aboutCart}>

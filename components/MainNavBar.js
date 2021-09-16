@@ -8,6 +8,7 @@ import { logOut } from "../store/slices/auth";
 import { useRouter } from "next/router";
 import { useState, useEffect, useRef } from "react";
 import ActiveLink from "./ActiveLink";
+import Image from "next/image";
 const MainNavBar = () => {
   const [togellDropdown, settogellDropdown] = useState(false);
   const [showPopUp, setshowPopUp] = useState(false);
@@ -17,6 +18,7 @@ const MainNavBar = () => {
   const router = useRouter();
   const authSlice = useSelector((state) => state.authSlice);
   const CartSlice = useSelector((state) => state.CartSlice);
+
   const textInput = useRef(null);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -29,6 +31,7 @@ const MainNavBar = () => {
   const searchFunction = (e) => {
     if (e.keyCode === 13) {
       const myValue = e.target.value.toLowerCase();
+      console.log(myValue);
       dispatch(getSearchProdcutsData(myValue));
       router.push(`/search?name=${myValue}`);
     }
@@ -109,20 +112,20 @@ const MainNavBar = () => {
 
         {togglePhoneNav ? (
           <ul className={styles.PhoneNav}>
-            <Link href="/">
+            <Link href="/" passHref>
               <li>
                 <a className={styles.myLink}>SHOP</a>
               </li>
             </Link>
 
-            <Link href="/about">
+            <Link href="/about" passHref>
               <li>
                 <a className={styles.myLink}>ABOUT</a>
               </li>
             </Link>
 
             {authSlice.isLogIn && (
-              <Link href="/profile">
+              <Link href="/profile" passHref>
                 <li>
                   <a className={styles.myLink}>PROFILE</a>
                 </li>
@@ -147,10 +150,10 @@ const MainNavBar = () => {
                 <input
                   onKeyDown={searchFunction}
                   onClick={foucsSearchInput}
-                  ref={textInput}
                   className={` ${
                     showSearch ? styles.searchTextActiv : styles.searchText
                   }`}
+                  ref={textInput}
                   type="text"
                   placeholder="Search In Products"
                 />
@@ -168,6 +171,12 @@ const MainNavBar = () => {
                     onClick={foucsSearchInput}
                   >
                     <img src="/./icons/search.svg" />
+                    {/* <Image
+                      src="/./icons/search.svg"
+                      alt="Picture of something nice"
+                      layout="fill"
+                      objectFit="cover"
+                    /> */}
                   </button>
                 )}
               </div>
@@ -189,6 +198,13 @@ const MainNavBar = () => {
                       onClick={() => togellDropdownFunction()}
                       className={styles.searchBtn}
                     >
+                      {/* <Image
+                        src="/./icons/avatar.svg"
+                        alt="Picture of something nice"
+                        layout="fill"
+                        objectFit="cover"
+                        className={styles.userNmae}
+                      /> */}
                       <img
                         src="/./icons/avatar.svg"
                         className={styles.userNmae}
@@ -201,7 +217,7 @@ const MainNavBar = () => {
                   <div className="dropdown-content" id="dropdown-content">
                     {authSlice.isLogIn && (
                       <div>
-                        <Link href="/profile">
+                        <Link href="/profile" passHref>
                           <div className={`dropdown-item ${styles.navItem}`}>
                             <a>
                               <p>Signed in as</p>
@@ -212,7 +228,7 @@ const MainNavBar = () => {
                       </div>
                     )}
 
-                    <Link href="/about">
+                    <Link href="/about" passHref>
                       <div className={`dropdown-item ${styles.navItem}`}>
                         <a>ABOUT</a>
                       </div>
@@ -246,6 +262,13 @@ const MainNavBar = () => {
                         src="/./icons/cart.svg"
                         className={styles.cartIcon}
                       />
+                      {/* <Image
+                        src="/./icons/cart.svg"
+                        alt="Picture of something nice"
+                        layout="fill"
+                        objectFit="cover"
+                        className={styles.cartIcon}
+                      /> */}
                       {CartSlice.cart_products.length < 1 ? (
                         ""
                       ) : (

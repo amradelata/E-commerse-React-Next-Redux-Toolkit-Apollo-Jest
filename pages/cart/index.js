@@ -4,6 +4,7 @@ import { remove_item_from_cart } from "../../store/slices/cart.slice";
 import { addOne } from "../../store/slices/cart.slice";
 import { removeOne } from "../../store/slices/cart.slice";
 import styles from "./cart.module.css";
+import Image from "next/image";
 
 const Cart = () => {
   const Dispatch = useDispatch();
@@ -67,12 +68,24 @@ const Cart = () => {
                       className={styles.cartBtn}
                       onClick={() => remove(item, index)}
                     >
-                      <img src="/./icons/delete.svg" />
+                      {/* <img src="/./icons/delete.svg" /> */}
+                      <Image
+                        src="/./icons/delete.svg"
+                        alt="Picture of something nice"
+                        layout="fill"
+                        objectFit="cover"
+                      />
                     </button>
                     <button className={styles.cartBtn}>
                       <Link href={`single-page/${item.id}`} passHref>
                         <a>
-                          <img src="/./icons/about.svg" />
+                          <Image
+                            src="/./icons/about.svg"
+                            alt="Picture of something nice"
+                            layout="fill"
+                            objectFit="cover"
+                          />
+                          {/* <img src="/./icons/about.svg" /> */}
                         </a>
                       </Link>
                     </button>
@@ -112,7 +125,13 @@ const Cart = () => {
       ) : (
         <div className={styles.empty}>
           <p className="is-size-4">cart is Empty</p>
-          <img src="/./icons/illustrations/empty.svg" />
+          {/* <img src="/./icons/illustrations/empty.svg" /> */}
+          <Image
+            src="/./icons/illustrations/empty.svg"
+            alt="Picture of something nice"
+            layout="fill"
+            objectFit="cover"
+          />
           <Link href="/" passHref>
             <a>
               <button>Go to shopping</button>
