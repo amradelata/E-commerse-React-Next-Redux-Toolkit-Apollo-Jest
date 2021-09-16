@@ -3,14 +3,13 @@ import Image from "next/image";
 const about = () => {
   return (
     <div className="container is-fluid">
-      <div className={styles.dad}>
+      <div className={styles.parents}>
         <div className={styles.aboutLogo}>
-          {/* <img src="/./icons/1.png" /> */}
           <Image
             src="/./icons/1.png"
-            alt="Picture of something nice"
-            layout="fill"
-            objectFit="cover"
+            alt="amradelataLogo"
+            width={500}
+            height={500}
           />
         </div>
 

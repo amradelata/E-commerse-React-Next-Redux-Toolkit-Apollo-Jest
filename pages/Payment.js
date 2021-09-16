@@ -53,7 +53,7 @@ const Payment = () => {
   return (
     <>
       <CheckOut />
-      <div className={styles.Checkout}>
+      <div>
         <div className={styles.pamentMethod}>
           <div className="control">
             <div>

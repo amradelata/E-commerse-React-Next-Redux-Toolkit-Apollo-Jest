@@ -54,16 +54,7 @@
   width: 50%;
   border: none;
 }
-.showNotification {
-  transition: visibility 0s, opacity 0.5s linear;
-  position: fixed;
-  bottom: 0;
-  right: 0%;
-  z-index: 999999999;
-  opacity: 1;
-  font-weight: bolder;
-  text-transform: uppercase;
-}
+
 .loding {
   position: absolute;
   top: 50%;
@@ -113,7 +104,8 @@
   /* For mobile phones: */
   .card {
     flex-direction: column;
-    margin: 15px;
+    align-items: center;
+    margin: auto;
   }
   .end {
     text-align: center;

@@ -23,7 +23,7 @@
 
 .MyForm {
   width: 1000px;
-  background-color: #fff;
+  /* background-color: #fff; */
   /* text-align: center; */
   padding: 35px;
   /* margin-bottom: 35px !important; */
@@ -118,6 +118,7 @@
   text-align: center;
 }
 .myDone {
+  padding-top: 40px;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -135,17 +136,17 @@
   margin: 0;
   margin: 50px 0;
 }
-.Done > button {
-  cursor: pointer;
-  width: 400px;
-  color: #ccc;
 
-  display: block;
-  margin: auto;
-  margin-top: 35px;
+.goToShop {
+  width: 400px;
+  margin: 12px 0;
+  padding: 11px 20px;
+  background-color: #371f72;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
   border: none;
-  padding: 10px 0;
-  font-size: large;
 }
 
 @media only screen and (max-width: 700px) {

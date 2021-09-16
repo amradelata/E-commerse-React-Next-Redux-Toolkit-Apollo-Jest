@@ -24,17 +24,17 @@ const Done = () => {
     <div className={styles.myDone}>
       <CheckOut Done={myDisabled} />
       <div className={styles.Done}>
-        <Image
+        {/* <Image
           src="/./icons/checked.svg"
           alt="Picture of something nice"
           layout="fill"
           objectFit="cover"
-        />
-        {/* <img src="/./icons/checked.svg" /> */}
+        /> */}
+        <img src="/./icons/checked.svg" />
         <p className="is-size-2">Congratulations!</p>
         <p className="is-size-5">Your order is going to arrive soon</p>
         <Link href="/" passHref>
-          <button className="button is-info" onClick={resetChickOutState}>
+          <button className={styles.goToShop} onClick={resetChickOutState}>
             go to shopping
           </button>
         </Link>

@@ -2,7 +2,7 @@ import styles from "./singlePage.module.css";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
-
+import SuccessNotification from "../../components/SuccessNotification";
 import Image from "next/image";
 import {
   set_first_item_in_cart,
@@ -55,11 +55,7 @@ const SinglePage = (props) => {
   };
   return (
     <>
-      {showNotification && (
-        <div className={`notification is-success ${styles.showNotification}`}>
-          product added to cart
-        </div>
-      )}
+      {showNotification && <SuccessNotification />}
       <div className={styles.realatev}>
         <div className={styles.bacground}></div>
         <div className={styles.mycontaner}>

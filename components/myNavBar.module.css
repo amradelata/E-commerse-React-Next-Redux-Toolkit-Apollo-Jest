@@ -271,6 +271,8 @@
     padding: 25px;
     background-color: #eeeeee;
     position: absolute;
+    top: 64px;
+    left: 0;
     z-index: 999999999999;
     text-align: center;
   }
@@ -291,7 +293,7 @@
   }
   .EndUL {
     position: absolute;
-    top: 20px;
+    top: 4px;
     left: 20px;
   }
   .showInPhone {
@@ -306,8 +308,12 @@
     color: #2d2d2d;
   }
   .searchText {
-    width: 150px;
+    width: 74px;
     padding: 0 6px;
+    margin-left: 20px;
+  }
+  .searchTextActiv {
+    width: 150px;
     margin-left: 20px;
   }
 

@@ -1,8 +1,8 @@
-.myCategoriesDad {
+.myCategoriesParents {
   border: 1px solid #ddd;
 }
 
-.myCategoriesDad > p {
+.myCategoriesParents > p {
   padding: 14px 16px;
   margin: 0;
   border-bottom: 1px solid #ddd;
@@ -38,6 +38,7 @@
 
 @media only screen and (max-width: 700px) {
   /* For mobile phones: */
+  .myCategories p,
   .navTag {
     display: none;
   }

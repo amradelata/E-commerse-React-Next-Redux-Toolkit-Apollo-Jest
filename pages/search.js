@@ -34,7 +34,7 @@ const Search = () => {
   }
   return (
     <>
-      <div className={`container is-fluid ${styles.dad}`}>
+      <div className={`container is-fluid ${styles.parents}`}>
         <div className={styles.ProductNave}>
           <CategoriesSideNavBar />
         </div>

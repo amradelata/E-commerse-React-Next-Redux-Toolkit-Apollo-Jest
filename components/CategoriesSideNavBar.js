@@ -70,7 +70,7 @@ const CategoriesSideNavBar = () => {
           background-color: #f0f0f096;
         }
       `}</style>
-      <div className={styles.myCategoriesDad}>
+      <div className={styles.myCategoriesParents}>
         <p className={styles.navTag}>Categories</p>
 
         {listOfCategories.map((item) => (

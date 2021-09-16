@@ -8,6 +8,7 @@ import {
   set_second_item_in_cart,
 } from "../store/slices/cart.slice";
 import Image from "next/image";
+import SuccessNotification from "../components/SuccessNotification";
 
 const ProductCard = (props) => {
   const authSlice = useSelector((state) => state.authSlice);
@@ -38,11 +39,7 @@ const ProductCard = (props) => {
 
   return (
     <>
-      {showNotification && (
-        <div className={`notification is-success ${styles.showNotification}`}>
-          product added to cart
-        </div>
-      )}
+      {showNotification && <SuccessNotification />}
 
       <div className={styles.myCard}>
         <Link href={`/single-page/${props.id}`} passHref>
