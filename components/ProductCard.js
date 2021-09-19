@@ -45,7 +45,7 @@ const ProductCard = (props) => {
 
               {/* <Image
                 src={props.img_url}
-                alt="Picture of something nice"
+                alt="item Picture"
                 width="300"
                 height="300"
               /> */}

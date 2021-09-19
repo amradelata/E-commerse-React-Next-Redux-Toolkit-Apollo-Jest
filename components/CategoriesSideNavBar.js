@@ -1,6 +1,7 @@
 import styles from "./CategoriesSideNavBar.module.css";
 import Link from "next/link";
 import ActiveLink from "./ActiveLink";
+import Image from "next/Image";
 const CategoriesSideNavBar = () => {
   const listOfCategories = [
     {
@@ -82,7 +83,12 @@ const CategoriesSideNavBar = () => {
             <a>
               <div className={styles.myCategories}>
                 <div>
-                  <img className={styles.Img} src={item.img_url} />
+                  <Image
+                    src={item.img_url}
+                    width={25}
+                    height={30}
+                    alt="tag"
+                  ></Image>
                 </div>
                 <div>
                   <p>{item.tag}</p>

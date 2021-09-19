@@ -1,15 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./Shipping.module.css";
 import CheckOut from "../components/CheckOut";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { chickOutPayment } from "../store/slices/auth";
 import Image from "next/image";
 
 const Payment = () => {
-  // useEffect(() => {
-  //   setmyDisabled(false);
-  // }, []);
   const CartSlice = useSelector((state) => state.CartSlice);
   const authSlice = useSelector((state) => state.authSlice);
   const dispatch = useDispatch();
@@ -35,7 +32,6 @@ const Payment = () => {
       Expiration.length >= 1 &&
       CVV.length >= 1
     ) {
-      // setmyDisabled(true);
       dispatch(chickOutPayment(true));
     } else {
       dispatch(chickOutPayment(false));
@@ -47,7 +43,7 @@ const Payment = () => {
   };
   const hiedFormFunction = () => {
     setshowForm(false);
-    // setmyDisabled(true);
+
     dispatch(chickOutPayment(true));
   };
   return (
@@ -65,28 +61,22 @@ const Payment = () => {
                   onClick={showFormfunction}
                 />
                 How would you like to pay{" " + CartSlice.totalPrice + "$"}
-                <img src="/./icons/visa.svg" />
-                <img src="/./icons/mastercard.svg" />
-                {/* <Image
-                  className="pamentImg"
-                  src="/./icons/visa.svg"
-                  alt="visa"
-                  width="35"
-                  height="35"
-                  style={{
-                    backgroundImage: "red",
-                  }}
-                />
-                <Image
-                  style={{
-                    backgroundImage: "red",
-                  }}
-                  className="pamentImg"
-                  src="/./icons/mastercard.svg"
-                  alt="mastercard"
-                  width="35"
-                  height="35"
-                /> */}
+                <div className={styles.parent}>
+                  <Image
+                    className={styles.img}
+                    src="/./icons/visa.svg"
+                    alt="visa"
+                    width="40"
+                    height="35"
+                  />
+                  <Image
+                    className={styles.img}
+                    src="/./icons/mastercard.svg"
+                    alt="mastercard"
+                    width="40"
+                    height="35"
+                  />
+                </div>
               </label>
             </div>
             <div>
@@ -103,11 +93,7 @@ const Payment = () => {
           </div>
         </div>
         {showForm ? (
-          <form
-            className={styles.MyForm}
-            // onSubmit={nextStep}
-            onChange={desapuld}
-          >
+          <form className={styles.MyForm} onChange={desapuld}>
             <div className={styles.fullWidth}>
               <label>Card Number</label>
               <input
@@ -141,7 +127,6 @@ const Payment = () => {
       <button
         disabled={!authSlice.Payment}
         className={`button is-info ${styles.pamentbtn}`}
-        // type="submit"
         onClick={nextStep}
       >
         Next

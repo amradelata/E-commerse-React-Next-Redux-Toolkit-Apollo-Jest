@@ -8,15 +8,12 @@ const Search = () => {
   const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
   if (!ProdcutsSlice.productsArr)
     return (
-      // <div className={styles.loding}>
-
       <Image
         src="/./icons/loding.gif"
         alt="Picture of something nice"
         layout="fill"
         objectFit="cover"
       />
-      // </div>
     );
   if (ProdcutsSlice.productsArr.length === 0) {
     return (
