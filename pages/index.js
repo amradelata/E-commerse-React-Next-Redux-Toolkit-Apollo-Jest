@@ -49,6 +49,7 @@ export default function Home() {
       <div className={styles.ProductNave}>
         <CategoriesSideNavBar />
       </div>
+
       <div className={styles.productsandProductsNav}>
         <div className={styles.myCards}>
           {ProdcutsSlice.productsArr.map((item) => (

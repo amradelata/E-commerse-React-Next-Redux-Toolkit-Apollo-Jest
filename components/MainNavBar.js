@@ -29,8 +29,8 @@ const MainNavBar = () => {
   }, [authSlice.isLogIn]);
 
   const searchFunction = (e) => {
+    const myValue = e.target.value.toLowerCase();
     if (e.keyCode === 13) {
-      const myValue = e.target.value.toLowerCase();
       console.log(myValue);
       dispatch(getSearchProdcutsData(myValue));
       router.push(`/search?name=${myValue}`);

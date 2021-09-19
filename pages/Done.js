@@ -25,10 +25,10 @@ const Done = () => {
       <CheckOut Done={myDisabled} />
       <div className={styles.Done}>
         <Image
-          src="/./icons/checked.svg"
-          alt="Picture of something nice"
-          width="100"
-          height="100"
+          src="/./icons/illustrations/Successful-purchase.svg"
+          alt="Done"
+          width="250"
+          height="250"
         />
         {/* <img src="/./icons/checked.svg" /> */}
         <p className="is-size-2">Congratulations!</p>

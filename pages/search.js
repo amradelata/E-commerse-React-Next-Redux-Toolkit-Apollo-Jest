@@ -3,6 +3,7 @@ import ProductCard from "../components/ProductCard";
 import CategoriesSideNavBar from "../components/CategoriesSideNavBar";
 import styles from "./index.module.css";
 import Image from "next/image";
+import Link from "next/Link";
 const Search = () => {
   const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
   if (!ProdcutsSlice.productsArr)
@@ -19,16 +20,21 @@ const Search = () => {
     );
   if (ProdcutsSlice.productsArr.length === 0) {
     return (
-      <div className={styles.emptySearch}>
+      <div className={styles.empty}>
         <p>No products match your search</p>
         <p>search: shoes,coat or suit</p>
+
         <Image
           src="/./icons/illustrations/no-data.svg"
-          alt="no-data"
-          width="300"
-          height="500"
+          alt="empty"
+          width="400"
+          height="400"
         />
-        {/* <img src="/./icons/illustrations/no-data.svg" /> */}
+        <Link href="/" passHref>
+          <a>
+            <button>Go to shopping</button>
+          </a>
+        </Link>
       </div>
     );
   }

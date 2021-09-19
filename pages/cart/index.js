@@ -39,9 +39,14 @@ const Cart = () => {
                   ></div>
                   <div style={{ textAlign: "left" }}>
                     <p className="is-size-4">{item.name}</p>
-                    <p className="is-size-6 has-text-weight-bold ">
-                      {item.price + "$"}
-                    </p>
+                    {item.descount}
+
+                    {item.discount > 1 && (
+                      <p className={styles.discount}>
+                        {item.price + item.discount + "$"}
+                      </p>
+                    )}
+                    <p className={styles.itemPrice}>{item.price + "$"}</p>
                   </div>
                   <div className={styles.atyBut}>
                     <button
@@ -62,20 +67,8 @@ const Cart = () => {
                       +
                     </button>
                   </div>
-                  {/* </div> */}
+
                   <div>
-                    <button
-                      className={styles.cartBtn}
-                      onClick={() => remove(item, index)}
-                    >
-                      {/* <img src="/./icons/delete.svg" /> */}
-                      <Image
-                        src="/./icons/delete.svg"
-                        alt="delete"
-                        width="23"
-                        height="23"
-                      />
-                    </button>
                     <button className={styles.cartBtn}>
                       <Link href={`single-page/${item.id}`} passHref>
                         <a>
@@ -85,9 +78,19 @@ const Cart = () => {
                             width="23"
                             height="23"
                           />
-                          {/* <img src="/./icons/about.svg" /> */}
                         </a>
                       </Link>
+                    </button>
+                    <button
+                      className={styles.cartBtn}
+                      onClick={() => remove(item, index)}
+                    >
+                      <Image
+                        src="/./icons/delete.svg"
+                        alt="delete"
+                        width="23"
+                        height="23"
+                      />
                     </button>
                   </div>
                 </div>
@@ -125,7 +128,7 @@ const Cart = () => {
       ) : (
         <div className={styles.empty}>
           <p className="is-size-4">cart is Empty</p>
-          {/* <img src="/./icons/illustrations/empty.svg" /> */}
+
           <Image
             src="/./icons/illustrations/empty.svg"
             alt="empty"

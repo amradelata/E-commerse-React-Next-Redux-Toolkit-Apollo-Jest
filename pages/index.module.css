@@ -16,6 +16,17 @@
   flex-wrap: wrap;
   margin: 0 -8px;
 }
+.goToShop {
+  width: 400px;
+  margin: 12px 0;
+  padding: 11px 20px;
+  background-color: #371f72;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
 .ProductNave {
   /* width: 15%;
   margin-top: 10px; */
@@ -74,32 +85,24 @@
   font-weight: bolder;
   text-transform: uppercase;
 }
-.emptySearch {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
+.empty {
   text-align: center;
-}
-.emptySearch p {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
-  margin: 20px 0;
 }
-.fourOhFour {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: rgb(230, 230, 230);
-}
-.fourOhFour .emptySearch {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+
+.empty > a > button {
+  cursor: pointer;
+  width: 400px;
+  color: #fff;
+  background-color: #371f72;
+  display: block;
+  margin: auto;
+  margin-top: 35px;
+  border: none;
+  padding: 10px 0;
+  font-size: large;
 }
 .loding {
   position: absolute;
