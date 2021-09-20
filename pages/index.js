@@ -65,7 +65,7 @@ export default function Home(props) {
             />
           ))}
         </div>
-        {/* <MyPagination paginatData={props.paginatData} /> */}
+        <MyPagination />
       </div>
     </div>
   );
