@@ -2,9 +2,16 @@ import styles from "../category/category.module.css";
 import CategoriesSideNavBar from "../../components/CategoriesSideNavBar";
 import ProductCard from "../../components/ProductCard";
 import Image from "next/image";
+import { useEffect } from "react";
 import MyPagination from "../../components/MyPagination";
+import { useDispatch } from "react-redux";
+import { paginatData } from "../../store/slices/products.slice";
 import axios from "axios";
-const paginat = (props) => {
+const Paginat = (props) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(paginatData(props.paginatData));
+  }, [dispatch, props]);
   if (!props.product) {
     return "loding";
   }
@@ -32,7 +39,8 @@ const paginat = (props) => {
           ))}
         </div>
 
-        <MyPagination paginatData={props.paginatData} />
+        {/* <MyPagination paginatData={props.paginatData} /> */}
+        <MyPagination />
       </div>
     </div>
   );
@@ -59,4 +67,4 @@ export async function getStaticProps(context) {
   }
 }
 
-export default paginat;
+export default Paginat;

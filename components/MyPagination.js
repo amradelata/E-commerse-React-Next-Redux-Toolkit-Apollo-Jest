@@ -2,44 +2,21 @@ import { useState, useEffect } from "react";
 import styles from "./MyPagination.module.css";
 import Link from "next/Link";
 import ActiveLink from "./ActiveLink";
+import { useSelector } from "react-redux";
 
 const MyPagination = (props) => {
+  const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
   const [previousptn, setpreviousptn] = useState(true);
   const [nextptn, setnextptn] = useState(true);
   const [nextNumber, setnextNumber] = useState(0);
   const [previousNumber, setpreviousNumber] = useState(0);
-  useEffect(() => {
-    //if there is no next include hide next btn
-    {
-      props.paginatData.includes("next") ? setnextptn(true) : setnextptn(false);
-    }
-    //if there is no prev include hide prev btn
-    {
-      props.paginatData.includes("prev")
-        ? setpreviousptn(true)
-        : setpreviousptn(false);
-    }
-    //useing parse-link-header package to Parses a link header to array
-    const parse = require("parse-link-header");
-    const parsed = parse(props.paginatData);
-    console.log(parsed);
-    //add the nextNumber dynamic if he is here
-    {
-      props.paginatData.includes("next") && setnextNumber(parsed.next._page);
-    }
-    //add the previousNumber dynamic if he is here
-    {
-      props.paginatData.includes("prev") &&
-        setpreviousNumber(parsed.prev._page);
-    }
-  }, [nextptn, previousptn, props]);
 
   return (
     <>
       <div className={styles.pagination}>
         <div className={styles.paginationContent}>
-          {previousptn && (
-            <Link href={`/products/${previousNumber}`} passHref>
+          {ProdcutsSlice.previousptn && (
+            <Link href={`/products/${ProdcutsSlice.previousNumber}`} passHref>
               <a>
                 <li>&#8249;</li>
               </a>
@@ -98,14 +75,13 @@ const MyPagination = (props) => {
             </ActiveLink>
           </ul>
 
-          {nextptn && (
-            <Link href={`/products/${nextNumber}`} passHref>
+          {ProdcutsSlice.nextptn && (
+            <Link href={`/products/${ProdcutsSlice.nextNumber}`} passHref>
               <a>
                 <li>&#8250; </li>
               </a>
             </Link>
           )}
-          {/* <p>{props.paginatData}</p> */}
         </div>
       </div>
     </>
