@@ -5,9 +5,9 @@ import styles from "./index.module.css";
 import CategoriesSideNavBar from "../components/CategoriesSideNavBar";
 import ProductCard from "../components/ProductCard";
 import Image from "next/image";
-import MyPagenation from "../components/MyPagenation";
+import MyPagination from "../components/MyPagination";
 
-export default function Home() {
+export default function Home(props) {
   const dispatch = useDispatch();
   const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
   const authSlice = useSelector((state) => state.authSlice);
@@ -65,7 +65,7 @@ export default function Home() {
             />
           ))}
         </div>
-        <MyPagenation />
+        {/* <MyPagination paginatData={props.paginatData} /> */}
       </div>
     </div>
   );

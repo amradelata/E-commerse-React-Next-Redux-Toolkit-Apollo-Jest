@@ -104,12 +104,14 @@ const MainNavBar = () => {
         </div>
         <div className={styles.logo}>
           <Link href="/" passHref>
-            <Image
-              src="/./icons/logo.svg"
-              alt="search"
-              width="100"
-              height="33"
-            />
+            <a>
+              <Image
+                src="/./icons/logo.svg"
+                alt="search"
+                width="100"
+                height="33"
+              />
+            </a>
           </Link>
         </div>
         <a

@@ -84,6 +84,7 @@ const CategoriesSideNavBar = () => {
               <div className={styles.myCategories}>
                 <div>
                   <Image
+                    key={item.id}
                     src={item.img_url}
                     width={25}
                     height={30}
