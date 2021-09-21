@@ -15,7 +15,6 @@ const Done = () => {
   const [myDisabled, setmyDisabled] = useState(true);
   useEffect(() => {
     dispatch(restMyCart());
-    // dispatch(chickOutDone());
   }, [dispatch]);
   const resetChickOutState = () => {
     dispatch(chickOutDone());
@@ -30,7 +29,6 @@ const Done = () => {
           width="250"
           height="250"
         />
-        {/* <img src="/./icons/checked.svg" /> */}
         <p className="is-size-2">Congratulations!</p>
         <p className="is-size-5">Your order is going to arrive soon</p>
         <Link href="/" passHref>

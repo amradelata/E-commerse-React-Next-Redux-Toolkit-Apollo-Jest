@@ -82,9 +82,3 @@
     z-index: 99999;
   }
 }
-
-@media (max-width: 1500px) {
-  .myCard {
-    /* width: calc(25% - 20px); */
-  }
-}

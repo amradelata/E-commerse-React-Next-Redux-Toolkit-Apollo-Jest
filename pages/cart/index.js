@@ -5,13 +5,13 @@ import { addOne } from "../../store/slices/cart.slice";
 import { removeOne } from "../../store/slices/cart.slice";
 import styles from "./cart.module.css";
 import Image from "next/image";
+import EmptyProducts from "../../components/EmptyProducts/EmptyProducts";
 
 const Cart = () => {
   const Dispatch = useDispatch();
   const CartSlice = useSelector((state) => state.CartSlice);
 
   const remove = (item, index) => {
-    // console.log(item, index);
     Dispatch(remove_item_from_cart({ item, index }));
   };
   const addOnefunction = (item, index) => {
@@ -126,21 +126,7 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <div className={styles.empty}>
-          <p className="is-size-4">cart is Empty</p>
-
-          <Image
-            src="/./icons/illustrations/empty.svg"
-            alt="empty"
-            width="400"
-            height="400"
-          />
-          <Link href="/" passHref>
-            <a>
-              <button>Go to shopping</button>
-            </a>
-          </Link>
-        </div>
+        <EmptyProducts title={"cart is Empty"} />
       )}
     </div>
   );

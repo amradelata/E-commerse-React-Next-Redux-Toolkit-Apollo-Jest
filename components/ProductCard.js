@@ -6,7 +6,7 @@ import {
   set_first_item_in_cart,
   set_add_to_total_price,
 } from "../store/slices/cart.slice";
-import Image from "next/image";
+
 import SuccessNotification from "../components/SuccessNotification";
 
 const ProductCard = (props) => {
@@ -41,15 +41,6 @@ const ProductCard = (props) => {
         <Link href={`/single-page/${props.id}`} passHref>
           <a>
             <div className={styles.Image}>
-              {/* Add the hostname of your URL to the images.domains config in next.config.js: */}
-
-              {/* <Image
-                src={props.img_url}
-                alt="item Picture"
-                width="300"
-                height="300"
-              /> */}
-
               <img src={props.img_url} />
             </div>
           </a>

@@ -6,7 +6,6 @@ const singlecategory = (props) => {
   if (!props.category)
     return (
       <div className={styles.loding}>
-        {/* <img src="/./icons/loding.gif" /> */}
         <Image
           src="/./icons/loding.gif"
           alt="Picture of something nice"

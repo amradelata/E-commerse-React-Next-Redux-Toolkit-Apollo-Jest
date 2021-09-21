@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import SuccessNotification from "../../components/SuccessNotification";
-import Image from "next/image";
+import Loding from "../../components/loding/Loding";
 import {
   set_first_item_in_cart,
   set_add_to_total_price,
@@ -30,24 +30,11 @@ const SinglePage = (props) => {
   }, [CartSlice.cart_products, props]);
 
   if (router.isFallback) {
-    return (
-      <div className={styles.loding}>
-        <Image
-          src="/./icons/loding.gif"
-          alt="Picture of something nice"
-          layout="fill"
-          objectFit="cover"
-        />
-      </div>
-    );
+    return <Loding />;
   }
 
   const addToCart = (item) => {
-    // if (CartSlice.cart_products.length > 1) {
-    //   dispatch(set_second_item_in_cart(item));
-    // }
     dispatch(set_first_item_in_cart(item));
-
     dispatch(set_add_to_total_price(item));
     setshowNotification(true);
     setTimeout(() => setshowNotification(false), 2000);

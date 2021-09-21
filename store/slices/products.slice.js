@@ -11,7 +11,7 @@ export const ProdcutsSlice = createSlice({
     previousNumber: 0,
   },
   reducers: {
-    setProductsValue(state, { payload }) {
+    setSearchProdcutsData(state, { payload }) {
       state.productsArr = payload;
     },
     paginatData(state, { payload }) {
@@ -36,20 +36,7 @@ export const ProdcutsSlice = createSlice({
   },
 });
 
-export const { setProductsValue, paginatData } = ProdcutsSlice.actions;
-
-export const getProdcutsData = () => async (dispatch) => {
-  try {
-    const response = await axios.get(
-      `http://localhost:3001/products?_page=${1}&_limit=12`
-    );
-    // handle success
-
-    dispatch(setProductsValue(response.data));
-  } catch (error) {
-    // handle error
-  }
-};
+export const { setSearchProdcutsData, paginatData } = ProdcutsSlice.actions;
 
 export const getSearchProdcutsData = (myValue) => async (dispatch) => {
   try {
@@ -57,7 +44,7 @@ export const getSearchProdcutsData = (myValue) => async (dispatch) => {
       `http://localhost:3001/products?q=${myValue}`
     );
     // handle success
-    dispatch(setProductsValue(response.data));
+    dispatch(setSearchProdcutsData(response.data));
   } catch (error) {
     // handle error
     alert(error);

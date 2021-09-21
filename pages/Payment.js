@@ -92,7 +92,7 @@ const Payment = () => {
             </div>
           </div>
         </div>
-        {showForm ? (
+        {showForm && (
           <form className={styles.MyForm} onChange={desapuld}>
             <div className={styles.fullWidth}>
               <label>Card Number</label>
@@ -120,8 +120,6 @@ const Payment = () => {
               </div>
             </div>
           </form>
-        ) : (
-          ""
         )}
       </div>
       <button

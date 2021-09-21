@@ -619,9 +619,13 @@
       "category": "Shoes",
       "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
       "id": 62
+    },
+    {
+      "name": "new products",
+      "price": 500,
+      "id": 63
     }
   ],
-
   "users": [
     {
       "email": "test@mail.com",

@@ -25,7 +25,7 @@ const CheckOut = (props) => {
             className={!authSlice.Shipping ? styles.line : styles.lineActiv}
           ></div>
         </div>
-        {/*  */}
+        {/* step */}
 
         <div className={styles.step}>
           <div className={!authSlice.Payment ? styles.circle : styles.activ}>
@@ -46,7 +46,7 @@ const CheckOut = (props) => {
           ></div>
         </div>
 
-        {/*  */}
+        {/* step */}
 
         <div className={styles.step}>
           <div className={!props.Done ? styles.circle : styles.activ}>

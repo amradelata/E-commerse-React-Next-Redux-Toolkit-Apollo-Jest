@@ -62,15 +62,6 @@
   cursor: auto;
 }
 
-.loding {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.loding img {
-  width: 250px;
-}
 .category {
   margin: 0;
   margin-bottom: 8px;

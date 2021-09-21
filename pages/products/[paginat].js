@@ -1,11 +1,12 @@
 import styles from "../category/category.module.css";
 import CategoriesSideNavBar from "../../components/CategoriesSideNavBar";
 import ProductCard from "../../components/ProductCard";
-import Image from "next/image";
 import { useEffect } from "react";
 import MyPagination from "../../components/MyPagination";
 import { useDispatch } from "react-redux";
 import { paginatData } from "../../store/slices/products.slice";
+import EmptyProducts from "../../components/EmptyProducts/EmptyProducts";
+import Loding from "../../components/loding/Loding";
 import axios from "axios";
 const Paginat = (props) => {
   const dispatch = useDispatch();
@@ -13,10 +14,10 @@ const Paginat = (props) => {
     dispatch(paginatData(props.paginatData));
   }, [dispatch, props]);
   if (!props.product) {
-    return "loding";
+    return <Loding />;
   }
   if (props.product.length === 0) {
-    return "no more products";
+    return <EmptyProducts title={"No more products"} />;
   }
   return (
     <div className={`container is-fluid ${styles.parents}`}>
@@ -39,7 +40,6 @@ const Paginat = (props) => {
           ))}
         </div>
 
-        {/* <MyPagination paginatData={props.paginatData} /> */}
         <MyPagination />
       </div>
     </div>

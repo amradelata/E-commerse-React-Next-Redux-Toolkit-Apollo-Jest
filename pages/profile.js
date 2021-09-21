@@ -11,7 +11,7 @@ const Profile = () => {
   useEffect(() => {
     if (!authSlice.isLogIn) {
       {
-        router.push("/");
+        router.push("/products/1");
       }
     }
   }, [authSlice.isLogIn, router]);

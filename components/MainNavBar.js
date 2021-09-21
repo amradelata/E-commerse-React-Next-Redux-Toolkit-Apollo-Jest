@@ -84,7 +84,7 @@ const MainNavBar = () => {
         <div>
           <ul className={styles.UL}>
             <li>
-              <ActiveLink activeClassName="active" href="/">
+              <ActiveLink activeClassName="active" href="/products/1">
                 <a className={styles.myLink}>shopping</a>
               </ActiveLink>
             </li>
@@ -103,7 +103,7 @@ const MainNavBar = () => {
           </ul>
         </div>
         <div className={styles.logo}>
-          <Link href="/" passHref>
+          <Link href="/products/1" passHref>
             <a>
               <Image
                 src="/./icons/logo.svg"

@@ -2,11 +2,10 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logindata } from "../store/slices/auth";
 import { adduser } from "../store/slices/auth";
-import { useRouter } from "next/router";
 import styles from "./myNavBar.module.css";
 const LoginAndSignPopup = () => {
   const dispatch = useDispatch();
-  const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const authSlice = useSelector((state) => state.authSlice);
@@ -74,7 +73,6 @@ const LoginAndSignPopup = () => {
               <div>
                 <label>Email</label>
                 <input
-                  // className="input "
                   placeholder="email"
                   required
                   type="email"
@@ -86,7 +84,6 @@ const LoginAndSignPopup = () => {
               <div>
                 <label>Password</label>
                 <input
-                  // className="input "
                   placeholder="password"
                   required
                   type="password"
@@ -117,7 +114,6 @@ const LoginAndSignPopup = () => {
               <div>
                 <label>Email</label>
                 <input
-                  // className="input "
                   placeholder="email"
                   required
                   type="email"
@@ -129,7 +125,6 @@ const LoginAndSignPopup = () => {
               <div>
                 <label>Password</label>
                 <input
-                  // className="input "
                   placeholder="password"
                   required
                   type="password"

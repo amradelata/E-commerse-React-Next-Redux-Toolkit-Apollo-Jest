@@ -1,10 +1,10 @@
-GET https://jsonplaceholder.typicode.com/todos/1
+GET http://localhost:3001/users
 
 ###
-POST https://jsonplaceholder.typicode.com/posts
+POST http://localhost:3001/products
 Content-Type: application/json
 
 {
-    "title":"new post",
-    "body":"this is new post"
+    "name":"new products",
+    "price":500
 }

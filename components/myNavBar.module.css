@@ -241,7 +241,6 @@
   margin-left: 8px;
   display: inline-block;
   cursor: pointer;
-  /* padding-bottom: 12px; */
 }
 
 .showInPhone {
@@ -264,10 +263,6 @@
 }
 .navItem a {
   color: #000;
-
-  /* padding: 10px;
-  width: 100%; */
-  /* background-color: bisque; */
 }
 @media only screen and (max-width: 700px) {
   /* For mobile phones: */
@@ -297,7 +292,6 @@
   }
   .PhoneNav li a {
     color: #000;
-    /* margin: 25px 0; */
   }
   .UL > li .myLink {
     margin-right: 0;

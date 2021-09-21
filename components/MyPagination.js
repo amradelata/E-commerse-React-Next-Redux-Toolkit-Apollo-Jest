@@ -1,15 +1,10 @@
-import { useState, useEffect } from "react";
 import styles from "./MyPagination.module.css";
 import Link from "next/Link";
 import ActiveLink from "./ActiveLink";
 import { useSelector } from "react-redux";
 
-const MyPagination = (props) => {
+const MyPagination = () => {
   const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
-  const [previousptn, setpreviousptn] = useState(true);
-  const [nextptn, setnextptn] = useState(true);
-  const [nextNumber, setnextNumber] = useState(0);
-  const [previousNumber, setpreviousNumber] = useState(0);
 
   return (
     <>

@@ -4,36 +4,13 @@ import CategoriesSideNavBar from "../components/CategoriesSideNavBar";
 import styles from "./index.module.css";
 import Image from "next/image";
 import Link from "next/Link";
+import Loding from "../components/loding/Loding";
+import EmptyProducts from "../components/EmptyProducts/EmptyProducts";
 const Search = () => {
   const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
-  if (!ProdcutsSlice.productsArr)
-    return (
-      <Image
-        src="/./icons/loding.gif"
-        alt="Picture of something nice"
-        layout="fill"
-        objectFit="cover"
-      />
-    );
+  if (!ProdcutsSlice.productsArr) return <Loding />;
   if (ProdcutsSlice.productsArr.length === 0) {
-    return (
-      <div className={styles.empty}>
-        <p>No products match your search</p>
-        <p>search: shoes,coat or suit</p>
-
-        <Image
-          src="/./icons/illustrations/no-data.svg"
-          alt="empty"
-          width="400"
-          height="400"
-        />
-        <Link href="/" passHref>
-          <a>
-            <button>Go to shopping</button>
-          </a>
-        </Link>
-      </div>
-    );
+    return <EmptyProducts title={"No products match your search"} />;
   }
   return (
     <>
