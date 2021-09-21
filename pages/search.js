@@ -1,9 +1,7 @@
 import { useSelector } from "react-redux";
 import ProductCard from "../components/ProductCard";
 import CategoriesSideNavBar from "../components/CategoriesSideNavBar";
-import styles from "./index.module.css";
-import Image from "next/image";
-import Link from "next/Link";
+import styles from "./Search.module.css";
 import Loding from "../components/loding/Loding";
 import EmptyProducts from "../components/EmptyProducts/EmptyProducts";
 const Search = () => {

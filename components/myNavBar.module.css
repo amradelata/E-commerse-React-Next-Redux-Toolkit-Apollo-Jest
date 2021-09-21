@@ -217,20 +217,6 @@
   outline: none;
 }
 
-.LoginForm button,
-.SigninForm button {
-  width: 100%;
-  padding: 12px;
-  background-color: #371f72;
-  color: #fff;
-  border: 0;
-  outline: 0;
-  font-size: 16px;
-  font-weight: 500;
-  margin: 10px 0 15px;
-  cursor: pointer;
-}
-
 .LoginForm p,
 .SigninForm p {
   color: #371f72;
@@ -238,9 +224,19 @@
   background-color: transparent;
   font-size: 16px;
   font-weight: 500;
-  margin-left: 8px;
+
   display: inline-block;
   cursor: pointer;
+}
+.LoginForm span,
+.SigninForm span {
+  padding-top: 100px;
+}
+.LoginForm a,
+.SigninForm a {
+  color: #371f72;
+
+  margin-left: 8px;
 }
 
 .showInPhone {

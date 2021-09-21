@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logindata } from "../store/slices/auth";
 import { adduser } from "../store/slices/auth";
 import styles from "./myNavBar.module.css";
+import PurpleButton from "../components/PurpleButton/PurpleButton";
 const LoginAndSignPopup = () => {
   const dispatch = useDispatch();
 
@@ -92,7 +93,9 @@ const LoginAndSignPopup = () => {
                   value={password}
                 />
               </div>
-              <button type="submit">Log In</button>
+
+              <PurpleButton name={"Log In"} mytype={"submit"} />
+
               <span>New in shop?</span>
               <a onClick={openSignInFunction}>Create new account</a>
             </form>
@@ -133,7 +136,8 @@ const LoginAndSignPopup = () => {
                   value={password}
                 />
               </div>
-              <button type="submit">Sign In</button>
+
+              <PurpleButton name={"Sign In"} mytype={"submit"} />
               <span>Already have an account?</span>
               <a onClick={openLoginFunction}>Log in</a>
             </form>

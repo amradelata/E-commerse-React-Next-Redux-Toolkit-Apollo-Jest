@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./EmptyProducts.module.css";
+import PurpleButton from "../PurpleButton/PurpleButton";
 const EmptyProducts = (props) => {
   return (
     <div className={styles.empty}>
@@ -14,7 +15,8 @@ const EmptyProducts = (props) => {
       />
       <Link href="/" passHref>
         <a>
-          <button>Go to shopping</button>
+          {/* <button>Go to shopping</button> */}
+          <PurpleButton name={"Go to shopping"} />
         </a>
       </Link>
     </div>

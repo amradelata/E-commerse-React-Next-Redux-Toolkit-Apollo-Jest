@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { chickOutDone } from "../store/slices/auth";
 import Link from "next/link";
 import Image from "next/image";
-
+import PurpleButton from "../components/PurpleButton/PurpleButton";
 import { restMyCart } from "../store/slices/cart.slice";
 
 const Done = () => {
@@ -32,9 +32,9 @@ const Done = () => {
         <p className="is-size-2">Congratulations!</p>
         <p className="is-size-5">Your order is going to arrive soon</p>
         <Link href="/" passHref>
-          <button className={styles.goToShop} onClick={resetChickOutState}>
-            go to shopping
-          </button>
+          <div onClick={resetChickOutState}>
+            <PurpleButton name={"go to shopping"} />
+          </div>
         </Link>
       </div>
     </div>

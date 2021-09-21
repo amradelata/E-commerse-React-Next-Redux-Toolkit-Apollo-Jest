@@ -8,6 +8,7 @@ import {
 } from "../store/slices/cart.slice";
 
 import SuccessNotification from "../components/SuccessNotification";
+import PurpleButton from "../components/PurpleButton/PurpleButton";
 
 const ProductCard = (props) => {
   const authSlice = useSelector((state) => state.authSlice);
@@ -55,13 +56,12 @@ const ProductCard = (props) => {
           )}
           <p className={styles.itemPrice}>{props.price + "$"}</p>
           {authSlice.isLogIn && (
-            <button
-              className={styles.itemButton}
-              onClick={() => addToCart(props)}
-              disabled={is_product_in_cart}
-            >
-              {is_product_in_cart ? "Product in cart" : "Add to cart"}
-            </button>
+            <div onClick={() => addToCart(props)}>
+              <PurpleButton
+                name={is_product_in_cart ? "Product in cart" : "Add to cart"}
+                mydisabled={is_product_in_cart}
+              />
+            </div>
           )}
         </div>
       </div>

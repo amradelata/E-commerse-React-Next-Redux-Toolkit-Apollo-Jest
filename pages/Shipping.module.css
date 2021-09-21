@@ -62,14 +62,6 @@
   color: #ccc;
 }
 
-.nextBtn {
-  padding: 11px 20px;
-  background-color: #371f72;
-  color: #fff;
-  font-size: 15px;
-  font-weight: bold;
-  border: none;
-}
 /* //pament */
 .pamentMethod {
   border: 1px solid #ccc;
@@ -126,18 +118,6 @@
 .Done > p {
   margin: 0;
   margin: 50px 0;
-}
-
-.goToShop {
-  width: 400px;
-  margin: 12px 0;
-  padding: 11px 20px;
-  background-color: #371f72;
-  color: #fff;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
 }
 
 @media only screen and (max-width: 700px) {

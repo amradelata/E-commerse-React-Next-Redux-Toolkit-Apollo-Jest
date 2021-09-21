@@ -6,6 +6,7 @@ import { removeOne } from "../../store/slices/cart.slice";
 import styles from "./cart.module.css";
 import Image from "next/image";
 import EmptyProducts from "../../components/EmptyProducts/EmptyProducts";
+import PurpleButton from "../../components/PurpleButton/PurpleButton";
 
 const Cart = () => {
   const Dispatch = useDispatch();
@@ -119,14 +120,16 @@ const Cart = () => {
               </div>
               <Link href="/shipping" passHref>
                 <a>
-                  <button className={styles.CheckoutBtn}>Checkout</button>
+                  <PurpleButton name={"Checkout"} />
                 </a>
               </Link>
             </div>
           </div>
         </div>
       ) : (
-        <EmptyProducts title={"cart is Empty"} />
+        <div className={styles.empty}>
+          <EmptyProducts title={"cart is Empty"} />
+        </div>
       )}
     </div>
   );

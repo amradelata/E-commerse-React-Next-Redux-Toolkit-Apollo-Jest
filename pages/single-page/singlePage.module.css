@@ -45,23 +45,6 @@
   flex-basis: 50%;
 }
 
-.itemButton {
-  padding: 11px 20px;
-  background-color: #371f72;
-  color: #fff;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  width: 50%;
-  border: none;
-}
-.itemButton:disabled,
-.itemButton[disabled] {
-  background-color: #ddd;
-  color: #333;
-  cursor: auto;
-}
-
 .category {
   margin: 0;
   margin-bottom: 8px;

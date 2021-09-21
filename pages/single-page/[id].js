@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import SuccessNotification from "../../components/SuccessNotification";
 import Loding from "../../components/loding/Loding";
+import PurpleButton from "../../components/PurpleButton/PurpleButton";
 import {
   set_first_item_in_cart,
   set_add_to_total_price,
@@ -69,13 +70,21 @@ const SinglePage = (props) => {
                 typesetting industry. Lorem Ipsum has been the standard dummy.
               </p>
               {authSlice.isLogIn && (
-                <button
-                  onClick={() => addToCart(props.product)}
-                  className={styles.itemButton}
-                  disabled={is_product_in_cart}
-                >
-                  {is_product_in_cart ? "Product in cart" : "Add to cart"}
-                </button>
+                <div onClick={() => addToCart(props.product)}>
+                  <PurpleButton
+                    name={
+                      is_product_in_cart ? "Product in cart" : "Add to cart"
+                    }
+                    mydisabled={is_product_in_cart}
+                  />
+                </div>
+                // <button
+                //   onClick={() => addToCart(props.product)}
+                //   className={styles.itemButton}
+                //   disabled={is_product_in_cart}
+                // >
+                //   {is_product_in_cart ? "Product in cart" : "Add to cart"}
+                // </button>
               )}
             </div>
           </div>
