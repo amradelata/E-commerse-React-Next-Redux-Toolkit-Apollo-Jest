@@ -11,12 +11,14 @@ import axios from "axios";
 const Paginat = (props) => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(paginatData(props.paginatData));
+    console.log(props.paginatData, props.paramsdata);
+    dispatch(paginatData(props.paginatData)); //add paginatData data on global store
   }, [dispatch, props]);
   if (!props.product) {
     return <Loding />;
   }
-  if (props.product.length === 0) {
+  const letters = /^[A-Za-z]+$/;
+  if (props.product.length === 0 || props.paramsdata.match(letters)) {
     return <EmptyProducts title={"No more products"} />;
   }
   return (
@@ -26,18 +28,22 @@ const Paginat = (props) => {
       </div>
       <div className={styles.productsandProductsNav}>
         <div className={styles.myCards}>
-          {props.product.map((item) => (
-            <ProductCard
-              key={item.id}
-              in_my_cart={item.in_my_cart}
-              discount={item.discount}
-              id={item.id}
-              img_url={item.img_url}
-              name={item.name}
-              category={item.category}
-              price={item.price}
-            />
-          ))}
+          {props.product.map(
+            (
+              item //loop on the return products
+            ) => (
+              <ProductCard
+                key={item.id}
+                in_my_cart={item.in_my_cart}
+                discount={item.discount}
+                id={item.id}
+                img_url={item.img_url}
+                name={item.name}
+                category={item.category}
+                price={item.price}
+              />
+            )
+          )}
         </div>
 
         <MyPagination />
@@ -58,8 +64,9 @@ export async function getStaticProps(context) {
     // console.log(response.headers.link); //to see this log open the cmd
     const product = await response.data;
     const paginatData = await response.headers.link;
+    const paramsdata = context.params.paginat;
     return {
-      props: { product, paginatData },
+      props: { product, paginatData, paramsdata },
       revalidate: 5, // build the page each 5 seconds, IF NEEDED (ISG)
     };
   } catch (error) {
