@@ -63,11 +63,6 @@ const MyPagination = () => {
                 <li>5</li>
               </a>
             </ActiveLink>
-            <ActiveLink activeClassName="active" href="/products/6" passHref>
-              <a>
-                <li>6</li>
-              </a>
-            </ActiveLink>
           </ul>
 
           {ProdcutsSlice.nextptn && (

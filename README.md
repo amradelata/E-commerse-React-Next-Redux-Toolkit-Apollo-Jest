@@ -28,6 +28,8 @@ To watch the project live check this video on youtube
 
 <!-- ![Alt text](/path/to/img.jpg "Optional title") -->
 
+[![desktop](/./public/icons/gif.gif "desktop")](https://youtu.be/8H7ELDTqoFE)
+[![phone](/./public/icons/phone-1.PNG "phone")](https://youtu.be/gq_bVMvan-0)
 [![phone](/./public/icons/phone-1.PNG "phone")](https://youtu.be/gq_bVMvan-0)
 [![phone](/./public/icons/phone-2.PNG "phone")](https://youtu.be/gq_bVMvan-0)
 [![phone](/./public/icons/phone-3.PNG "phone")](https://youtu.be/gq_bVMvan-0)

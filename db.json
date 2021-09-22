@@ -31,7 +31,7 @@
       "id": 3
     },
     {
-      "img_url": "http://dimg.dillards.com/is/image/DillardsZoom/zoom/nike-juvenate-womens-lifestyle-shoes/04388514_zi_vintage_green_outdoor_green_metallic_field.jpg",
+      "img_url": "https://images.pexels.com/photos/1598508/pexels-photo-1598508.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
       "name": "Shoes #3",
       "price": 320,
       "in_my_cart": false,
@@ -101,7 +101,7 @@
       "id": 10
     },
     {
-      "img_url": "https://media03.toms.com/static/www/images/product/MENS/ATG/SIDE/10011588-GreyLinenMensPreston-P-1450x1015.jpg",
+      "img_url": "https://images.pexels.com/photos/1598508/pexels-photo-1598508.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
       "name": "Shoes #10",
       "price": 600,
       "in_my_cart": false,
@@ -121,7 +121,7 @@
       "id": 12
     },
     {
-      "img_url": "https://www.skateworld.ro/1356/tricouri-bumbac-diverse-modele.jpg",
+      "img_url": "https://i5.walmartimages.com/asr/fa4f6365-a76c-44d4-be92-db9075eb9e3b_1.750c0a6cb8ebf84956ec9ee93a4aa81b.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff",
       "name": "T-shirt #2",
       "price": 200,
       "in_my_cart": false,
@@ -141,7 +141,7 @@
       "id": 14
     },
     {
-      "img_url": "https://www.kaft.com/static/images/cache/626/tisort_aloneisland_6815_626_626.jpg?cacheID=1562946195000",
+      "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2Rs6z7uT_G-qeXpJECl8GVIGbiFFirSTLD1NIAZVn3tp1Uljo7MGq8M4HkHTzEK0FNPI&usqp=CAU",
       "name": "T-shirt #4",
       "price": 180,
       "in_my_cart": false,
@@ -201,7 +201,7 @@
       "id": 20
     },
     {
-      "img_url": "https://thisgirlruns.club/wp-content/uploads/2019/02/Electric-Pink-back-tshirt.png",
+      "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyZS67uMPcaq-vvMfTLtmOydE6QSlPSzvfxw&usqp=CAU",
       "name": "T-shirt #10",
       "price": 150,
       "in_my_cart": false,
@@ -351,7 +351,7 @@
       "id": 35
     },
     {
-      "img_url": "https://www.tmlewin.com/dw/image/v2/BBQF_PRD/on/demandware.static/-/Sites-tml-catalog-en/default/dw20fdf15e/images/portrait/59195S.jpg?sw=1556&sh=1680&sm=fit",
+      "img_url": "https://ae01.alicdn.com/kf/HTB16fy8X1GSBuNjSspbq6AiipXat.jpg",
       "name": "Suit #1",
       "price": 1900,
       "in_my_cart": false,
@@ -491,7 +491,7 @@
       "id": 49
     },
     {
-      "img_url": "https://images-na.ssl-images-amazon.com/images/I/41bmubZomOL.jpg",
+      "img_url": "https://res.cloudinary.com/shelflife-online/image/upload/c_fill,f_auto,q_auto:best,w_681/v1575961299/uploads/assets/8f9-Nike-Sportswear-Premium-Essentials-Pants-CZ9883-224-front-669.jpg",
       "name": "Pants #3",
       "price": 210,
       "in_my_cart": false,
@@ -501,7 +501,7 @@
       "id": 50
     },
     {
-      "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgDHu3JGtJwbjAsylrkGk1xTP1FPmYWfhvaTRd8chtLF3JAeaXJw",
+      "img_url": "https://m.media-amazon.com/images/I/71x8FKxqXrL._AC_SR500,500_.jpg",
       "name": "Pants #4",
       "price": 220,
       "in_my_cart": false,
@@ -561,7 +561,7 @@
       "id": 56
     },
     {
-      "img_url": "https://images-na.ssl-images-amazon.com/images/I/71ZTMDs5GgL._UX342_.jpg",
+      "img_url": "https://i.pinimg.com/originals/08/25/3d/08253d388ac9d0d4a1783ec3bcb67579.jpg",
       "name": "Coat #2",
       "price": 800,
       "in_my_cart": false,
@@ -581,7 +581,7 @@
       "id": 58
     },
     {
-      "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0agMsgYSft4_Fghl29_tV0hXNFelSuU3x5B7vL-C4MGGvevdz",
+      "img_url": "https://www.picclickimg.com/d/l400/pict/143928741102_/BNWT-Zara-Woman-NEW-WOOL-BLEND-BELTED-COAT.jpg",
       "name": "Coat #5 ",
       "price": 800,
       "in_my_cart": false,
@@ -599,31 +599,6 @@
       "category": "Coat",
       "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
       "id": 60
-    },
-    {
-      "img_url": "https://images.pexels.com/photos/1598508/pexels-photo-1598508.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "name": "shose",
-      "price": 555,
-      "in_my_cart": false,
-      "discount": 0,
-      "category": "Shoes",
-      "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-      "id": 61
-    },
-    {
-      "img_url": "https://images.pexels.com/photos/1598508/pexels-photo-1598508.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "name": "shose#50",
-      "price": 1000,
-      "in_my_cart": false,
-      "discount": 0,
-      "category": "Shoes",
-      "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-      "id": 62
-    },
-    {
-      "name": "new products",
-      "price": 500,
-      "id": 63
     }
   ],
   "users": [
