@@ -1,42 +1,9 @@
-import styles from "./category.module.css";
-import CategoriesSideNavBar from "../../components/CategoriesSideNavBar";
-import ProductCard from "../../components/ProductCard";
-import Image from "next/image";
+import Layout from "../../components/layout/Layout";
 const singlecategory = (props) => {
-  if (!props.category)
-    return (
-      <div className={styles.loding}>
-        <Image
-          src="/./icons/loding.gif"
-          alt="Picture of something nice"
-          layout="fill"
-          objectFit="cover"
-        />
-      </div>
-    );
-
   return (
-    <div className={`container is-fluid ${styles.parents}`}>
-      <div className={styles.ProductNave}>
-        <CategoriesSideNavBar />
-      </div>
-      <div className={styles.productsandProductsNav}>
-        <div className={styles.myCards}>
-          {props.category.map((item) => (
-            <ProductCard
-              key={item.id}
-              in_my_cart={item.in_my_cart}
-              discount={item.discount}
-              id={item.id}
-              img_url={item.img_url}
-              name={item.name}
-              category={item.category}
-              price={item.price}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
+    <>
+      <Layout productArray={props.category} />
+    </>
   );
 };
 
