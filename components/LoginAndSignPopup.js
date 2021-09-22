@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logindata } from "../store/slices/auth";
 import { adduser } from "../store/slices/auth";
-import styles from "./myNavBar.module.css";
+import styles from "./MainNavBar/MainNavBar.module.css";
 import PurpleButton from "../components/PurpleButton/PurpleButton";
 const LoginAndSignPopup = () => {
   const dispatch = useDispatch();

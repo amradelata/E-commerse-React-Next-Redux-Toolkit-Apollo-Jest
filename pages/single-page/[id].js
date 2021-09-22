@@ -2,7 +2,7 @@ import styles from "./singlePage.module.css";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
-import SuccessNotification from "../../components/SuccessNotification";
+import SuccessNotification from "../../components/SuccessNotification/SuccessNotification";
 import Loding from "../../components/loding/Loding";
 import PurpleButton from "../../components/PurpleButton/PurpleButton";
 import {

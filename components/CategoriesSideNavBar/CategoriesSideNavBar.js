@@ -1,6 +1,6 @@
 import styles from "./CategoriesSideNavBar.module.css";
 import Link from "next/link";
-import ActiveLink from "./ActiveLink";
+import ActiveLink from "../ActiveLink";
 import Image from "next/Image";
 const CategoriesSideNavBar = () => {
   const listOfCategories = [

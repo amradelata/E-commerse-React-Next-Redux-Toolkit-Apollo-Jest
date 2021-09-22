@@ -1,5 +1,5 @@
 import styles from "./Shipping.module.css";
-import CheckOut from "../components/CheckOut";
+import CheckOut from "../components/CheckOut/CheckOut";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";

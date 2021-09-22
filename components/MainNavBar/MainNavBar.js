@@ -1,13 +1,13 @@
-import styles from "./myNavBar.module.css";
-import LoginAndSignPopup from "./LoginAndSignPopup";
+import styles from "./MainNavBar.module.css";
+import LoginAndSignPopup from "../LoginAndSignPopup";
 
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
-import { getSearchProdcutsData } from "../store/slices/products.slice";
-import { logOut } from "../store/slices/auth";
+import { getSearchProdcutsData } from "../../store/slices/products.slice";
+import { logOut } from "../../store/slices/auth";
 import { useRouter } from "next/router";
 import { useState, useEffect, useRef } from "react";
-import ActiveLink from "./ActiveLink";
+import ActiveLink from "../ActiveLink";
 import Image from "next/image";
 const MainNavBar = () => {
   const [togellDropdown, settogellDropdown] = useState(false);

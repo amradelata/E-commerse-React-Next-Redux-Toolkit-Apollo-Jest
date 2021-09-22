@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
 import { store, persistor } from "../store";
-import MainNavBar from "../components/MainNavBar";
+import MainNavBar from "../components/MainNavBar/MainNavBar";
 import { PersistGate } from "redux-persist/integration/react";
 import "../styles/globals.css";
 

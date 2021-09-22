@@ -5,10 +5,10 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   set_first_item_in_cart,
   set_add_to_total_price,
-} from "../store/slices/cart.slice";
+} from "../../store/slices/cart.slice";
 
-import SuccessNotification from "../components/SuccessNotification";
-import PurpleButton from "../components/PurpleButton/PurpleButton";
+import SuccessNotification from "../../components/SuccessNotification/SuccessNotification";
+import PurpleButton from "../../components/PurpleButton/PurpleButton";
 
 const ProductCard = (props) => {
   const authSlice = useSelector((state) => state.authSlice);

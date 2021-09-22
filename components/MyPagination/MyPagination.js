@@ -1,6 +1,6 @@
 import styles from "./MyPagination.module.css";
 import Link from "next/Link";
-import ActiveLink from "./ActiveLink";
+import ActiveLink from "../ActiveLink";
 import { useSelector } from "react-redux";
 
 const MyPagination = () => {

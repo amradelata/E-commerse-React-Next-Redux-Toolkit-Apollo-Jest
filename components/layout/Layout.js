@@ -1,9 +1,9 @@
 import styles from "./Layout.module.css";
-import CategoriesSideNavBar from "../CategoriesSideNavBar";
-import ProductCard from "../ProductCard";
+import CategoriesSideNavBar from "../CategoriesSideNavBar/CategoriesSideNavBar";
+import ProductCard from "../ProductCard/ProductCard";
 import EmptyProducts from "../EmptyProducts/EmptyProducts";
 import Loding from "../loding/Loding";
-import MyPagination from "../../components/MyPagination";
+import MyPagination from "../MyPagination/MyPagination";
 
 const Layout = (props) => {
   if (!props.productArray) return <Loding />;

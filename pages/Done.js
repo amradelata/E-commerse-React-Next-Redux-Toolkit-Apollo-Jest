@@ -1,5 +1,5 @@
 import styles from "./Shipping.module.css";
-import CheckOut from "../components/CheckOut";
+import CheckOut from "../components/CheckOut/CheckOut";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { chickOutDone } from "../store/slices/auth";
@@ -22,15 +22,15 @@ const Done = () => {
   return (
     <div className={styles.myDone}>
       <CheckOut Done={myDisabled} />
-      <div className={styles.Done}>
+      <div>
         <Image
           src="/./icons/illustrations/Successful-purchase.svg"
           alt="Done"
-          width="250"
-          height="250"
+          width="230"
+          height="230"
         />
-        <p className="is-size-2">Congratulations!</p>
-        <p className="is-size-5">Your order is going to arrive soon</p>
+        <span className="is-size-2">Congratulations!</span>
+        <p className={styles.arrivesoon}>Your order is going to arrive soon</p>
         <Link href="/" passHref>
           <div onClick={resetChickOutState}>
             <PurpleButton name={"go to shopping"} />
