@@ -87,7 +87,11 @@
   background-position: center;
   background-size: cover;
 }
-
+.quantity,
+.name {
+  /* font-weight: bold; */
+  font-size: 20px;
+}
 .atyBut {
   display: inline-block;
 }
@@ -116,8 +120,13 @@
 .value {
   float: right;
 }
+.totalprice {
+  float: right;
+  font-size: 20px;
+  color: #27ae60;
+}
 .empty {
-  margin-top: 400px;
+  margin-top: 250px;
 }
 @media only screen and (max-width: 700px) {
   /* For mobile phones: */

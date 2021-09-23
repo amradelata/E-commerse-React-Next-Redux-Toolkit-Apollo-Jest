@@ -63,10 +63,7 @@ const LoginAndSignPopup = () => {
           <div className={styles.LoginForm} id="login">
             <form onSubmit={submitLoinHandler}>
               {showErorr && (
-                <div
-                  id="errorNotefecation"
-                  className={`notification is-danger ${styles.showNotification}`}
-                >
+                <div id="errorNotefecation" className={styles.showNotification}>
                   {authSlice.ErorrMass}
                 </div>
               )}

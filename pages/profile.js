@@ -17,16 +17,15 @@ const Profile = () => {
   }, [authSlice.isLogIn, router]);
   return (
     <>
-      <div>
-        <div className={styles.parents}>
-          <div className={styles.cover}></div>
-          <div className={styles.userProfileImg}></div>
-          <div className={styles.userProfileInfo}>
-            <p className="is-size-1 has-text-weight-bold">{authSlice.user}</p>
-            <p className="is-size-4 ">Front End Developer</p>
-          </div>
+      {/* <div> */}
+      <div className={styles.parents}>
+        <div className={styles.cover}></div>
+        <div className={styles.userProfileImg}></div>
+        <div className={styles.userProfileInfo}>
+          <p>{authSlice.user}</p>
         </div>
       </div>
+      {/* </div> */}
     </>
   );
 };

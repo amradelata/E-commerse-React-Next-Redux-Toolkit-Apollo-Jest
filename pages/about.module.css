@@ -12,12 +12,8 @@
 }
 .aboutLogo {
   width: 200px;
-  height: 200px;
+  height: 150px;
   margin: auto;
-}
-.aboutLogo > img {
-  width: 200px;
-  height: 200px;
 }
 
 .aboutCart p {
@@ -27,6 +23,7 @@
 .aboutCart a {
   text-decoration: underline;
   display: block;
+  color: #2980b9;
 }
 
 @media only screen and (max-width: 700px) {

@@ -7,6 +7,9 @@
   text-align: center;
   margin: 0 !important;
   margin-bottom: 10px !important;
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 20px 30px;
 }
 .myNav {
   padding: 5px 0;
@@ -17,6 +20,9 @@
   display: flex;
   align-items: center !important;
   justify-content: space-between;
+  background-color: #fff;
+  margin-bottom: 30px !important;
+  border-bottom: 1px solid rgb(221, 221, 221);
 }
 .logo {
   display: flex;
@@ -24,10 +30,7 @@
   justify-content: space-between;
   cursor: pointer;
 }
-.myHr {
-  margin: 0;
-  margin-bottom: 30px;
-}
+
 .userNmae {
   color: #2d2d2d;
   font-size: 18px;
@@ -138,6 +141,10 @@
 .iconMargenLeft {
   margin: 5px 0 5px 50px;
 }
+.searchBtn p {
+  font-size: medium;
+  font-weight: bold;
+}
 .searchBtn,
 .avatarBtn {
   border: none;
@@ -192,6 +199,7 @@
   margin: 30px auto;
   padding: 30px;
   color: #000;
+  z-index: 99999;
 }
 .LoginForm label,
 .SigninForm label {
@@ -230,7 +238,7 @@
 }
 .LoginForm span,
 .SigninForm span {
-  padding-top: 100px;
+  /* padding-top: 100px; */
 }
 .LoginForm a,
 .SigninForm a {

@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect, useRef } from "react";
 import ActiveLink from "../ActiveLink";
 import Image from "next/image";
+
 const MainNavBar = () => {
   const [togellDropdown, settogellDropdown] = useState(false);
   const [showPopUp, setshowPopUp] = useState(false);
@@ -179,7 +180,7 @@ const MainNavBar = () => {
                     className={styles.searchBtn}
                     onClick={unfoucsSearchInput}
                   >
-                    <p className="is-size-4">X</p>
+                    <p>X</p>
                   </button>
                 ) : (
                   <button
@@ -290,7 +291,7 @@ const MainNavBar = () => {
         </div>
       </nav>
 
-      <hr className={styles.myHr} />
+      {/* <hr className={styles.myHr} /> */}
 
       <div className={`modal ${showPopUp ? "is-active" : ""}`}>
         <div className="modal-background"></div>

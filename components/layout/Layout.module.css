@@ -57,6 +57,7 @@
   opacity: 1;
   font-weight: bolder;
   text-transform: uppercase;
+  background-color: tomato;
 }
 
 .empty {

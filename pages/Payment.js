@@ -128,7 +128,7 @@ const Payment = () => {
           )}
           <button
             disabled={!authSlice.Payment}
-            className="button is-info"
+            className={styles.nextStepbtn}
             onClick={nextStep}
           >
             Next

@@ -121,7 +121,7 @@ const Shipping = () => {
 
             <button
               disabled={!authSlice.Shipping}
-              className={`button is-info ${styles.Formbutton}`}
+              className={styles.nextStepbtn}
               type="submit"
             >
               Next

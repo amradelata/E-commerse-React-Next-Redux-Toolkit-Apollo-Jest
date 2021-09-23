@@ -20,7 +20,19 @@
   margin-bottom: 25px;
   padding-bottom: 20px;
 }
-
+.nextStepbtn {
+  background-color: #3498db;
+  color: antiquewhite;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+.nextStepbtn:disabled,
+.nextStepbtn[disabled] {
+  background-color: #ddd;
+  color: #333;
+  cursor: auto;
+}
 .MyForm {
   width: 1000px;
   padding: 35px;
@@ -84,20 +96,23 @@
 }
 
 .parent {
-  position: absolute !important;
-  top: 0 !important;
-  right: 0 !important;
+  float: right;
 }
 .img {
   padding-left: 10px !important;
 }
 /* Done */
-.myDone {
+.doneContent {
   text-align: center;
   margin: auto;
   width: 500px;
 }
 
+.doneContent span {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+}
 .arrivesoon {
   margin: 20px 0;
   font-size: 20px;

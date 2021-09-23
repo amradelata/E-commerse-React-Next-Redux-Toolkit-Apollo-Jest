@@ -1071,6 +1071,11 @@
       "email": "54565@me.com",
       "password": "$2a$10$UF2rmQbhUfY57NNGUL7VJ.yiylSBKvJn8A63aIdacddMyC7BNjFMm",
       "id": 94
+    },
+    {
+      "email": "tareq@ab.com",
+      "password": "$2a$10$KIf.Dfvs5d.1nOagZ7jsKeEplsY2vdXMafl1agbpIISwVY0d97qSG",
+      "id": 95
     }
   ]
 }

@@ -5,7 +5,7 @@ import PurpleButton from "../PurpleButton/PurpleButton";
 const EmptyProducts = (props) => {
   return (
     <div className={styles.empty}>
-      <p className="is-size-4">{props.title}</p>
+      <p>{props.title}</p>
 
       <Image
         src="/./icons/illustrations/empty.svg"

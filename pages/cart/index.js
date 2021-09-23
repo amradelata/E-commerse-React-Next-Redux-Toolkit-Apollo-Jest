@@ -38,8 +38,8 @@ const Cart = () => {
                       backgroundImage: `url(${item.img_url})`,
                     }}
                   ></div>
-                  <div style={{ textAlign: "left" }}>
-                    <p className="is-size-4">{item.name}</p>
+                  <div>
+                    <p className={styles.name}>{item.name}</p>
                     {item.descount}
 
                     {item.discount > 1 && (
@@ -58,9 +58,7 @@ const Cart = () => {
                       -
                     </button>
 
-                    <span className="is-size-6 has-text-weight-bold">
-                      {item.quantity}
-                    </span>
+                    <span className={styles.quantity}>{item.quantity}</span>
                     <button
                       className={styles.cartBtn}
                       onClick={() => addOnefunction(item, index)}
@@ -114,7 +112,7 @@ const Cart = () => {
               </div>
               <div>
                 <p className={styles.lapul}>Total:</p>
-                <span className={`has-text-success is-size-5 ${styles.value}`}>
+                <span className={styles.totalprice}>
                   {CartSlice.totalPrice + "$"}
                 </span>
               </div>

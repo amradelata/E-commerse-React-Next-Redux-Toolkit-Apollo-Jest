@@ -1,12 +1,15 @@
 .showNotification {
   transition: visibility 0s, opacity 0.5s linear;
   position: fixed;
-  bottom: 0;
-  right: 0%;
+  bottom: 1%;
+  right: 1%;
   z-index: 999999999;
   opacity: 1;
   font-weight: bolder;
   text-transform: uppercase;
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 20px 30px;
 }
 
 @media only screen and (max-width: 700px) {

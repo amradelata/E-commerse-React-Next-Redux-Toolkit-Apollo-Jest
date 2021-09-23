@@ -14,7 +14,7 @@ const about = () => {
         </div>
 
         <div className={styles.aboutCart}>
-          <p className="is-size-5">
+          <p>
             Amr Adel Ata frontend developer with a focus in react and looking
             for a job
             <br />
