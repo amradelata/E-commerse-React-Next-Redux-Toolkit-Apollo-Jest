@@ -1,4 +1,4 @@
-import EmptyProducts from "../components/EmptyProducts/EmptyProducts";
+import PageNotFoundMessage from "../components/pageNotFoundMessage/pageNotFoundMessage";
 export default function Custom404() {
-  return <EmptyProducts title={"404"} />;
+  return <PageNotFoundMessage title={"404"} />;
 }

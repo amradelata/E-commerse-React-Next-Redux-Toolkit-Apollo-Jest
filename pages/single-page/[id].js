@@ -76,15 +76,9 @@ const SinglePage = (props) => {
                       is_product_in_cart ? "Product in cart" : "Add to cart"
                     }
                     mydisabled={is_product_in_cart}
+                    width={"400px"}
                   />
                 </div>
-                // <button
-                //   onClick={() => addToCart(props.product)}
-                //   className={styles.itemButton}
-                //   disabled={is_product_in_cart}
-                // >
-                //   {is_product_in_cart ? "Product in cart" : "Add to cart"}
-                // </button>
               )}
             </div>
           </div>

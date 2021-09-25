@@ -5,7 +5,7 @@ import { addOne } from "../../store/slices/cart.slice";
 import { removeOne } from "../../store/slices/cart.slice";
 import styles from "./cart.module.css";
 import Image from "next/image";
-import EmptyProducts from "../../components/EmptyProducts/EmptyProducts";
+import PageNotFoundMessage from "../../components/pageNotFoundMessage/pageNotFoundMessage";
 import PurpleButton from "../../components/PurpleButton/PurpleButton";
 
 const Cart = () => {
@@ -116,9 +116,9 @@ const Cart = () => {
                   {CartSlice.totalPrice + "$"}
                 </span>
               </div>
-              <Link href="/shipping" passHref>
+              <Link href="checkout/shipping" passHref>
                 <a>
-                  <PurpleButton name={"Checkout"} />
+                  <PurpleButton name={"Checkout"} width={"100%"} />
                 </a>
               </Link>
             </div>
@@ -126,7 +126,7 @@ const Cart = () => {
         </div>
       ) : (
         <div className={styles.empty}>
-          <EmptyProducts title={"cart is Empty"} />
+          <PageNotFoundMessage title={"cart is Empty"} />
         </div>
       )}
     </div>

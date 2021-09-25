@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./Shipping.module.css";
-import CheckOut from "../components/CheckOut/CheckOut";
+import CheckOut from "../../components/CheckOut/CheckOut";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { chickOutPayment } from "../store/slices/auth";
+import { chickOutPayment } from "../../store/slices/auth";
 import Image from "next/image";
 
 const Payment = () => {
@@ -16,13 +16,11 @@ const Payment = () => {
   const [Expiration, setExpiration] = useState("");
   const [CVV, setCVV] = useState("");
 
-  const [myDisabled, setmyDisabled] = useState(false);
-
   const [showForm, setshowForm] = useState(true);
   const nextStep = (e) => {
     e.preventDefault();
 
-    router.push("/done");
+    router.push("/checkout/done");
   };
 
   const desapuld = () => {

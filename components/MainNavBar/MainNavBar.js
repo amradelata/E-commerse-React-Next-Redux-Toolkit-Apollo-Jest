@@ -127,7 +127,7 @@ const MainNavBar = () => {
           <span aria-hidden="true"></span>
         </a>
 
-        {togglePhoneNav ? (
+        {togglePhoneNav && (
           <ul className={styles.PhoneNav}>
             <Link href="/" passHref>
               <li>
@@ -149,8 +149,6 @@ const MainNavBar = () => {
               </Link>
             )}
           </ul>
-        ) : (
-          ""
         )}
 
         <div>
@@ -198,7 +196,7 @@ const MainNavBar = () => {
               </div>
             </li>
             <li>
-              <div className={`dropdown ${togellDropdown ? "is-active" : ""}`}>
+              <div className={`dropdown ${togellDropdown && "is-active"}`}>
                 <div className="dropdown-trigger">
                   {authSlice.isLogIn ? (
                     <button
@@ -293,7 +291,7 @@ const MainNavBar = () => {
 
       {/* <hr className={styles.myHr} /> */}
 
-      <div className={`modal ${showPopUp ? "is-active" : ""}`}>
+      <div className={`modal ${showPopUp && "is-active"}`}>
         <div className="modal-background"></div>
         <div className="modal-content">
           <LoginAndSignPopup />

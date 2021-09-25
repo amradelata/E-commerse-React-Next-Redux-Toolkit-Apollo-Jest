@@ -1,12 +1,12 @@
 import styles from "./Shipping.module.css";
-import CheckOut from "../components/CheckOut/CheckOut";
+import CheckOut from "../../components/CheckOut/CheckOut";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { chickOutDone } from "../store/slices/auth";
+import { chickOutDone } from "../../store/slices/auth";
 import Link from "next/link";
 import Image from "next/image";
-import PurpleButton from "../components/PurpleButton/PurpleButton";
-import { restMyCart } from "../store/slices/cart.slice";
+import PurpleButton from "../../components/PurpleButton/PurpleButton";
+import { restMyCart } from "../../store/slices/cart.slice";
 
 const Done = () => {
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const Done = () => {
         <p className={styles.arrivesoon}>Your order is going to arrive soon</p>
         <Link href="/" passHref>
           <div onClick={resetChickOutState}>
-            <PurpleButton name={"go to shopping"} />
+            <PurpleButton name={"go to shopping"} width={"400px"} />
           </div>
         </Link>
       </div>

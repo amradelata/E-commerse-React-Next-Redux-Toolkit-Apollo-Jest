@@ -60,6 +60,7 @@ const ProductCard = (props) => {
               <PurpleButton
                 name={is_product_in_cart ? "Product in cart" : "Add to cart"}
                 mydisabled={is_product_in_cart}
+                width={"100%"}
               />
             </div>
           )}

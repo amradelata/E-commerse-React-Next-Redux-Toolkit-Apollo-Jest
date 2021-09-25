@@ -91,7 +91,7 @@ const LoginAndSignPopup = () => {
                 />
               </div>
 
-              <PurpleButton name={"Log In"} mytype={"submit"} />
+              <PurpleButton name={"Log In"} mytype={"submit"} width={"100%"} />
 
               <span>New in shop?</span>
               <a onClick={openSignInFunction}>Create new account</a>
@@ -134,7 +134,7 @@ const LoginAndSignPopup = () => {
                 />
               </div>
 
-              <PurpleButton name={"Sign In"} mytype={"submit"} />
+              <PurpleButton name={"Sign In"} mytype={"submit"} width={"100%"} />
               <span>Already have an account?</span>
               <a onClick={openLoginFunction}>Log in</a>
             </form>

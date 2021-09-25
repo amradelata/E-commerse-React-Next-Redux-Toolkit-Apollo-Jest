@@ -1,14 +1,14 @@
 import styles from "./Layout.module.css";
 import CategoriesSideNavBar from "../CategoriesSideNavBar/CategoriesSideNavBar";
 import ProductCard from "../ProductCard/ProductCard";
-import EmptyProducts from "../EmptyProducts/EmptyProducts";
+import PageNotFoundMessage from "../../components/pageNotFoundMessage/pageNotFoundMessage";
 import Loding from "../loding/Loding";
 import MyPagination from "../MyPagination/MyPagination";
 
 const Layout = (props) => {
   if (!props.productArray) return <Loding />;
   if (props.productArray.length === 0) {
-    return <EmptyProducts title={"No products match your search"} />;
+    return <PageNotFoundMessage title={"No products match your search"} />;
   }
   return (
     <>

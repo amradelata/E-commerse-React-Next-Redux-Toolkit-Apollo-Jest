@@ -1,9 +1,9 @@
 import styles from "./Shipping.module.css";
-import CheckOut from "../components/CheckOut/CheckOut";
+import CheckOut from "../../components/CheckOut/CheckOut";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { chickOutShipping } from "../store/slices/auth";
+import { chickOutShipping } from "../../store/slices/auth";
 
 const Shipping = () => {
   const authSlice = useSelector((state) => state.authSlice);
@@ -23,7 +23,7 @@ const Shipping = () => {
   const nextStep = (e) => {
     e.preventDefault();
 
-    router.push("/payment");
+    router.push("/checkout/payment");
   };
 
   const desapuld = () => {

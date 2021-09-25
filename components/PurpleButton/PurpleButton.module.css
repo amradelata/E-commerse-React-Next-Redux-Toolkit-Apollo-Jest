@@ -1,11 +1,10 @@
 .PurpleButton {
   cursor: pointer;
-  width: 100%;
+
   color: #fff;
   background-color: #371f72;
   display: block;
   margin: auto;
-  /* margin-top: 35px; */
   margin-bottom: 12px;
   border: none;
   padding: 10px 0;

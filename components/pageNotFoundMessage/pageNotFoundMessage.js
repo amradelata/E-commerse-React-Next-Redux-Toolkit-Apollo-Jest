@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./EmptyProducts.module.css";
+import styles from "./PageNotFoundMessage.module.css";
 import PurpleButton from "../PurpleButton/PurpleButton";
-const EmptyProducts = (props) => {
+const PageNotFoundMessage = (props) => {
   return (
     <div className={styles.empty}>
       <p>{props.title}</p>
@@ -15,11 +15,10 @@ const EmptyProducts = (props) => {
       />
       <Link href="/" passHref>
         <a>
-          {/* <button>Go to shopping</button> */}
-          <PurpleButton name={"Go to shopping"} />
+          <PurpleButton name={"Go to shopping"} width={"400px"} />
         </a>
       </Link>
     </div>
   );
 };
-export default EmptyProducts;
+export default PageNotFoundMessage;
