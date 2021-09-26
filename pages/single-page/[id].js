@@ -70,13 +70,16 @@ const SinglePage = (props) => {
                 typesetting industry. Lorem Ipsum has been the standard dummy.
               </p>
               {authSlice.isLogIn && (
-                <div onClick={() => addToCart(props.product)}>
+                <div
+                  onClick={() => addToCart(props.product)}
+                  style={{ float: "left" }}
+                >
                   <PurpleButton
                     name={
                       is_product_in_cart ? "Product in cart" : "Add to cart"
                     }
                     mydisabled={is_product_in_cart}
-                    width={"400px"}
+                    width={"300px"}
                   />
                 </div>
               )}

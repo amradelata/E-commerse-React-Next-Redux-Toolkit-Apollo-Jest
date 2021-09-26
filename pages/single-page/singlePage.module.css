@@ -84,8 +84,6 @@
   /* For mobile phones: */
   .card {
     flex-direction: column;
-    align-items: center;
-    margin: auto;
   }
   .end {
     text-align: center;
