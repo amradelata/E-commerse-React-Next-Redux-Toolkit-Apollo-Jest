@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { paginatData } from "../../store/slices/products.slice";
 import axios from "axios";
-import Layout from "../../components/layout/Layout";
+import Layout from "../../components/Layout/Layout";
 const Paginat = (props) => {
   const dispatch = useDispatch();
   useEffect(() => {

@@ -4,7 +4,7 @@ export const authSlice = createSlice({
   name: "auth",
   initialState: {
     isLogIn: false,
-    user: null,
+    user: [],
     ErorrMass: "",
     Shipping: false,
     Payment: false,
@@ -32,11 +32,9 @@ export const authSlice = createSlice({
     },
 
     setLogIn(state, { payload }) {
-      console.log(payload);
       if (payload.accessToken) {
         state.isLogIn = true;
 
-        console.log("user here");
         state.user = payload.user.email;
       }
       if (payload === "Cannot find user") {

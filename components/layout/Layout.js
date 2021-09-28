@@ -1,8 +1,8 @@
 import styles from "./Layout.module.css";
 import CategoriesSideNavBar from "../CategoriesSideNavBar/CategoriesSideNavBar";
 import ProductCard from "../ProductCard/ProductCard";
-import PageNotFoundMessage from "../../components/pageNotFoundMessage/pageNotFoundMessage";
-import Loding from "../loding/Loding";
+import PageNotFoundMessage from "../../components/PageNotFoundMessage/PageNotFoundMessage";
+import Loding from "../Loding/Loding";
 import MyPagination from "../MyPagination/MyPagination";
 
 const Layout = (props) => {

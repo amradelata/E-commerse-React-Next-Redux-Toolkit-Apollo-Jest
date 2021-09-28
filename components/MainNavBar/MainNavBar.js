@@ -32,7 +32,6 @@ const MainNavBar = () => {
   const searchFunction = (e) => {
     const myValue = e.target.value.toLowerCase();
     if (e.keyCode === 13) {
-      console.log(myValue);
       dispatch(getSearchProdcutsData(myValue));
       router.push(`/search?name=${myValue}`);
     }
@@ -92,6 +91,11 @@ const MainNavBar = () => {
             <li>
               <ActiveLink activeClassName="active" href="/about">
                 <a className={styles.myLink}>About</a>
+              </ActiveLink>
+            </li>
+            <li>
+              <ActiveLink activeClassName="active" href="/countries-we-ship-to">
+                <a className={styles.myLink}>We ship to</a>
               </ActiveLink>
             </li>
             {authSlice.isLogIn && (

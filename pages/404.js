@@ -1,4 +1,4 @@
-import PageNotFoundMessage from "../components/pageNotFoundMessage/pageNotFoundMessage";
+import PageNotFoundMessage from "../components/PageNotFoundMessage/PageNotFoundMessage";
 export default function Custom404() {
   return <PageNotFoundMessage title={"404"} />;
 }

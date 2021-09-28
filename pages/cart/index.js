@@ -5,7 +5,7 @@ import { addOne } from "../../store/slices/cart.slice";
 import { removeOne } from "../../store/slices/cart.slice";
 import styles from "./cart.module.css";
 import Image from "next/image";
-import PageNotFoundMessage from "../../components/pageNotFoundMessage/pageNotFoundMessage";
+import PageNotFoundMessage from "../../components/PageNotFoundMessage/PageNotFoundMessage";
 import PurpleButton from "../../components/PurpleButton/PurpleButton";
 
 const Cart = () => {
@@ -66,7 +66,6 @@ const Cart = () => {
                       +
                     </button>
                   </div>
-
                   <div>
                     <button className={styles.cartBtn}>
                       <Link href={`single-page/${item.id}`} passHref>

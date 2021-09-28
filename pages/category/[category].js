@@ -1,4 +1,4 @@
-import Layout from "../../components/layout/Layout";
+import Layout from "../../components/Layout/Layout";
 const singlecategory = (props) => {
   return (
     <>
@@ -15,7 +15,7 @@ export async function getStaticProps(context) {
   if (context.params.category === "all") {
     const res = await fetch(`http://localhost:3001/products`);
     const category = await res.json();
-    console.log(category);
+
     // Pass category data to the page via props
     return {
       props: { category },
@@ -26,7 +26,7 @@ export async function getStaticProps(context) {
       `http://localhost:3001/products?category=${context.params.category}`
     );
     const category = await res.json();
-    console.log(category);
+
     // Pass category data to the page via props
     return {
       props: { category },
