@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckboxWithLabel changes the text after click 1`] = `
+<label>
+  <input
+    type="checkbox"
+  />
+  Off
+</label>
+`;
