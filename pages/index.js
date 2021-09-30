@@ -1,10 +1,16 @@
 import { useEffect } from "react";
-import { useRouter } from "next/router";
-import Loding from "../components/loding/Loding";
-export default function Home(props) {
-  const router = useRouter();
+import Layout from "../components/Layout/Layout";
+import { getHomeProducts } from "../store/slices/products.slice";
+import { useSelector, useDispatch } from "react-redux";
+export default function Home() {
+  const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    router.push("/products/1");
-  }, [router]);
-  return <Loding />;
+    dispatch(getHomeProducts());
+  }, [dispatch]);
+
+  return (
+    <Layout productArray={ProdcutsSlice.productsArr} showPagination={true} />
+  );
 }

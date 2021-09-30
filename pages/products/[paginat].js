@@ -29,6 +29,7 @@ export async function getStaticProps(context) {
     const product = await response.data;
     const paginatData = await response.headers.link;
     const paramsdata = context.params.paginat;
+
     return {
       props: { product, paginatData, paramsdata },
       revalidate: 5, // build the page each 5 seconds, IF NEEDED (ISG)
