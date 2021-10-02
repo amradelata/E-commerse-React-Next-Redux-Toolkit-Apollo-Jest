@@ -4,7 +4,7 @@ import axios from "axios";
 export const ProdcutsSlice = createSlice({
   name: "products",
   initialState: {
-    productsArr: [],
+    productsArr: null,
     allpaginatData: "",
   },
   reducers: {

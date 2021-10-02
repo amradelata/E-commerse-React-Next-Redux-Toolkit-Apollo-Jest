@@ -12,26 +12,20 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  if (context.params.category === "all") {
-    const res = await fetch(`http://localhost:3001/products`);
-    const category = await res.json();
+  const res = await fetch(
+    // `http://localhost:3001/products?category=${context.params.category}`
+    `http://localhost:3001/products${
+      context.params.category === "all"
+        ? ""
+        : `?category=${context.params.category}`
+    }`
+  );
+  const category = await res.json();
 
-    // Pass category data to the page via props
-    return {
-      props: { category },
-      revalidate: 5, // build the page each 5 seconds, IF NEEDED (ISG)
-    };
-  } else {
-    const res = await fetch(
-      `http://localhost:3001/products?category=${context.params.category}`
-    );
-    const category = await res.json();
-
-    // Pass category data to the page via props
-    return {
-      props: { category },
-      revalidate: 5, // build the page each 5 seconds, IF NEEDED (ISG)
-    };
-  }
+  // Pass category data to the page via props
+  return {
+    props: { category },
+    revalidate: 5, // build the page each 5 seconds, IF NEEDED (ISG)
+  };
 }
 export default singlecategory;

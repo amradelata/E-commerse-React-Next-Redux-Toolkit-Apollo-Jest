@@ -10,7 +10,6 @@ const Page = () => {
   useEffect(() => {
     const pagenumper = router.query.page;
     dispatch(getHomeProducts(pagenumper));
-    console.log(router.query.page);
   }, [dispatch, router.query]);
 
   return (
