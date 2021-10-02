@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const authSlice = createSlice({
+export const AuthSlice = createSlice({
   name: "auth",
   initialState: {
     isLogIn: false,
@@ -57,7 +57,7 @@ export const {
   chickOutShipping,
   chickOutPayment,
   chickOutDone,
-} = authSlice.actions;
+} = AuthSlice.actions;
 // thunk
 export const adduser = (body) => async (dispatch) => {
   const data = await fetch("http://localhost:3001/register", {
@@ -83,4 +83,4 @@ export const logindata = (body) => async (dispatch) => {
   dispatch(setLogIn(UserLogIndata));
 };
 
-export default authSlice.reducer;
+export default AuthSlice.reducer;

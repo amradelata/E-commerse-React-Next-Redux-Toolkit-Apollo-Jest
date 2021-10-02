@@ -17,17 +17,17 @@ const MainNavBar = () => {
   const [showSearch, setshowSearch] = useState(false);
 
   const router = useRouter();
-  const authSlice = useSelector((state) => state.authSlice);
+  const AuthSlice = useSelector((state) => state.AuthSlice);
   const CartSlice = useSelector((state) => state.CartSlice);
 
   const textInput = useRef(null);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (authSlice.isLogIn) {
+    if (AuthSlice.isLogIn) {
       setshowPopUp(false);
       settogellDropdown(false);
     }
-  }, [authSlice.isLogIn]);
+  }, [AuthSlice.isLogIn]);
 
   const searchFunction = (e) => {
     const myValue = e.target.value.toLowerCase();
@@ -98,7 +98,7 @@ const MainNavBar = () => {
                 <a className={styles.myLink}>We ship to</a>
               </ActiveLink>
             </li>
-            {authSlice.isLogIn && (
+            {AuthSlice.isLogIn && (
               <li>
                 <ActiveLink activeClassName="active" href="/profile">
                   <a className={styles.myLink}>Profile</a>
@@ -145,7 +145,7 @@ const MainNavBar = () => {
               </li>
             </Link>
 
-            {authSlice.isLogIn && (
+            {AuthSlice.isLogIn && (
               <Link href="/profile" passHref>
                 <li>
                   <a className={styles.myLink}>PROFILE</a>
@@ -202,13 +202,13 @@ const MainNavBar = () => {
             <li>
               <div className={`dropdown ${togellDropdown && "is-active"}`}>
                 <div className="dropdown-trigger">
-                  {authSlice.isLogIn ? (
+                  {AuthSlice.isLogIn ? (
                     <button
                       onClick={() => togellDropdownFunction()}
                       className={styles.avatarBtn}
                     >
                       <p className={styles.userNmae}>
-                        {authSlice.user.charAt(0)}
+                        {AuthSlice.user.charAt(0)}
                       </p>
                     </button>
                   ) : (
@@ -228,13 +228,13 @@ const MainNavBar = () => {
 
                 <div className="dropdown-menu" role="menu">
                   <div className="dropdown-content" id="dropdown-content">
-                    {authSlice.isLogIn && (
+                    {AuthSlice.isLogIn && (
                       <div>
                         <Link href="/profile" passHref>
                           <div className={`dropdown-item ${styles.navItem}`}>
                             <a>
                               <p>Signed in as</p>
-                              {authSlice.user.slice(0, 3)}
+                              {AuthSlice.user.slice(0, 3)}
                             </a>
                           </div>
                         </Link>
@@ -248,13 +248,13 @@ const MainNavBar = () => {
                     </Link>
 
                     <a onClick={() => OpnPopUp()}>
-                      {!authSlice.isLogIn && (
+                      {!AuthSlice.isLogIn && (
                         <div className={`dropdown-item ${styles.navItem}`}>
                           <a>Log In</a>
                         </div>
                       )}
                     </a>
-                    {authSlice.isLogIn && (
+                    {AuthSlice.isLogIn && (
                       <div
                         onClick={() => logOutFunction()}
                         className={`dropdown-item ${styles.navItem}`}
@@ -266,7 +266,7 @@ const MainNavBar = () => {
                 </div>
               </div>
             </li>
-            {authSlice.isLogIn && (
+            {AuthSlice.isLogIn && (
               <li className={styles.cartPtn}>
                 <Link href="/cart">
                   <a>

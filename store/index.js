@@ -17,7 +17,7 @@ import {
 //import all slices
 import CartSlice from "./slices/cart.slice";
 import ProdcutsSlice from "./slices/products.slice";
-import authSlice from "./slices/auth";
+import AuthSlice from "./slices/auth";
 const persistConfig = {
   key: "root",
   version: 1,
@@ -30,7 +30,7 @@ const persistedReducer = persistReducer(
   combineReducers({
     CartSlice,
     ProdcutsSlice,
-    authSlice,
+    AuthSlice,
   })
 );
 

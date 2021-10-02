@@ -11,8 +11,6 @@ export const CartSlice = createSlice({
       if (!state.cart_products.find((item) => item.id === payload.id)) {
         let myCart = JSON.parse(JSON.stringify(payload));
         myCart.quantity = +1;
-        Object.preventExtensions(myCart);
-
         state.cart_products.push(myCart);
       }
     },
@@ -27,12 +25,12 @@ export const CartSlice = createSlice({
       state.totalPrice =
         +state.totalPrice + -payload.item.price * payload.item.quantity;
     },
-    addOne(state, { payload }) {
+    addToQty(state, { payload }) {
       const StorMyTotalPrice = +state.totalPrice + +payload.item.price;
       state.totalPrice = StorMyTotalPrice;
       state.cart_products[payload.index].quantity++;
     },
-    removeOne(state, { payload }) {
+    removeFromQty(state, { payload }) {
       const StorMyTotalPrice = +state.totalPrice + -payload.item.price;
       state.totalPrice = StorMyTotalPrice;
       state.cart_products[payload.index].quantity--;
@@ -54,8 +52,8 @@ export const {
 
   remove_item_from_cart,
   set_add_to_total_price,
-  addOne,
-  removeOne,
+  addToQty,
+  removeFromQty,
   restMyCart,
 } = CartSlice.actions;
 

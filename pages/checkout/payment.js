@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const Payment = () => {
   const CartSlice = useSelector((state) => state.CartSlice);
-  const authSlice = useSelector((state) => state.authSlice);
+  const AuthSlice = useSelector((state) => state.AuthSlice);
   const dispatch = useDispatch();
   const router = useRouter();
   const [CardNumber, setCardNumber] = useState("");
@@ -125,7 +125,7 @@ const Payment = () => {
             </div>
           )}
           <button
-            disabled={!authSlice.Payment}
+            disabled={!AuthSlice.Payment}
             className={styles.nextStepbtn}
             onClick={nextStep}
           >

@@ -2,14 +2,14 @@ import styles from "./CheckOut.module.css";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 const CheckOut = (props) => {
-  const authSlice = useSelector((state) => state.authSlice);
+  const AuthSlice = useSelector((state) => state.AuthSlice);
   return (
     <>
       <div className={styles.stepsBar}>
         <div className={styles.step}>
-          <div className={!authSlice.Shipping ? styles.circle : styles.activ}>
+          <div className={!AuthSlice.Shipping ? styles.circle : styles.activ}>
             <div className={styles.stepName}>shipping</div>
-            {authSlice.Shipping ? (
+            {AuthSlice.Shipping ? (
               <Image
                 src="/./icons/checked.svg"
                 alt="Picture of something nice"
@@ -22,15 +22,15 @@ const CheckOut = (props) => {
           </div>
 
           <div
-            className={!authSlice.Shipping ? styles.line : styles.lineActiv}
+            className={!AuthSlice.Shipping ? styles.line : styles.lineActiv}
           ></div>
         </div>
         {/* step */}
 
         <div className={styles.step}>
-          <div className={!authSlice.Payment ? styles.circle : styles.activ}>
+          <div className={!AuthSlice.Payment ? styles.circle : styles.activ}>
             <div className={styles.stepName}>payment</div>
-            {authSlice.Payment ? (
+            {AuthSlice.Payment ? (
               <Image
                 src="/./icons/checked.svg"
                 alt="Picture of something nice"
@@ -42,7 +42,7 @@ const CheckOut = (props) => {
             )}
           </div>
           <div
-            className={!authSlice.Payment ? styles.line : styles.lineActiv}
+            className={!AuthSlice.Payment ? styles.line : styles.lineActiv}
           ></div>
         </div>
 

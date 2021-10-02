@@ -5,16 +5,16 @@ import { useRouter } from "next/router";
 import styles from "./profile.module.css";
 
 const Profile = () => {
-  const authSlice = useSelector((state) => state.authSlice);
+  const AuthSlice = useSelector((state) => state.AuthSlice);
   const router = useRouter();
 
   useEffect(() => {
-    if (!authSlice.isLogIn) {
+    if (!AuthSlice.isLogIn) {
       {
         router.push("/products/1");
       }
     }
-  }, [authSlice.isLogIn, router]);
+  }, [AuthSlice.isLogIn, router]);
   return (
     <>
       {/* <div> */}
@@ -22,7 +22,7 @@ const Profile = () => {
         <div className={styles.cover}></div>
         <div className={styles.userProfileImg}></div>
         <div className={styles.userProfileInfo}>
-          <p>{authSlice.user}</p>
+          <p>{AuthSlice.user}</p>
         </div>
       </div>
       {/* </div> */}

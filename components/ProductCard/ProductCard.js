@@ -1,6 +1,5 @@
-import Link from "next/link";
 import styles from "./ProductCard.module.css";
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   set_first_item_in_cart,
@@ -9,23 +8,17 @@ import {
 
 import SuccessNotification from "../../components/SuccessNotification/SuccessNotification";
 import PurpleButton from "../../components/PurpleButton/PurpleButton";
+import Link from "next/link";
 
 const ProductCard = (props) => {
-  const authSlice = useSelector((state) => state.authSlice);
+  const AuthSlice = useSelector((state) => state.AuthSlice);
   const CartSlice = useSelector((state) => state.CartSlice);
   const [is_product_in_cart, set_is_product_in_cart] = useState(false);
-
   const [showNotification, setshowNotification] = useState(false);
+
   const dispatch = useDispatch();
-  const addToCart = (item) => {
-    dispatch(set_first_item_in_cart(item));
 
-    dispatch(set_add_to_total_price(item));
-    setshowNotification(true);
-    setTimeout(() => setshowNotification(false), 2000);
-  };
-
-  React.useEffect(() => {
+  useEffect(() => {
     const product = CartSlice.cart_products.find((p) => p.id === props.id);
     if (product) {
       set_is_product_in_cart(true);
@@ -33,6 +26,13 @@ const ProductCard = (props) => {
       set_is_product_in_cart(false);
     }
   }, [CartSlice.cart_products, props.id]);
+
+  const addToCart = (item) => {
+    dispatch(set_first_item_in_cart(item));
+    dispatch(set_add_to_total_price(item));
+    setshowNotification(true);
+    setTimeout(() => setshowNotification(false), 2000);
+  };
 
   return (
     <>
@@ -55,7 +55,7 @@ const ProductCard = (props) => {
             </p>
           )}
           <p className={styles.itemPrice}>{props.price + "$"}</p>
-          {authSlice.isLogIn && (
+          {AuthSlice.isLogIn && (
             <div onClick={() => addToCart(props)}>
               <PurpleButton
                 name={is_product_in_cart ? "Product in cart" : "Add to cart"}

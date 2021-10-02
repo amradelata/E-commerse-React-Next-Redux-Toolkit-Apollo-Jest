@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { chickOutShipping } from "../../store/slices/auth";
 
 const Shipping = () => {
-  const authSlice = useSelector((state) => state.authSlice);
+  const AuthSlice = useSelector((state) => state.AuthSlice);
 
   const router = useRouter();
   const [FirstName, setFirstName] = useState("");
@@ -120,7 +120,7 @@ const Shipping = () => {
             </div>
 
             <button
-              disabled={!authSlice.Shipping}
+              disabled={!AuthSlice.Shipping}
               className={styles.nextStepbtn}
               type="submit"
             >

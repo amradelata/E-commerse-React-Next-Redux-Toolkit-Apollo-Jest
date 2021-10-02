@@ -1,22 +1,25 @@
 import styles from "./singlePage.module.css";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useRouter } from "next/router";
-import SuccessNotification from "../../components/SuccessNotification/SuccessNotification";
-import Loding from "../../components/Loding/Loding";
-import PurpleButton from "../../components/PurpleButton/PurpleButton";
 import {
   set_first_item_in_cart,
   set_add_to_total_price,
 } from "../../store/slices/cart.slice";
+import SuccessNotification from "../../components/SuccessNotification/SuccessNotification";
+import PurpleButton from "../../components/PurpleButton/PurpleButton";
+
+import Loding from "../../components/Loding/Loding";
+import { useRouter } from "next/router";
 
 const SinglePage = (props) => {
-  const router = useRouter();
-  const dispatch = useDispatch();
+  const AuthSlice = useSelector((state) => state.AuthSlice);
+  const CartSlice = useSelector((state) => state.CartSlice);
   const [showNotification, setshowNotification] = useState(false);
   const [is_product_in_cart, set_is_product_in_cart] = useState(false);
-  const authSlice = useSelector((state) => state.authSlice);
-  const CartSlice = useSelector((state) => state.CartSlice);
+
+  const router = useRouter();
+  const dispatch = useDispatch();
+
   useEffect(() => {
     if (props?.product?.id) {
       const product = CartSlice.cart_products.find(
@@ -69,7 +72,7 @@ const SinglePage = (props) => {
                 Lorem Ipsum is simply dummied text of the printing and
                 typesetting industry. Lorem Ipsum has been the standard dummy.
               </p>
-              {authSlice.isLogIn && (
+              {AuthSlice.isLogIn && (
                 <div
                   onClick={() => addToCart(props.product)}
                   style={{ float: "left" }}

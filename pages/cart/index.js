@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
 import { remove_item_from_cart } from "../../store/slices/cart.slice";
-import { addOne } from "../../store/slices/cart.slice";
-import { removeOne } from "../../store/slices/cart.slice";
+import { addToQty } from "../../store/slices/cart.slice";
+import { removeFromQty } from "../../store/slices/cart.slice";
 import styles from "./cart.module.css";
 import Image from "next/image";
 import PageNotFoundMessage from "../../components/PageNotFoundMessage/PageNotFoundMessage";
@@ -16,14 +16,14 @@ const Cart = () => {
     Dispatch(remove_item_from_cart({ item, index }));
   };
   const addOnefunction = (item, index) => {
-    Dispatch(addOne({ item, index }));
+    Dispatch(addToQty({ item, index }));
   };
   const removeOnefunction = (item, index) => {
-    Dispatch(removeOne({ item, index }));
+    Dispatch(removeFromQty({ item, index }));
   };
   return (
     <div className="container">
-      {CartSlice.totalPrice ? (
+      {CartSlice.cart_products.length > 0 ? (
         <div className={styles.cartPage}>
           <div className={styles.cart}>
             <div className={styles.cartItems}>

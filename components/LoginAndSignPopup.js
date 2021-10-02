@@ -9,7 +9,7 @@ const LoginAndSignPopup = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const authSlice = useSelector((state) => state.authSlice);
+  const AuthSlice = useSelector((state) => state.AuthSlice);
   const [openLogin, setopenLogin] = useState(true);
   const [openSignIn, setopenSignIn] = useState(false);
   const [showErorr, setshowErorr] = useState(false);
@@ -25,7 +25,7 @@ const LoginAndSignPopup = () => {
     dispatch(logindata(loginbody));
 
     setshowErorr(false);
-    if (!authSlice.isLogIn) {
+    if (!AuthSlice.isLogIn) {
       setTimeout(() => setshowErorr(true), 500);
       setTimeout(() => setshowErorr(false), 3000);
     }
@@ -39,7 +39,7 @@ const LoginAndSignPopup = () => {
 
     dispatch(adduser(body));
     setshowErorr(false);
-    if (!authSlice.isLogIn) {
+    if (!AuthSlice.isLogIn) {
       setTimeout(() => setshowErorr(true), 600);
       setTimeout(() => setshowErorr(false), 3000);
     }
@@ -64,7 +64,7 @@ const LoginAndSignPopup = () => {
             <form onSubmit={submitLoinHandler}>
               {showErorr && (
                 <div id="errorNotefecation" className={styles.showNotification}>
-                  {authSlice.ErorrMass}
+                  {AuthSlice.ErorrMass}
                 </div>
               )}
 
@@ -107,7 +107,7 @@ const LoginAndSignPopup = () => {
                   id="errorNotefecation"
                   className={`notification is-danger ${styles.showNotification}`}
                 >
-                  {authSlice.ErorrMass}
+                  {AuthSlice.ErorrMass}
                 </div>
               )}
 
