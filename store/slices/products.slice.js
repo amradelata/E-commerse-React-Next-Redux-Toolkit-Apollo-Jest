@@ -11,7 +11,7 @@ export const ProdcutsSlice = createSlice({
     setSearchProdcutsData(state, { payload }) {
       state.productsArr = payload;
     },
-    paginatData(state, { payload }) {
+    setpaginatData(state, { payload }) {
       state.allpaginatData = payload;
     },
     setHomeProducts(state, { payload }) {
@@ -20,7 +20,7 @@ export const ProdcutsSlice = createSlice({
   },
 });
 
-export const { setSearchProdcutsData, paginatData, setHomeProducts } =
+export const { setSearchProdcutsData, setHomeProducts, setpaginatData } =
   ProdcutsSlice.actions;
 
 export const getSearchProdcutsData = (myValue) => async (dispatch) => {
@@ -35,13 +35,16 @@ export const getSearchProdcutsData = (myValue) => async (dispatch) => {
     alert(error);
   }
 };
-export const getHomeProducts = () => async (dispatch) => {
+export const getHomeProducts = (pagenumper) => async (dispatch) => {
   try {
     const response = await axios.get(
-      "http://localhost:3001/products?_page=1&_limit=12"
+      `http://localhost:3001/products?_page=${
+        pagenumper ? pagenumper : 1 //if pagenumper = undefuend this mean user in home page so get first page else get the page = pagenumper
+      }&_limit=12`
     );
     // handle success
     dispatch(setHomeProducts(response.data));
+    dispatch(setpaginatData(response.headers.link));
   } catch (error) {
     // handle error
     alert(error);

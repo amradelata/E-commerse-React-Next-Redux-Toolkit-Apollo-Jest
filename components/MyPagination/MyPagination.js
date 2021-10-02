@@ -61,12 +61,10 @@ const MyPagination = () => {
                 outline: none;
               }
             `}</style>
-            {}
-
             {pagesCount.map((item) => (
               <ActiveLink
                 activeClassName="active"
-                href={`/products/${item}`}
+                href={item === 1 ? "/" : `/products/${item}`}
                 passHref
                 key={item}
               >

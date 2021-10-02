@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import Layout from "../components/Layout/Layout";
-import { getHomeProducts } from "../store/slices/products.slice";
+import Layout from "../../components/Layout/Layout";
+import { getHomeProducts } from "../../store/slices/products.slice";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
-export default function Home() {
+const Page = () => {
   const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -18,4 +18,6 @@ export default function Home() {
       <Layout productArray={ProdcutsSlice.productsArr} showPagination={true} />
     </>
   );
-}
+};
+
+export default Page;
