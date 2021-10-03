@@ -2,7 +2,7 @@ import styles from "./Shipping.module.css";
 import CheckOut from "../../components/CheckOut/CheckOut";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { chickOutDone } from "../../store/slices/auth";
+import { checkoutDone } from "../../store/slices/auth";
 import Link from "next/link";
 import Image from "next/image";
 import PurpleButton from "../../components/PurpleButton/PurpleButton";
@@ -10,12 +10,12 @@ import { restMyCart } from "../../store/slices/cart.slice";
 
 const Done = () => {
   const dispatch = useDispatch();
-  const [myDisabled, setmyDisabled] = useState(true);
+  const [myDisabled, setMyDisabled] = useState(true);
   useEffect(() => {
     dispatch(restMyCart());
   }, [dispatch]);
-  const resetChickOutState = () => {
-    dispatch(chickOutDone());
+  const resetcheckoutState = () => {
+    dispatch(checkoutDone());
   };
   return (
     <div className={styles.myDone}>
@@ -28,9 +28,9 @@ const Done = () => {
           height="230"
         />
         <span>Congratulations!</span>
-        <p className={styles.arrivesoon}>Your order is going to arrive soon</p>
+        <p className={styles.arriveSoon}>Your order is going to arrive soon</p>
         <Link href="/" passHref>
-          <div onClick={resetChickOutState}>
+          <div onClick={resetcheckoutState}>
             <PurpleButton name={"go to shopping"} width={"400px"} />
           </div>
         </Link>

@@ -60,22 +60,12 @@ const CategoriesSideNavBar = () => {
   ];
   return (
     <>
-      <style jsx>{`
-        .active:before {
-          content: "";
-          position: absolute;
-          left: 0;
-          width: 221px;
-          height: 45px;
-          background-color: #f0f0f096;
-        }
-      `}</style>
       <div className={styles.myCategoriesParents}>
         <p className={styles.navTag}>Categories</p>
 
         {listOfCategories.map((item) => (
           <ActiveLink
-            activeClassName="active"
+            activeClassName={styles.active}
             href={`/category/${item.tag}`}
             key={item.id}
           >

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logindata } from "../store/slices/auth";
-import { adduser } from "../store/slices/auth";
+import { loginData } from "../store/slices/auth";
+import { addUser } from "../store/slices/auth";
 import styles from "./MainNavBar/MainNavBar.module.css";
 import PurpleButton from "../components/PurpleButton/PurpleButton";
 const LoginAndSignPopup = () => {
@@ -10,24 +10,24 @@ const LoginAndSignPopup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const AuthSlice = useSelector((state) => state.AuthSlice);
-  const [openLogin, setopenLogin] = useState(true);
-  const [openSignIn, setopenSignIn] = useState(false);
-  const [showErorr, setshowErorr] = useState(false);
+  const [openLogin, setOpenLogin] = useState(true);
+  const [openSignIn, setOpenSignIn] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   const submitLoinHandler = (e) => {
     e.preventDefault();
 
-    const loginbody = {
+    const loginBody = {
       email: email,
       password: password,
     };
 
-    dispatch(logindata(loginbody));
+    dispatch(loginData(loginBody));
 
-    setshowErorr(false);
+    setShowError(false);
     if (!AuthSlice.isLogIn) {
-      setTimeout(() => setshowErorr(true), 500);
-      setTimeout(() => setshowErorr(false), 3000);
+      setTimeout(() => setShowError(true), 500);
+      setTimeout(() => setShowError(false), 3000);
     }
   };
   const submitSignInHandler = (e) => {
@@ -37,24 +37,24 @@ const LoginAndSignPopup = () => {
       password: password,
     };
 
-    dispatch(adduser(body));
-    setshowErorr(false);
+    dispatch(addUser(body));
+    setShowError(false);
     if (!AuthSlice.isLogIn) {
-      setTimeout(() => setshowErorr(true), 600);
-      setTimeout(() => setshowErorr(false), 3000);
+      setTimeout(() => setShowError(true), 600);
+      setTimeout(() => setShowError(false), 3000);
     }
   };
 
   const openLoginFunction = (e) => {
     e.preventDefault();
-    setopenSignIn(!openSignIn);
-    setopenLogin(!openLogin);
+    setOpenSignIn(!openSignIn);
+    setOpenLogin(!openLogin);
   };
 
   const openSignInFunction = (e) => {
     e.preventDefault();
-    setopenSignIn(!openSignIn);
-    setopenLogin(!openLogin);
+    setOpenSignIn(!openSignIn);
+    setOpenLogin(!openLogin);
   };
   return (
     <>
@@ -62,9 +62,9 @@ const LoginAndSignPopup = () => {
         {openLogin && (
           <div className={styles.LoginForm} id="login">
             <form onSubmit={submitLoinHandler}>
-              {showErorr && (
-                <div id="errorNotefecation" className={styles.showNotification}>
-                  {AuthSlice.ErorrMass}
+              {showError && (
+                <div className={styles.showNotification}>
+                  {AuthSlice.ErrorMassage}
                 </div>
               )}
 
@@ -91,7 +91,7 @@ const LoginAndSignPopup = () => {
                 />
               </div>
 
-              <PurpleButton name={"Log In"} mytype={"submit"} width={"100%"} />
+              <PurpleButton name={"Log In"} myType={"submit"} width={"100%"} />
 
               <span>New in shop?</span>
               <a onClick={openSignInFunction}>Create new account</a>
@@ -100,14 +100,13 @@ const LoginAndSignPopup = () => {
         )}
 
         {openSignIn && (
-          <div className={styles.SigninForm} id="signIn">
+          <div className={styles.signInForm} id="signIn">
             <form onSubmit={submitSignInHandler}>
-              {showErorr && (
+              {showError && (
                 <div
-                  id="errorNotefecation"
                   className={`notification is-danger ${styles.showNotification}`}
                 >
-                  {AuthSlice.ErorrMass}
+                  {AuthSlice.ErrorMassage}
                 </div>
               )}
 
@@ -134,7 +133,7 @@ const LoginAndSignPopup = () => {
                 />
               </div>
 
-              <PurpleButton name={"Sign In"} mytype={"submit"} width={"100%"} />
+              <PurpleButton name={"Sign In"} myType={"submit"} width={"100%"} />
               <span>Already have an account?</span>
               <a onClick={openLoginFunction}>Log in</a>
             </form>

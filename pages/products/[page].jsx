@@ -4,17 +4,17 @@ import { getHomeProducts } from "../../store/slices/products.slice";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 const Page = () => {
-  const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
+  const ProductsSlice = useSelector((state) => state.ProductsSlice);
   const dispatch = useDispatch();
   const router = useRouter();
   useEffect(() => {
-    const pagenumper = router.query.page;
-    dispatch(getHomeProducts(pagenumper));
+    const pageNumber = router.query.page;
+    dispatch(getHomeProducts(pageNumber));
   }, [dispatch, router.query]);
 
   return (
     <>
-      <Layout productArray={ProdcutsSlice.productsArr} showPagination={true} />
+      <Layout productArray={ProductsSlice.productsArr} showPagination={true} />
     </>
   );
 };

@@ -15,10 +15,10 @@ const Cart = () => {
   const remove = (item, index) => {
     Dispatch(remove_item_from_cart({ item, index }));
   };
-  const addOnefunction = (item, index) => {
+  const addOneFunction = (item, index) => {
     Dispatch(addToQty({ item, index }));
   };
-  const removeOnefunction = (item, index) => {
+  const removeOneFunction = (item, index) => {
     Dispatch(removeFromQty({ item, index }));
   };
   return (
@@ -53,7 +53,7 @@ const Cart = () => {
                     <button
                       disabled={item.quantity === 1}
                       className={styles.cartBtn}
-                      onClick={() => removeOnefunction(item, index)}
+                      onClick={() => removeOneFunction(item, index)}
                     >
                       -
                     </button>
@@ -61,7 +61,7 @@ const Cart = () => {
                     <span className={styles.quantity}>{item.quantity}</span>
                     <button
                       className={styles.cartBtn}
-                      onClick={() => addOnefunction(item, index)}
+                      onClick={() => addOneFunction(item, index)}
                     >
                       +
                     </button>
@@ -100,18 +100,18 @@ const Cart = () => {
               <p className=" has-text-weight-bold">CART SUMMARY</p>
 
               <div className={styles.mySummary}>
-                <p className={styles.lapul}>Subtotal:</p>
+                <p className={styles.label}>Subtotal:</p>
                 <span className={styles.value}>
                   {CartSlice.totalPrice + "$"}
                 </span>
               </div>
               <div>
-                <p className={styles.lapul}>Shipping:</p>
+                <p className={styles.label}>Shipping:</p>
                 <span className={styles.value}>Free</span>
               </div>
               <div>
-                <p className={styles.lapul}>Total:</p>
-                <span className={styles.totalprice}>
+                <p className={styles.label}>Total:</p>
+                <span className={styles.totalPrice}>
                   {CartSlice.totalPrice + "$"}
                 </span>
               </div>

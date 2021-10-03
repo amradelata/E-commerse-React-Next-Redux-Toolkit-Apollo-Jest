@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
 }
-.productsandProductsNav {
+.productsAndProductsNav {
   width: calc(100% - 245px);
 }
 .myCards {
@@ -69,7 +69,7 @@
   .ProductNave {
     width: 20%;
   }
-  .productsandProductsNav {
+  .productsAndProductsNav {
     width: 100%;
   }
 }

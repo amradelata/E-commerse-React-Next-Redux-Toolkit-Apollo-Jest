@@ -2,19 +2,19 @@ import styles from "./singlePage.module.css";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  set_first_item_in_cart,
+  add_to_cart,
   set_add_to_total_price,
 } from "../../store/slices/cart.slice";
 import SuccessNotification from "../../components/SuccessNotification/SuccessNotification";
 import PurpleButton from "../../components/PurpleButton/PurpleButton";
 
-import Loding from "../../components/Loding/Loding";
+import Loading from "../../components/Loading/Loading";
 import { useRouter } from "next/router";
 
 const SinglePage = (props) => {
   const AuthSlice = useSelector((state) => state.AuthSlice);
   const CartSlice = useSelector((state) => state.CartSlice);
-  const [showNotification, setshowNotification] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
   const [is_product_in_cart, set_is_product_in_cart] = useState(false);
 
   const router = useRouter();
@@ -34,21 +34,21 @@ const SinglePage = (props) => {
   }, [CartSlice.cart_products, props]);
 
   if (router.isFallback) {
-    return <Loding />;
+    return <Loading />;
   }
 
   const addToCart = (item) => {
-    dispatch(set_first_item_in_cart(item));
+    dispatch(add_to_cart(item));
     dispatch(set_add_to_total_price(item));
-    setshowNotification(true);
-    setTimeout(() => setshowNotification(false), 2000);
+    setShowNotification(true);
+    setTimeout(() => setShowNotification(false), 2000);
   };
   return (
     <>
       {showNotification && <SuccessNotification />}
-      <div className={styles.realatev}>
-        <div className={styles.bacground}></div>
-        <div className={styles.mycontaner}>
+      <div className={styles.relative}>
+        <div className={styles.background}></div>
+        <div className={styles.myCountries}>
           <div className={`${styles.card} container`}>
             <div className={styles.start}>
               <div
@@ -68,7 +68,7 @@ const SinglePage = (props) => {
                 </p>
               )}
               <p className={styles.price}>{props.product.price + " $"}</p>
-              <p className={styles.discrpshion}>
+              <p className={styles.description}>
                 Lorem Ipsum is simply dummied text of the printing and
                 typesetting industry. Lorem Ipsum has been the standard dummy.
               </p>
@@ -81,7 +81,7 @@ const SinglePage = (props) => {
                     name={
                       is_product_in_cart ? "Product in cart" : "Add to cart"
                     }
-                    mydisabled={is_product_in_cart}
+                    myDisabled={is_product_in_cart}
                     width={"300px"}
                   />
                 </div>
@@ -98,7 +98,7 @@ export async function getStaticPaths() {
   return {
     paths: [],
     fallback: true,
-  }; // paths: []  = get all items id and stor them in opject
+  }; // paths: []  = get all items id and stor them in object
 }
 
 export async function getStaticProps(context) {

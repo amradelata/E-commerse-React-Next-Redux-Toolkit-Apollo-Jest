@@ -21,7 +21,7 @@ const about = () => {
             Here you can find more
             <a href="https://amradelata.com/">amradelata.com</a>
             <a href="https://github.com/amradelata">github.com</a>
-            <a href="https://www.linkedin.com/in/amr-adel-ata/">linkedin.com</a>
+            <a href="https://www.linkedin.com/in/amr-adel-ata/">linkedIn.com</a>
           </p>
         </div>
       </div>

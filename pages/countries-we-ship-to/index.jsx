@@ -8,7 +8,7 @@ export default function CountriesWeShipTo({ countries }) {
       <h5 className={styles.h5}>
         This data from (countries.trevorblades API) using GraphQL/Apollo
       </h5>
-      <div className={styles.allCountrys}>
+      <div className={styles.allCountries}>
         {countries.map((country) => (
           <div key={country.code} className={styles.country}>
             <h3>{country.name}</h3>

@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
 import Layout from "../components/Layout/Layout";
 const Search = () => {
-  const ProdcutsSlice = useSelector((state) => state.ProdcutsSlice);
+  const ProductsSlice = useSelector((state) => state.ProductsSlice);
 
   return (
     <>
-      <Layout productArray={ProdcutsSlice.productsArr} />
+      <Layout productArray={ProductsSlice.productsArr} />
     </>
   );
 };

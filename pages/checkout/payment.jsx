@@ -3,7 +3,7 @@ import styles from "./Shipping.module.css";
 import CheckOut from "../../components/CheckOut/CheckOut";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { chickOutPayment } from "../../store/slices/auth";
+import { checkoutPayment } from "../../store/slices/auth";
 import Image from "next/image";
 
 const Payment = () => {
@@ -16,39 +16,39 @@ const Payment = () => {
   const [Expiration, setExpiration] = useState("");
   const [CVV, setCVV] = useState("");
 
-  const [showForm, setshowForm] = useState(true);
+  const [showForm, setShowForm] = useState(true);
   const nextStep = (e) => {
     e.preventDefault();
 
     router.push("/checkout/done");
   };
 
-  const desapuld = () => {
+  const Disabled = () => {
     if (
       CardNumber.length >= 1 &&
       Owner.length >= 1 &&
       Expiration.length >= 1 &&
       CVV.length >= 1
     ) {
-      dispatch(chickOutPayment(true));
+      dispatch(checkoutPayment(true));
     } else {
-      dispatch(chickOutPayment(false));
+      dispatch(checkoutPayment(false));
     }
   };
-  const showFormfunction = () => {
-    dispatch(chickOutPayment(false));
-    setshowForm(true);
+  const showFormFunction = () => {
+    dispatch(checkoutPayment(false));
+    setShowForm(true);
   };
   const hiedFormFunction = () => {
-    setshowForm(false);
+    setShowForm(false);
 
-    dispatch(chickOutPayment(true));
+    dispatch(checkoutPayment(true));
   };
   return (
     <>
       <CheckOut />
       <div>
-        <div className={styles.pamentMethod}>
+        <div className={styles.paymentMethod}>
           <div className="control">
             <div>
               <label className={styles.myLabelRadio}>
@@ -56,7 +56,7 @@ const Payment = () => {
                   type="radio"
                   className={styles.myRadioInput}
                   name="foobar"
-                  onClick={showFormfunction}
+                  onClick={showFormFunction}
                 />
                 How would you like to pay{" " + CartSlice.totalPrice + "$"}
                 <div className={styles.parent}>
@@ -91,7 +91,7 @@ const Payment = () => {
           </div>
         </div>
 
-        <form className={styles.MyForm} onChange={desapuld}>
+        <form className={styles.MyForm} onChange={Disabled}>
           {showForm && (
             <div>
               <div className={styles.fullWidth}>
@@ -126,7 +126,7 @@ const Payment = () => {
           )}
           <button
             disabled={!AuthSlice.Payment}
-            className={styles.nextStepbtn}
+            className={styles.nextStepBtn}
             onClick={nextStep}
           >
             Next

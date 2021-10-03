@@ -2,7 +2,7 @@ import styles from "./ProductCard.module.css";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  set_first_item_in_cart,
+  add_to_cart,
   set_add_to_total_price,
 } from "../../store/slices/cart.slice";
 
@@ -14,7 +14,7 @@ const ProductCard = (props) => {
   const AuthSlice = useSelector((state) => state.AuthSlice);
   const CartSlice = useSelector((state) => state.CartSlice);
   const [is_product_in_cart, set_is_product_in_cart] = useState(false);
-  const [showNotification, setshowNotification] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -28,10 +28,10 @@ const ProductCard = (props) => {
   }, [CartSlice.cart_products, props.id]);
 
   const addToCart = (item) => {
-    dispatch(set_first_item_in_cart(item));
+    dispatch(add_to_cart(item));
     dispatch(set_add_to_total_price(item));
-    setshowNotification(true);
-    setTimeout(() => setshowNotification(false), 2000);
+    setShowNotification(true);
+    setTimeout(() => setShowNotification(false), 2000);
   };
 
   return (
@@ -59,7 +59,7 @@ const ProductCard = (props) => {
             <div onClick={() => addToCart(props)}>
               <PurpleButton
                 name={is_product_in_cart ? "Product in cart" : "Add to cart"}
-                mydisabled={is_product_in_cart}
+                myDisabled={is_product_in_cart}
                 width={"100%"}
               />
             </div>

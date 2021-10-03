@@ -3,7 +3,7 @@ import CheckOut from "../../components/CheckOut/CheckOut";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { chickOutShipping } from "../../store/slices/auth";
+import { checkoutShipping } from "../../store/slices/auth";
 
 const Shipping = () => {
   const AuthSlice = useSelector((state) => state.AuthSlice);
@@ -11,8 +11,8 @@ const Shipping = () => {
   const router = useRouter();
   const [FirstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [email, setemail] = useState("");
-  const [Countrys, setCountrys] = useState("");
+  const [email, setEmail] = useState("");
+  const [Countries, setCountries] = useState("");
   const [Phone, setPhone] = useState("");
   const [Postcode, setPostcode] = useState("");
   const [City, setCity] = useState("");
@@ -26,28 +26,28 @@ const Shipping = () => {
     router.push("/checkout/payment");
   };
 
-  const desapuld = () => {
+  const Disabled = () => {
     if (
       FirstName.length >= 1 &&
       lastName.length >= 1 &&
       email.length >= 1 &&
-      Countrys.length >= 1 &&
+      Countries.length >= 1 &&
       Phone.length >= 1 &&
       Postcode.length >= 1 &&
       City.length >= 1 &&
       Address.length >= 1 &&
       Nearest.length >= 1
     ) {
-      dispatch(chickOutShipping(true));
+      dispatch(checkoutShipping(true));
     } else {
-      dispatch(chickOutShipping(false));
+      dispatch(checkoutShipping(false));
     }
   };
   return (
     <>
       <CheckOut />
       <div className={styles.Checkout}>
-        <form className={styles.MyForm} onSubmit={nextStep} onChange={desapuld}>
+        <form className={styles.MyForm} onSubmit={nextStep} onChange={Disabled}>
           <div className={styles.Personal}>
             <p>Personal information</p>
 
@@ -70,17 +70,17 @@ const Shipping = () => {
 
             <div className={styles.fullWidth}>
               <label>Email</label>
-              <input onChange={(e) => setemail(e.target.value)} value={email} />
+              <input onChange={(e) => setEmail(e.target.value)} value={email} />
             </div>
           </div>
           <div className={styles.Contact}>
             <p>Contact information</p>
             <div className={styles.haveWidth}>
               <div>
-                <label>Countrys</label>
+                <label>Countries</label>
                 <input
-                  onChange={(e) => setCountrys(e.target.value)}
-                  value={Countrys}
+                  onChange={(e) => setCountries(e.target.value)}
+                  value={Countries}
                 />
               </div>
               <div>
@@ -121,7 +121,7 @@ const Shipping = () => {
 
             <button
               disabled={!AuthSlice.Shipping}
-              className={styles.nextStepbtn}
+              className={styles.nextStepBtn}
               type="submit"
             >
               Next

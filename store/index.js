@@ -16,7 +16,7 @@ import {
 } from "redux-persist";
 //import all slices
 import CartSlice from "./slices/cart.slice";
-import ProdcutsSlice from "./slices/products.slice";
+import ProductsSlice from "./slices/products.slice";
 import AuthSlice from "./slices/auth";
 const persistConfig = {
   key: "root",
@@ -29,7 +29,7 @@ const persistedReducer = persistReducer(
   // inject all slices
   combineReducers({
     CartSlice,
-    ProdcutsSlice,
+    ProductsSlice,
     AuthSlice,
   })
 );

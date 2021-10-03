@@ -1,9 +1,8 @@
 import styles from "./MainNavBar.module.css";
 import LoginAndSignPopup from "../LoginAndSignPopup";
-
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
-import { getSearchProdcutsData } from "../../store/slices/products.slice";
+import { getSearchProductsData } from "../../store/slices/products.slice";
 import { logOut } from "../../store/slices/auth";
 import { useRouter } from "next/router";
 import { useState, useEffect, useRef } from "react";
@@ -11,10 +10,10 @@ import ActiveLink from "../ActiveLink";
 import Image from "next/image";
 
 const MainNavBar = () => {
-  const [togellDropdown, settogellDropdown] = useState(false);
-  const [showPopUp, setshowPopUp] = useState(false);
-  const [togglePhoneNav, settogglePhoneNav] = useState(false);
-  const [showSearch, setshowSearch] = useState(false);
+  const [toggleDropdown, setToggleDropdown] = useState(false);
+  const [showPopUp, setShowPopUp] = useState(false);
+  const [togglePhoneNav, setTogglePhoneNav] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
 
   const router = useRouter();
   const AuthSlice = useSelector((state) => state.AuthSlice);
@@ -24,83 +23,69 @@ const MainNavBar = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (AuthSlice.isLogIn) {
-      setshowPopUp(false);
-      settogellDropdown(false);
+      setShowPopUp(false);
+      setToggleDropdown(false);
     }
   }, [AuthSlice.isLogIn]);
 
   const searchFunction = (e) => {
     const myValue = e.target.value.toLowerCase();
     if (e.keyCode === 13) {
-      dispatch(getSearchProdcutsData(myValue));
+      dispatch(getSearchProductsData(myValue));
       router.push(`/search?name=${myValue}`);
     }
   };
   const logOutFunction = () => {
     dispatch(logOut());
-    settogellDropdown(false);
+    setToggleDropdown(false);
     router.push("/");
   };
-  const foucsSearchInput = () => {
-    setshowSearch(true);
+  const focusSearchInput = () => {
+    setShowSearch(true);
     textInput.current.focus();
   };
-  const unfoucsSearchInput = (e) => {
-    setshowSearch(false);
+  const unFocusSearchInput = (e) => {
+    setShowSearch(false);
     textInput.current.value = "";
   };
   const openPhoneNave = () => {
-    settogglePhoneNav(!togglePhoneNav);
+    setTogglePhoneNav(!togglePhoneNav);
   };
   const OpnPopUp = () => {
-    setshowPopUp(true);
+    setShowPopUp(true);
   };
   const ClosePopUp = () => {
-    setshowPopUp(false);
+    setShowPopUp(false);
   };
-  const togellDropdownFunction = () => {
-    settogellDropdown(!togellDropdown);
+  const toggleDropdownFunction = () => {
+    setToggleDropdown(!toggleDropdown);
   };
   return (
     <>
       <nav className={`container is-fluid navbar ${styles.myNav}`}>
-        <style jsx>{`
-          .active:after {
-            content: "";
-            position: absolute;
-            top: calc(100% + 8px);
-            left: 0;
-            width: 30px;
-            height: 4px;
-            background-color: #ef5013;
-            opacity: 1;
-            color: #ef5013;
-          }
-          li.active {
-            position: relative;
-            color: #ef5013;
-          }
-        `}</style>
         <div>
           <ul className={styles.UL}>
             <li>
-              <ActiveLink activeClassName="active" href="/">
+              <ActiveLink activeClassName={styles.active} href="/">
                 <a className={styles.myLink}>shopping</a>
               </ActiveLink>
             </li>
             <li>
-              <ActiveLink activeClassName="active" href="/about">
+              <ActiveLink activeClassName={styles.active} href="/about">
                 <a className={styles.myLink}>About</a>
               </ActiveLink>
             </li>
             <li>
-              <ActiveLink activeClassName="active" href="/countries-we-ship-to">
+              <ActiveLink
+                activeClassName={styles.active}
+                href="/countries-we-ship-to"
+              >
                 <a className={styles.myLink}>We ship to</a>
               </ActiveLink>
             </li>
             {AuthSlice.isLogIn && (
               <li>
-                <ActiveLink activeClassName="active" href="/profile">
+                <ActiveLink activeClassName={styles.active} href="/profile">
                   <a className={styles.myLink}>Profile</a>
                 </ActiveLink>
               </li>
@@ -168,9 +153,9 @@ const MainNavBar = () => {
               <div className={styles.searchBox}>
                 <input
                   onKeyDown={searchFunction}
-                  onClick={foucsSearchInput}
+                  onClick={focusSearchInput}
                   className={` ${
-                    showSearch ? styles.searchTextActiv : styles.searchText
+                    showSearch ? styles.searchTextActive : styles.searchText
                   }`}
                   ref={textInput}
                   type="text"
@@ -180,14 +165,14 @@ const MainNavBar = () => {
                 {showSearch ? (
                   <button
                     className={styles.searchBtn}
-                    onClick={unfoucsSearchInput}
+                    onClick={unFocusSearchInput}
                   >
                     <p>X</p>
                   </button>
                 ) : (
                   <button
                     className={styles.searchBtn}
-                    onClick={foucsSearchInput}
+                    onClick={focusSearchInput}
                   >
                     <Image
                       src="/./icons/search.svg"
@@ -200,20 +185,20 @@ const MainNavBar = () => {
               </div>
             </li>
             <li>
-              <div className={`dropdown ${togellDropdown && "is-active"}`}>
+              <div className={`dropdown ${toggleDropdown && "is-active"}`}>
                 <div className="dropdown-trigger">
                   {AuthSlice.isLogIn ? (
                     <button
-                      onClick={() => togellDropdownFunction()}
+                      onClick={() => toggleDropdownFunction()}
                       className={styles.avatarBtn}
                     >
-                      <p className={styles.userNmae}>
+                      <p className={styles.userName}>
                         {AuthSlice.user.charAt(0)}
                       </p>
                     </button>
                   ) : (
                     <button
-                      onClick={() => togellDropdownFunction()}
+                      onClick={() => toggleDropdownFunction()}
                       className={styles.avatarBtn}
                     >
                       <Image

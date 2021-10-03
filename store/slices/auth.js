@@ -5,18 +5,18 @@ export const AuthSlice = createSlice({
   initialState: {
     isLogIn: false,
     user: [],
-    ErorrMass: "",
+    ErrorMassage: "",
     Shipping: false,
     Payment: false,
   },
   reducers: {
-    chickOutShipping(state, { payload }) {
+    checkoutShipping(state, { payload }) {
       state.Shipping = payload;
     },
-    chickOutPayment(state, { payload }) {
+    checkoutPayment(state, { payload }) {
       state.Payment = payload;
     },
-    chickOutDone(state) {
+    checkoutDone(state) {
       state.Payment = false;
       state.Shipping = false;
     },
@@ -27,7 +27,7 @@ export const AuthSlice = createSlice({
       }
       if (!payload.accessToken) {
         state.isLogIn = false;
-        state.ErorrMass = payload;
+        state.ErrorMassage = payload;
       }
     },
 
@@ -40,7 +40,7 @@ export const AuthSlice = createSlice({
       if (payload === "Cannot find user") {
         state.isLogIn = false;
 
-        state.ErorrMass = payload;
+        state.ErrorMassage = payload;
       }
     },
     logOut(state) {
@@ -54,12 +54,12 @@ export const {
   setSignIn,
   logOut,
   setLogIn,
-  chickOutShipping,
-  chickOutPayment,
-  chickOutDone,
+  checkoutShipping,
+  checkoutPayment,
+  checkoutDone,
 } = AuthSlice.actions;
 // thunk
-export const adduser = (body) => async (dispatch) => {
+export const addUser = (body) => async (dispatch) => {
   const data = await fetch("http://localhost:3001/register", {
     method: "POST",
     headers: {
@@ -71,8 +71,8 @@ export const adduser = (body) => async (dispatch) => {
   dispatch(setSignIn(data));
 };
 
-export const logindata = (body) => async (dispatch) => {
-  const UserLogIndata = await fetch("http://localhost:3001/login", {
+export const loginData = (body) => async (dispatch) => {
+  const UserLoginData = await fetch("http://localhost:3001/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -80,7 +80,7 @@ export const logindata = (body) => async (dispatch) => {
     body: JSON.stringify(body),
   }).then((res) => res.json());
 
-  dispatch(setLogIn(UserLogIndata));
+  dispatch(setLogIn(UserLoginData));
 };
 
 export default AuthSlice.reducer;

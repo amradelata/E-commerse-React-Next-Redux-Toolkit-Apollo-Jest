@@ -5,8 +5,8 @@ const PurpleButton = (props) => {
     <button
       style={{ width: props.width }}
       className={styles.PurpleButton}
-      disabled={props.mydisabled}
-      type={props.mytype}
+      disabled={props.myDisabled}
+      type={props.myType}
     >
       {props.name}
     </button>

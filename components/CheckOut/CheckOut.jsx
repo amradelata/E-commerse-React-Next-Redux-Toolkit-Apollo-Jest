@@ -7,7 +7,7 @@ const CheckOut = (props) => {
     <>
       <div className={styles.stepsBar}>
         <div className={styles.step}>
-          <div className={!AuthSlice.Shipping ? styles.circle : styles.activ}>
+          <div className={!AuthSlice.Shipping ? styles.circle : styles.active}>
             <div className={styles.stepName}>shipping</div>
             {AuthSlice.Shipping ? (
               <Image
@@ -22,13 +22,13 @@ const CheckOut = (props) => {
           </div>
 
           <div
-            className={!AuthSlice.Shipping ? styles.line : styles.lineActiv}
+            className={!AuthSlice.Shipping ? styles.line : styles.lineActive}
           ></div>
         </div>
         {/* step */}
 
         <div className={styles.step}>
-          <div className={!AuthSlice.Payment ? styles.circle : styles.activ}>
+          <div className={!AuthSlice.Payment ? styles.circle : styles.active}>
             <div className={styles.stepName}>payment</div>
             {AuthSlice.Payment ? (
               <Image
@@ -42,14 +42,14 @@ const CheckOut = (props) => {
             )}
           </div>
           <div
-            className={!AuthSlice.Payment ? styles.line : styles.lineActiv}
+            className={!AuthSlice.Payment ? styles.line : styles.lineActive}
           ></div>
         </div>
 
         {/* step */}
 
         <div className={styles.step}>
-          <div className={!props.Done ? styles.circle : styles.activ}>
+          <div className={!props.Done ? styles.circle : styles.active}>
             <div className={styles.stepName}>Done</div>
             {props.Done ? (
               <Image

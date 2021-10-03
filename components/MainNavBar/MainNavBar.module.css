@@ -31,7 +31,7 @@
   cursor: pointer;
 }
 
-.userNmae {
+.userName {
   color: #2d2d2d;
   font-size: 18px;
   font-weight: bolder;
@@ -107,7 +107,7 @@
   padding-left: 55px;
   margin-top: 2px;
 }
-.searchTextActiv {
+.searchTextActive {
   width: 250px;
   border: none;
   background: #f2f2f2;
@@ -138,9 +138,6 @@
   position: relative;
 }
 
-.iconMargenLeft {
-  margin: 5px 0 5px 50px;
-}
 .searchBtn p {
   font-size: medium;
   font-weight: bold;
@@ -192,7 +189,7 @@
 }
 
 .LoginForm,
-.SigninForm {
+.signInForm {
   width: 400px;
   background-color: #fff;
   padding-bottom: 30px;
@@ -202,14 +199,14 @@
   z-index: 99999;
 }
 .LoginForm label,
-.SigninForm label {
+.signInForm label {
   font-weight: 500;
   margin-bottom: 4px;
   font-size: 14px;
 }
 
 .LoginForm input,
-.SigninForm input {
+.signInForm input {
   margin-bottom: 15px;
   display: flex;
   flex-direction: column;
@@ -226,7 +223,7 @@
 }
 
 .LoginForm p,
-.SigninForm p {
+.signInForm p {
   color: #371f72;
   padding: 0;
   background-color: transparent;
@@ -236,12 +233,9 @@
   display: inline-block;
   cursor: pointer;
 }
-.LoginForm span,
-.SigninForm span {
-  /* padding-top: 100px; */
-}
+
 .LoginForm a,
-.SigninForm a {
+.signInForm a {
   color: #371f72;
 
   margin-left: 8px;
@@ -268,6 +262,22 @@
 .navItem a {
   color: #000;
 }
+.active:after {
+  content: "";
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 30px;
+  height: 4px;
+  background-color: #ef5013;
+  opacity: 1;
+  color: #ef5013;
+}
+li.active {
+  position: relative;
+  color: #ef5013;
+}
+
 @media only screen and (max-width: 700px) {
   /* For mobile phones: */
   .logo {
@@ -322,17 +332,17 @@
     padding: 0 6px;
     margin-left: 20px;
   }
-  .searchTextActiv {
+  .searchTextActive {
     width: 150px;
     margin-left: 20px;
   }
 
   .LoginForm,
-  .SigninForm {
+  .signInForm {
     width: 90vw;
   }
   .LoginForm input,
-  .SigninForm input {
+  .signInForm input {
     width: 100%;
   }
 }

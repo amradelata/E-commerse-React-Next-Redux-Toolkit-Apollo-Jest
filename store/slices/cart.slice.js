@@ -7,11 +7,12 @@ export const CartSlice = createSlice({
     totalPrice: 0,
   },
   reducers: {
-    set_first_item_in_cart(state, { payload }) {
+    add_to_cart(state, { payload }) {
       if (!state.cart_products.find((item) => item.id === payload.id)) {
-        let myCart = JSON.parse(JSON.stringify(payload));
-        myCart.quantity = +1;
-        state.cart_products.push(myCart);
+        state.cart_products.push({
+          ...payload,
+          quantity: 1,
+        });
       }
     },
     set_add_to_total_price(state, { payload }) {
@@ -48,8 +49,7 @@ export const CartSlice = createSlice({
 
 // export actions
 export const {
-  set_first_item_in_cart,
-
+  add_to_cart,
   remove_item_from_cart,
   set_add_to_total_price,
   addToQty,
