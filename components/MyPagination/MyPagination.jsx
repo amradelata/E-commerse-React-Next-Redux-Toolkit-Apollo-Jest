@@ -45,7 +45,6 @@ const MyPagination = () => {
               <ActiveLink
                 activeClassName={styles.active}
                 href={item === 1 ? "/" : `/products/${item}`}
-                passHref
                 key={item}
               >
                 <a>

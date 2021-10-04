@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./PageNotFoundMessage.module.css";
+import styles from "./ErrorMessage.module.css";
 import PurpleButton from "../PurpleButton/PurpleButton";
-const PageNotFoundMessage = (props) => {
+const ErrorMessage = (props) => {
   return (
     <div className={styles.empty}>
       <p>{props.title}</p>
@@ -14,11 +14,9 @@ const PageNotFoundMessage = (props) => {
         height="400"
       />
       <Link href="/" passHref>
-        <a>
-          <PurpleButton name={"Go to shopping"} width={"400px"} />
-        </a>
+        <PurpleButton name={"Go to shopping"} width={"400px"} />
       </Link>
     </div>
   );
 };
-export default PageNotFoundMessage;
+export default ErrorMessage;

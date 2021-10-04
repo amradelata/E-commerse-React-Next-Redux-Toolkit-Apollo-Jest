@@ -5,7 +5,7 @@ import { addToQty } from "../../store/slices/cart.slice";
 import { removeFromQty } from "../../store/slices/cart.slice";
 import styles from "./cart.module.css";
 import Image from "next/image";
-import PageNotFoundMessage from "../../components/PageNotFoundMessage/PageNotFoundMessage";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import PurpleButton from "../../components/PurpleButton/PurpleButton";
 
 const Cart = () => {
@@ -69,14 +69,12 @@ const Cart = () => {
                   <div>
                     <button className={styles.cartBtn}>
                       <Link href={`single-page/${item.id}`} passHref>
-                        <a>
-                          <Image
-                            src="/./icons/about.svg"
-                            alt="about"
-                            width="23"
-                            height="23"
-                          />
-                        </a>
+                        <Image
+                          src="/./icons/about.svg"
+                          alt="about"
+                          width="23"
+                          height="23"
+                        />
                       </Link>
                     </button>
                     <button
@@ -116,16 +114,14 @@ const Cart = () => {
                 </span>
               </div>
               <Link href="checkout/shipping" passHref>
-                <a>
-                  <PurpleButton name={"Checkout"} width={"100%"} />
-                </a>
+                <PurpleButton name={"Checkout"} width={"100%"} />
               </Link>
             </div>
           </div>
         </div>
       ) : (
         <div className={styles.empty}>
-          <PageNotFoundMessage title={"cart is Empty"} />
+          <ErrorMessage title={"cart is Empty"} />
         </div>
       )}
     </div>

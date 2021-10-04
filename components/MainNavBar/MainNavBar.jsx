@@ -16,6 +16,7 @@ const MainNavBar = () => {
   const [showSearch, setShowSearch] = useState(false);
 
   const router = useRouter();
+  const searchValeFromUrl = router.query;
   const AuthSlice = useSelector((state) => state.AuthSlice);
   const CartSlice = useSelector((state) => state.CartSlice);
 
@@ -25,11 +26,24 @@ const MainNavBar = () => {
     if (AuthSlice.isLogIn) {
       setShowPopUp(false);
       setToggleDropdown(false);
+      //when i refresh search value stay in the input
+      !searchValeFromUrl.name
+        ? (textInput.current.value = "")
+        : (textInput.current.value = searchValeFromUrl.name);
     }
-  }, [AuthSlice.isLogIn]);
+  }, [AuthSlice.isLogIn, searchValeFromUrl.name]);
 
   const searchFunction = (e) => {
     const myValue = e.target.value.toLowerCase();
+    //don't allow empty search input
+    let letterNumber = /[0-9a-zA-Z]/g;
+    if (
+      myValue === undefined ||
+      myValue.length < 2 ||
+      !myValue.match(letterNumber)
+    ) {
+      return;
+    }
     if (e.keyCode === 13) {
       dispatch(getSearchProductsData(myValue));
       router.push(`/search?name=${myValue}`);
@@ -65,30 +79,24 @@ const MainNavBar = () => {
       <nav className={`container is-fluid navbar ${styles.myNav}`}>
         <div>
           <ul className={styles.UL}>
-            <li>
-              <ActiveLink activeClassName={styles.active} href="/">
-                <a className={styles.myLink}>shopping</a>
-              </ActiveLink>
-            </li>
-            <li>
-              <ActiveLink activeClassName={styles.active} href="/about">
-                <a className={styles.myLink}>About</a>
-              </ActiveLink>
-            </li>
-            <li>
-              <ActiveLink
-                activeClassName={styles.active}
-                href="/countries-we-ship-to"
-              >
-                <a className={styles.myLink}>We ship to</a>
-              </ActiveLink>
-            </li>
+            <ActiveLink activeClassName={styles.active} href="/">
+              <li className={styles.myLink}>shopping</li>
+            </ActiveLink>
+
+            <ActiveLink activeClassName={styles.active} href="/about">
+              <li className={styles.myLink}>about</li>
+            </ActiveLink>
+
+            <ActiveLink
+              activeClassName={styles.active}
+              href="/countries-we-ship-to"
+            >
+              <li className={styles.myLink}>We ship to</li>
+            </ActiveLink>
             {AuthSlice.isLogIn && (
-              <li>
-                <ActiveLink activeClassName={styles.active} href="/profile">
-                  <a className={styles.myLink}>Profile</a>
-                </ActiveLink>
-              </li>
+              <ActiveLink activeClassName={styles.active} href="/profile">
+                <li className={styles.myLink}>profile</li>
+              </ActiveLink>
             )}
           </ul>
         </div>
@@ -219,7 +227,7 @@ const MainNavBar = () => {
                           <div className={`dropdown-item ${styles.navItem}`}>
                             <a>
                               <p>Signed in as</p>
-                              {AuthSlice.user.slice(0, 3)}
+                              {AuthSlice.user}
                             </a>
                           </div>
                         </Link>
@@ -244,7 +252,7 @@ const MainNavBar = () => {
                         onClick={() => logOutFunction()}
                         className={`dropdown-item ${styles.navItem}`}
                       >
-                        <a>Log Out</a>
+                        Log Out
                       </div>
                     )}
                   </div>
@@ -262,9 +270,7 @@ const MainNavBar = () => {
                         width="33"
                         height="33"
                       />
-                      {CartSlice.cart_products.length < 1 ? (
-                        ""
-                      ) : (
+                      {!CartSlice.cart_products.length < 1 && (
                         <span className={styles.cartNum}>
                           {" " + CartSlice.cart_products.length}
                         </span>

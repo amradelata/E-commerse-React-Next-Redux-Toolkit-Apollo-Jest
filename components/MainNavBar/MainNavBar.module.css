@@ -126,7 +126,7 @@
   padding-left: 55px;
 }
 
-.UL > li .myLink {
+.UL > .myLink {
   padding: 0;
   outline: 0;
   margin-right: 30px;

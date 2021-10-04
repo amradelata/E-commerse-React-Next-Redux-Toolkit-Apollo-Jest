@@ -40,11 +40,9 @@ const ProductCard = (props) => {
 
       <div className={styles.myCard}>
         <Link href={`/single-page/${props.id}`} passHref>
-          <a>
-            <div className={styles.Image}>
-              <img src={props.img_url} />
-            </div>
-          </a>
+          <div className={styles.Image}>
+            <img src={props.img_url} />
+          </div>
         </Link>
         <div className={styles.content}>
           <p className={styles.category}>{props.category}</p>

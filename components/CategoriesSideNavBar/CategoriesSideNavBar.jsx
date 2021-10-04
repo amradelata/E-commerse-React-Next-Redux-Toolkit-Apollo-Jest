@@ -69,22 +69,20 @@ const CategoriesSideNavBar = () => {
             href={`/category/${item.tag}`}
             key={item.id}
           >
-            <a>
-              <div className={styles.myCategories}>
-                <div>
-                  <Image
-                    key={item.id}
-                    src={item.img_url}
-                    width={25}
-                    height={30}
-                    alt="tag"
-                  ></Image>
-                </div>
-                <div>
-                  <p>{item.tag}</p>
-                </div>
+            <div className={styles.myCategories}>
+              <div>
+                <Image
+                  key={item.id}
+                  src={item.img_url}
+                  width={25}
+                  height={30}
+                  alt="tag"
+                ></Image>
               </div>
-            </a>
+              <div>
+                <p>{item.tag}</p>
+              </div>
+            </div>
           </ActiveLink>
         ))}
       </div>
