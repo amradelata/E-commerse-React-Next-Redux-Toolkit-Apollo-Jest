@@ -155,3 +155,22 @@
     margin-bottom: 35px;
   }
 }
+.PurpleButton {
+  cursor: pointer;
+  width: 100%;
+  color: #fff;
+  background-color: #371f72;
+  display: block;
+  margin: auto;
+  margin-bottom: 12px;
+  border: none;
+  padding: 10px 0;
+  font-size: large;
+}
+
+.PurpleButton:disabled,
+.PurpleButton[disabled] {
+  background-color: #ddd;
+  color: #333;
+  cursor: auto;
+}

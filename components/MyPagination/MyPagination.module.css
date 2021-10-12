@@ -35,10 +35,6 @@
   outline: none;
 }
 
-.pagination li:hover {
-  color: #8c7ae6;
-}
-
 .active li {
   position: relative;
   border-radius: 6px;

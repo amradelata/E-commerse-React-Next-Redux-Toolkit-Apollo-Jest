@@ -102,14 +102,12 @@ const MainNavBar = () => {
         </div>
         <div className={styles.logo}>
           <Link href="/" passHref>
-            <a>
-              <Image
-                src="/./icons/logo.svg"
-                alt="search"
-                width="100"
-                height="33"
-              />
-            </a>
+            <Image
+              src="/./icons/logo.svg"
+              alt="search"
+              width="100"
+              height="33"
+            />
           </Link>
         </div>
         <a
@@ -127,22 +125,16 @@ const MainNavBar = () => {
         {togglePhoneNav && (
           <ul className={styles.PhoneNav}>
             <Link href="/" passHref>
-              <li>
-                <a className={styles.myLink}>SHOP</a>
-              </li>
+              <li>SHOP</li>
             </Link>
 
             <Link href="/about" passHref>
-              <li>
-                <a className={styles.myLink}>ABOUT</a>
-              </li>
+              <li>ABOUT</li>
             </Link>
 
             {AuthSlice.isLogIn && (
               <Link href="/profile" passHref>
-                <li>
-                  <a className={styles.myLink}>PROFILE</a>
-                </li>
+                <li>PROFILE</li>
               </Link>
             )}
           </ul>
@@ -262,21 +254,19 @@ const MainNavBar = () => {
             {AuthSlice.isLogIn && (
               <li className={styles.cartPtn}>
                 <Link href="/cart">
-                  <a>
-                    <button className={styles.searchBtn}>
-                      <Image
-                        src="/./icons/cart.svg"
-                        alt="cart"
-                        width="33"
-                        height="33"
-                      />
-                      {!CartSlice.cart_products.length < 1 && (
-                        <span className={styles.cartNum}>
-                          {" " + CartSlice.cart_products.length}
-                        </span>
-                      )}
-                    </button>
-                  </a>
+                  <button className={styles.searchBtn}>
+                    <Image
+                      src="/./icons/cart.svg"
+                      alt="cart"
+                      width="33"
+                      height="33"
+                    />
+                    {!CartSlice.cart_products.length < 1 && (
+                      <span className={styles.cartNum}>
+                        {" " + CartSlice.cart_products.length}
+                      </span>
+                    )}
+                  </button>
                 </Link>
               </li>
             )}

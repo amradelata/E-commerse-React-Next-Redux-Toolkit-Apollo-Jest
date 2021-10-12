@@ -6,7 +6,6 @@ import { removeFromQty } from "../../store/slices/cart.slice";
 import styles from "./cart.module.css";
 import Image from "next/image";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import PurpleButton from "../../components/PurpleButton/PurpleButton";
 
 const Cart = () => {
   const Dispatch = useDispatch();
@@ -113,8 +112,8 @@ const Cart = () => {
                   {CartSlice.totalPrice + "$"}
                 </span>
               </div>
-              <Link href="checkout/shipping" passHref>
-                <PurpleButton name={"Checkout"} width={"100%"} />
+              <Link href="/checkout/shipping" passHref>
+                <button className={styles.PurpleButton}>Checkout</button>
               </Link>
             </div>
           </div>

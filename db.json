@@ -1126,6 +1126,11 @@
       "email": "555555@me.com",
       "password": "$2a$10$84MQy/73hyXTu8Twu77ESeiWAVNhhEdOGBH9.DYHneHpskpy1iIdS",
       "id": 105
+    },
+    {
+      "email": "jone@me.com",
+      "password": "$2a$10$GfpEZMxZZUAPwjqleZ0PpOjD0SYnAIoNcByg9GNgHbWI7VPtF24CC",
+      "id": 106
     }
   ]
 }
